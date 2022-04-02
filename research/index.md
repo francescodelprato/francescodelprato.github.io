@@ -3,17 +3,17 @@ layout: default
 title: Research
 ---
 
-### Research
+## Research
 
 ### Work in progress
 
-_The Importance of Working for Earnest: Firms’ Reputation Network and Wage Dynamics_
-> Project selected for the VisitINPS 2019 program
+#### The Importance of Working for Earnest: Firms’ Reputation Network and Wage Dynamics
+_Project selected for the VisitINPS 2019 program_
 
 
-_Productivity, Labor Flexibility and Misallocation”_, joint with Paolo Zacchia (CERGE-EI)
-> Project selected for the VisitINPS 2020 program
+#### Productivity, Labor Flexibility and Misallocation, joint with Paolo Zacchia (CERGE-EI)
+_Project selected for the VisitINPS 2020 program_
 
 
-_Retirement Policies, Sustainability, and Inequality: a Comprehensive Framework_, joint with Marco Francischello (Imperial College) and Matteo Paradisi (EIEF)
-> Project awarded with a Netspar Comparative Research Grant 2021
+#### Retirement Policies, Sustainability, and Inequality: a Comprehensive Framework, joint with Marco Francischello (Imperial College) and Matteo Paradisi (EIEF)
+_Project awarded with a Netspar Comparative Research Grant 2021_
