@@ -3,7 +3,10 @@ layout: default
 title: Research
 ---
 
+### Research
+
 ### Work in progress
+
 _The Importance of Working for Earnest: Firms’ Reputation Network and Wage Dynamics_
 > Project selected for the VisitINPS 2019 program
 
