@@ -14,7 +14,7 @@ This paper investigates how firms’ reputation—their ability to send and rece
 
 ---
 
-#### Productivity, Labor Flexibility and Misallocation
+#### Heterogeneous Responses of Productivity to Labor Market Reforms
 **joint with Paolo Zacchia (CERGE-EI)**
 
 🏆 _Project selected for the VisitINPS 2020 program_
