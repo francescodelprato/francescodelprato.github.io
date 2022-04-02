@@ -19,6 +19,8 @@ This paper investigates how firms’ reputation—their ability to send and rece
 
 🏆 _Project selected for the VisitINPS 2020 program_
 
+In Italy, productivity stagnation is the main factor holding back sustainable economic growth. We investigate how this slowdown relates to labor flexibility since flexible arrangements may both hinder or incentivize investments in productivity. Intuitively, a ‘substitution effect’ prevails in the former case, where firms adopt a short-sighted view in exploiting the cheaper input to increase production; while in the latter, long-term oriented firms take advantage of the ‘income effect,’ opting for productivity-enhancing investments. We argue that this trade-off depends on the heterogeneity in the firms’ productivity. Exploiting a 2001 Italian reform that allowed for more flexible use of temporary contracts, we show heterogeneous effects along the firms’ TFP distribution. To make sense of the empirical patterns, we also build a labor market entry model where heterogeneous firms decide whether to commit to investments in productivity.
+
 ---
 
 #### Retirement Policies, Sustainability, and Inequality: a Comprehensive Framework 
