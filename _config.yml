@@ -1,4 +1,7 @@
+# Name of website
 name: Francesco Del Prato
+
+# Markdown
 markdown: kramdown
 
 # Google Analytics
