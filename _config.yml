@@ -6,7 +6,7 @@ description: PhD candidate between IMT and KU Leuven
 #repo: 
 url: https://francescodelprato.github.io
 baseurl: /francescodelprato.github.io
-google_analytics: G-55E2W26LER
+google_analytics: G-CB0P1912PV
 google-site-verification: EjDn9NB75Ybc73Rp6H3LzGkSFajoB4_PGmSHZUPYT3o
 
 # Personal info
@@ -21,6 +21,3 @@ email: francesco.delprato@kuleuven.be
 
 # Markdown
 markdown: kramdown
-
-# Google Analytics
-google_analytics: G-CB0P1912PV
