@@ -5,7 +5,7 @@ title: Francesco Del Prato
 
 ## Francesco Del Prato
 
-![/images/prof_pic2.jpg]
+<img align="left" src="/images/prof_pic2.jpg" alt="Francesco" width="300"/>
 
 I am a joint Ph.D. candidate in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) in Italy and [KU Leuven](ttps://www.kuleuven.be/english/kuleuven/index.html) in Belgium. 
 
