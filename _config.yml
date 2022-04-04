@@ -1,5 +1,23 @@
-# Name of website
-name: Francesco Del Prato
+
+# Site settings
+name: francescodelprato.github.io
+title: Francesco Del Prato
+description: PhD candidate between IMT and KU Leuven
+#repo: 
+url: https://francescodelprato.github.io
+baseurl: /francescodelprato.github.io
+google_analytics: G-55E2W26LER
+google-site-verification: EjDn9NB75Ybc73Rp6H3LzGkSFajoB4_PGmSHZUPYT3o
+
+# Personal info
+author: Francesco Del Prato
+first_name: Francesco
+last_name: Del Prato
+#university: 
+#department: 
+#address: 
+#office: 
+email: francesco.delprato@kuleuven.be
 
 # Markdown
 markdown: kramdown
