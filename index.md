@@ -13,7 +13,6 @@ I am also a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz) in the Czech 
 
 Previously, I worked at the Italian Chamber of Deputies as the assistant of a former MP, mostly on public finance-related topics.
 I received my degree in Economics and Social Sciences at [Bocconi University](https://www.unibocconi.it/wps/wcm/connect/bocconi/sitopubblico_it/albero+di+navigazione/home).
-I am also a Fellow at [Istituto Bruno Leoni](https://www.brunoleoni.it), a market-oriented think-tank based in Milan.
 
 #### Research
 
