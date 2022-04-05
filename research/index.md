@@ -7,7 +7,7 @@ title: Research
 
 ### Work in progress
 
-#### The Importance of Working for Earnest: Firms’ Reputation Network and Wage Dynamics
+#### _The Importance of Working for Earnest_: Firms’ Reputation Network and Wage Dynamics
 🏆 _Project selected for the VisitINPS 2019 program_
 
 <details>
