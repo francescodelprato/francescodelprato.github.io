@@ -17,6 +17,8 @@ This paper investigates how firms’ reputation—their ability to send and rece
 
 </details>
 
+<sup>(🔨 Work-in-progress draft available upon request)</sup>
+
 ---
 
 #### Heterogeneous Responses of Productivity to Labor Market Reforms
