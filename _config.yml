@@ -2,7 +2,8 @@
 # Site settings
 name: francescodelprato.github.io
 title: Francesco Del Prato
-description: PhD candidate between IMT and KU Leuven
+tagline: Personal webpage of Francesco Del Prato - economics
+description: PhD candidate in Business Economics between IMT and KU Leuven
 #repo: 
 url: https://francescodelprato.github.io
 baseurl: /
