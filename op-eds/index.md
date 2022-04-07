@@ -17,5 +17,5 @@ title: Op-eds
 #### Tutte le tasse di Fioramonti, tra inefficacia e iniquità [📰](sugar_tax_foglio.pdf) [🖥️](https://www.ilfoglio.it/economia/2019/09/26/news/tutte-le-tasse-di-fioramonti-tra-inefficacia-e-iniquita-276660/)
 **Il Foglio, 27 settembre 2019, con Matteo Paradisi**
 
-#### In Italia il salario minimo serve solo alla politica [📰](salario_minimo_foglio.pdf) [🖥️](https://www.ilfoglio.it/economia/2019/09/04/news/in-italia-il-salario-minimo-universale-serve-solo-alla-politica-272279/)z
+#### In Italia il salario minimo serve solo alla politica [📰](salario_minimo_foglio.pdf) [🖥️](https://www.ilfoglio.it/economia/2019/09/04/news/in-italia-il-salario-minimo-universale-serve-solo-alla-politica-272279/)
 **Il Foglio, 04 settembre 2019, con Matteo Paradisi**
