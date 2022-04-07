@@ -1,5 +1,5 @@
 /*body { margin: 24px auto; width: 80%; font-family: 'Helvetica', 'Arial', 'Sans-Serif';}*/
-body { margin: 24px auto; width: 80%; font-family: 'Palatino', 'Serif'; }
+body { margin: 24px auto; width: 80%; font-family: 'Cambria', 'Serif'; }
 
 @media only screen and (min-width: 481px) {
   body {
@@ -22,13 +22,13 @@ li:not(:last-child) {
 }
 
 
-h1, h2, h3, h4 { font-family: 'Palatino', 'Serif'; }
+h1, h2, h3, h4 { font-family: 'Cambria', 'Serif'; }
 h1 { font-size: 2.7em; }
 h2 { font-size: 2.3em; }
 h3 { font-size: 2.0em; }
 h4 { font-size: 1.4em; margin-top:20px; margin-bottom:2px;}
 
-nav ul, footer ul { font-size: 1em; font-family: 'Palatino', 'Serif'; padding: 0px; list-style: none; font-weight: bold; }
+nav ul, footer ul { font-size: 1em; font-family: 'Cambria', 'Serif'; padding: 0px; list-style: none; font-weight: bold; }
 nav ul li, footer ul li { display: inline; margin-right: 20px; }
 
 footer { border-top: 1px solid #d5d5d5; font-size: 1.0em; }
