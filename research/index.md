@@ -3,7 +3,7 @@ layout: default
 title: Research
 ---
 
-## Research
+## Academic research
 
 ### Work in progress
 
@@ -22,7 +22,7 @@ This paper investigates how firms’ reputation—their ability to send and rece
 ---
 
 #### Heterogeneous Responses of Productivity to Labor Market Reforms
-**joint with Paolo Zacchia (CERGE-EI)**
+**joint with Paolo Zacchia**
 
 🏆 _Project selected for the VisitINPS 2020 program_
 
@@ -36,7 +36,7 @@ In Italy, productivity stagnation is the main factor holding back sustainable ec
 ---
 
 #### Retirement Policies, Sustainability, and Inequality: a Comprehensive Framework 
-**joint with Marco Francischello (Imperial College) and Matteo Paradisi (EIEF)**
+**joint with Marco Francischello and Matteo Paradisi**
 
 🏆 _Project awarded with a Netspar Comparative Research Grant 2021_
 
@@ -46,3 +46,20 @@ In Italy, productivity stagnation is the main factor holding back sustainable ec
 Updated abstract coming soon!
   
 </details>
+
+## Policy papers
+
+#### Una proposta per un APE volontario finalmente a regime
+**joint with Matteo Paradisi**
+
+##### Istituto Bruno Leoni, Briefing Papers
+🗞️ _Media coverage: [Il Foglio](https://uploads-ssl.webflow.com/5d8e3657fd776a7142924af1/5f88699b0ae0f699d9f4c4fd_IBL_BP_183-APE_Volontario.pdf)_
+
+<details>
+  
+  <summary> Abstract </summary>
+  We advocate for Ape (Anticipo Pensionistico, an early retirement option available to Italian employees) to become "structural". We claim that it responds to the need for greater flexibility in retirement, while maintaining the sustainability of the pension system over the long-run. Moreover, we discuss some proposals that would make it easier for potential beneficiaries to claim Ape, reducing the low take-up problem observed in the first months after its implementation. 
+  
+</details>
+
+📄 **[Paper](https://francescodelprato.github.io/research/Ape_volontario_policypaper.pdf)**
