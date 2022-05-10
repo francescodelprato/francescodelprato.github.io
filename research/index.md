@@ -18,6 +18,7 @@ This paper investigates how firms’ reputation—their ability to send and rece
 </details>
 
 <sup>(🔨 Work-in-progress draft available upon request)</sup>
+
 ---
 
 #### Optimal Ramsey Taxation with Social Security 
@@ -36,6 +37,7 @@ Our simulations show that retirement benefits in the current economies are highe
 </details>
 
 <sup>(🔨 Work-in-progress draft available upon request)</sup>
+
 ---
 
 #### Heterogeneous Responses of Productivity to Labor Market Reforms
