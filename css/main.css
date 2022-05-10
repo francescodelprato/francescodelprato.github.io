@@ -11,7 +11,7 @@ body { margin: 24px auto; width: 80%; font-family: 'Helvetica', 'Sans-Serif'; }
 /* #047a1f is link color*/ 
 /*a { text-decoration: none; color: #4444aa; }*/
 /* a { text-decoration: none; color: #047a1f; } */
-a { text-decoration: none; color: #4444aa; }
+a { text-decoration: none; color: #254E7E; }
 
 a:hover { text-decoration: underline; }
 
@@ -25,7 +25,7 @@ li:not(:last-child) {
 
 h1, h2, h3, h4 { font-family: 'Helvetica', 'Sans-Serif'; }
 h1 { font-size: 2.7em; }
-h2 { font-size: 2.3em; color: #4444aa;}
+h2 { font-size: 2.3em; color: #254E7E;}
 h3 { font-size: 2.0em; }
 h4 { font-size: 1.4em; margin-top:20px; margin-bottom:2px;}
 
