@@ -17,6 +17,25 @@ This paper investigates how firms’ reputation—their ability to send and rece
 
 </details>
 
+---
+
+<sup>(🔨 Work-in-progress draft available upon request)</sup>
+
+#### Optimal Ramsey Taxation with Social Security 
+**joint with Marco Francischello and Matteo Paradisi**
+
+🏆 _Project awarded with a Netspar Comparative Research Grant 2021_
+
+<details>
+  <summary> Abstract </summary>
+
+We develop an OLG model with heterogeneous agents and aggregate uncertainty to study optimal Ramsey taxation when the government can use a credible set of social security instruments.
+Social security mitigates the income effect in optimal labor tax smoothing and, together with heterogeneity, adds new redistributive motives to both labor and capital taxes while crowding out others.
+We calibrate the model on three different economies: the US, Netherlands, and Italy.
+We argue that the three countries would experience heterogeneous gains, in redistributive and efficiency terms, by moving from the status-quo allocations to those prescribed by a utilitarian Ramsey planner.
+Our simulations show that retirement benefits in the current economies are higher than their Ramsey-optimal level while we argue that the use of funded social security schemes, neglected in current actual policies, could be welfare improving.  
+</details>
+
 <sup>(🔨 Work-in-progress draft available upon request)</sup>
 
 ---
@@ -35,19 +54,6 @@ In Italy, productivity stagnation is the main factor holding back sustainable ec
 
 ---
 
-#### Retirement Policies, Sustainability, and Inequality: a Comprehensive Framework 
-**joint with Marco Francischello and Matteo Paradisi**
-
-🏆 _Project awarded with a Netspar Comparative Research Grant 2021_
-
-<details>
-  <summary> Abstract </summary>
-
-Updated abstract coming soon!
-  
-</details>
-
----
 <br />
 
 ## Policy papers
