@@ -26,7 +26,7 @@ li:not(:last-child) {
 h1, h2, h3, h4 { font-family: 'Helvetica', 'Sans-Serif'; }
 h1 { font-size: 2.7em; }
 h2 { font-size: 2.3em; color: #254E7E;}
-h3 { font-size: 2.0em; }
+h3 { font-size: 1.8em; }
 h4 { font-size: 1.4em; margin-top:20px; margin-bottom:2px;}
 
 nav ul, footer ul { font-size: 1em; font-family: 'Helvetica', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold; }
