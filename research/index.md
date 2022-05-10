@@ -61,7 +61,7 @@ In Italy, productivity stagnation is the main factor holding back sustainable ec
 **joint with Matteo Paradisi**
 
 ##### Istituto Bruno Leoni, Briefing Papers
-🗞️ _Media coverage: [Il Foglio](https://uploads-ssl.webflow.com/5d8e3657fd776a7142924af1/5f88699b0ae0f699d9f4c4fd_IBL_BP_183-APE_Volontario.pdf)_
+🗞️ _Media coverage: [Il Foglio](../op-eds/ape_foglio.pdf)_
 
 <details>
   
