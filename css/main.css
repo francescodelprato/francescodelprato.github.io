@@ -10,7 +10,8 @@ body { margin: 24px auto; width: 80%; font-family: 'Helvetica', 'Sans-Serif'; }
 
 /* #047a1f is link color*/ 
 /*a { text-decoration: none; color: #4444aa; }*/
-a { text-decoration: none; color: #047a1f; }
+/* a { text-decoration: none; color: #047a1f; } */
+a { text-decoration: none; color: #1A477C; }
 
 a:hover { text-decoration: underline; }
 
