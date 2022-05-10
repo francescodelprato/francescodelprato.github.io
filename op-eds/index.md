@@ -11,7 +11,7 @@ title: Op-eds
 #### Una bolla per le RSA [📰](rsa_foglio.pdf) [🖥️](https://www.ilfoglio.it/salute/2020/10/29/news/una-bolla-anti-covid-per-le-rsa-1322600/)
 **Il Foglio, 29 ottobre 2020, con Gianluca Rinaldi**
 
-#### L'unico vero antidoto a Quota 100 si chiama Ape Volontario [📰](_ape_foglio.pdf) [🖥️](https://www.ilfoglio.it/economia/2020/01/02/news/lunico-vero-antidoto-a-quota-100-si-chiama-ape-volontario-294615/)
+#### L'unico vero antidoto a Quota 100 si chiama Ape Volontario [📰](ape_foglio.pdf) [🖥️](https://www.ilfoglio.it/economia/2020/01/02/news/lunico-vero-antidoto-a-quota-100-si-chiama-ape-volontario-294615/)
 **Il Foglio, 2 gennaio 2020, con Matteo Paradisi**
 
 #### Tutte le tasse di Fioramonti, tra inefficacia e iniquità [📰](sugar_tax_foglio.pdf) [🖥️](https://www.ilfoglio.it/economia/2019/09/26/news/tutte-le-tasse-di-fioramonti-tra-inefficacia-e-iniquita-276660/)
