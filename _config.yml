@@ -3,9 +3,9 @@
 name: francescodelprato.github.io
 title: Francesco Del Prato
 tagline: Personal webpage of Francesco Del Prato - economics
-description: PhD candidate in Business Economics between IMT and KU Leuven
+description: Personal page of Francesco Del Prato, PhD candidate in Business Economics. It contains information about research, teaching, op-eds and CV.
 #repo: 
-url: https://francescodelprato.github.io
+#url: https://francescodelprato.github.io
 baseurl: /
 google_analytics: G-CB0P1912PV
 #google-site-verification: EjDn9NB75Ybc73Rp6H3LzGkSFajoB4_PGmSHZUPYT3o
@@ -15,7 +15,7 @@ author: Francesco Del Prato
 first_name: Francesco
 last_name: Del Prato
 university: IMT School for Advanced Studies, KU Leuven, CERGE-EI
-#department: 
+department: Economics
 #address: 
 #office: 
 email: francesco.delprato@kuleuven.be
