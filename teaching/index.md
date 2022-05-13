@@ -10,7 +10,7 @@ title: Teaching
 **Microeconometrics, Ph.D.** (Fall 2021)
 
 Lectures on random search models and their estimation through SMM
-_(Slides available upon request)_
+_(slides available upon request)_
 
 <br />
 
