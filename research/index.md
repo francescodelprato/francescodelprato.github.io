@@ -19,7 +19,7 @@ This paper investigates how firms’ reputation—their ability to send and rece
 
 <sup>(🔨 Work-in-progress draft available upon request)</sup>
 
-</br>
+<br />
 
 #### Optimal Ramsey Taxation with Social Security 
 **joint with Marco Francischello and Matteo Paradisi**
@@ -38,7 +38,7 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <sup>(🔨 Work-in-progress draft available upon request)</sup>
 
-</br>
+<br />
 
 #### Heterogeneous Responses of Productivity to Labor Market Reforms
 **joint with Paolo Zacchia**
