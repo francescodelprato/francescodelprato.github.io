@@ -22,7 +22,7 @@ This paper investigates how firms’ reputation—their ability to send and rece
 <br />
 
 #### Optimal Ramsey Taxation with Social Security 
-**joint with Marco Francischello and Matteo Paradisi**
+**joint with [Marco Francischello](https://marcofrancis.github.io) and [Matteo Paradisi](https://www.matteoparadisi.com)**
 
 🏆 _Project awarded with a Netspar Comparative Research Grant 2021_
 
@@ -41,7 +41,7 @@ Our simulations show that retirement benefits in the current economies are highe
 <br />
 
 #### Heterogeneous Responses of Productivity to Labor Market Reforms
-**joint with Paolo Zacchia**
+**joint with [Paolo Zacchia](https://www.paolozacchia.com)**
 
 🏆 _Project selected for the VisitINPS 2020 program_
 
@@ -59,7 +59,7 @@ In Italy, productivity stagnation is the main factor holding back sustainable ec
 ## Policy papers
 
 #### Una proposta per un APE volontario finalmente a regime
-**joint with Matteo Paradisi**
+**joint with [Matteo Paradisi](https://www.matteoparadisi.com)**
 
 ##### Istituto Bruno Leoni, Briefing Papers
 🗞️ _Media coverage: [Il Foglio](../op-eds/ape_foglio.pdf)_
