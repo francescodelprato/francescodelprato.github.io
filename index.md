@@ -24,4 +24,4 @@ My research currently focuses on _labor market dynamics_, _firms' productivity_,
 
 #### Contacts
 
-It is possible to contact me via email using the link at the bottom of this page.
+To get in touch with me, just send me an email using the link at the bottom of this page.
