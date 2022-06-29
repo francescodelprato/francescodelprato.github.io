@@ -28,4 +28,4 @@ TA for prof. Andrea Canidio and prof. Kenan Huremovic
 
 #### KU Leuven
 
-Advising assistant for master students' thesis
+Advising assistant for master students' theses
