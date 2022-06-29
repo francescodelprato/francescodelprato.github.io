@@ -5,7 +5,7 @@ title: Francesco Del Prato
 
 ## Francesco Del Prato
 
-<img style="padding: 10px 10px 10px 0px" align="left" src="/images/prof_pic3.png" alt="Francesco" width="300"/>
+[comment]: <img style="padding: 10px 10px 10px 0px" align="left" src="/images/prof_pic3.png" alt="Francesco" width="300"/>
 
 #### About me
 
