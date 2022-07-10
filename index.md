@@ -10,17 +10,19 @@ title: Francesco Del Prato
 #### About me
 
 I am a joint Ph.D. candidate in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) in Italy and [KU Leuven](ttps://www.kuleuven.be/english/kuleuven/index.html) in Belgium. 
-
 I am also a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz) in the Czech Republic.
 
-Previously, I worked at the Italian Chamber of Deputies as the assistant of a former MP, mostly on public finance-related topics.
-I received my degree in Economics and Social Sciences from [Bocconi University](https://www.unibocconi.it/wps/wcm/connect/bocconi/sitopubblico_it/albero+di+navigazione/home).
+Starting from October 2022, I will join [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/) as a Postdoctoral Fellow.
+
+[comment]: <> ( Previously, I worked at the Italian Chamber of Deputies as the assistant of a former MP, mostly on public finance-related topics. )
+
+[comment]: <> ( I received my degree in Economics and Social Sciences from [Bocconi University] )
 
 #### Research
 
 I am mainly interested in the _economics of labor and firms_ with a mix of structural and reduced-form approaches exploiting _administrative microdata_.
 
-My research currently focuses on _labor market dynamics_, _firms' productivity_, and _public policy_ and primarily uses the data from the [VisitINPS Scholars](https://www.inps.it/dati-ricerche-e-bilanci/attivita-di-ricerca/programma-visitinps-scholars) program.
+More in detail, my research currently focuses on _labor market dynamics_, _firms' productivity_, and _public policy_ and primarily uses the data from the [VisitINPS Scholars](https://www.inps.it/dati-ricerche-e-bilanci/attivita-di-ricerca/programma-visitinps-scholars) program.
 
 #### Contacts
 
