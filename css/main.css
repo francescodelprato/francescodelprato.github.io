@@ -4,7 +4,7 @@ body { margin: 24px auto; width: 90%; font-family: 'Helvetica', 'Sans-Serif'; }
 @media only screen and (min-width: 481px) {
   body {
     margin: 65px auto;
-    width: 50%;
+    width: 60%;
   }
 }
 
