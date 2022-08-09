@@ -53,12 +53,13 @@ Our simulations show that retirement benefits in the current economies are highe
 <details>
   <summary> Abstract </summary>
 
-In Italy, productivity stagnation is the main factor holding back sustainable economic growth. 
-We investigate how this slowdown relates to labor flexibility since flexible arrangements may both hinder or incentivize investments in productivity. 
-Intuitively, a ‘substitution effect’ prevails in the former case, where firms adopt a short-sighted view in exploiting the cheaper input to increase production; while in the latter, long-term oriented firms take advantage of the ‘income effect,’ opting for productivity-enhancing investments. 
-We argue that this trade-off depends on the heterogeneity in the firms’ productivity. 
-Exploiting a 2001 Italian reform that allowed for more flexible use of temporary contracts, we show heterogeneous effects along the firms’ TFP distribution. 
-To make sense of the empirical patterns, we also build a labor market entry model where heterogeneous firms decide whether to commit to investments in productivity.
+We provide evidence that increased labor flexibility by easing the firms' use of temporary contracts harmed the total factor productivity (TFP) of already-unproductive firms while leaving the rest of the distribution unaltered.
+Leveraging an Italian 2001 reform, we show that firms belonging to the bottom of the ex-ante TFP distribution experienced a drop in productivity of 5-to-7% and that the adverse effect monotonously decreases along the TFP distribution.
+Moreover, the exit events of these firms were reduced by 20-to-30% within two years after the reform.
+Instead, already-productive firms had no sizable impact on the TFP but experienced an increase in labor productivity by up to 5%.
+We build a general equilibrium model with monopolistic competition to argue about mechanisms that rationalize the empirical evidence.
+Our model, which relates the equilibrium productivity distributions across sectors to frictions in both the labor and capital market, highlights how the
+labor wedges may have heterogeneous effects and ambiguous net impact, as they can potentially mitigate misallocation effects due to distortions of other kind.
   
 </details>
 
