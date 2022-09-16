@@ -53,13 +53,7 @@ Our simulations show that retirement benefits in the current economies are highe
 <details>
   <summary> Abstract </summary>
 
-We provide evidence that increased labor flexibility by easing the firms' use of temporary contracts harmed the total factor productivity (TFP) of already-unproductive firms while leaving the rest of the distribution unaltered.
-Leveraging an Italian 2001 reform, we show that firms belonging to the bottom of the ex-ante TFP distribution experienced a drop in productivity of 5-to-7% and that the adverse effect monotonously decreases along the TFP distribution.
-Moreover, the exit events of these firms were reduced by 20-to-30% within two years after the reform.
-Instead, already-productive firms had no sizable impact on the TFP but experienced an increase in labor productivity by up to 5%.
-We build a general equilibrium model with monopolistic competition to argue about mechanisms that rationalize the empirical evidence.
-Our model, which relates the equilibrium productivity distributions across sectors to frictions in both the labor and capital market, highlights how the
-labor wedges may have heterogeneous effects and ambiguous net impact, as they can potentially mitigate misallocation effects due to distortions of other kind.
+We provide evidence that increased labor flexibility, through a more liberal use of temporary contracts by firms, adversely impacted the total factor productivity (TFP) in the lower segments of the productivity distribution across manufacturing industries, while leaving the rest of the distribution largely unaltered. Specifically, we show that following an Italian labor market reform from 2001, firms at the bottom of the TFP distribution are less productive than the counterfactual firms, with a difference of 4-to-5 percentage points. This adverse effect monotonously decreases along the distribution itself. Moreover, these firms’ exit rates were reduced by 20-to-30% within two years after the reform. Instead, firms in the middle-to-high segments of the productivity distribution experienced no sizable impact on the TFP as well as an increase in labor productivity by 5-to-8% within three years. We build a general equilibrium model with monopolistic competition to argue about what mechanisms can rationalize the empirical evidence. Our model, which relates the equilibrium productivity distributions across sectors to frictions in both labor and capital markets, highlights how labor wedges may have heterogeneous effects and ambiguous net impact, as they can potentially mitigate misallocation effects due to distortions of other kinds.
   
 </details>
 
