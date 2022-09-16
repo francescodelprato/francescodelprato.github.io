@@ -57,6 +57,8 @@ We provide evidence that increased labor flexibility, through a more liberal use
   
 </details>
 
+<sup>(🔨 Work-in-progress draft available upon request)</sup>
+
 <br />
 
 ---
