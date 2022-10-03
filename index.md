@@ -7,7 +7,7 @@ title: Francesco Del Prato
 
 [comment]: <img style="padding: 10px 10px 10px 0px" align="left" src="/images/prof_pic3.png" alt="Francesco" width="300"/>
 
-<img align="left" src="/images/prof-pic.JPG" alt="Francesco" width="250" style="padding: 20px 10px 20px 0px" />
+<img align="left" src="/images/prof-pic.JPG" alt="Francesco" width="260" style="padding: 20px 20px 20px 0px" />
 
 #### About me
 
