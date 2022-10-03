@@ -20,7 +20,7 @@ I received my degree in Economics and Social Sciences from [Bocconi University](
 
 #### Research
 
-I am mainly interested in the _economics of labor and firms_ with a mix of structural and reduced-form approaches exploiting _administrative microdata_.
+I am mainly interested in the _economics of labor and firms_ with a mix of structural and reduced-form approaches that exploit administrative microdata.
 
 More in detail, my research currently focuses on _labor market dynamics_, _firms' productivity_, and _public policy_ and primarily uses the data from the [VisitINPS Scholars](https://www.inps.it/dati-ricerche-e-bilanci/attivita-di-ricerca/programma-visitinps-scholars) program.
 
