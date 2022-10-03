@@ -10,12 +10,10 @@ title: Francesco Del Prato
 
 #### About me
 
-I am a joint Ph.D. candidate in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) in Italy and [KU Leuven](ttps://www.kuleuven.be/english/kuleuven/index.html) in Belgium. 
-
-Starting in October 2022, I will join the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/) as a Postdoctoral Fellow.
+I am a Postodoctoral Fellow at the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/) and a joint Ph.D. candidate in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). 
 
 During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz) in the Czech Republic.
-I received my degree in Economics and Social Sciences from [Bocconi University]
+I received my degree in Economics and Social Sciences from [Bocconi University](https://www.unibocconi.eu/wps/wcm/connect/Bocconi/SitoPubblico_EN/Navigation+Tree/Home/).
 
 [comment]: <> ( Previously, I worked at the Italian Chamber of Deputies as the assistant of a former MP, mostly on public finance-related topics. )
 
