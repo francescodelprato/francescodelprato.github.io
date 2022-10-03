@@ -6,7 +6,8 @@ title: Francesco Del Prato
 ## Francesco Del Prato
 
 [comment]: <img style="padding: 10px 10px 10px 0px" align="left" src="/images/prof_pic3.png" alt="Francesco" width="300"/>
-<img style="padding: 12px 20px 12px 0px" align="left" src="/images/prof-pic.JPG" alt="Francesco" width="280"/>
+
+<img align="left" src="/images/prof-pic.JPG" alt="Francesco" width="250" style="padding: 20px 10px 20px 0px" />
 
 #### About me
 
@@ -26,4 +27,4 @@ More in detail, my research currently focuses on _labor market dynamics_, _firms
 
 #### Contacts
 
-To get in touch with me, just send me an email using the link at the bottom of this page.
+To get in touch, just send me an email using the link at the bottom of this page.
