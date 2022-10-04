@@ -27,4 +27,8 @@ More in detail, my research currently focuses on _labor market dynamics_, _firms
 
 #### Contacts
 
+Paris School of Economics 
+<br>
+48 Bd. Jourdan – 75014 Paris (France) 
+
 To get in touch, just send me an email using the link at the bottom of this page.
