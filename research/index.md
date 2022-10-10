@@ -35,7 +35,7 @@ Exploiting the link between firms' reputation and their network centrality, I es
   <summary> Abstract </summary>
 
 We provide evidence that increased labor flexibility, through more liberal use of temporary contracts by firms, adversely impacted the total factor productivity (TFP) in the lower segments of the productivity distribution across manufacturing industries while leaving the rest of the distribution largely unaltered. 
-Specifically, we exploit the staggered implementation of a 2001 Italian reform easing the use of temporary contracts to show that firms at the bottom of the TFP distribution became less productive than the counterfactual firms, with a difference of 4-to-5 percentage points. 
+Specifically, we exploit the staggered implementation of a 2001 Italian reform that eased the use of temporary contracts to show that firms at the bottom of the TFP distribution became less productive than the counterfactual firms, with a difference of 4-to-5 percentage points. 
 This adverse effect monotonously decreases along the distribution itself. 
 Moreover, these firms' exit rates were reduced by 20-to-30% within two years after the reform. Instead, firms in the middle-to-high segments of the productivity distribution experienced no sizable impact on the TFP and an increase in labor productivity at the top by 5-to-8% within three years. 
 We build a general equilibrium model with monopolistic competition to argue about what mechanisms can rationalize the empirical evidence. 
