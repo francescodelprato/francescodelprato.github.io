@@ -26,6 +26,27 @@ Exploiting the link between firms' reputation and their network centrality, I es
 
 <br />
 
+#### Heterogeneous Responses of Productivity to Labor Market Reforms
+**joint with [Paolo Zacchia](https://www.paolozacchia.com)**
+
+🏆 _Project selected for the VisitINPS 2020 program_
+
+<details>
+  <summary> Abstract </summary>
+
+We provide evidence that increased labor flexibility, through more liberal use of temporary contracts by firms, adversely impacted the total factor productivity (TFP) in the lower segments of the productivity distribution across manufacturing industries while leaving the rest of the distribution largely unaltered. 
+Specifically, we exploit the staggered implementation of a 2001 Italian reform easing the use of temporary contracts to show that firms at the bottom of the TFP distribution became less productive than the counterfactual firms, with a difference of 4-to-5 percentage points. 
+This adverse effect monotonously decreases along the distribution itself. 
+Moreover, these firms' exit rates were reduced by 20-to-30% within two years after the reform. Instead, firms in the middle-to-high segments of the productivity distribution experienced no sizable impact on the TFP and an increase in labor productivity at the top by 5-to-8% within three years. 
+We build a general equilibrium model with monopolistic competition to argue about what mechanisms can rationalize the empirical evidence. 
+Our model relates the equilibrium productivity distributions across sectors to frictions in labor and capital markets and highlights how labor wedges may induce selection at the bottom of the productivity distribution and have an ambiguous net impact on welfare.
+  
+</details>
+
+<sup>(🔨 Work-in-progress draft available upon request)</sup>
+
+<br />
+
 #### Optimal Ramsey Taxation with Social Security 
 **joint with [Marco Francischello](https://marcofrancis.github.io) and [Matteo Paradisi](https://www.matteoparadisi.com)**
 
@@ -39,22 +60,6 @@ Social security mitigates the income effect in optimal labor tax smoothing and, 
 We calibrate the model on three different economies: the US, Netherlands, and Italy.
 We argue that the three countries would experience heterogeneous gains, in redistributive and efficiency terms, by moving from the status-quo allocations to those prescribed by a utilitarian Ramsey planner.
 Our simulations show that retirement benefits in the current economies are higher than their Ramsey-optimal level while we argue that the use of funded social security schemes, neglected in current actual policies, could be welfare improving.  
-</details>
-
-<sup>(🔨 Work-in-progress draft available upon request)</sup>
-
-<br />
-
-#### Heterogeneous Responses of Productivity to Labor Market Reforms
-**joint with [Paolo Zacchia](https://www.paolozacchia.com)**
-
-🏆 _Project selected for the VisitINPS 2020 program_
-
-<details>
-  <summary> Abstract </summary>
-
-We provide evidence that increased labor flexibility, through a more liberal use of temporary contracts by firms, adversely impacted the total factor productivity (TFP) in the lower segments of the productivity distribution across manufacturing industries, while leaving the rest of the distribution largely unaltered. Specifically, we show that following an Italian labor market reform from 2001, firms at the bottom of the TFP distribution are less productive than the counterfactual firms, with a difference of 4-to-5 percentage points. This adverse effect monotonously decreases along the distribution itself. Moreover, these firms’ exit rates were reduced by 20-to-30% within two years after the reform. Instead, firms in the middle-to-high segments of the productivity distribution experienced no sizable impact on the TFP as well as an increase in labor productivity by 5-to-8% within three years. We build a general equilibrium model with monopolistic competition to argue about what mechanisms can rationalize the empirical evidence. Our model, which relates the equilibrium productivity distributions across sectors to frictions in both labor and capital markets, highlights how labor wedges may have heterogeneous effects and ambiguous net impact, as they can potentially mitigate misallocation effects due to distortions of other kinds.
-  
 </details>
 
 <sup>(🔨 Work-in-progress draft available upon request)</sup>
