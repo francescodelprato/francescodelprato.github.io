@@ -34,10 +34,11 @@ Exploiting the link between firms' reputation and their network centrality, I es
 <details>
   <summary> Abstract </summary>
 
-We provide evidence that increased labor flexibility, through more liberal use of temporary contracts by firms, adversely impacted the total factor productivity (TFP) in the lower segments of the productivity distribution across manufacturing industries while leaving the rest of the distribution largely unaltered. 
+We provide evidence that increased labor flexibility, through more liberal use of temporary contracts by firms, adversely impacted the total factor productivity (TFP) in the lower segment of the productivity distribution across manufacturing industries.
 Specifically, we exploit the staggered implementation of a 2001 Italian reform that eased the use of temporary contracts to show that firms at the bottom of the TFP distribution became less productive than the counterfactual firms, with a difference of 4-to-5 percentage points. 
-This adverse effect monotonously decreases along the distribution itself. 
-Moreover, these firms' exit rates were reduced by 20-to-30% within two years after the reform. Instead, firms in the middle-to-high segments of the productivity distribution experienced no sizable impact on the TFP and an increase in labor productivity at the top by 5-to-8% within three years. 
+Moreover, these firms' exit rates were reduced by 20-to-30% within two years after the reform. 
+Quantile Treatment Effect estimation shows that the average adverse effect monotonously decreases along the distribution itself.
+Indeed, firms in the middle-to-high segments of the productivity distribution experienced no sizable impact on the TFP and an increase in labor productivity at the top by 5-to-8% within three years. 
 We build a general equilibrium model with monopolistic competition to argue about what mechanisms can rationalize the empirical evidence. 
 Our model relates the equilibrium productivity distributions across sectors to frictions in labor and capital markets and highlights how labor wedges may induce selection at the bottom of the productivity distribution and have an ambiguous net impact on welfare.
   
