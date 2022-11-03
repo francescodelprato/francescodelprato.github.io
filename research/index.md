@@ -17,7 +17,7 @@ This paper investigates how employers' contribution to reducing on-the-job searc
 In this setting, workers may trade off their present wage for the higher likelihood of better future matches and faster job ladder climb.
 I use Italian administrative data on the private sector's universe to highlight the presence of this compensating differential for young workers.
 In doing so, I exploit firms' centrality measures on the job-to-job network, gauging firms' relative importance in connecting employees with new employers.
-I show that hiring wages of young workers negatively correlate with their employer's relative importance in the network and that leaving highly-central firms pays off up to 6-to-8% more than leaving regular ones upon a job transition.
+I show that hiring wages of young workers negatively correlate with their employer's centrality in the network and that leaving highly-central firms pays off up to 6-to-8% more than leaving regular ones upon a job transition.
 I then build a search model of the labor market with heterogeneous workers and firms. 
 In the model, firms with a higher reputation grant a higher likelihood of new matches to their employees, and workers trade off firms' reputation and productivity.
 I structurally estimate this framework on Italian data to quantitatively account for this channel in assessing wage variance.
