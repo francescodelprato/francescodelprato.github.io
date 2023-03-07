@@ -3,7 +3,7 @@ layout: default
 title: Research
 ---
 
-## Academic research
+## ACADEMIC RESEARCH
 
 ### Working papers
 
@@ -71,7 +71,7 @@ Our simulations show that retirement benefits in the current economies are highe
 
 ---
 
-## Policy papers
+## POLICY PAPERS
 
 #### Una proposta per un APE volontario finalmente a regime
 **joint with [Matteo Paradisi](https://www.matteoparadisi.com)**
