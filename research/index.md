@@ -5,7 +5,7 @@ title: Research
 
 ## Academic research
 
-### Work in progress
+### Working papers
 
 #### _The Importance of Working for Earnest_: Climbing the Job Ladder through Firms' Connectivity
 🏆 _Project selected for the VisitINPS 2019 program_
@@ -24,7 +24,7 @@ I structurally estimate this framework on Italian data to quantitatively account
 
 </details>
 
-<sup>(🔨 Work-in-progress draft available upon request)</sup>
+<sup>(🆕 🔜 New version coming soon!)</sup>
 
 <br />
 
@@ -40,7 +40,7 @@ We provide evidence that increased labor flexibility, through more liberal use o
   
 </details>
 
-<sup>(🔨 Work-in-progress draft available upon request)</sup>
+<sup>(🆕 🔜 New version coming soon!)</sup>
 
 <br />
 
@@ -59,9 +59,15 @@ We argue that the three countries would experience heterogeneous gains, in redis
 Our simulations show that retirement benefits in the current economies are higher than their Ramsey-optimal level while we argue that the use of funded social security schemes, neglected in current actual policies, could be welfare improving.  
 </details>
 
-<sup>(🔨 Work-in-progress draft available upon request)</sup>
+<sup>(🔨 Draft available upon request)</sup>
 
 <br />
+
+---
+### Selected work-in-progress
+
+#### Human Capital Value Chains
+**joint with [Paolo Zacchia](https://www.paolozacchia.com)**
 
 ---
 
