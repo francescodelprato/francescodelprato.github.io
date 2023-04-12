@@ -66,6 +66,10 @@ Our simulations show that retirement benefits in the current economies are highe
 
 ### Selected work-in-progress
 
+#### Responsible Firms 
+**joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)**
+
+
 #### Human Capital Value Chains
 **joint with [Paolo Zacchia](https://www.paolozacchia.com)**
 
