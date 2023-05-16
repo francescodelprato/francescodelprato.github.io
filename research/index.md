@@ -59,12 +59,27 @@ Our simulations show that retirement benefits in the current economies are highe
 
 ### Selected work-in-progress
 
-#### Responsible Firms 
+#### Responsible Firms on the Labor Market
 **joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)**
+
+<details>
+  <summary> Short abstract </summary>
+  
+  Responsible firms prioritize maximizing stakeholder value, which entails balancing the surpluses of their customers and workers along with their own profits. In this paper, we center our attention on these firms' behavior within the labor market and introduce a method for identifying responsible firms using administrative data. By integrating measures of labor market power and systematic utility provided to workers, we construct a multi-dimensional index of responsibility. This enables us to categorize companies and assess the degree of a firm's responsibility throughout its life cycle. Furthermore, we evaluate the influence of a firm's responsibility on income inequalities both within and between firms.
+</details>
+
 
 
 #### Human Capital Value Chains
 **joint with [Paolo Zacchia](https://www.paolozacchia.com)**
+
+<details>
+  <summary> Short abstract </summary>
+  
+  In local labor markets, a pattern often emerges where workers, during the early stages of their careers, transition from lower-paying firms that provide comprehensive training, to higher-paying specialized firms that predominantly employ already-trained workers. We refer to this mechanism as the "Human Capital Value Chain" (HCVC). We study and document its impact on the trajectory of workers' wages and local agglomeration externalities, thereby highlighting its role in the broader labor market dynamics.
+</details>
+
+<br />
 
 ---
 
