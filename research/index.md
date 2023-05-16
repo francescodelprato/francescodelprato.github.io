@@ -65,7 +65,7 @@ Our simulations show that retirement benefits in the current economies are highe
 <details>
   <summary> Short abstract </summary>
   
-  Responsible firms prioritize maximizing stakeholder value, which entails balancing the surpluses of their customers and workers along with their own profits. In this paper, we center our attention on these firms' behavior within the labor market and introduce a method for identifying responsible firms using administrative data. By integrating measures of labor market power and systematic utility provided to workers, we construct a multi-dimensional index of responsibility. This enables us to categorize companies and assess the degree of a firm's responsibility throughout its life cycle. Furthermore, we evaluate the influence of a firm's responsibility on income inequalities both within and between firms.
+  Responsible firms prioritize maximizing stakeholder value, which entails balancing the surpluses of their customers and workers along with their own profits. In this paper, we center our attention on firms' behavior within the labor market and introduce a method for identifying responsible firms using administrative data. By integrating measures of labor market power and systematic utility provided to workers, we construct a multi-dimensional index of responsibility. This enables us to categorize companies and assess the degree of a firm's responsibility throughout its life cycle. Furthermore, we evaluate the influence of a firm's responsibility on income inequalities both within and between firms.
 </details>
 
 
