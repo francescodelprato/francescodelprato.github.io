@@ -5,22 +5,15 @@ title: Research
 
 ## <ins>Academic Research</ins>
 
-### Working papers
+#### Working papers
 
 #### _The Importance of Working for Earnest_: Climbing the Job Ladder through Firms' Connectivity
-🏆 _Project selected for the VisitINPS 2019 program_
+<sup>🏆 _Project selected for the VisitINPS 2019 program_ </sup>
 
 <details>
   <summary> Abstract </summary>
 
-This paper investigates how employers' contribution to reducing on-the-job search frictions for their employees affects workers' wage dynamics.
-In this setting, workers may trade off their present wage for the higher likelihood of better future matches and faster job ladder climb.
-I use Italian administrative data on the private sector's universe to highlight the presence of this compensating differential for young workers.
-In doing so, I exploit firms' centrality measures on the job-to-job network, gauging firms' relative importance in connecting employees with new employers.
-I show that hiring wages of young workers negatively correlate with their employer's centrality in the network and that leaving highly-central firms pays off up to 6-to-8% more than leaving regular ones upon a job transition.
-I then build a search model of the labor market where firms are heterogeneous along two dimensions.
-In the model, firms with a higher connectivity grant a higher likelihood of new matches to their employees, and workers trade off firms' connectivity and productivity.
-I structurally estimate this framework on Italian data to quantitatively account for this channel in assessing wage variance.
+This paper explores the impact of employers’ contributions to reducing on-the-job search frictions on workers’ mobility decisions and earnings dynamics. I build a search model of the labor market which introduces a novel perspective: firms vary in their ability to enhance the likelihood of their employees receiving outside job offers. This shifts the heterogeneity in search behavior from workers to firms, suggesting that workers may trade off their present salary for a higher probability of better future matches and faster job ladder climb. By linking the model’s primitives to the degree centrality of a job-to-job network, I leverage comprehensive administrative data on white-collar workers in Italy to document two key implications of my theory. First, the hiring earnings of young workers are inversely correlated with their employer’s degree of centrality in the network, which I interpret as evidence of the described compensating differential. Second, leaving highly-central firms pays off up to 6% more than leaving regular ones upon a job transition—which provides evidence of faster career progressions facilitated by firms’ connectivity. Finally, I structurally estimate this framework on Italian data to quantitatively account for this channel in assessing earnings variance.
 
 </details>
 
@@ -31,7 +24,7 @@ I structurally estimate this framework on Italian data to quantitatively account
 #### Heterogeneous Responses of Productivity to Labor Market Reforms
 **joint with [Paolo Zacchia](https://www.paolozacchia.com)**
 
-🏆 _Project selected for the VisitINPS 2020 program_
+<sup> 🏆 _Project selected for the VisitINPS 2020 program_ </sup>
 
 <details>
   <summary> Abstract </summary>
@@ -47,7 +40,7 @@ We provide evidence that increased labor flexibility, through more liberal use o
 #### Optimal Ramsey Taxation with Social Security 
 **joint with [Marco Francischello](https://marcofrancis.github.io) and [Matteo Paradisi](https://www.matteoparadisi.com)**
 
-🏆 _Project awarded with a Netspar Comparative Research Grant 2021_
+<sup> 🏆 _Project awarded with a Netspar Comparative Research Grant 2021_ </sup>
 
 <details>
   <summary> Abstract </summary>
