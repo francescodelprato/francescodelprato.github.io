@@ -68,7 +68,18 @@ Our simulations show that retirement benefits in the current economies are highe
   Responsible firms prioritize maximizing stakeholder value, which entails balancing the surpluses of their customers and workers along with their own profits. In this paper, we center our attention on firms' behavior within the labor market and introduce a method for identifying responsible firms using administrative data. By integrating measures of labor market power and systematic utility provided to workers, we construct a multi-dimensional index of responsibility. This enables us to categorize companies and assess the degree of a firm's responsibility throughout its life cycle. Furthermore, we evaluate the influence of a firm's responsibility on income inequalities both within and between firms.
 </details>
 
+<br />
 
+#### Deep Structural Estimation
+**joint with [Marco Francischello](http://marcofrancis.github.io)**
+
+<details>
+  <summary> Short abstract </summary>
+  
+ Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated data and those from real-world data. We propose an approach to speed up this process by minimizing a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
+</details>
+
+<br />
 
 #### Human Capital Value Chains
 **joint with [Paolo Zacchia](https://www.paolozacchia.com)**
