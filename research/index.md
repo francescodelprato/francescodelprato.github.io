@@ -5,7 +5,7 @@ title: Research
 
 ## <ins>Academic Research</ins>
 
-#### Working papers
+### Working Papers
 
 #### _The Importance of Working for Earnest_: Climbing the Job Ladder through Firms' Connectivity
 <sup>🏆 _Project selected for the VisitINPS 2019 program_ </sup>
