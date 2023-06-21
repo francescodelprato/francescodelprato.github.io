@@ -76,7 +76,7 @@ Our simulations show that retirement benefits in the current economies are highe
 <details>
   <summary> Short abstract </summary>
   
- Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated data and those from real-world data. We propose an approach to speed up this process by minimizing a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
+ Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated data and those from real-world data. We propose an approach to speed up this process by fitting a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
 </details>
 
 <br />
@@ -87,7 +87,7 @@ Our simulations show that retirement benefits in the current economies are highe
 <details>
   <summary> Short abstract </summary>
   
-  In local labor markets, a pattern often emerges where workers, during the early stages of their careers, transition from lower-paying firms that provide comprehensive training, to higher-paying specialized firms that predominantly employ already-trained workers. We refer to this mechanism as the "Human Capital Value Chain" (HCVC). We study and document its impact on the trajectory of workers' wages and local agglomeration externalities, thereby highlighting its role in the broader labor market dynamics.
+  In local labor markets, a pattern often emerges where workers transition during the early stages of their careers from lower-paying firms that provide comprehensive training to higher-paying specialized firms that predominantly employ already-trained workers. We refer to this mechanism as the "Human Capital Value Chain" (HCVC). We study and document its impact on the trajectory of workers' wages and local agglomeration externalities, thereby highlighting its role in the broader labor market dynamics.
 </details>
 
 <br />
