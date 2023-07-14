@@ -11,19 +11,17 @@ title: Francesco Del Prato
 
 #### About me
 
-I am a Postodoctoral Fellow at the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/) and a joint Ph.D. candidate in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). 
+I am a Postdoctoral Fellow at the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/).
 
-During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz) in the Czech Republic.
-I received my degree in Economics and Social Sciences from [Bocconi University](https://www.unibocconi.eu/wps/wcm/connect/Bocconi/SitoPubblico_EN/Navigation+Tree/Home/).
+I received a joint Ph.D. in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz) in the Czech Republic.
 
-[comment]: <> ( Previously, I worked at the Italian Chamber of Deputies as the assistant of a former MP, mostly on public finance-related topics. )
-
+[comment]: <> ( I hold a degree in Economics and Social Sciences from [Bocconi University](https://www.unibocconi.eu/wps/wcm/connect/Bocconi/SitoPubblico_EN/Navigation+Tree/Home/). )
 
 #### Research
 
 I am mainly interested in the _economics of labor and firms_ with a mix of structural and reduced-form approaches that exploit administrative microdata.
 
-More in detail, my research currently focuses on _labor market dynamics_, _firms' productivity_, and _public policy_ and primarily uses the data from the [VisitINPS Scholars](https://www.inps.it/dati-ricerche-e-bilanci/attivita-di-ricerca/programma-visitinps-scholars) program.
+More in detail, my research currently focuses on _labor market dynamics_, the interplay between _labor market institutions_ and _productivity_, and the _behavior of firms_ within the labor market.
 
 #### Contacts
 
