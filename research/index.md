@@ -21,7 +21,7 @@ This paper explores the impact of employers’ contributions to reducing on-the-
 
 <br />
 
-#### [The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity](Italian-Productivity-Paper.pdf)
+#### The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity
 **joint with [Paolo Zacchia](https://www.paolozacchia.com)**
 
 <sup> 🏆 _Project selected for the VisitINPS 2020 program_ </sup>
@@ -37,6 +37,7 @@ We formalize this concept via a general equilibrium model that links productivit
   
 </details>
 
+📄 **[Paper](Italian-Productivity-Paper.pdf)**
 
 <br />
 
