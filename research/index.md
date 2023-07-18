@@ -21,7 +21,7 @@ This paper explores the impact of employers’ contributions to reducing on-the-
 
 <br />
 
-#### Heterogeneous Responses of Productivity to Labor Market Reforms
+#### The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity
 **joint with [Paolo Zacchia](https://www.paolozacchia.com)**
 
 <sup> 🏆 _Project selected for the VisitINPS 2020 program_ </sup>
@@ -29,7 +29,11 @@ This paper explores the impact of employers’ contributions to reducing on-the-
 <details>
   <summary> Abstract </summary>
 
-We provide evidence that increased labor flexibility, through more liberal use of temporary contracts by firms, adversely impacted the total factor productivity (TFP) in the lower segment of the productivity distribution across manufacturing industries. Specifically, we exploit the staggered implementation of a 2001 Italian reform that eased the use of temporary contracts to show that firms at the bottom of the TFP distribution became less productive than the counterfactual firms, with a difference of 4-to-5 percentage points. Moreover, these firms’ exit rates were reduced by 20-to-30% within two years after the reform. Quantile Treatment Effect estimation shows that the average adverse effect monotonously decreases along the distribution itself. Indeed, firms in the middle-to-high segments of the productivity distribution experienced no sizable impact on the TFP and an increase in labor productivity at the top by 5-to-8% within three years. We build a general equilibrium model with monopolistic competition to argue about what mechanisms can rationalize the empirical evidence. Our model relates the equilibrium productivity distributions across sectors to frictions in labor and capital markets and highlights how labor wedges may induce selection at the bottom of the productivity distribution and have an ambiguous net impact on welfare.
+We explore the effect of a reduction in overall labor costs, indirectly induced by an Italian reform that weakened employment protection legislation, on the productivity distribution of manufacturing firms.
+Due to the unique institutional features of the Italian collective bargaining system, in the manufacturing sector, the reform led to a clean reduction in average worker compensation, without altering the average structure of employment relationships.
+This decrease in labor cost resulted in a reduction in average total factor productivity (TFP) among less productive firms and an increase at the upper end of the distribution. 
+We pair these findings with increased entry and exit dynamics among low-productivity firms, suggesting the presence of an adverse selection mechanism at the bottom of the TFP distribution, enhanced by the reform. 
+We formalize this concept via a general equilibrium model that links productivity to frictions in the markets for inputs.
   
 </details>
 
@@ -61,6 +65,8 @@ Our simulations show that retirement benefits in the current economies are highe
 
 #### Responsible Firms on the Labor Market
 **joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)**
+
+<sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
 <details>
   <summary> Short abstract </summary>
