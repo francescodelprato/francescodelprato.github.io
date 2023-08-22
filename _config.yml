@@ -3,7 +3,7 @@
 name: francescodelprato.github.io
 title: Francesco Del Prato
 tagline: Personal webpage of Francesco Del Prato - economics
-description: Personal page of Francesco Del Prato, PhD candidate in Business Economics. It contains information about research, teaching, op-eds and CV.
+description: Personal page of Francesco Del Prato, postdoctoral fellow at the Paris School of Economics. It contains information about research, teaching, op-eds and CV.
 #repo: 
 #url: https://francescodelprato.github.io
 baseurl: /
@@ -14,7 +14,7 @@ google_analytics: G-CB0P1912PV
 author: Francesco Del Prato
 first_name: Francesco
 last_name: Del Prato
-university: IMT School for Advanced Studies, KU Leuven, CERGE-EI
+university: Paris School of Economics
 department: Economics
 #address: 
 #office: 
