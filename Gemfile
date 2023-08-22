@@ -3,5 +3,4 @@ source 'https://rubygems.org'
 gem 'github-pages', group: :jekyll_plugins
 gem 'jekyll-seo-tag'
 
-group :jekyll_plugins do
-  gem 'jekyll-google-tag-manager'
+gem 'jekyll-google-tag-manager', group :jekyll_plugins
