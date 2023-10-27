@@ -11,7 +11,7 @@ title: Francesco Del Prato
 
 #### About me
 
-I am a Postdoctoral Fellow at the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/).
+I am a Postdoctoral Fellow at the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/), on the Academic Job Market 2023/2024.
 
 I received a joint Ph.D. in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz) in the Czech Republic.
 
