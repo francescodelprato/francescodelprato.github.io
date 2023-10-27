@@ -8,6 +8,9 @@ title: Research
 ### Working Papers
 
 #### _The Importance of Working for Earnest_: Climbing the Job Ladder through Firms' Connectivity
+(JOB MARKET PAPER)
+
+
 <sup>🏆 _Project selected for the VisitINPS 2019 program_ </sup>
 
 <details>
