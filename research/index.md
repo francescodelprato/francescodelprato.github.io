@@ -20,7 +20,7 @@ Do workers consider the ”springboard” value of a firm, in terms of future jo
 
 </details>
 
-📄 **[Paper](DelPrato_JMP.pdf)**
+📄 **[Paper](JMP_DelPrato.pdf)**
 
 <br />
 
