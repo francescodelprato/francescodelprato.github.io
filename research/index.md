@@ -79,17 +79,6 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <br />
 
-#### Deep Structural Estimation
-**joint with [Marco Francischello](http://marcofrancis.github.io)**
-
-<details>
-  <summary> Short abstract </summary>
-  
- Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated and real-world data. We propose an approach to speed up this process by fitting a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
-</details>
-
-<br />
-
 #### Human Capital Value Chains
 **joint with [Paolo Zacchia](https://www.paolozacchia.com)**
 
@@ -102,6 +91,18 @@ Our simulations show that retirement benefits in the current economies are highe
 </details>
 
 <br />
+
+#### Deep Structural Estimation
+**joint with [Marco Francischello](http://marcofrancis.github.io)**
+
+<details>
+  <summary> Short abstract </summary>
+  
+ Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated and real-world data. We propose an approach to speed up this process by fitting a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
+</details>
+
+<br />
+
 
 ---
 
