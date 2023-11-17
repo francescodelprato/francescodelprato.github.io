@@ -19,9 +19,10 @@ I received a joint Ph.D. in Business Economics between the [IMT School for Advan
 
 #### Research
 
-I am mainly interested in the _economics of labor and firms_ with a mix of structural and reduced-form approaches that exploit administrative microdata.
+My research is grounded in **Macro/Labor Economics** and focuses on the interplay between labor market dynamics and public policy. 
 
-More in detail, my research currently focuses on _labor market dynamics_, the interplay between _labor market institutions_ and _productivity_, and the _behavior of firms_ within the labor market.
+I am interested in exploring how workers move between jobs and how these transitions are affected by both the decisions that firms make and the policies the government puts in place.
+I usually employ a mix of structural and reduced-form approaches that exploit administrative microdata.
 
 #### Contacts
 
