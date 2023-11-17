@@ -19,10 +19,10 @@ I received a joint Ph.D. in Business Economics between the [IMT School for Advan
 
 #### Research
 
-My research is grounded in **Macro/Labor Economics** and focuses on the interplay between labor market dynamics and public policy. 
+My research is grounded in _Macro/Labor Economics_ and focuses on the interplay between labor market dynamics and public policy. 
 
-I am interested in exploring how workers move between jobs and how these transitions are affected by both the decisions that firms make and the policies the government puts in place.
-I usually employ a mix of structural and reduced-form approaches that exploit administrative microdata.
+I explore how workers move between jobs and how these transitions are affected by the decisions that firms make and the government's policies.
+My work usually employs a mix of structural and reduced-form approaches that exploit administrative microdata.
 
 #### Contacts
 
