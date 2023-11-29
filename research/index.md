@@ -59,7 +59,7 @@ We argue that the three countries would experience heterogeneous gains, in redis
 Our simulations show that retirement benefits in the current economies are higher than their Ramsey-optimal level while we argue that the use of funded social security schemes, neglected in current actual policies, could be welfare improving.  
 </details>
 
-<sup>(🔨 Draft available upon request)</sup>
+📄 **[Paper](ot_retirement_paper.pdf)**
 
 <br />
 
