@@ -1,7 +1,7 @@
 /*body { margin: 24px auto; width: 80%; font-family: 'Helvetica', 'Arial', 'Sans-Serif';}*/
-body { margin: 24px auto; width: 80%; font-family: 'Helvetica Light', 'Sans-Serif'; color: #5b5555 }
+body { margin: 22px auto; width: 75%; font-family: 'Helvetica Light', 'Sans-Serif'; color: #5b5555 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 460px) {
   body {
     margin: 65px auto;
     width: 65%;
