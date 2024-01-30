@@ -40,7 +40,8 @@ We formalize this concept via a general equilibrium model that links productivit
   
 </details>
 
-📄 **[Paper](Italian-Productivity-Paper.pdf)**
+📄 **[Paper - outdated version](Italian-Productivity-Paper.pdf)**
+(⚒️ In preparation for submission: new version coming soon!)
 
 <br />
 
