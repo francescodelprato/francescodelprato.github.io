@@ -32,16 +32,11 @@ Do workers consider the “springboard” value of a firm, in terms of future jo
 <details>
   <summary> Abstract </summary>
 
-We explore the effect of a reduction in overall labor costs, indirectly induced by an Italian reform that weakened employment protection legislation, on the productivity distribution of manufacturing firms.
-Due to the unique institutional features of the Italian collective bargaining system, in the manufacturing sector, the reform led to a clean reduction in average worker compensation, without altering the average structure of employment relationships.
-This decrease in labor cost resulted in a reduction in average total factor productivity (TFP) among less productive firms and an increase at the upper end of the distribution. 
-We pair these findings with increased entry and exit dynamics among low-productivity firms, suggesting the presence of an adverse selection mechanism at the bottom of the TFP distribution, enhanced by the reform. 
-We formalize this concept via a general equilibrium model that links productivity to frictions in the markets for inputs.
+We document how a reduction in labor costs led to heterogeneous effects on the total factor productivity (TFP) of manufacturing firms. Leveraging an Italian labor legislation reform and unique institutional features of the local collective bargaining system, we show that such effects vary along the TFP distribution. Relative to the counterfactual, TFP markedly declines on the left tail, which we explain via selection mechanisms; on the right, TFP mildly increases as firms are able to expand and reallocate their workforce. To guide the evaluation of welfare implications, we develop a general equilibrium model featuring firm selection and frictions in input markets.
   
 </details>
 
-📄 **[Paper - outdated version](Italian-Productivity-Paper.pdf)**
-(⚒️ In preparation for submission: new version coming soon!)
+📄 **[Paper](lc_productivity_FDP_PZ.pdf)**
 
 <br />
 
