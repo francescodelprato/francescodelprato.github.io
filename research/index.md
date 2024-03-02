@@ -36,6 +36,7 @@ We document how a reduction in labor costs led to heterogeneous effects on manuf
   
 </details>
 
+⏳ Submitted!
 📄 **[Paper](lc_productivity_FDP_PZ.pdf)**
 
 <br />
