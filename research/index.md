@@ -89,6 +89,18 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <br />
 
+#### Do AKM Effects Really Matter?
+**joint with Aslan Bakirov and [Paolo Zacchia](https://www.paolozacchia.com)**
+
+<details>
+  <summary> Short abstract </summary>
+  
+We revisit the wage decomposition literature using machine learning. We show empirically that if both worker- and firm-level observable characteristics are treated non-parametrically via generalized random forests, the share of log-wages variance explained by typical “AKM” fixed effects falls precipitously.
+</details>
+
+<br />
+
+
 #### Deep Structural Estimation
 **joint with [Marco Francischello](http://marcofrancis.github.io)**
 
