@@ -13,12 +13,10 @@ title: Research
 
 <sup>🏆 _Project selected for the VisitINPS 2019 program_ </sup>
 
-<details>
   <summary> Abstract </summary>
 
-Do workers consider the “springboard” value of a firm, in terms of future job opportunities, when choosing an employer? Using a search model of the labor market, I introduce the idea that firms differ in enhancing their employees' chances of receiving external job offers. The model informs a firm-level proxy for outside job offers received by workers. This measure empirically aligns with key model predictions: 1) it negatively correlates with both firm-specific tenure and young workers' entry salaries, revealing a compensating differential; and 2) it suggests that workers enjoy a salary premium upon leaving such firms, indicative of faster career progression. The model is estimated on administrative data from Italy and successfully captures key aspects of labor market dynamics. My channel explains 10% of the overall job-to-job transitions and shows how the firm-induced variation in job search can be a significant driver of inequality, especially at the bottom of the wage distribution.
+Do workers consider the “springboard” value of a firm in terms of future job opportunities when choosing an employer? Using a search model of the labor market, I introduce the idea that firms differ in enhancing their employees' chances of receiving external job offers. The model informs a firm-level proxy for outside job offers received by workers. This measure empirically aligns with key model predictions: 1) it negatively correlates with both firm-specific tenure and young workers' entry salaries, revealing a compensating differential; and 2) it suggests that workers enjoy a salary premium upon leaving such firms, indicative of faster career progression. The model is estimated on administrative data from Italy and successfully captures key aspects of labor market dynamics. My channel explains 10% of the overall job-to-job transitions and shows how the firm-induced variation in job search can be a significant driver of inequality, especially at the bottom of the wage distribution.
 
-</details>
 
 📄 **[Paper](JMP_DelPrato.pdf)**
 
@@ -29,13 +27,10 @@ Do workers consider the “springboard” value of a firm, in terms of future jo
 
 <sup> 🏆 _Project selected for the VisitINPS 2020 program_ </sup>
 
-<details>
   <summary> Abstract </summary>
 
 We document how a reduction in labor costs led to heterogeneous effects on manufacturing firms’ total factor productivity (TFP). Leveraging an Italian labor legislation reform and unique institutional features of the local collective bargaining system, we show that such effects vary along the TFP distribution. Relative to the counterfactual, TFP markedly declines on the left tail, which we explain via selection mechanisms; on the right, TFP mildly increases as firms are able to expand and reallocate their workforce. We develop a general equilibrium model featuring firm selection and frictions in input markets to guide the evaluation of welfare implications.
   
-</details>
-
 ⏳ Submitted!
 📄 **[Paper](lc_productivity_FDP_PZ.pdf)**
 
@@ -46,7 +41,6 @@ We document how a reduction in labor costs led to heterogeneous effects on manuf
 
 <sup> 🏆 _Project awarded with a Netspar Comparative Research Grant 2021_ </sup>
 
-<details>
   <summary> Abstract </summary>
 
 We develop an OLG model with heterogeneous agents and aggregate uncertainty to study optimal Ramsey taxation when the government can use a credible set of social security instruments.
@@ -54,7 +48,6 @@ Social security mitigates the income effect in optimal labor tax smoothing and, 
 We calibrate the model on three different economies: the US, Netherlands, and Italy.
 We argue that the three countries would experience heterogeneous gains, in redistributive and efficiency terms, by moving from the status-quo allocations to those prescribed by a utilitarian Ramsey planner.
 Our simulations show that retirement benefits in the current economies are higher than their Ramsey-optimal level while we argue that the use of funded social security schemes, neglected in current actual policies, could be welfare improving.  
-</details>
 
 📄 **[Paper](ot_retirement_paper.pdf)**
 
@@ -68,35 +61,29 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
-<details>
   <summary> Short abstract </summary>
   
   Responsible firms prioritize maximizing stakeholder value, which entails balancing the surpluses of their customers and workers along with their own profits. In this paper, we center our attention on firms' behavior within the labor market and introduce a method for identifying responsible firms using administrative data. By integrating measures of labor market power and systematic utility provided to workers, we construct a multi-dimensional index of responsibility. This enables us to categorize companies and assess the degree of a firm's responsibility throughout its life cycle. Furthermore, we evaluate the influence of a firm's responsibility on income inequalities both within and between firms.
 </details>
 
-<br />
 
 #### Human Capital Value Chains
 **joint with [Paolo Zacchia](https://www.paolozacchia.com)**
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
-<details>
   <summary> Short abstract </summary>
   
   In local labor markets, a pattern often emerges where workers transition during the early stages of their careers from lower-paying firms that provide comprehensive training to higher-paying specialized firms that predominantly employ already-trained workers. We refer to this mechanism as the "Human Capital Value Chain" (HCVC). We study and document its impact on the trajectory of workers' wages and local agglomeration externalities, thereby highlighting its role in the broader labor market dynamics.
-</details>
 
 <br />
 
 #### Do AKM Effects Really Matter?
 **joint with Aslan Bakirov and [Paolo Zacchia](https://www.paolozacchia.com)**
 
-<details>
   <summary> Short abstract </summary>
   
 We revisit the wage decomposition literature using machine learning. We show empirically that if both worker- and firm-level observable characteristics are treated non-parametrically via generalized random forests, the share of log-wages variance explained by typical “AKM” fixed effects falls precipitously.
-</details>
 
 <br />
 
@@ -104,11 +91,9 @@ We revisit the wage decomposition literature using machine learning. We show emp
 #### Deep Structural Estimation
 **joint with [Marco Francischello](http://marcofrancis.github.io)**
 
-<details>
   <summary> Short abstract </summary>
   
  Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated and real-world data. We propose an approach to speed up this process by fitting a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
-</details>
 
 <br />
 
