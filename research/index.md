@@ -58,6 +58,7 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
+<details>
   <summary> Short abstract </summary>
   
   Responsible firms prioritize maximizing stakeholder value, which entails balancing the surpluses of their customers and workers along with their own profits. In this paper, we center our attention on firms' behavior within the labor market and introduce a method for identifying responsible firms using administrative data. By integrating measures of labor market power and systematic utility provided to workers, we construct a multi-dimensional index of responsibility. This enables us to categorize companies and assess the degree of a firm's responsibility throughout its life cycle. Furthermore, we evaluate the influence of a firm's responsibility on income inequalities both within and between firms.
@@ -71,18 +72,22 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
+<details>
   <summary> Short abstract </summary>
   
   In local labor markets, a pattern often emerges where workers transition during the early stages of their careers from lower-paying firms that provide comprehensive training to higher-paying specialized firms that predominantly employ already-trained workers. We refer to this mechanism as the "Human Capital Value Chain" (HCVC). We study and document its impact on the trajectory of workers' wages and local agglomeration externalities, thereby highlighting its role in the broader labor market dynamics.
-
+</details>
+  
 <br />
 
 #### Do AKM Effects Really Matter?
 **joint with Aslan Bakirov and [Paolo Zacchia](https://www.paolozacchia.com)**
 
+<details>
   <summary> Short abstract </summary>
   
 We revisit the wage decomposition literature using machine learning. We show empirically that if both worker- and firm-level observable characteristics are treated non-parametrically via generalized random forests, the share of log-wages variance explained by typical “AKM” fixed effects falls precipitously.
+</details>
 
 <br />
 
@@ -90,10 +95,12 @@ We revisit the wage decomposition literature using machine learning. We show emp
 #### Deep Structural Estimation
 **joint with [Marco Francischello](http://marcofrancis.github.io)**
 
+<details>
   <summary> Short abstract </summary>
   
- Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated and real-world data. We propose an approach to speed up this process by fitting a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
-
+Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated and real-world data. We propose an approach to speed up this process by fitting a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
+</details>
+  
 <br />
 
 
