@@ -3,8 +3,8 @@ body { margin: 22px auto; width: 75%; font-family: 'Helvetica Light', 'Sans-Seri
 
 @media only screen and (min-width: 768px) {
   body {
-    margin: 65px auto;
-    width: 65%;
+    margin: 65px auto; 
+    width: 75%; /* was 65% */
   }
 }
 
