@@ -21,7 +21,7 @@ body {
   }
 
  body img:not(footer img) {
-    width: 100%;
+    width: 90%;
     margin: 0 auto 20px;
     display: block;
     float: none;
