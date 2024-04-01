@@ -12,7 +12,7 @@ title: Francesco Del Prato
 
 I am a Postdoctoral Fellow at the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/).
 
-I received a joint Ph.D. in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz) in the Czech Republic.
+I received a joint Ph.D. in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz).
 
 [comment]: <> ( I hold a degree in Economics and Social Sciences from [Bocconi University](https://www.unibocconi.eu/wps/wcm/connect/Bocconi/SitoPubblico_EN/Navigation+Tree/Home/). )
 
