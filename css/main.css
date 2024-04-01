@@ -20,6 +20,12 @@ body {
     width: 85%; /* Adjust width for better readability */
   }
 
+  img {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+
 
  p, ul, details, nav ul li, footer ul li {
     font-size: 0.9em; /* Adjust font size for smaller screens */
