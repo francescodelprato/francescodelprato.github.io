@@ -20,10 +20,12 @@ body {
     width: 85%; /* Adjust width for better readability */
   }
 
-  img {
-    float: none;
-    margin-right: 0;
+ img[align="left"] {
     width: 100%;
+    margin: 0 auto 20px;
+    display: block;
+    float: none;
+    padding: 0;
   }
 
 
