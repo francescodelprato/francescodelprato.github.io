@@ -20,7 +20,7 @@ body {
     width: 85%; /* Adjust width for better readability */
   }
 
- img[align="left"] {
+ body img:not(footer img) {
     width: 100%;
     margin: 0 auto 20px;
     display: block;
