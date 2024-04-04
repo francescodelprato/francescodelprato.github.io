@@ -1,46 +1,36 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			
-			<!-- TAGS -->
-			<meta name="google-site-verification" content="LG0KBxF4NIn1kbDqbqYflMvh6tnM4pp0TsKfBraE2rY" />
-			
-			<!-- ANALYTICS -->
-			{% if site.google_analytics and jekyll.environment == 'production' %}
-  			{% include analytics.html %}
-  			{% endif %}
-   			
-			<!-- SEO -->
-			{% seo %}
-		</head>
-
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>
-		        	<!-- <li><a href="/about">About</a></li> -->
-				<li><a href="/research">Research</a></li>
-				<li><a href="/teaching">Teaching</a></li>
-				<li><a href="/op-eds">Op-eds</a></li>
-	        		<!-- <li><a href="https://nbviewer.org/github/francescodelprato/francescodelprato.github.io/blob/master/cv/FDP_academic_CV.pdf" target="_blank">CV</a></li> -->
-				<li><a href="https://francescodelprato.github.io/cv/DelPrato_CV.pdf" target="_blank">CV</a></li>
-	    		</ul>
-			</nav>
-			<div class="container">
-
-
-			{{ content }}
-
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-	        		<li>📮 <a href="mailto:francesco.delprato@psemail.eu">email</a></li>
-				<li style="display: inline-block; vertical-align: middle;"><img src="/images/twitter-x-logo.png" style="width: 20px; height: 20px; object-fit: cover;"> <a href="https://twitter.com/fdelprato">X</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+<html lang="en">
+<head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="LG0KBxF4NIn1kbDqbqYflMvh6tnM4pp0TsKfBraE2rY" />
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+        {% include analytics.html %}
+    {% endif %}
+    {% seo %}
+</head>
+<body>
+    <header>
+        <nav>
+	 <div>Francesco Del Prato</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/teaching">Teaching</a></li>
+                <li><a href="/op-eds">Op-eds</a></li>
+                <li><a href="https://francescodelprato.github.io/cv/DelPrato_CV.pdf" target="_blank">CV</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        {{ content }}
+    </div>
+    <footer>
+        <ul>
+            <li>📮 <a href="mailto:francesco.delprato@psemail.eu">email</a></li>
+            <li><img src="/images/twitter-x-logo.png" alt="Twitter Logo" style="width: 20px; height: 20px; object-fit: cover;"> <a href="https://twitter.com/fdelprato">X</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
