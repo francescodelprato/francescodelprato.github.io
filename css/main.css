@@ -1,5 +1,5 @@
 .reddit-mono-MyFont {
-  font-family: "Reddit Mono", serif;
+  font-family: "Reddit Mono", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -7,7 +7,7 @@
 
 
 :root {
-  --font-family: "Reddit Mono", serif;
+  --font-family: "Reddit Mono", monospace;
   --primary-color: #5b5555;
   --link-color: #E55a54;
   --link-hover-decoration: underline;
