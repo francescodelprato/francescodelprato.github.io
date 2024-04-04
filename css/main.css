@@ -1,5 +1,15 @@
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 900
+
+.playfair-display-MyFont {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
 :root {
-  --font-family: 'Helvetica Light', 'Sans-Serif';
+  --font-family: "Playfair Display", serif;
   --primary-color: #5b5555;
   --link-color: #E55a54;
   --link-hover-decoration: underline;
