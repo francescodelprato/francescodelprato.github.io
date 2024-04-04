@@ -1,16 +1,10 @@
-.reddit-mono-regular {
+.reddit-mono-MyFont {
   font-family: "Reddit Mono", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
-.reddit-mono-light {
-  font-family: "Reddit Mono", serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
 
 :root {
   --font-family: "Reddit Mono", serif;
