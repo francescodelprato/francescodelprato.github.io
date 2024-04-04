@@ -1,15 +1,19 @@
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 900
-
-.lora-MyFont {
-  font-family: "Lora", serif;
+.reddit-mono-regular {
+  font-family: "Reddit Mono", serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.reddit-mono-light {
+  font-family: "Reddit Mono", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
   font-style: normal;
 }
 
 :root {
-  --font-family: "Lora", serif;
+  --font-family: "Reddit Mono", serif;
   --primary-color: #5b5555;
   --link-color: #E55a54;
   --link-hover-decoration: underline;
