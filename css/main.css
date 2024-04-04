@@ -1,7 +1,14 @@
-.reddit-mono-MyFont {
+.reddit-mono-regular {
   font-family: "Reddit Mono", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
+  font-style: normal;
+}
+
+.reddit-mono-light {
+  font-family: "Reddit Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
   font-style: normal;
 }
 
