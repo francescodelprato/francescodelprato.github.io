@@ -34,15 +34,15 @@ body {
   }
 
   h1 {
-    font-size: 2.0em; /* Adjust heading sizes for better hierarchy on small screens */
+    font-size: 1.7em; /* Adjust heading sizes for better hierarchy on small screens */
   }
 
   h2 {
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 
   h3 {
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
 
   h4 {
