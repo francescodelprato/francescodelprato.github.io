@@ -7,7 +7,7 @@ title: Research
 
 ### Working Papers
 
-**_The Importance of Working for Earnest_: Climbing the Job Ladder through Firms' Connectivity**
+#### _The Importance of Working for Earnest_: Climbing the Job Ladder through Firms' Connectivity
 
 <sup>🏆 _Project selected for the VisitINPS 2019 program_ </sup>
 
@@ -21,8 +21,8 @@ Do workers consider a firm’s “springboard” value in terms of future job op
 
 <br />
 
-**The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity**
-<br>joint with [Paolo Zacchia](https://www.paolozacchia.com)
+#### The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity
+joint with [Paolo Zacchia](https://www.paolozacchia.com)
 
 <sup> 🏆 _Project selected for the VisitINPS 2020 program_ </sup>
 
@@ -35,8 +35,8 @@ We document how a reduction in labor costs led to heterogeneous effects on manuf
 
 <br />
 
-**Optimal Ramsey Taxation with Social Security**
-<br>joint with [Marco Francischello](https://marcofrancis.github.io) and [Matteo Paradisi](https://www.matteoparadisi.com)
+#### Optimal Ramsey Taxation with Social Security
+joint with [Marco Francischello](https://marcofrancis.github.io) and [Matteo Paradisi](https://www.matteoparadisi.com)
 
 <sup> 🏆 _Project awarded with a Netspar Comparative Research Grant 2021_ </sup>
 
@@ -54,8 +54,8 @@ Our simulations show that retirement benefits in the current economies are highe
 
 ### Selected work-in-progress
 
-**Responsible Firms on the Labor Market**
-<br>joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)
+#### Responsible Firms on the Labor Market
+joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
@@ -67,8 +67,8 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <br />
 
-**Human Capital Value Chains**
-<br>joint with [Paolo Zacchia](https://www.paolozacchia.com)
+#### Human Capital Value Chains
+joint with [Paolo Zacchia](https://www.paolozacchia.com)
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
@@ -80,8 +80,8 @@ Our simulations show that retirement benefits in the current economies are highe
   
 <br />
 
-**Do AKM Effects Really Matter?**
-<br>joint with Aslan Bakirov and [Paolo Zacchia](https://www.paolozacchia.com)
+#### Do AKM Effects Really Matter?
+joint with Aslan Bakirov and [Paolo Zacchia](https://www.paolozacchia.com)
 
 <details>
   <summary> Short abstract </summary>
@@ -91,8 +91,8 @@ We revisit the wage decomposition literature using machine learning. We show emp
 
 <br />
 
-**Deep Structural Estimation**
-<br>joint with [Marco Francischello](http://marcofrancis.github.io)
+#### Deep Structural Estimation
+joint with [Marco Francischello](http://marcofrancis.github.io)
 
 <details>
   <summary> Short abstract </summary>
@@ -106,8 +106,8 @@ Structural estimation using the Simulated Method of Moments (SMM) aims to iterat
 
 ## Policy papers
 
-**Una proposta per un APE volontario finalmente a regime**
-<br>joint with [Matteo Paradisi](https://www.matteoparadisi.com)
+#### Una proposta per un APE volontario finalmente a regime
+joint with [Matteo Paradisi](https://www.matteoparadisi.com)
 
 **Istituto Bruno Leoni, Briefing Papers**
 🗞️ _Media coverage: [Il Foglio](../op-eds/ape_foglio.pdf)_
@@ -115,7 +115,7 @@ Structural estimation using the Simulated Method of Moments (SMM) aims to iterat
 <details>
   
   <summary> Abstract </summary>
-  We advocate for Ape (Anticipo Pensionistico, an early retirement option available to Italian employees) to become "structural". We claim that it responds to the need for greater flexibility in retirement, while maintaining the sustainability of the pension system over the long-run. Moreover, we discuss some proposals that would make it easier for potential beneficiaries to claim Ape, reducing the low take-up problem observed in the first months after its implementation. 
+  We advocate for Ape (Anticipo Pensionistico, an early retirement option available to Italian employees) to become "structural". We claim that it responds to the need for greater flexibility in retirement while maintaining the sustainability of the pension system over the long-run. Moreover, we discuss some proposals that would make it easier for potential beneficiaries to claim Ape, reducing the low take-up problem observed in the first months after its implementation. 
   
 </details>
 
