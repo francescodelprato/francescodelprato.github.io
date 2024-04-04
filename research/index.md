@@ -13,7 +13,7 @@ title: Research
 
   <summary> Abstract </summary>
 
-<p class="reddit-mono-light">
+<p class=".reddit-mono-light">
 Do workers consider a firm’s “springboard” value in terms of future job opportunities when choosing an employer? Using a search model of the labor market, I introduce the idea that firms differ in enhancing their employees’ chances of receiving external job offers. The model informs a firm-level proxy for outside job offers received by workers. This measure empirically aligns with key model predictions: 1) it negatively correlates with both firm-specific tenure and young workers’ entry salaries, revealing a compensating differential; and 2) it suggests that workers enjoy a salary premium upon leaving such firms, indicative of faster career progression. The model is estimated on administrative data from Italy and successfully captures key aspects of labor market dynamics. My channel explains 10% of the overall job-to-job transitions and shows how firm-induced variation in job search can be a significant driver of inequality, especially at the bottom of the wage distribution.
 </p>
 
@@ -21,8 +21,8 @@ Do workers consider a firm’s “springboard” value in terms of future job op
 
 <br />
 
-#### The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity
-**joint with [Paolo Zacchia](https://www.paolozacchia.com)**
+**The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity**
+<br>joint with [Paolo Zacchia](https://www.paolozacchia.com)
 
 <sup> 🏆 _Project selected for the VisitINPS 2020 program_ </sup>
 
@@ -35,8 +35,8 @@ We document how a reduction in labor costs led to heterogeneous effects on manuf
 
 <br />
 
-#### Optimal Ramsey Taxation with Social Security 
-**joint with [Marco Francischello](https://marcofrancis.github.io) and [Matteo Paradisi](https://www.matteoparadisi.com)**
+**Optimal Ramsey Taxation with Social Security**
+<br>joint with [Marco Francischello](https://marcofrancis.github.io) and [Matteo Paradisi](https://www.matteoparadisi.com)
 
 <sup> 🏆 _Project awarded with a Netspar Comparative Research Grant 2021_ </sup>
 
@@ -52,11 +52,10 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <br />
 
-
 ### Selected work-in-progress
 
-#### Responsible Firms on the Labor Market
-**joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)**
+**Responsible Firms on the Labor Market**
+<br>joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
@@ -68,9 +67,8 @@ Our simulations show that retirement benefits in the current economies are highe
 
 <br />
 
-
-#### Human Capital Value Chains
-**joint with [Paolo Zacchia](https://www.paolozacchia.com)**
+**Human Capital Value Chains**
+<br>joint with [Paolo Zacchia](https://www.paolozacchia.com)
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
 
@@ -82,8 +80,8 @@ Our simulations show that retirement benefits in the current economies are highe
   
 <br />
 
-#### Do AKM Effects Really Matter?
-**joint with Aslan Bakirov and [Paolo Zacchia](https://www.paolozacchia.com)**
+**Do AKM Effects Really Matter?**
+<br>joint with Aslan Bakirov and [Paolo Zacchia](https://www.paolozacchia.com)
 
 <details>
   <summary> Short abstract </summary>
@@ -93,9 +91,8 @@ We revisit the wage decomposition literature using machine learning. We show emp
 
 <br />
 
-
-#### Deep Structural Estimation
-**joint with [Marco Francischello](http://marcofrancis.github.io)**
+**Deep Structural Estimation**
+<br>joint with [Marco Francischello](http://marcofrancis.github.io)
 
 <details>
   <summary> Short abstract </summary>
@@ -105,15 +102,14 @@ Structural estimation using the Simulated Method of Moments (SMM) aims to iterat
   
 <br />
 
-
 ---
 
-## <ins>Policy papers</ins>
+## Policy papers
 
-#### Una proposta per un APE volontario finalmente a regime
-**joint with [Matteo Paradisi](https://www.matteoparadisi.com)**
+**Una proposta per un APE volontario finalmente a regime**
+<br>joint with [Matteo Paradisi](https://www.matteoparadisi.com)
 
-##### Istituto Bruno Leoni, Briefing Papers
+**Istituto Bruno Leoni, Briefing Papers**
 🗞️ _Media coverage: [Il Foglio](../op-eds/ape_foglio.pdf)_
 
 <details>
