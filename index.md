@@ -5,7 +5,6 @@ title: Francesco Del Prato
 
 ## Francesco Del Prato
 
-
 <img align="left" src="/images/profpic_bn.jpg" alt="Francesco" width="240" style="padding: 0px 20px 5px 0px" />
 
 #### About me
