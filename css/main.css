@@ -17,7 +17,7 @@
   --primary-color: #5b5555;
   --link-color: #E55a54;
   --link-hover-decoration: underline;
-  --base-font-size: 1em; /* 16px if browser default is 16px */
+  --base-font-size: .9em; /* 16px if browser default is 16px */
   --line-height: 1.4em;
 }
 
@@ -59,7 +59,7 @@ hr {
   }
 
   p, ul, details, nav ul li, footer ul li {
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
   
   h1 { font-size: 1.5em; }
