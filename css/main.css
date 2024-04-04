@@ -93,5 +93,5 @@ nav ul li, footer ul li {
 }
 
 footer {
-  border-top: 1px solid var(--primary-color);
+  border-top: 1px solid #e0e0e0;
 }
