@@ -18,6 +18,13 @@ nav {
   border-bottom: 1px solid #e0e0e0; /* Light grey border */
 }
 
+hr {
+    border: none;
+    height: 1px;
+    /* Set the color to a very light gray */
+    background-color: #e0e0e0;
+}
+
 @media only screen and (min-width: 48em) { /* 768px */
   body {
     margin: 65px auto;
