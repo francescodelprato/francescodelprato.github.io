@@ -47,11 +47,11 @@ hr {
   p, ul, details, nav ul li, footer ul li {
     font-size: 0.9em;
   }
-
-  h1 { font-size: 1.7em; }
-  h2 { font-size: 1.5em; }
-  h3 { font-size: 1.3em; }
-  h4 { font-size: 1.2em; }
+  
+  h1 { font-size: 1.5em; }
+  h2 { font-size: 1.3em; }
+  h3 { font-size: 1.1em; }
+  h4 { font-size: 1.0em; }
 
   nav ul li, footer ul li {
     margin-right: 10px;
@@ -83,10 +83,10 @@ h1, h2, h3, h4 {
   font-family: var(--font-family);
 }
 
-h1 { font-size: 1.7em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.3em; }
-h4 { font-size: 1.2em; }
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.3em; }
+h3 { font-size: 1.1em; }
+h4 { font-size: 1.0em; }
 
 nav ul, footer ul {
   padding: 0;
