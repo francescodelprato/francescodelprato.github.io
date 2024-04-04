@@ -3,17 +3,19 @@ layout: default
 title: Research
 ---
 
-## <ins>Academic Research</ins>
+## Academic Research
 
 ### Working Papers
 
-#### _The Importance of Working for Earnest_: Climbing the Job Ladder through Firms' Connectivity
+**_The Importance of Working for Earnest_: Climbing the Job Ladder through Firms' Connectivity**
 
 <sup>🏆 _Project selected for the VisitINPS 2019 program_ </sup>
 
   <summary> Abstract </summary>
 
+<p class="reddit-mono-light">
 Do workers consider a firm’s “springboard” value in terms of future job opportunities when choosing an employer? Using a search model of the labor market, I introduce the idea that firms differ in enhancing their employees’ chances of receiving external job offers. The model informs a firm-level proxy for outside job offers received by workers. This measure empirically aligns with key model predictions: 1) it negatively correlates with both firm-specific tenure and young workers’ entry salaries, revealing a compensating differential; and 2) it suggests that workers enjoy a salary premium upon leaving such firms, indicative of faster career progression. The model is estimated on administrative data from Italy and successfully captures key aspects of labor market dynamics. My channel explains 10% of the overall job-to-job transitions and shows how firm-induced variation in job search can be a significant driver of inequality, especially at the bottom of the wage distribution.
+</p>
 
 📄 **[Paper](JMP_DelPrato.pdf)**
 
