@@ -21,7 +21,7 @@ Do workers consider a firm’s “springboard” value in terms of future job op
 
 <br />
 
-#### <span style="margin-bottom: 0;">The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity</span>
+#### The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity
 joint with [Paolo Zacchia](https://www.paolozacchia.com)
 
 <sup> 🏆 _Project selected for the VisitINPS 2020 program_ </sup>
