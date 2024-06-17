@@ -30,7 +30,6 @@ joint with [Paolo Zacchia](https://www.paolozacchia.com)
 
 We document how a reduction in labor costs led to heterogeneous effects on manufacturing firms’ total factor productivity (TFP). Leveraging an Italian labor legislation reform and unique institutional features of the local collective bargaining system, we show that such effects vary along the TFP distribution. Relative to the counterfactual, TFP markedly declines on the left tail, which we explain via selection mechanisms; on the right, TFP mildly increases as firms are able to expand and reallocate their workforce. We develop a general equilibrium model featuring firm selection and frictions in input markets to guide the evaluation of welfare implications.
   
-⏳ Submitted!
 📄 **[Paper](lc_productivity_FDP_PZ.pdf)**
 
 <br />
