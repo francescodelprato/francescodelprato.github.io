@@ -118,4 +118,20 @@ joint with [Matteo Paradisi](https://www.matteoparadisi.com)
   
 </details>
 
-📄 **[Paper](Ape_volontario_policypaper.pdf)**
+📄 **[Policy paper](Ape_volontario_policypaper.pdf) (in Italian)**
+
+<br />
+
+#### Take it easy, rider!
+joint with [Carlo Stagnaro](https://www.brunoleoni.it/persone/carlo-stagnaro/)
+
+**Istituto Bruno Leoni, Briefing Papers**
+
+<details>
+  
+  <summary> Abstract </summary>
+  Gig economy workers, like food delivery couriers, differ fundamentally from traditional employees. Rapid regulatory changes create confusion and make it hard for companies to adapt. We claim that a rigid labor market could have severe consequences: gig work often acts as a social safety net, helping individuals between jobs and enhancing company efficiency. Importantly, neither workers nor consumers seem to seek regulatory intervention.
+  
+</details>
+
+📄 **[Policy paper](Riders_policypaper.pdf) (in Italian)**
