@@ -10,7 +10,7 @@ title: Francesco Del Prato
 I am a Postdoctoral Fellow at the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/).
 Starting from the 2024 fall, I will join the Department of Economics and Business Economics of [Aarhus University](https://econ.au.dk) as an Assistant Professor. 
 
-I received a joint Ph.D. in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz).
+[comment]: <> ( I received a joint Ph.D. in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz). )
 
 [comment]: <> ( I hold a degree in Economics and Social Sciences from [Bocconi University](https://www.unibocconi.eu/wps/wcm/connect/Bocconi/SitoPubblico_EN/Navigation+Tree/Home/). )
 
@@ -18,7 +18,7 @@ I received a joint Ph.D. in Business Economics between the [IMT School for Advan
 
 My research is grounded in _Macro/Labor Economics_ and focuses on the interplay between labor market dynamics and public policy. 
 
-I explore how workers move between jobs and how these transitions are affected by the decisions that firms make and the government's policies.
+[comment]: <> ( I explore how workers move between jobs and how these transitions are affected by the decisions that firms make and the government's policies. )
 My work usually employs a mix of structural and reduced-form approaches that exploit administrative microdata.
 
 #### Contacts
