@@ -5,7 +5,9 @@ title: Op-eds
 
 ## Op-eds in Italian newspapers
 
-#### Le criticità di un salario minimo a 9 euro nel contesto Italiano [📰](salariominimo_foglio_22.pdf)  [🖥️](https://www.ilfoglio.it/economia/2022/06/17/news/le-criticita-di-un-salario-minimo-a-9-euro-nel-contesto-italiano--4126922/)
+<div style="margin-top: -20px;">
+
+#### Le criticità di un salario minimo a 9 euro nel contesto Italiano [📰](salariominimo_foglio_22.pdf)  [🖥️](https://www.ilfoglio.it/economia/2022/06/17/news/le-criticita-di-un-salario-minimo-a-9-euro-nel-contesto-italiano--4126922/) 
 _Il Foglio_, 17 giugno 2022, con Matteo Paradisi
 
 
