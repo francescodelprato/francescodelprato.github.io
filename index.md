@@ -14,8 +14,6 @@ Starting from the 2024 fall, I will join the Department of Economics and Busines
 
 [comment]: <> ( I hold a degree in Economics and Social Sciences from [Bocconi University](https://www.unibocconi.eu/wps/wcm/connect/Bocconi/SitoPubblico_EN/Navigation+Tree/Home/). )
 
-#### Research
-
 My research is grounded in _Macro/Labor Economics_ and focuses on the interplay between labor market dynamics and public policy. 
 
 [comment]: <> ( I explore how workers move between jobs and how these transitions are affected by the decisions that firms make and the government's policies. )
