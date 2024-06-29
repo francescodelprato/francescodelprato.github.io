@@ -27,7 +27,7 @@
   --primary-color: #5b5555;
   --link-color: #E55a54;
   --link-hover-decoration: underline;
-  --base-font-size: .9em; /* 16px if browser default is 16px */
+  --base-font-size: 1.2em; /* 16px if browser default is 16px */
   --line-height: 1.3em;
 }
 
@@ -52,7 +52,7 @@ hr {
 @media only screen and (min-width: 48em) { /* 768px */
   body {
     margin: 65px auto;
-    width: 75%;
+    width: 70%;
   }
 }
 
