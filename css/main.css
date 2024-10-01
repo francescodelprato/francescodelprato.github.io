@@ -13,7 +13,7 @@
   font-weight: 300;
   font-style: normal;
 }
-
+ 
 :root {
   --font-family: "Reddit Mono", monospace;
   --primary-color: #5b5555;
@@ -26,6 +26,7 @@
 body {
   margin: 22px auto;
   width: 70%;
+  max-width: 1200px;
   font-family: var(--font-family);
   color: var(--primary-color);
 }
