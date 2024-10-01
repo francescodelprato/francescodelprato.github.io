@@ -7,7 +7,7 @@ title: Francesco Del Prato
 
 #### About me
 
-I am an assistant professor of Economics at the Department of Economics and Business Economics of [Aarhus University](https://econ.au.dk).
+I am an assistant professor at the Department of Economics and Business Economics of [Aarhus University](https://econ.au.dk).
 
 [comment]: <> ( I received a joint Ph.D. in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz). )
 
