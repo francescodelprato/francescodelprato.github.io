@@ -7,8 +7,7 @@ title: Francesco Del Prato
 
 #### About me
 
-I am a Postdoctoral Fellow at the [Paris School of Economics](https://www.parisschoolofeconomics.eu/en/).
-Starting from the 2024 fall, I will join the Department of Economics and Business Economics of [Aarhus University](https://econ.au.dk) as an Assistant Professor. 
+I am an assistant professor of Economics at the Department of Economics and Business Economics of [Aarhus University](https://econ.au.dk).
 
 [comment]: <> ( I received a joint Ph.D. in Business Economics between the [IMT School for Advanced Studies](https://imtlucca.it) and [KU Leuven](https://www.kuleuven.be/english/kuleuven/index.html). During my Ph.D., I spent a year as a Research Fellow at [CERGE-EI](https://www.cerge-ei.cz). )
 
@@ -21,8 +20,12 @@ My work usually employs a mix of structural and reduced-form approaches that exp
 
 #### Contacts
 
-Paris School of Economics 
+Department of Economics and Business Economics
 <br>
-48 Bd. Jourdan – 75014 Paris (France) 
+Aarhus BSS, Aarhus University
+<br>
+Fuglesangs Allé 4, bld. 2623
+<br>
+8210 Aarhus V, Denmark
 
 To get in touch, email me using the link at the bottom of this page.
