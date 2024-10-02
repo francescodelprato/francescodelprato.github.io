@@ -53,7 +53,18 @@ Our simulations show that retirement benefits in the current economies are highe
 
 ### Selected work-in-progress
 
-#### Responsible Firms on the Labor Market
+#### Workers as Partners: a Theory of Responsible Firms in Labor Markets
+joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)
+
+<details>
+  <summary> Short abstract </summary>
+  
+We theoretically characterize responsible firms in the labor market, incorporating worker surplus into their objectives. Facing search frictions, responsible firms can still exercise market power and typically offer higher wages, contributing to wage dispersion. At the macro level, their presence introduces a trade-off between increased worker surplus, lower employment, and improved vacancy-filling rates. In limited-competition settings, responsible firms can coexist with profit-maximizing firms, raising overall market wages.
+</details>
+
+<br />
+
+#### Responsible Firms on the Labor Market 
 joint with [Marc Fleurbaey](https://www.sites.google.com/site/marcfleurbaey/Home)
 
 <sup> 🏆 _Project selected for the VisitINPS 2023 program_ </sup>
@@ -88,17 +99,6 @@ joint with Aslan Bakirov and [Paolo Zacchia](https://www.paolozacchia.com)
 We revisit the wage decomposition literature using machine learning. We show empirically that if both worker- and firm-level observable characteristics are treated non-parametrically via generalized random forests, the share of log-wages variance explained by typical “AKM” fixed effects falls precipitously.
 </details>
 
-<br />
-
-#### Deep Structural Estimation
-joint with [Marco Francischello](http://marcofrancis.github.io)
-
-<details>
-  <summary> Short abstract </summary>
-  
-Structural estimation using the Simulated Method of Moments (SMM) aims to iteratively minimize the difference between moments from simulated and real-world data. We propose an approach to speed up this process by fitting a neural network that approximates the map between parameters and moments—an object that can be built by exploiting parallel computation.
-</details>
-  
 <br />
 
 ---
