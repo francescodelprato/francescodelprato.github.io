@@ -46,12 +46,31 @@ const wp = [
 
 
 const wip = [
+
+  {
+    title: "Responsible Firms on the Labor Market",
+    coauthors: [{ name: "Marc Fleurbaey", url: "https://sites.google.com/site/marcfleurbaey/Home" }],
+    notes: "Project selected for the VisitINPS 2023 program",
+    description: 
+	"Responsible firms prioritize maximizing stakeholder value, which entails balancing the surpluses of their customers and workers along with their profits. In this paper, we focus on firms' behavior within the labor market and introduce a method for identifying responsible firms using administrative data. By integrating measures of labor market power and systematic utility provided to workers, we construct a multi-dimensional index of responsibility. This enables us to categorize companies and assess the degree of a firm's responsibility throughout its life cycle. Furthermore, we evaluate the influence of a firm's responsibility on income inequalities both within and between firms.",
+  },
+
   {
     title: "Human Capital Value Chains",
     coauthors: [{ name: "Paolo Zacchia", url: "http://paolozacchia.com" }],
     notes: "Project selected for the VisitINPS 2023 program",
     description: 
 	"In local labor markets, a pattern often emerges where workers transition during the early stages of their careers from lower-paying firms that provide comprehensive training to higher-paying specialized firms that predominantly employ already-trained workers. We refer to this mechanism as the “Human Capital Value Chain” (HCVC). We study and document its impact on the trajectory of workers' wages and local agglomeration externalities, thereby highlighting its role in the broader labor market dynamics.",
+  },
+
+  {
+    title: "Do AKM Effects Really Matter?",
+    coauthors: [
+	{ name: "Paolo Zacchia", url: "http://paolozacchia.com" },
+	{ name: "Aslan Bakirov" }
+    ],
+    description: 
+	"We revisit the wage decomposition literature using machine learning. We show empirically that if both worker- and firm-level observable characteristics are treated non-parametrically via generalized random forests, the share of log-wages variance explained by typical “AKM” fixed effects falls precipitously.",
   },
 
 ];
@@ -102,11 +121,21 @@ const description = "A collection of working papers and work in progress by the 
         
         {project.coauthors && (
           <p class="italic">
-            Joint with {project.coauthors.map((author, i) => (
+            Joint with{" "}
+            {project.coauthors.map((author, i) => (
               <span key={i}>
-                <a href={author.url} target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
-                  {author.name}
-                </a>
+                {author.url ? (
+                  <a
+                    href={author.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-blue-500 hover:underline"
+                  >
+                    {author.name}
+                  </a>
+                ) : (
+                  author.name
+                )}
                 {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
               </span>
             ))}
@@ -150,24 +179,29 @@ const description = "A collection of working papers and work in progress by the 
         )}
       </div>
 
-      {project.coauthors && (
-        <p class="italic">
-          Joint with{" "}
-          {project.coauthors.map((author, i) => (
-            <span key={i}>
-              <a
-                href={author.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-blue-500 hover:underline"
-              >
-                {author.name}
-              </a>
-              {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
-            </span>
-          ))}
-        </p>
-      )}
+        
+        {project.coauthors && (
+          <p class="italic">
+            Joint with{" "}
+            {project.coauthors.map((author, i) => (
+              <span key={i}>
+                {author.url ? (
+                  <a
+                    href={author.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-blue-500 hover:underline"
+                  >
+                    {author.name}
+                  </a>
+                ) : (
+                  author.name
+                )}
+                {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
+              </span>
+            ))}
+          </p>
+        )}
 
       {project.notes && (
         <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
