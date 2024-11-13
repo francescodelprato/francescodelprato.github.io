@@ -9,6 +9,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import icon from "astro-icon";
 import opengraphImages, { presets } from "astro-opengraph-images";
+import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
@@ -74,4 +75,9 @@ export default defineConfig({
     }),
   ],
   output: "static",
+  partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+})
 });
