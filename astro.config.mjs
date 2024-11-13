@@ -15,6 +15,7 @@ import partytown from '@astrojs/partytown';
 export default defineConfig({
   site: "https://francescodelprato.github.io",
   integrations: [
+    partytown({ config: { forward: ["dataLayer.push"] } }),
     mdx({
       image: {
         domains: ["unsplash.com"],

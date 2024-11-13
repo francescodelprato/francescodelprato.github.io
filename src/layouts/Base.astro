@@ -23,6 +23,25 @@ const { title, description, image } = Astro.props;
 
 <html lang="en" class="scrollbar-hide lenis lenis-smooth">
   <head>
+	
+<!-- Google tag (gtag.js) -->
+<script
+  is:inline
+  type="text/partytown"
+  src="https://www.googletagmanager.com/gtag/js?id=G-CB0P1912PV"
+></script>
+
+<script is:inline type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-CB0P1912PV");
+</script>
+
+
     <ViewTransitions />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
