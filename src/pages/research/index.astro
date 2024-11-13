@@ -82,43 +82,102 @@ const description = "A collection of working papers and work in progress by the 
 ---
 
 <Base title={title} description={description}>
+  <section>
+    <!-- Working Papers Section -->
+    <h1 class="mb-8 text-2xl font-medium tracking-tight">Working Papers</h1>
+    <div class="space-y-6">
+      {wp.map((project, index) => (
+        <div class="flex flex-col" key={index}>
+          <div class="w-full flex justify-between items-baseline">
+            <span class="text-black dark:text-white tracking-tight font-bold">
+              {project.title}
+            </span>
+            
+            <div class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm ml-2 flex items-center space-x-2">
+              {project.pdf && (
+                <a
+                  href={project.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:underline"
+                >
+                  PDF
+                </a>
+              )}
+              {project.pdf && project.arxiv && <span>|</span>}
+              {project.arxiv && (
+                <a
+                  href={project.arxiv}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:underline"
+                >
+                  ArXiv
+                </a>
+              )}
+            </div>
+          </div>
+          
+          {project.coauthors && (
+            <p class="italic">
+              Joint with{" "}
+              {project.coauthors.map((author, i) => (
+                <span key={i}>
+                  {author.url ? (
+                    <a
+                      href={author.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-blue-500 hover:underline"
+                    >
+                      {author.name}
+                    </a>
+                  ) : (
+                    author.name
+                  )}
+                  {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
+                </span>
+              ))}
+            </p>
+          )}
+          
+          {project.notes && (
+            <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">{project.notes}</p>
+          )}
+          
+          <!-- Toggleable Description with Left-Aligned "Show More" Button -->
+          <button
+            onclick={`document.getElementById('wp-desc-${index}').classList.toggle('hidden')`}
+            class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm flex items-center mt-2"
+          >
+            <span class="mr-1">▼</span> Abstract
+          </button>
+          
+          <p id={`wp-desc-${index}`} class="prose prose-neutral dark:prose-invert pt-3 hidden">
+            {project.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
 
-<section>
-  <!-- Working Papers Section -->
-  <h1 class="mb-8 text-2xl font-medium tracking-tight">Working Papers</h1>
+  
+  <!-- Work in Progress Section -->
+  <h1 class="mb-8 mt-12 text-2xl font-medium tracking-tight">Selected Work in Progress</h1>
   <div class="space-y-6">
-    {wp.map((project, index) => (
-      <div class="flex flex-col" key={index}>
+    {wip.map((project, index) => (
+      <div class="flex flex-col" key={`wip-${index}`}>
         <div class="w-full flex justify-between items-baseline">
           <span class="text-black dark:text-white tracking-tight font-bold">
             {project.title}
           </span>
-          
-          <div class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm ml-2 flex items-center space-x-2">
-            {project.pdf && (
-              <a
-                href={project.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:underline"
-              >
-                PDF
-              </a>
-            )}
-            {project.pdf && project.arxiv && <span>|</span>}
-            {project.arxiv && (
-              <a
-                href={project.arxiv}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:underline"
-              >
-                ArXiv
-              </a>
-            )}
-          </div>
+          {project.year && (
+            <span class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+              {project.year}
+            </span>
+          )}
         </div>
-        
+
         {project.coauthors && (
           <p class="italic">
             Joint with{" "}
@@ -141,88 +200,25 @@ const description = "A collection of working papers and work in progress by the 
             ))}
           </p>
         )}
-        
+
         {project.notes && (
-          <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">{project.notes}</p>
+          <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+            {project.notes}
+          </p>
         )}
-        
+
         <!-- Toggleable Description with Left-Aligned "Show More" Button -->
         <button
-          onclick={`document.getElementById('desc-${index}').classList.toggle('hidden')`}
+          onclick={`document.getElementById('wip-desc-${index}').classList.toggle('hidden')`}
           class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm flex items-center mt-2"
         >
-          <span class="mr-1">▼</span> Abstract
+          <span class="mr-1">▼</span> Short abstract
         </button>
-        
-        <p id={`desc-${index}`} class="prose prose-neutral dark:prose-invert pt-3 hidden">
+
+        <p id={`wip-desc-${index}`} class="prose prose-neutral dark:prose-invert pt-3 hidden">
           {project.description}
         </p>
       </div>
     ))}
   </div>
-</section>
-
-    
-<!-- Work in Progress Section -->
-<h1 class="mb-8 mt-12 text-2xl font-medium tracking-tight">Selected Work in Progress</h1>
-<div class="space-y-6">
-  {wip.map((project, index) => (
-    <div class="flex flex-col" key={index}>
-      <div class="w-full flex justify-between items-baseline">
-        <span class="text-black dark:text-white tracking-tight font-bold">
-          {project.title}
-        </span>
-        {project.year && (
-          <span class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-            {project.year}
-          </span>
-        )}
-      </div>
-
-        
-        {project.coauthors && (
-          <p class="italic">
-            Joint with{" "}
-            {project.coauthors.map((author, i) => (
-              <span key={i}>
-                {author.url ? (
-                  <a
-                    href={author.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-blue-500 hover:underline"
-                  >
-                    {author.name}
-                  </a>
-                ) : (
-                  author.name
-                )}
-                {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
-              </span>
-            ))}
-          </p>
-        )}
-
-      {project.notes && (
-        <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-          {project.notes}
-        </p>
-      )}
-
-      <!-- Toggleable Description with Left-Aligned "Show More" Button -->
-      <button
-        onclick={`document.getElementById('desc-${index}').classList.toggle('hidden')`}
-        class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm flex items-center mt-2"
-      >
-        <span class="mr-1">▼</span> Short abstract
-      </button>
-
-      <p id={`desc-${index}`} class="prose prose-neutral dark:prose-invert pt-3 hidden">
-        {project.description}
-      </p>
-    </div>
-  ))}
-</div>
-
-
 </Base>
