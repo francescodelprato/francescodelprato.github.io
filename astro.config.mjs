@@ -75,9 +75,4 @@ export default defineConfig({
     }),
   ],
   output: "static",
-  partytown({
-      config: {
-        forward: ["dataLayer.push"],
-      },
-})
 });
