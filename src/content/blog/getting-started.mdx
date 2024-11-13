@@ -1,0 +1,82 @@
+---
+title: "Getting Started with Astrofolio"
+publishedAt: "2024-08-13"
+summary: "Instructions to build and configure your Astrofolio portfolio."
+tags: "Configuration, Web development"
+---
+
+Astrofolio includes all the essentials for a stunning portfolio website.
+
+Start by [deploying](https://vercel.com/new/clone?repository-url=https://github.com/vikas5914/Astrofolio) your portfolio with Vercel in minutes, or fork the [repository](https://github.com/vikas5914/Astrofolio) and follow the instructions below to set it up.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vikas5914/Astrofolio)
+
+## Installation
+
+Astrofolio uses [bun](https://bun.sh) for dependency management, so ensure it is installed on your system.
+
+Clone the repository and run the following command to install the dependencies:
+
+```jsx
+git clone https://github.com/vikas5914/Astrofolio
+cd Astrofolio
+bun i
+```
+
+Start the development server:
+
+```jsx
+bun dev
+```
+
+The server will be running at [http://localhost:4321/](http://localhost:4321/).
+
+## Configuration
+
+Customize your Astrofolio setup by updating your information to ensure proper SEO, feed generation, Open Graph integration, and other settings.
+
+### Config.ts
+
+Update the site metadata and social links in the **src/config.js** file. These constants are utilized across the site for SEO, feeds, social links, and Open Graph integration.
+
+```jsx
+export const metaData = {
+  baseUrl: "https://astrofolio-astro.vercel.app/",
+  title: "Astrofolio",
+  name: "Vikas",
+  ogImage: "/opengraph-image.png",
+  description:
+    "A clean, fast, and lightweight portfolio template built with Next.js, Vercel, and Tailwind CSS for optimal performance.",
+};
+
+export const socialLinks = {
+  twitter: "https://x.com/vikas5914",
+  github: "https://github.com/vikas5914/Astrofolio",
+  instagram: "https://www.instagram.com/",
+  linkedin: "https://www.linkedin.com/",
+  email: "mailto:example@gmail.com",
+};
+
+```
+
+### Sitemap
+
+With Astro Sitemap, you don’t have to worry about creating this XML file yourself: the Astro Sitemap integration will crawl your statically-generated routes and create the sitemap file.
+
+### Profile Photo
+
+Update your profile photo by replacing the **public/profile.png** file with your image.
+
+### Favicon
+
+Update your favicon by replacing the **public/favicon.ico** file with your custom icon.
+
+## Analytics
+
+Astrofolio uses [Vercel Web Analytics](https://vercel.com/docs/analytics/quickstart) to monitor user interactions. Simply deploy your site on Vercel and enable feature through the Vercel dashboard.
+
+## Ready!
+
+You're all set! Update your blog posts in the **/content** folder, add your project data in **pages/projects/index.astro**, and update your images in **pages/photos/index.astro**.
+
+Your portfolio is equipped with SEO and [RSS](/rss.xml), as well as analytics. Astrofolio is fully customizable, allowing you to add features as needed.

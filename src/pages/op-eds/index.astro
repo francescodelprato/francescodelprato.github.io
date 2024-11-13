@@ -1,0 +1,106 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const opEds = [
+  {
+    title: "Le criticità di un salario minimo a 9 euro nel contesto Italiano",
+    publication: "Il Foglio",
+    date: "17 giugno 2022",
+    coauthor: "Matteo Paradisi",
+    pdf: "src/pages/op-eds/salariominimo_foglio_22.pdf",
+    digital: "https://www.ilfoglio.it/economia/2022/06/17/news/le-criticita-di-un-salario-minimo-a-9-euro-nel-contesto-italiano--4126922/"
+  },
+  {
+    title: "Alireza ha scelto",
+    publication: "Il Foglio",
+    date: "26 gennaio 2022",
+    coauthor: "Cecilia Sala",
+    digital: "https://www.ilfoglio.it/cultura/2022/01/29/news/preferisci-l-iran-o-vincere-alireza-ha-scelto-3589459/"
+  },
+  {
+    title: "Una bolla per le RSA",
+    publication: "Il Foglio",
+    date: "29 ottobre 2020",
+    coauthor: "Gianluca Rinaldi",
+    pdf: "src/pages/op-eds/rsa_foglio.pdf",
+    digital: "https://www.ilfoglio.it/salute/2020/10/29/news/una-bolla-anti-covid-per-le-rsa-1322600/"
+  },
+  {
+    title: "L’unico vero antidoto a Quota 100 si chiama Ape Volontario",
+    publication: "Il Foglio",
+    date: "2 gennaio 2020",
+    coauthor: "Matteo Paradisi",
+    pdf: "src/pages/op-eds/ape_foglio.pdf",
+    digital: "https://www.ilfoglio.it/economia/2020/01/02/news/lunico-vero-antidoto-a-quota-100-si-chiama-ape-volontario-294615/"
+  },
+  {
+    title: "Tutte le tasse di Fioramonti, tra inefficacia e iniquità",
+    publication: "Il Foglio",
+    date: "27 settembre 2019",
+    coauthor: "Matteo Paradisi",
+    pdf: "src/pages/op-eds/sugar_tax_foglio.pdf",
+    digital: "https://www.ilfoglio.it/economia/2019/09/26/news/tutte-le-tasse-di-fioramonti-tra-inefficacia-e-iniquita-276660/"
+  },
+  {
+    title: "In Italia il salario minimo serve solo alla politica",
+    publication: "Il Foglio",
+    date: "04 settembre 2019",
+    coauthor: "Matteo Paradisi",
+    pdf: "src/pages/op-eds/salario_minimo_foglio.pdf",
+    digital: "https://www.ilfoglio.it/economia/2019/09/04/news/in-italia-il-salario-minimo-universale-serve-solo-alla-politica-272279/"
+  }
+];
+
+
+const title = "Op-eds";
+const description = "A collection of newspaper publications by Francesco.";
+---
+
+<Base title={title} description={description}>
+
+<section>
+  <h2 class="text-2xl font-medium mb-6">Op-eds in Italian Newspapers</h2>
+  <div class="space-y-4">
+    {opEds.map((opEd, index) => (
+      <div key={index} class="flex flex-col space-y-1">
+        <div class="flex justify-between items-baseline">
+          <span class="text-black dark:text-white tracking-tight font-bold">
+            {opEd.title}
+          </span>
+
+          <div class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm flex items-center space-x-2">
+            {opEd.pdf && (
+              <a
+                href={opEd.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:underline"
+              >
+                pdf
+              </a>
+            )}
+            {opEd.pdf && opEd.digital && <span>|</span>}
+            {opEd.digital && (
+              <a
+                href={opEd.digital}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:underline"
+              >
+                digital
+              </a>
+            )}
+          </div>
+        </div>
+
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          {opEd.publication}, {opEd.date}
+          {opEd.coauthor && `, con ${opEd.coauthor}`}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+</Base>

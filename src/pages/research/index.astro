@@ -1,0 +1,194 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const wp = [
+
+  {
+    title: "Workers as Partners: a Theory of Responsible Firms in Labor Markets",
+    coauthors: [{ name: "Marc Fleurbaey", url: "https://sites.google.com/site/marcfleurbaey/Home" }],
+    description:
+      "We develop a theoretical framework analyzing responsible firms (REFs) that prioritize worker welfare alongside profits in labor markets with search frictions. At the micro level, REFs’ use of market power varies with labor conditions: they refrain from using it in slack markets but may exercise it in tight markets without harming workers. Our macro analysis shows these firms offer higher wages, creating a distinct high-wage sector. When firms endogenously choose worker bargaining power, there is trade-off between worker surplus and employment, though this improves with elastic labor supply. While REFs cannot survive with free entry, they can coexist with profit-maximizing firms under limited competition, where their presence forces ordinary firms to raise wages.",
+    pdf: "RF_theory.pdf",
+    arxiv: "https://arxiv.org/abs/2411.05567",
+  },
+
+  {
+    title: "The Importance of Working for Earnest: Climbing the Job Ladder through Firms’ Connectivity",
+    notes: "> Project selected for the VisitINPS 2019 program",
+    description:
+      "Do workers consider a firm’s “springboard” value in terms of future job opportunities when choosing an employer? Using a search model of the labor market, I introduce the idea that firms differ in enhancing their employees’ chances of receiving external job offers. The model informs a firm-level proxy for outside job offers received by workers. This measure empirically aligns with key model predictions: 1) it negatively correlates with both firm-specific tenure and young workers’ entry salaries, revealing a compensating differential; and 2) it suggests that workers enjoy a salary premium upon leaving such firms, indicative of faster career progression. The model is estimated on administrative data from Italy and successfully captures key aspects of labor market dynamics. My channel explains 10% of the overall job-to-job transitions and shows how firm-induced variation in job search can be a significant driver of inequality, especially at the bottom of the wage distribution.",
+    pdf: "JMP_DelPrato.pdf",
+  },
+
+  {
+    title: "The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity",
+    coauthors: [{ name: "Paolo Zacchia", url: "http://paolozacchia.com" }],
+    notes: "> Project selected for the VisitINPS 2020 program",
+    description:
+      "We document how a reduction in labor costs led to heterogeneous effects on manufacturing firms’ total factor productivity (TFP). Leveraging an Italian labor legislation reform and unique institutional features of the local collective bargaining system, we show that such effects vary along the TFP distribution. Relative to the counterfactual, TFP markedly declines on the left tail, which we explain via selection mechanisms; on the right, TFP mildly increases as firms are able to expand and reallocate their workforce. We develop a general equilibrium model featuring firm selection and frictions in input markets to guide the evaluation of welfare implications.",
+    pdf: "lc_productivity_FDP_PZ.pdf",
+  },
+
+  {
+    title: "Optimal Ramsey Taxation with Social Security",
+    coauthors: [
+      { name: "Marco Francischello", url: "https://marcofrancis.me" },
+      { name: "Matteo Paradisi", url: "http://matteoparadisi.com" }
+    ],
+    notes: "> Project awarded with a Netspar Comparative Research Grant 2021",  
+    description:
+      "We develop an OLG model with heterogeneous agents and aggregate uncertainty to study optimal Ramsey taxation when the government can use a credible set of social security instruments. Social security mitigates the income effect in optimal labor tax smoothing and, together with heterogeneity, adds new redistributive motives to both labor and capital taxes while crowding out others. We calibrate the model on three different economies: the US, Netherlands, and Italy. We argue that the three countries would experience heterogeneous gains, in redistributive and efficiency terms, by moving from the status-quo allocations to those prescribed by a utilitarian Ramsey planner. Our simulations show that retirement benefits in the current economies are higher than their Ramsey-optimal level while we argue that the use of funded social security schemes, neglected in current actual policies, could be welfare improving.",
+    pdf: "ot_retirement_paper.pdf",
+  },
+
+
+];
+
+
+const wip = [
+  {
+    title: "Human Capital Value Chains",
+    coauthors: [{ name: "Paolo Zacchia", url: "http://paolozacchia.com" }],
+    notes: "Project selected for the VisitINPS 2023 program",
+    description: 
+	"In local labor markets, a pattern often emerges where workers transition during the early stages of their careers from lower-paying firms that provide comprehensive training to higher-paying specialized firms that predominantly employ already-trained workers. We refer to this mechanism as the “Human Capital Value Chain” (HCVC). We study and document its impact on the trajectory of workers' wages and local agglomeration externalities, thereby highlighting its role in the broader labor market dynamics.",
+  },
+
+];
+
+
+
+const title = "Working Papers and Work in Progress";
+const description = "A collection of working papers and work in progress by the author.";
+---
+
+<Base title={title} description={description}>
+
+<section>
+  <!-- Working Papers Section -->
+  <h1 class="mb-8 text-2xl font-medium tracking-tight">Working Papers</h1>
+  <div class="space-y-6">
+    {wp.map((project, index) => (
+      <div class="flex flex-col" key={index}>
+        <div class="w-full flex justify-between items-baseline">
+          <span class="text-black dark:text-white tracking-tight font-bold">
+            {project.title}
+          </span>
+          
+          <div class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm ml-2 flex items-center space-x-2">
+            {project.pdf && (
+              <a
+                href={`/src/pages/research/${project.pdf}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:underline"
+              >
+                PDF
+              </a>
+            )}
+            {project.pdf && project.arxiv && <span>|</span>}
+            {project.arxiv && (
+              <a
+                href={project.arxiv}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:underline"
+              >
+                ArXiv
+              </a>
+            )}
+          </div>
+        </div>
+        
+        {project.coauthors && (
+          <p class="italic">
+            Joint with {project.coauthors.map((author, i) => (
+              <span key={i}>
+                <a href={author.url} target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
+                  {author.name}
+                </a>
+                {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
+              </span>
+            ))}
+          </p>
+        )}
+        
+        {project.notes && (
+          <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">{project.notes}</p>
+        )}
+        
+        <!-- Toggleable Description with Left-Aligned "Show More" Button -->
+        <button
+          onclick={`document.getElementById('desc-${index}').classList.toggle('hidden')`}
+          class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm flex items-center mt-2"
+        >
+          <span class="mr-1">▼</span> Abstract
+        </button>
+        
+        <p id={`desc-${index}`} class="prose prose-neutral dark:prose-invert pt-3 hidden">
+          {project.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
+    
+<!-- Work in Progress Section -->
+<h1 class="mb-8 mt-12 text-2xl font-medium tracking-tight">Selected Work in Progress</h1>
+<div class="space-y-6">
+  {wip.map((project, index) => (
+    <div class="flex flex-col" key={index}>
+      <div class="w-full flex justify-between items-baseline">
+        <span class="text-black dark:text-white tracking-tight font-bold">
+          {project.title}
+        </span>
+        {project.year && (
+          <span class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+            {project.year}
+          </span>
+        )}
+      </div>
+
+      {project.coauthors && (
+        <p class="italic">
+          Joint with{" "}
+          {project.coauthors.map((author, i) => (
+            <span key={i}>
+              <a
+                href={author.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-blue-500 hover:underline"
+              >
+                {author.name}
+              </a>
+              {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
+            </span>
+          ))}
+        </p>
+      )}
+
+      {project.notes && (
+        <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+          {project.notes}
+        </p>
+      )}
+
+      <!-- Toggleable Description with Left-Aligned "Show More" Button -->
+      <button
+        onclick={`document.getElementById('desc-${index}').classList.toggle('hidden')`}
+        class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm flex items-center mt-2"
+      >
+        <span class="mr-1">▼</span> Short abstract
+      </button>
+
+      <p id={`desc-${index}`} class="prose prose-neutral dark:prose-invert pt-3 hidden">
+        {project.description}
+      </p>
+    </div>
+  ))}
+</div>
+
+
+</Base>

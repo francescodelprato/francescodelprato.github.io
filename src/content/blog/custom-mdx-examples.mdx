@@ -1,0 +1,222 @@
+---
+title: "Custom MDX Examples"
+publishedAt: "2024-08-11"
+summary: "Astrofolio custom MDX examples."
+tags: "Custom MDX, Web development"
+---
+import { Image } from "astro:assets";
+import Tweet from "astro-tweet";
+import { YouTube } from '@astro-community/astro-embed-youtube';
+import ImageGrid from "../../components/mdx/ImageGrid.astro";
+import Caption from "../../components/mdx/Caption.astro";
+import Table from "../../components/mdx/Table.astro";
+import Callout from "../../components/mdx/Callout.astro";
+
+Astrofolio uses [custom MDX](https://github.com/vikas5914/Astrofolio/blob/main/src/components/mdx) for blog posts, making it easy to include JSX components such as interactive embeds, charts, or alerts directly in your markdown content.
+
+Here are some examples of using MDX:
+
+## h2 Heading
+
+### h3 Heading
+
+#### h4 Heading
+
+##### h5 Heading
+
+## Emphasis
+
+**This is bold text**
+
+_This is italic text_
+
+<del> Strikethrough </del>
+
+## Blockquotes
+
+> If today were the last day of my life, would I want to do what I am about to do today? – Steve Jobs
+
+## Links
+
+- Astrofolio is built with [Astro](https://astro.build/).
+- Astrofolio uses [bun](https://bun.sh/) for package management.
+
+## CodeBlocks
+
+```jsx
+// This is commented-out code
+export default function HelloWorld() {
+  return (
+    <h1>Hello, World!</h1>
+  );
+}
+```
+
+## Images
+
+Astrofolio uses [Astro Image](https://docs.astro.build/en/guides/images/) in MDX for seamless image rendering:
+
+```jsx
+<Image
+  src="/opengraph-image.png"
+  alt="OpenGraph image"
+  width={640}
+  height={500}
+/>
+```
+
+Renders:
+
+<Image
+  src="/opengraph-image.png"
+  alt="OpenGraph image"
+  width={640}
+  height={500}
+/>
+
+## Image Grid
+
+Astrofolio uses a custom [image grid component](https://github.com/vikas5914/Astrofolio/blob/main/src/components/mdx/ImageGrid.astro) to display image galleries.
+
+```jsx
+<ImageGrid
+  columns={3} // Accepts 2, 3, or 4 columns
+  images={[
+    { src: "/photos/photo1.jpg", alt: "Photo1", href: "#" }, // 'href' is optional
+    { src: "/photos/photo2.jpg", alt: "Photo2", href: "#" },
+    { src: "/photos/photo3.jpg", alt: "Photo3"},
+  ]}
+/>
+```
+
+Renders:
+
+<ImageGrid
+  columns={3}
+  images={[
+    { src: "/photos/photo1.jpg", alt: "Photo1", href: "#" },
+    { src: "/photos/photo2.jpg", alt: "Photo2", href: "#" },
+    { src: "/photos/photo3.jpg", alt: "Photo3" },
+  ]}
+/>
+
+## Embeds
+
+### Tweets
+
+Astrofolio uses [astro-tweet](https://github.com/tsriram/astro-tweet/) to embed tweets in MDX posts.
+
+```jsx
+<Tweet id="1617979122625712128" />
+```
+
+Renders:
+
+<div className="tweet">
+  <div className={`flex justify-center`}>
+    <Tweet id="1617979122625712128" />
+  </div>
+</div>
+
+
+### YouTube Videos
+
+Astrofolio uses [astro-embed](https://astro-embed.netlify.app/) to embed YouTube videos in MDX posts.
+
+```jsx
+<YouTube id="wXhTHyIgQ_U" />
+```
+
+Renders:
+
+<YouTube id="wXhTHyIgQ_U" />
+
+### Captions
+
+Astrofolio uses [react-wrap-balancer](https://react-wrap-balancer.vercel.app/) to evenly balance captions in MDX posts.
+
+```jsx
+<Caption>
+  Captions that flow smoothly, making your content easy to read and visually
+  appealing with a clean look.
+</Caption>
+```
+
+Renders:
+
+<Caption>
+  Captions that flow smoothly, making your content easy to read and visually
+  appealing with a clean look.
+</Caption>
+
+## Tables
+
+Astrofolio uses a custom [table component](https://github.com/vikas5914/Astrofolio/blob/main/src/components/mdx/Table.astro) to render tables in MDX posts.
+
+```jsx
+<Table
+  data={{
+    headers: ["Title", "Description"],
+    rows: [
+      [
+        "First item",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid perspiciatis repellat amet quos.",
+      ],
+      [
+        "Second item",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid perspiciatis repellat amet quos.",
+      ],
+    ],
+  }}
+/>
+```
+
+Renders:
+
+<Table
+  data={{
+    headers: ["Title", "Description"],
+    rows: [
+      [
+        "First item",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid perspiciatis repellat amet quos.",
+      ],
+      [
+        "Second item",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid perspiciatis repellat amet quos.",
+      ],
+    ],
+  }}
+/>
+
+## Math Expressions
+
+Astrofolio allows you to render mathematical expressions in MDX posts using [KaTeX](https://katex.org/) . Simply wrap your expression in **$** to include KaTeX within your MDX content.
+
+```
+$
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$
+```
+
+Renders:
+
+$
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$
+
+## Callout
+
+Astrofolio uses a custom [callout component](https://github.com/vikas5914/Astrofolio/blob/main/src/components/mdx/Callout.astro) to render important information in MDX posts.
+
+```jsx
+<Callout emoji="💡">
+  [Astrofolio](https://astrofolio-astro.vercel.app/) is a clean, simple, and fast portfolio built with Astro, Tailwind CSS, and bun for optimal performance.
+</Callout>
+```
+
+Renders:
+
+<Callout emoji="💡">
+  [Astrofolio](https://astrofolio-astro.vercel.app/) is a clean, simple, and fast portfolio built with Astro, Tailwind CSS, and bun for optimal performance.
+</Callout>

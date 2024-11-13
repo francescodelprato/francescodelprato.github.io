@@ -1,0 +1,68 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const teachingExperience = [
+  {
+    institution: "CERGE-EI",
+    course: "Microeconometrics, Ph.D.",
+    term: "Fall 2021",
+    details: "Lectures on random search models and their estimation through SMM (slides available upon request)"
+  },
+  {
+    institution: "IMT Lucca",
+    courses: [
+      {
+        name: "Econometrics I, Ph.D.",
+        term: "Spring 2019, 2020",
+        role: "TA for prof. Paolo Zacchia"
+      },
+      {
+        name: "Microeconomics, Ph.D.",
+        term: "Fall 2019",
+        role: "TA for prof. Andrea Canidio and prof. Kenan Huremovic"
+      }
+    ]
+  },
+  {
+    institution: "KU Leuven",
+    details: "Advising assistant for master students’ theses"
+  }
+];
+
+
+
+const title = "Teaching experience";
+const description = "The teaching experience of Francesco Del Prato";
+---
+
+<Base title={title} description={description}>
+
+<section>
+  <h2 class="text-2xl font-medium mb-6">Teaching Experience</h2>
+  <div class="space-y-4">
+    {teachingExperience.map((entry, index) => (
+      <div key={index} class="flex flex-col space-y-1">
+        <span class="font-bold">{entry.institution}</span>
+        
+        {entry.course ? (
+          <p class="text-sm">
+            {entry.course} ({entry.term}) - {entry.details}
+          </p>
+        ) : (
+          entry.courses && entry.courses.map((course, i) => (
+            <p key={i} class="text-sm">
+              {course.name} ({course.term}) - {course.role}
+            </p>
+          ))
+        )}
+
+        {entry.details && !entry.course && (
+          <p class="text-sm text-neutral-700">{entry.details}</p>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
+
+   
+</Base>
