@@ -8,7 +8,7 @@ import { Image } from "astro:assets";
   <section>
     <a href={socialLinks.twitter} target="_blank">
       <Image
-        src="/profile.png"
+        src={`${import.meta.env.BASE_URL}profile.png`}
         alt="Profile photo"
         class="rounded-full bg-gray-100 block lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5 grayscale hover:grayscale-0"
         width={160}

@@ -1,4 +1,7 @@
 import { defineConfig } from "astro/config";
+export default defineConfig({
+  base: "/personal_website/",
+});
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
