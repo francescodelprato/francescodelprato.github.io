@@ -30,12 +30,36 @@ const teachingExperience = [
 ];
 
 
+const currentTeaching = [
+  {
+    institution: "Aarhus University",
+    course: "5425/6425: Advanced Micro and Macro Models of the Labor Market",
+    term: "Spring 2025",
+  }
+];
 
-const title = "Teaching experience";
-const description = "The teaching experience of Francesco Del Prato";
+
+
+const title = "Teaching";
+const description = "The teaching of Francesco Del Prato";
 ---
 
 <Base title={title} description={description}>
+
+<section>
+  <h2 class="text-2xl font-medium mb-6">Current Teaching</h2>
+  <div class="space-y-4">
+    {currentTeaching.map((entry, index) => (
+      <div key={index} class="flex flex-col space-y-1">
+        <span class="font-bold">{entry.institution}</span>
+        <p class="text-sm">
+          {entry.course} ({entry.term}) - {entry.details}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
 <section>
   <h2 class="text-2xl font-medium mb-6">Teaching Experience</h2>
