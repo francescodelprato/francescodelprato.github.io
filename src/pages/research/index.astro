@@ -150,7 +150,9 @@ const description = "A collection of working papers and work in progress by the 
           )}
           
           {project.notes && (
-            <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">{project.notes}</p>
+            <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm" style="white-space: pre-line;">
+    		{project.notes}
+	    </p>
           )}
           
           <!-- Toggleable Description with Left-Aligned "Show More" Button -->
