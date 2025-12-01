@@ -59,10 +59,10 @@ const description = "A collection of newspaper publications by Francesco.";
 <Base title={title} description={description}>
 
 <section>
-  <h2 class="text-2xl font-medium mb-6">Op-eds in Italian Newspapers</h2>
-  <div class="space-y-4">
-    {opEds.map((opEd, index) => (
-      <div key={index} class="flex flex-col space-y-1">
+    <h2 class="text-2xl font-medium mb-6">Op-eds in Italian Newspapers</h2>
+    <div class="space-y-4">
+    {opEds.map((opEd) => (
+      <div class="flex flex-col space-y-1">
         <div class="flex justify-between items-baseline">
           <span class="text-black dark:text-white tracking-tight font-bold">
             {opEd.title}

@@ -11,6 +11,7 @@ import { ViewTransitions } from "astro:transitions";
 import BaseHead from "../components/BaseHead.astro";
 import Navbar from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import lenisScriptUrl from "../assets/scripts/lenisSmoothScroll.js?url";
 
 import "@fontsource/geist-sans/400.css";
 import "@fontsource/geist-sans/600.css";
@@ -57,9 +58,7 @@ const { title, description, image } = Astro.props;
       title="Francesco Del Prato"
       href={new URL("rss.xml", Astro.site)}
     />
-    <script>
-      import "@scripts/lenisSmoothScroll.js";
-    </script>
+    <script type="module" src={lenisScriptUrl}></script>
   </head>
   <body
     class="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40

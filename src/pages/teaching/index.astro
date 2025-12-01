@@ -35,6 +35,7 @@ const currentTeaching = [
     institution: "Aarhus University",
     course: "5425/6425: Advanced Micro and Macro Models of the Labor Market",
     term: "Spring 2025",
+    details: "Instructor",
   }
 ];
 
@@ -49,11 +50,11 @@ const description = "The teaching of Francesco Del Prato";
 <section>
   <h2 class="text-2xl font-medium mb-6">Current Teaching</h2>
   <div class="space-y-4">
-    {currentTeaching.map((entry, index) => (
-      <div key={index} class="flex flex-col space-y-1">
+    {currentTeaching.map((entry) => (
+      <div class="flex flex-col space-y-1">
         <span class="font-bold">{entry.institution}</span>
         <p class="text-sm">
-          {entry.course} ({entry.term}) - {entry.details}
+          {entry.course} ({entry.term}){entry.details ? ` - ${entry.details}` : ""}
         </p>
       </div>
     ))}
@@ -65,8 +66,8 @@ const description = "The teaching of Francesco Del Prato";
 <section>
   <h2 class="text-2xl font-medium mb-6">Teaching Experience</h2>
   <div class="space-y-4">
-    {teachingExperience.map((entry, index) => (
-      <div key={index} class="flex flex-col space-y-1">
+    {teachingExperience.map((entry) => (
+      <div class="flex flex-col space-y-1">
         <span class="font-bold">{entry.institution}</span>
         
         {entry.course ? (
@@ -74,8 +75,8 @@ const description = "The teaching of Francesco Del Prato";
             {entry.course} ({entry.term}) - {entry.details}
           </p>
         ) : (
-          entry.courses && entry.courses.map((course, i) => (
-            <p key={i} class="text-sm">
+          entry.courses && entry.courses.map((course) => (
+            <p class="text-sm">
               {course.name} ({course.term}) - {course.role}
             </p>
           ))

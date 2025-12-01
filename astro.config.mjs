@@ -1,7 +1,6 @@
+import fs from "fs";
 import { defineConfig } from "astro/config";
-export default defineConfig({
-  base: "/personal_website/",
-});
+
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
@@ -12,11 +11,13 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import icon from "astro-icon";
 import opengraphImages, { presets } from "astro-opengraph-images";
-import partytown from '@astrojs/partytown';
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://francescodelprato.github.io",
+  base: "/",
+  output: "static",
   integrations: [
     partytown({ config: { forward: ["dataLayer.push"] } }),
     mdx({
@@ -59,14 +60,11 @@ export default defineConfig({
         "fa6-brands": ["x-twitter", "github", "instagram", "linkedin-in"],
       },
     }),
-    sitemap(),
     opengraphImages({
       render: presets.waveSvg,
       options: {
         fonts: [
           {
-            name: "Roboto",
-            name: "Roboto",
             name: "Roboto",
             weight: 400,
             style: "normal",
@@ -78,5 +76,4 @@ export default defineConfig({
       },
     }),
   ],
-  output: "static",
 });

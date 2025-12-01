@@ -50,7 +50,10 @@ const wip = [
       { name: "Marco Francischello", url: "https://marcofrancis.me" },
       { name: "Matteo Paradisi", url: "http://matteoparadisi.com" }
     ],
-    notes: "> Project awarded with a Netspar Comparative Research Grant 2021 \n > Draft available on request",  
+    notes: [
+      "> Project awarded with a Netspar Comparative Research Grant 2021",
+      "> Draft available on request",
+    ],
     description:
       "We develop an OLG model with heterogeneous agents and aggregate uncertainty to study optimal Ramsey taxation when the government can use a credible set of social security instruments. Social security mitigates the income effect in optimal labor tax smoothing and, together with heterogeneity, adds new redistributive motives to both labor and capital taxes while crowding out others. We calibrate the model on three different economies: the US, the Netherlands, and Italy. We argue that the three countries would experience heterogeneous gains, in redistributive and efficiency terms, by moving from the status-quo allocations to those prescribed by a utilitarian Ramsey planner. Our simulations show that retirement benefits in the current economies are higher than their Ramsey-optimal level while we argue that the use of funded social security schemes, neglected in current actual policies, could be welfare improving.",
   },
@@ -95,7 +98,7 @@ const description = "A collection of working papers and work in progress by the 
     <h1 class="mb-8 text-2xl font-medium tracking-tight">Working Papers</h1>
     <div class="space-y-6">
       {wp.map((project, index) => (
-        <div class="flex flex-col" key={index}>
+        <div class="flex flex-col">
           <div class="w-full flex justify-between items-baseline">
             <span class="text-black dark:text-white tracking-tight font-bold">
               {project.title}
@@ -130,7 +133,7 @@ const description = "A collection of working papers and work in progress by the 
             <p class="italic">
               Joint with{" "}
               {project.coauthors.map((author, i) => (
-                <span key={i}>
+                <span>
                   {author.url ? (
                     <a
                       href={author.url}
@@ -150,9 +153,20 @@ const description = "A collection of working papers and work in progress by the 
           )}
           
           {project.notes && (
-            <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm" style="white-space: pre-line;">
-    		{project.notes}
-	    </p>
+            Array.isArray(project.notes) ? (
+              <div class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm space-y-1">
+                {project.notes.map((note) => (
+                  <p>{note}</p>
+                ))}
+              </div>
+            ) : (
+              <p
+                class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm"
+                style="white-space: pre-line;"
+              >
+                {project.notes}
+              </p>
+            )
           )}
           
           <!-- Toggleable Description with Left-Aligned "Show More" Button -->
@@ -176,23 +190,18 @@ const description = "A collection of working papers and work in progress by the 
   <h1 class="mb-8 mt-12 text-2xl font-medium tracking-tight">Selected Work in Progress</h1>
   <div class="space-y-6">
     {wip.map((project, index) => (
-      <div class="flex flex-col" key={`wip-${index}`}>
+      <div class="flex flex-col">
         <div class="w-full flex justify-between items-baseline">
           <span class="text-black dark:text-white tracking-tight font-bold">
             {project.title}
           </span>
-          {project.year && (
-            <span class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-              {project.year}
-            </span>
-          )}
         </div>
 
         {project.coauthors && (
           <p class="italic">
             Joint with{" "}
             {project.coauthors.map((author, i) => (
-              <span key={i}>
+              <span>
                 {author.url ? (
                   <a
                     href={author.url}
@@ -212,9 +221,17 @@ const description = "A collection of working papers and work in progress by the 
         )}
 
         {project.notes && (
-          <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-            {project.notes}
-          </p>
+          Array.isArray(project.notes) ? (
+            <div class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm space-y-1">
+              {project.notes.map((note) => (
+                <p>{note}</p>
+              ))}
+            </div>
+          ) : (
+            <p class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+              {project.notes}
+            </p>
+          )
         )}
 
         <!-- Toggleable Description with Left-Aligned "Show More" Button -->
