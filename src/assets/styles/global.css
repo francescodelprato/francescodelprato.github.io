@@ -33,6 +33,10 @@ html {
   @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-normal text-[#333333] dark:text-[#D4D4D4];
 }
 
+.prose.homepage-links a {
+  @apply text-blue-500 no-underline hover:underline;
+}
+
 .prose a:hover {
   @apply dark:decoration-neutral-400 decoration-neutral-600;
 }
