@@ -42,6 +42,19 @@ const wp = [
     arxiv: "https://arxiv.org/abs/2505.24460",
   },
 
+  {
+    title: "TWICE: Tree-based Wage Inference with Clustering and Estimation",
+    coauthors: [
+      { name: "Aslan Bakirov" },
+      { name: "Paolo Zacchia", url: "http://paolozacchia.com" },
+    ],
+    description:
+      "How much do worker skills, firm pay policies, and their interaction contribute to wage inequality? Standard approaches rely on latent fixed effects identified through worker mobility, but sparse networks inflate variance estimates, additivity assumptions rule out complementarities, and the resulting decompositions lack interpretability. We propose TWICE—Tree-based Wage Inference with Clustering and Estimation—a framework that models the conditional wage function directly from observables using gradient-boosted trees, replacing latent effects with interpretable, observable-anchored partitions. This trades off the ability to capture idiosyncratic unobservables for robustness to sampling noise and out-of-sample portability. Applied to Portuguese administrative data, TWICE outperforms linear benchmarks out of sample and reveals that sorting and non-additive interactions explain substantially more wage dispersion than implied by standard AKM estimates",
+    pdf: "/TWICE.pdf",
+    arxiv: "https://arxiv.org/abs/2601.00776",
+  },
+
+
 ];
 
 
@@ -71,18 +84,6 @@ const wip = [
     description:
       "We develop an OLG model with heterogeneous agents and aggregate uncertainty to study optimal Ramsey taxation when the government can use a credible set of social security instruments. Social security mitigates the income effect in optimal labor tax smoothing and, together with heterogeneity, adds new redistributive motives to both labor and capital taxes while crowding out others. We calibrate the model on three different economies: the US, the Netherlands, and Italy. We argue that the three countries would experience heterogeneous gains, in redistributive and efficiency terms, by moving from the status-quo allocations to those prescribed by a utilitarian Ramsey planner. Our simulations show that retirement benefits in the current economies are higher than their Ramsey-optimal level while we argue that the use of funded social security schemes, neglected in current actual policies, could be welfare improving.",
   },
-
-  {
-    title: "TWICE: Tree-based Wage Inference with Clustering and Estimation",
-    coauthors: [
-      { name: "Aslan Bakirov" },
-      { name: "Paolo Zacchia", url: "http://paolozacchia.com" },
-    ],
-    notes: "> Draft available on request",
-    description:
-      "We propose TWICE, a flexible and interpretable framework for analyzing wage determination in matched employer–employee data. Standard approaches rely on latent fixed effects identified through worker mobility, but sparse networks inflate variance estimates, additivity assumptions rule out complementarities, and the resulting decompositions lack interpretability. Machine learning offers a solution: tree-based methods flexibly approximate the conditional wage function from observables—capturing nonlinearities and interactions. TWICE integrates these tools with the two-way decomposition tradition, replacing latent effects with observable-anchored worker and firm partitions. Using Portuguese administrative data, TWICE outperforms linear benchmarks out of sample and reveals that sorting and non-additive interactions explain substantially more wage dispersion than implied by standard AKM estimates."
-  },
-
 
 //  {
 //    title: "Responsible Firms on the Labor Market",
