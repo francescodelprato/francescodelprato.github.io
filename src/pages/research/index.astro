@@ -6,9 +6,11 @@ const wp = [
    {
     title: "Workplace Injury Risk and the Gender Wage Gap",
     coauthors: [{ name: "Salvatore Lattanzio", url: "https://sites.google.com/view/salvatore-lattanzio/home?authuser=0" }],
+    notes: "> Rockwool Foundation Discussion Papers No. 081/26",
     description:
       "Men experience workplace injuries at roughly twice the rate of women. We study whether compensating differentials for injury risk contribute to gender differences in firm pay policies. We develop a search model that microfounds an AKM wage equation, decomposing firm pay effects into productivity and injury-risk components. Using Italian matched employer–employee data with individual injury records, we estimate gender-specific firm wage effects and firm-level injury risk. We find that injury-related channels account for 8 percent of the gender gap in firm wage effects, rising to 17 percent in manufacturing. While women receive only 86 percent of men’s wage response to firm-level injury risk, conditioning on broad occupation eliminates this within-firm disparity. This indicates that the injury channel reflects sorting across firms and occupational allocation within firms, rather than differential pricing of identical risk.",
     pdf: "/Gender_injury.pdf",
+    wp: "https://www.rfberlin.com/wp-content/uploads/2026/03/26081.pdf",
   },
 
    {
@@ -128,6 +130,12 @@ const wip = [
 
 const title = "Working Papers and Work in Progress";
 const description = "A collection of working papers and work in progress by the author.";
+const getProjectLinks = (project) =>
+  [
+    { key: "pdf", label: "PDF" },
+    { key: "wp", label: "WP" },
+    { key: "arxiv", label: "ArXiv" },
+  ].filter(({ key }) => project[key]);
 ---
 
 <Base title={title} description={description}>
@@ -143,27 +151,19 @@ const description = "A collection of working papers and work in progress by the 
             </span>
             
             <div class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm ml-2 flex items-center space-x-2">
-              {project.pdf && (
-                <a
-                  href={project.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:underline"
-                >
-                  PDF
-                </a>
-              )}
-              {project.pdf && project.arxiv && <span>|</span>}
-              {project.arxiv && (
-                <a
-                  href={project.arxiv}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:underline"
-                >
-                  ArXiv
-                </a>
-              )}
+              {getProjectLinks(project).map((link, linkIndex) => (
+                <>
+                  {linkIndex > 0 && <span>|</span>}
+                  <a
+                    href={project[link.key]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:underline"
+                  >
+                    {link.label}
+                  </a>
+                </>
+              ))}
             </div>
           </div>
           
