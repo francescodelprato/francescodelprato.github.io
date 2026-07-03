@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://francescodelprato.github.io/sitemap-index.xml
