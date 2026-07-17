@@ -33,7 +33,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
             aria-current={isActive ? "page" : undefined}
             class:list={[
               "min-h-10 px-2 inline-flex items-center rounded-md transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800",
-              isActive && "font-medium text-blue-600 dark:text-blue-400",
+              isActive && "font-medium text-[#2F75B5] dark:text-[#37A0CB]",
             ]}>
             {name}
           </a>

@@ -1,5 +1,5 @@
 ::selection {
-  background-color: #47a3f3;
+  background-color: #2f75b5;
   color: #fefefe;
 }
 
@@ -38,7 +38,7 @@ summary::-webkit-details-marker {
 }
 
 .prose.homepage-links a {
-  @apply text-blue-500 no-underline hover:underline;
+  @apply text-[#2F75B5] dark:text-[#37A0CB] no-underline hover:underline;
 }
 
 .prose a:hover {
