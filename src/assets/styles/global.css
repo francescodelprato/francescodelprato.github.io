@@ -9,7 +9,11 @@
 }
 
 html {
-  min-width: 360px;
+  min-width: 320px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
 }
 
 .prose {

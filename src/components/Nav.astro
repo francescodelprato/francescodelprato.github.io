@@ -8,32 +8,47 @@ const navItems = {
   "/op-eds":   { name: "Op-eds"  },
   "/DelPrato_CV.pdf" : { name : "CV" },
 };
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <nav class="lg:mb-16 mb-12 py-5">
   <div class="flex flex-col md:flex-row md:items-center justify-between">
     <div class="flex items-center">
-      <a href="/" class="text-3xl font-semibold">
+      <a
+        href="/"
+        aria-current={currentPath === "/" ? "page" : undefined}
+        class="text-3xl font-semibold tracking-tight">
         {metaData.title}
       </a>
     </div>
-    <div class="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">
+    <div class="flex flex-row flex-wrap gap-x-1 gap-y-1 mt-5 md:mt-0 md:ml-auto md:gap-x-2 items-center">
       {
-        Object.entries(navItems).map(([path, { name }]) => (
+        Object.entries(navItems).map(([path, { name }]) => {
+          const isActive = currentPath === path;
+
+          return (
           <a
             href={path}
-            class="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative">
+            aria-current={isActive ? "page" : undefined}
+            class:list={[
+              "min-h-10 px-2 inline-flex items-center rounded-md transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800",
+              isActive && "font-medium text-blue-600 dark:text-blue-400",
+            ]}>
             {name}
           </a>
-        ))
+          );
+        })
       }
       <button
         id="theme-toggle"
-        aria-label="Toggle theme"
-        class="flex items-center justify-center transition-opacity duration-300 hover:opacity-90">
+        type="button"
+        aria-label="Toggle color theme"
+        title="Toggle color theme"
+        class="h-10 w-10 flex items-center justify-center rounded-md transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800">
         <Icon
           name="fa6-solid:circle-half-stroke"
-          class="h-[14px] w-[14px] text-[#1c1c1c] dark:text-[#D4D4D4]"
+          class="h-4 w-4 text-[#1c1c1c] dark:text-[#D4D4D4]"
         />
       </button>
     </div>
@@ -52,8 +67,6 @@ const navItems = {
   }
 
   document.addEventListener("astro:page-load", () => {
-    document
-      .getElementById("theme-toggle")
-      .addEventListener("click", toggleTheme);
+    document.getElementById("theme-toggle")?.addEventListener("click", toggleTheme);
   });
 </script>

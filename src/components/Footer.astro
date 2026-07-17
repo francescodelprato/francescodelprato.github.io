@@ -5,41 +5,37 @@ import { Icon } from "astro-icon/components";
 const YEAR = new Date().getFullYear();
 
 const socialIcons = [
-  { href: socialLinks.twitter, icon: "fa6-brands:x-twitter" },
-  { href: socialLinks.linkedin, icon: "fa6-brands:linkedin-in" },
-  { href: socialLinks.email, icon: "tabler:mail-filled" },
+  { href: socialLinks.twitter, icon: "fa6-brands:x-twitter", label: "X profile" },
+  { href: socialLinks.linkedin, icon: "fa6-brands:linkedin-in", label: "LinkedIn profile" },
+  { href: socialLinks.email, icon: "tabler:mail-filled", label: "Send email" },
 ];
 ---
 
-<small class="block lg:mt-24 mt-16 text-[#1C1C1C] dark:text-[#D4D4D4]">
-  <time>© {YEAR}</time>{" "}
-  <a
-    class="no-underline"
-    href={socialLinks.twitter}
-    target="_blank"
-    rel="noopener noreferrer">
-    {metaData.title}
-  </a>
-  <div
-    class="flex text-lg gap-3.5 float-right transition-opacity duration-300 hover:opacity-90">
+<footer class="lg:mt-24 mt-16 flex flex-col gap-4 text-sm text-[#1C1C1C] dark:text-[#D4D4D4] sm:flex-row sm:items-center sm:justify-between">
+  <small>
+    <time datetime={`${YEAR}`}>© {YEAR}</time>{" "}
+    <a class="no-underline hover:underline" href="/">{metaData.title}</a>
+  </small>
+  <div class="flex text-lg gap-1">
     {
       socialIcons.map((link) => (
-        <a href={link.href} target="_blank" rel="noopener noreferrer">
+        <a
+          href={link.href}
+          target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+          rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+          aria-label={link.label}
+          title={link.label}
+          class="h-10 w-10 inline-flex items-center justify-center rounded-md transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800">
           <Icon name={link.icon} />
         </a>
       ))
     }
-    <a href="/rss.xml" target="_self">
+    <a
+      href="/rss.xml"
+      aria-label="RSS feed"
+      title="RSS feed"
+      class="h-10 w-10 inline-flex items-center justify-center rounded-md transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800">
       <Icon name="fa6-solid:rss" />
     </a>
   </div>
-</small>
-
-<style>
-  @media screen and (max-width: 480px) {
-    article {
-      padding-top: 2rem;
-      padding-bottom: 4rem;
-    }
-  }
-</style>
+</footer>

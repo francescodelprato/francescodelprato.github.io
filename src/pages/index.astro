@@ -6,28 +6,27 @@ import { Image } from "astro:assets";
 
 <Base>
   <section>
-    <a href={socialLinks.twitter} target="_blank">
-      <Image
-        src={`${import.meta.env.BASE_URL}profile.png`}
-        alt="Profile photo"
-        class="rounded-full bg-gray-100 block lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5 grayscale hover:grayscale-0"
-        width={160}
-        height={160}
-      />
-    </a>
+    <Image
+      src={`${import.meta.env.BASE_URL}profile.png`}
+      alt="Francesco Del Prato"
+      class="rounded-full bg-gray-100 block mb-10 mx-auto ring-1 ring-neutral-200 dark:ring-neutral-700 sm:float-right sm:mb-5 sm:ml-6"
+      width={160}
+      height={160}
+    />
 
-    <h1 class="mb-2 text-2xl font-medium tracking-tight">
-      About me
-    </h1>
+    <h1 class="mb-2 text-2xl font-medium tracking-tight">About me</h1>
 
     <div class="prose prose-neutral dark:prose-invert homepage-links">
-      <p>I am an assistant professor at the <a href="https://econ.au.dk/">Department of Economics and Business Economics</a> at <a href="https://international.au.dk/">Aarhus University</a>.</p> 
-      <p>I am mostly interested in labor economics, particularly the interplay between labor market dynamics and public policy.</p>
-      <p>My work usually employs a mix of structural and reduced-form approaches that exploit administrative microdata.</p>
+      <p>I am an assistant professor at the <a href="https://econ.au.dk/">Department of Economics and Business Economics</a> at <a href="https://international.au.dk/">Aarhus University</a>.</p>
+      <p>I study labor economics, with a focus on how firms, labor-market frictions, and public policy shape wages, worker mobility, and inequality.</p>
+      <p>My work combines structural models and reduced-form empirical methods, often using administrative data.</p>
    
-      <h1 class="mb-2 text-2xl font-medium tracking-tight">
+      <h2 class="mb-2 text-2xl font-medium tracking-tight">
         Contact
-      </h1>
+      </h2>
+      <p>
+        <a href={socialLinks.email}>francesco.delprato@econ.au.dk</a>
+      </p>
       <p>
         Department of Economics and Business Economics <br>
         Aarhus BSS, Aarhus University <br>
