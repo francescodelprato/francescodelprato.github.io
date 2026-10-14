@@ -78,10 +78,10 @@ summary::-webkit-details-marker {
 }
 
 .prose h2,
-h3,
-h4,
-h5,
-h6 {
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
   @apply font-medium tracking-tight !important;
 }
 
