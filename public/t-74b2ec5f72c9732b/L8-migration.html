@@ -1,0 +1,1882 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Can Migration Raise Unemployment?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap">
+<style>
+/* ---------- shared lecture kit (identical to L7) ---------- */
+:root {
+  /* Layout: every scene is a lab bench, a wide stage for the live model beside a narrow rail with the question, the controls and the verdict. */
+  --bg: #f1f3f5;
+  --panel: #ffffff;
+  --panel-2: #f6f7f9;
+  --ink: #131720;
+  --ink-2: #444d5a;
+  --muted: #737d8c;
+  --hair: #dde1e7;
+  --base: #c1c8d1;
+  /* Economic colour code, shared by figures and equations */
+  --accept: #2a78d6;      /* accepting, employment, W(w) */
+  --reject: #eb6834;      /* rejecting, unemployment, U and b */
+  --option: #1baf7a;      /* option value, gains from waiting */
+  --accept-ink: #1c5cab;
+  --reject-ink: #b4461a;
+  --option-ink: #0d7a52;
+  --chg: #5b45c6;         /* the term that changed in a derivation step */
+  --accept-wash: rgba(42, 120, 214, 0.13);
+  --reject-wash: rgba(235, 104, 52, 0.14);
+  --option-wash: rgba(27, 175, 122, 0.22);
+  --ink-wash: rgba(19, 23, 32, 0.07);
+  --env: rgba(19, 23, 32, 0.16);
+  --btn-accept: #1c5cab;
+  --btn-reject: #b4461a;
+  --good: #0b7d0b;
+  --bad: #c43030;
+  --seq-1: #86b6ef;
+  --seq-2: #2a78d6;
+  --seq-3: #0d366b;
+  --shadow: 0 1px 2px rgba(19, 23, 32, 0.05), 0 10px 30px rgba(19, 23, 32, 0.06);
+  --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius: 12px;
+  --bar-h: 54px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1015; --panel: #151920; --panel-2: #1b2029; --ink: #e8ecf1; --ink-2: #b3bcc8; --muted: #8a94a2; --hair: #283039; --base: #3a434e;
+    --accept: #3987e5; --reject: #d95926; --option: #199e70;
+    --accept-ink: #79adef; --reject-ink: #f08f63; --option-ink: #43cf9c; --chg: #a497f0;
+    --accept-wash: rgba(57, 135, 229, 0.22); --reject-wash: rgba(217, 89, 38, 0.22); --option-wash: rgba(25, 158, 112, 0.30); --ink-wash: rgba(232, 236, 241, 0.08); --env: rgba(232, 236, 241, 0.20);
+    --btn-accept: #2a6fc4; --btn-reject: #c24f20; --good: #39c439; --bad: #ef6b6b;
+    --seq-1: #3d6fae; --seq-2: #6da7ec; --seq-3: #cde2fb;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1015; --panel: #151920; --panel-2: #1b2029; --ink: #e8ecf1; --ink-2: #b3bcc8; --muted: #8a94a2; --hair: #283039; --base: #3a434e;
+  --accept: #3987e5; --reject: #d95926; --option: #199e70;
+  --accept-ink: #79adef; --reject-ink: #f08f63; --option-ink: #43cf9c; --chg: #a497f0;
+  --accept-wash: rgba(57, 135, 229, 0.22); --reject-wash: rgba(217, 89, 38, 0.22); --option-wash: rgba(25, 158, 112, 0.30); --ink-wash: rgba(232, 236, 241, 0.08); --env: rgba(232, 236, 241, 0.20);
+  --btn-accept: #2a6fc4; --btn-reject: #c24f20; --good: #39c439; --bad: #ef6b6b;
+  --seq-1: #3d6fae; --seq-2: #6da7ec; --seq-3: #cde2fb;
+  --shadow: none;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+b, strong { font-weight: 700; }
+a { color: var(--accept-ink); }
+kbd {
+  font-family: var(--font-mono); font-size: 0.78em; padding: 1px 6px; border-radius: 5px;
+  border: 1px solid var(--base); background: var(--panel-2); color: var(--ink-2);
+}
+.mono, output { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.k-accept { color: var(--accept-ink); }
+.k-reject { color: var(--reject-ink); }
+.k-option { color: var(--option-ink); }
+
+/* ---------- top bar ---------- */
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
+  display: flex; align-items: center; gap: 14px;
+  min-height: var(--bar-h); padding: 8px 20px;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hair);
+}
+.brand { font-family: var(--font-display); font-size: 18px; white-space: nowrap; }
+.brand span { color: var(--muted); }
+.dots { display: flex; gap: 4px; flex: 1; justify-content: center; flex-wrap: wrap; min-width: 0; }
+.dot-btn {
+  font: inherit; font-size: 12px; font-variant-numeric: tabular-nums; width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid var(--hair); background: transparent; color: var(--muted); cursor: pointer; padding: 0;
+}
+.dot-btn:hover { border-color: var(--base); color: var(--ink); }
+.dot-btn[aria-current="true"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.tools { display: flex; gap: 8px; }
+.chip {
+  font: inherit; font-size: 14px; padding: 5px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--base); background: var(--panel); color: var(--ink);
+}
+.chip:hover { background: var(--panel-2); }
+@media (max-width: 760px) { .dots { display: none; } .topbar { justify-content: space-between; } }
+
+/* ---------- scenes ---------- */
+main { padding-inline: 20px; }
+.scene {
+  max-width: 1280px; margin-inline: auto;
+  padding-block: 44px 60px;
+  min-height: calc(100vh - var(--bar-h));
+  display: flex; flex-direction: column; gap: 22px;
+  border-bottom: 1px solid var(--hair);
+  scroll-margin-top: var(--bar-h);
+}
+.scene:last-of-type { border-bottom: 0; }
+.eyebrow {
+  margin: 0; display: flex; align-items: baseline; gap: 10px;
+  font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted);
+}
+.eyebrow .num { font-family: var(--font-display); font-size: 24px; letter-spacing: 0; text-transform: none; color: var(--ink); }
+.scene h2 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(32px, 4.3vw, 56px); line-height: 1.04; letter-spacing: -0.015em;
+  margin: 4px 0 0; text-wrap: balance;
+}
+.lede { max-width: 70ch; font-size: 19px; line-height: 1.5; color: var(--ink-2); margin: 10px 0 0; text-wrap: pretty; }
+.scene-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 330px); gap: 22px; align-items: start; }
+.scene-body.wide { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 980px) { .scene-body { grid-template-columns: minmax(0, 1fr); } }
+.stage {
+  background: var(--panel); border: 1px solid var(--hair); border-radius: var(--radius);
+  padding: 18px; min-width: 0; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.rail { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.card { background: var(--panel); border: 1px solid var(--hair); border-radius: var(--radius); padding: 14px 16px; min-width: 0; }
+.card > h3, .label-h {
+  font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 10px; font-weight: 700;
+}
+.card p { margin: 0 0 8px; }
+.card p:last-child { margin-bottom: 0; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 720px) { .two, .three { grid-template-columns: minmax(0, 1fr); } .three .chart { max-width: 420px; margin-inline: auto; } }
+.fig-title { font-size: 14px; color: var(--ink-2); margin: 0 0 4px; font-weight: 700; }
+.fig-sub { font-size: 13px; color: var(--muted); margin: 0 0 6px; }
+
+/* takeaway */
+.takeaway { padding: 2px 2px 0; }
+.takeaway .label-h { margin-bottom: 4px; }
+.takeaway p { font-family: var(--font-display); font-size: 21px; line-height: 1.32; margin: 0; text-wrap: pretty; }
+
+/* controls */
+.ctrl { display: grid; gap: 4px; margin-bottom: 10px; }
+.ctrl:last-child { margin-bottom: 0; }
+.ctrl label { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; color: var(--ink-2); }
+.ctrl label output { color: var(--ink); font-weight: 500; }
+input[type="range"] { width: 100%; accent-color: var(--ink); margin: 2px 0; }
+.seg { display: inline-flex; border: 1px solid var(--base); border-radius: 999px; padding: 2px; gap: 2px; }
+.seg button { font: inherit; font-size: 14px; border: 0; background: transparent; color: var(--ink-2); padding: 4px 12px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.btn {
+  font: inherit; font-size: 15px; padding: 8px 14px; border-radius: 9px; cursor: pointer;
+  border: 1px solid var(--base); background: var(--panel); color: var(--ink);
+}
+.btn:hover { background: var(--panel-2); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn-primary { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.btn-primary:hover { background: var(--ink); opacity: 0.88; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+:focus-visible { outline: 2px solid var(--accept); outline-offset: 2px; }
+
+/* readout tiles */
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tile { background: var(--panel-2); border-radius: 9px; padding: 9px 12px; min-width: 0; }
+.tile .k { font-size: 13px; color: var(--muted); line-height: 1.3; }
+.tile .v { font-size: 25px; font-weight: 700; line-height: 1.15; }
+.tile .was { font-size: 12.5px; color: var(--muted); min-height: 1.2em; }
+.verdict { font-size: 15px; padding: 8px 10px; border-radius: 8px; background: var(--panel-2); }
+
+/* predict cards */
+.predict .q { font-weight: 700; margin: 0 0 8px; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opt {
+  font: inherit; font-size: 14.5px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--base); background: var(--panel); color: var(--ink);
+}
+.opt[aria-pressed="true"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.opt.correct { box-shadow: inset 0 0 0 2px var(--good); }
+.predict .answer { margin-top: 10px; font-size: 15px; color: var(--ink-2); }
+.predict .reveal { margin-top: 10px; }
+
+/* notes (study mode) */
+.notes { max-width: 80ch; border-top: 1px solid var(--hair); padding-top: 14px; color: var(--ink-2); font-size: 16px; }
+.notes > h3 { font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.notes p { margin: 0 0 10px; }
+.notes ul { margin: 0 0 10px; padding-left: 20px; }
+body.lecture .notes { display: none; }
+body.lecture .study-only { display: none; }
+
+/* equations */
+.eq { font-size: 21px; overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+.eq.big { font-size: 26px; }
+mjx-container[display="true"] { margin: 0.4em 0 !important; }
+.t-b, .hv-b { fill: var(--reject-ink); stroke: var(--reject-ink); }
+.t-U, .hv-U { fill: var(--reject-ink); stroke: var(--reject-ink); }
+.t-W, .hv-W { fill: var(--accept-ink); stroke: var(--accept-ink); }
+.t-opt { fill: var(--option-ink); stroke: var(--option-ink); }
+.chg { fill: var(--chg); stroke: var(--chg); }
+.eq [class^="hv-"] { transition: opacity 0.15s; }
+.eq[data-hl] [class^="hv-"] { opacity: 0.28; }
+.eq[data-hl="b"] .hv-b, .eq[data-hl="beta"] .hv-beta, .eq[data-hl="E"] .hv-E,
+.eq[data-hl="max"] .hv-max, .eq[data-hl="W"] .hv-W, .eq[data-hl="U"] .hv-U { opacity: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.term {
+  font: inherit; font-size: 14px; padding: 5px 10px; border-radius: 8px; cursor: default;
+  border: 1px solid var(--hair); background: var(--panel-2); color: var(--ink-2);
+}
+.term b { font-family: var(--font-display); font-size: 16px; color: var(--ink); margin-right: 4px; }
+
+/* charts */
+.chart { width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.chart text { fill: var(--muted); font-family: var(--font-body); font-size: 12px; }
+.chart .axis path, .chart .axis line { stroke: var(--base); }
+.chart .axis text { font-variant-numeric: tabular-nums; }
+.chart .grid line { stroke: var(--hair); stroke-width: 1; }
+.chart .axis-title { fill: var(--ink-2); font-size: 12.5px; }
+.chart .lbl { fill: var(--ink-2); font-size: 12.5px; }
+.chart .lbl-ink { fill: var(--ink); font-size: 13px; font-weight: 700; }
+.chart .halo { paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
+.ln { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.ln-thin { stroke-width: 1.4; }
+.ln-thick { stroke-width: 3.2; }
+.ln-accept { stroke: var(--accept); }
+.ln-reject { stroke: var(--reject); }
+.ln-option { stroke: var(--option); }
+.ln-ink { stroke: var(--ink); }
+.ln-muted { stroke: var(--muted); }
+.ln-base { stroke: var(--base); }
+.ln-chg { stroke: var(--chg); }
+.ln-env { stroke: var(--env); stroke-width: 12; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ln-seq1 { stroke: var(--seq-1); } .ln-seq2 { stroke: var(--seq-2); } .ln-seq3 { stroke: var(--seq-3); }
+.ar-accept { fill: var(--accept-wash); }
+.ar-reject { fill: var(--reject-wash); }
+.ar-option { fill: var(--option-wash); }
+.ar-ink { fill: var(--ink-wash); }
+.mk { stroke: var(--panel); stroke-width: 2; }
+.mk-ink { fill: var(--ink); } .mk-accept { fill: var(--accept); } .mk-reject { fill: var(--reject); } .mk-option { fill: var(--option); } .mk-muted { fill: var(--muted); }
+.bar-accept { fill: var(--accept); } .bar-reject { fill: var(--reject); } .bar-option { fill: var(--option); } .bar-ink { fill: var(--ink); } .bar-muted { fill: var(--base); }
+.handle line.hl { stroke: var(--ink); stroke-width: 2; }
+.handle circle { fill: var(--ink); stroke: var(--panel); stroke-width: 2.5; }
+.drag-zone { cursor: ew-resize; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13.5px; color: var(--ink-2); margin: 0 0 4px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { display: inline-block; width: 18px; height: 0; border-top: 3px solid; border-radius: 2px; }
+.legend i.sw { height: 10px; border: 0; border-radius: 3px; width: 14px; }
+.legend .c-accept { border-color: var(--accept); } .legend .c-reject { border-color: var(--reject); }
+.legend .c-option { border-color: var(--option); } .legend .c-ink { border-color: var(--ink); }
+.legend .c-muted { border-color: var(--muted); }
+.legend .c-seq1 { border-color: var(--seq-1); } .legend .c-seq2 { border-color: var(--seq-2); } .legend .c-seq3 { border-color: var(--seq-3); }
+.legend .s-accept { background: var(--accept-wash); } .legend .s-reject { background: var(--reject-wash); }
+.legend .s-option { background: var(--option-wash); } .legend .s-ink { background: var(--ink-wash); }
+
+/* cover */
+.cover h1 {
+  font-family: var(--font-display); font-weight: 500; font-style: italic;
+  font-size: clamp(48px, 8vw, 104px); line-height: 0.98; letter-spacing: -0.02em; margin: 6px 0 0; text-wrap: balance;
+}
+.cover .lede { font-size: 21px; max-width: 62ch; }
+.arc { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none; }
+.arc li { font-size: 14px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--hair); color: var(--muted); }
+.arc li.on { border-color: var(--ink); color: var(--ink); font-weight: 700; }
+.index { columns: 2 280px; column-gap: 32px; margin: 0; padding: 0; list-style: none; }
+.index li { break-inside: avoid; padding: 7px 0; border-bottom: 1px solid var(--hair); }
+.index a { display: flex; gap: 12px; text-decoration: none; color: var(--ink); align-items: baseline; }
+.index a:hover .t { text-decoration: underline; }
+.index .n { font-family: var(--font-display); font-size: 20px; color: var(--muted); min-width: 1.4em; text-align: right; }
+.index .s { color: var(--muted); font-size: 14px; }
+.keys { font-size: 14.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 18px; }
+
+/* the search game */
+.game { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 760px) { .game { grid-template-columns: minmax(0, 1fr); } }
+.offer-card { border: 1px solid var(--hair); border-radius: 14px; padding: 16px 18px 18px; background: var(--panel-2); }
+.offer-meta { display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); }
+.offer-wage {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(76px, 10vw, 128px); line-height: 1;
+  margin: 6px 0 2px; font-variant-numeric: lining-nums; transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.offer-wage.pop { transform: scale(0.94); opacity: 0.35; }
+.offer-sub { font-size: 14.5px; color: var(--ink-2); min-height: 1.5em; }
+.offer-actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.btn-big { font-size: 20px; font-weight: 700; padding: 12px 22px; border-radius: 11px; border: 0; color: #fff; cursor: pointer; }
+.btn-accept { background: var(--btn-accept); }
+.btn-reject { background: var(--btn-reject); }
+.btn-big:disabled { opacity: 0.35; cursor: default; }
+.btn-big kbd { background: rgba(255, 255, 255, 0.18); color: #fff; border-color: rgba(255, 255, 255, 0.35); margin-left: 6px; }
+.ledger h4 { margin: 0 0 6px; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.ledger ol { margin: 0; padding: 0; list-style: none; max-height: 260px; overflow-y: auto; font-size: 14.5px; }
+.ledger li { display: grid; grid-template-columns: 2.2em 3em minmax(0, 1fr) auto; gap: 6px; padding: 5px 0; border-bottom: 1px solid var(--hair); font-variant-numeric: tabular-nums; }
+.ledger li .t { color: var(--muted); }
+.ledger li .pv { font-family: var(--font-mono); font-size: 13.5px; text-align: right; }
+.ledger .total { display: flex; justify-content: space-between; margin-top: 8px; font-size: 15px; }
+.result-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; font-size: 15.5px; }
+.result-grid .v { font-family: var(--font-mono); text-align: right; font-variant-numeric: tabular-nums; }
+.result-grid .hd { font-weight: 700; }
+table.mini { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+table.mini th, table.mini td { padding: 5px 4px; border-bottom: 1px solid var(--hair); text-align: right; }
+table.mini th:first-child, table.mini td:first-child { text-align: left; }
+table.mini th { color: var(--muted); font-weight: 700; font-size: 12.5px; }
+
+/* stepper */
+.steps { display: flex; flex-direction: column; gap: 6px; }
+.step { border-radius: 10px; padding: 6px 12px 8px; transition: background 0.2s, opacity 0.2s; }
+.step .why { font-size: 15.5px; color: var(--ink-2); margin: 0; }
+.step .why b { color: var(--ink); }
+.step:not(.current) { opacity: 0.55; }
+.step.current { background: var(--panel-2); opacity: 1; }
+body:not(.lecture) .step { opacity: 1; background: transparent; }
+body:not(.lecture) .step.current { background: transparent; }
+.step-nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.step-count { font-size: 14px; color: var(--muted); }
+
+/* audit */
+.code {
+  font-family: var(--font-mono); font-size: 13.5px; line-height: 1.6; background: var(--panel-2);
+  border-radius: 9px; padding: 10px 0; margin: 0; overflow-x: auto;
+}
+.code .cl { display: block; white-space: pre; padding-right: 14px; }
+.code .cl::before { content: attr(data-n); display: inline-block; width: 2.4em; margin-right: 12px; text-align: right; color: var(--muted); }
+.code .cl.bug { background: color-mix(in srgb, var(--bad) 16%, transparent); }
+.code .cl.now { background: color-mix(in srgb, var(--accept) 16%, transparent); }
+.defs { margin: 12px 0 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; max-width: 76ch; font-size: 16.5px; color: var(--ink-2); }
+.defs dt { font-family: var(--font-display); font-size: 18px; color: var(--ink); white-space: nowrap; }
+.defs dd { margin: 0; }
+.notation { max-width: 860px; }
+.tabbar { margin-bottom: 4px; }
+.code .cm { color: var(--muted); }
+.code .kw { color: var(--chg); }
+table.tests { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.tests th, table.tests td { padding: 7px 6px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+table.tests th { text-align: center; font-size: 13px; color: var(--muted); }
+table.tests th:first-child { text-align: left; }
+table.tests td.res { text-align: center; font-family: var(--font-mono); font-size: 13px; white-space: nowrap; }
+table.tests td.res.sel { background: var(--panel-2); }
+table.tests td.res small { display: block; color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+table.tests th.sel { color: var(--ink); }
+.pass { color: var(--good); font-weight: 500; }
+.fail { color: var(--bad); font-weight: 500; }
+.tdesc { font-size: 14px; min-width: 11em; }
+.tdesc small { display: block; color: var(--muted); font-size: 12.5px; }
+.bugnote { font-size: 15px; padding: 10px 12px; border-radius: 9px; background: var(--panel-2); }
+
+/* evidence list */
+.evidence { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.evidence li { font-size: 15px; line-height: 1.45; }
+.evidence li b { display: block; color: var(--ink); }
+.evidence .src { color: var(--muted); font-size: 13.5px; }
+
+/* dictionary */
+table.dict { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.dict td { padding: 5px 4px; border-bottom: 1px solid var(--hair); }
+table.dict td:first-child { color: var(--muted); }
+
+/* wrap-up */
+.big-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; counter-reset: k; }
+.big-list li { display: grid; grid-template-columns: 2.2em minmax(0, 1fr); gap: 10px; font-size: 18px; }
+.big-list li::before { counter-increment: k; content: counter(k); font-family: var(--font-display); font-size: 30px; line-height: 1; color: var(--muted); }
+.oneline { font-family: var(--font-display); font-style: italic; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.28; margin: 0; text-wrap: balance; }
+
+/* pager */
+.pager {
+  display: flex; align-items: center; gap: 2px; padding: 2px; border-radius: 999px;
+  border: 1px solid var(--hair); background: var(--panel);
+}
+.pager button { font: inherit; font-size: 17px; width: 32px; height: 32px; border-radius: 50%; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.pager button:hover { background: var(--panel-2); }
+.pager span { font-size: 13px; color: var(--muted); min-width: 4.2em; text-align: center; font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+/* ---------- L8 additions ---------- */
+.dot-new { fill: var(--accept); transition: fill 0.3s; }
+.dot-disp { fill: var(--ink); transition: fill 0.3s; }
+.dot-une { fill: var(--reject); transition: fill 0.3s; }
+.grid100 { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 16px; align-items: center; }
+@media (max-width: 720px) { .grid100 { grid-template-columns: minmax(0, 1fr); } .grid100 .chart { max-width: 260px; } }
+.grid-legend { display: grid; gap: 8px; font-size: 15px; color: var(--ink-2); }
+.grid-legend div { display: grid; grid-template-columns: 16px 3.2em minmax(0, 1fr); gap: 8px; align-items: baseline; }
+.grid-legend i { width: 13px; height: 13px; border-radius: 50%; display: inline-block; transform: translateY(1px); }
+.grid-legend b { font-variant-numeric: tabular-nums; color: var(--ink); text-align: right; }
+.grid-legend .note { display: block; font-size: 14px; color: var(--muted); }
+.i-new { background: var(--accept); } .i-disp { background: var(--ink); } .i-une { background: var(--reject); }
+.arrow { color: var(--muted); padding: 0 4px; }
+.lt-tiles .v { font-size: 21px; }
+.exp-hidden .exp-mark { opacity: 0; }
+.exp-mark { transition: opacity 0.4s; }
+.anno { fill: var(--ink-2); font-size: 12px; }
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]], packages: { "[+]": ["html", "color", "boldsymbol"] } },
+  svg: { fontCache: "global" },
+  options: { enableMenu: false },
+  startup: {
+    ready() {
+      MathJax.startup.defaultReady();
+      MathJax.startup.promise.then(() => document.dispatchEvent(new Event("mathjax-ready")));
+    }
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js"></script>
+
+<header class="topbar">
+  <div class="brand">MMMoL <span>· Lecture 8</span></div>
+  <nav class="dots" id="dots" aria-label="Scenes"></nav>
+  <div class="pager" aria-label="Scene navigation">
+    <button type="button" id="prevBtn" aria-label="Previous scene">←</button>
+    <span id="pagerLabel">1 / 13</span>
+    <button type="button" id="nextBtn" aria-label="Next scene">→</button>
+  </div>
+  <div class="tools">
+    <button class="chip" id="modeBtn" type="button" title="Toggle notes (N)">Study mode</button>
+    <button class="chip" id="themeBtn" type="button" title="Toggle theme (T)">Dark</button>
+  </div>
+</header>
+
+<main id="deck">
+
+<!-- ===================== 0 · COVER ===================== -->
+<section class="scene cover" id="cover" data-title="Cover">
+  <p class="eyebrow">Micro and Macro Models of the Labour Market · Lecture 8 · Matching, scarce jobs and migration</p>
+  <h1>Can migration raise unemployment?</h1>
+  <p class="lede">When new workers arrive in a local labor market, do local workers find jobs less often? The textbook matching model says no. The evidence says yes, often by a lot, and more in bad times. Today we rebuild the matching model so that it can answer the question, and then we ask what migration policy should do.</p>
+  <ul class="arc" aria-label="Course arc">
+    <li>L7 Job search</li><li class="on">L8 Matching and migration</li><li>L9 Wage posting and the job ladder</li><li>L10 Estimation</li><li>L11 Sequential auctions</li><li>L12 Workers, firms and sorting</li>
+  </ul>
+  <ol class="index" id="sceneIndex"></ol>
+  <div class="card notation">
+    <h3>Notation used today (time is measured in quarters)</h3>
+    <dl class="defs" style="margin-top:0">
+      <dt>H, L, U</dt><dd>labor force, employed workers, and jobseekers U = H − L. The unemployment rate is u = U/H.</dd>
+      <dt>V, θ</dt><dd>vacancies, and tightness θ = V/U: the number of vacancies per jobseeker.</dd>
+      <dt>f(θ), q(θ)</dt><dd>job-finding rate (matches per jobseeker per quarter) and vacancy-filling rate (matches per vacancy per quarter).</dd>
+      <dt>δ</dt><dd>job-loss rate per quarter.</dd>
+      <dt>P, R, τ</dt><dd>producers, recruiters, and the recruiter-producer ratio τ = R/P.</dd>
+      <dt>κ</dt><dd>recruiters needed per vacancy.</dd>
+      <dt>a, α</dt><dd>labor productivity, and decreasing returns: output is aP<sup>1−α</sup>.</dd>
+      <dt>w, σ, γ</dt><dd>the real wage, its response to the size of the labor force (σ), and its rigidity with respect to productivity (γ).</dd>
+    </dl>
+  </div>
+  <div class="keys"><span><kbd>→</kbd> or <kbd>Space</kbd> next</span><span><kbd>←</kbd> back</span><span><kbd>N</kbd> notes on and off</span><span><kbd>T</kbd> theme</span></div>
+  <div class="notes">
+    <h3>How to use this page</h3>
+    <p>In class, switch to Lecture mode (top right, or press N): notes disappear, derivations reveal one step at a time, and the evidence in scene 1 stays hidden until you reveal it. At home, stay in Study mode. Every number on the page comes from the model of Michaillat (2024, "Modeling Migration-Induced Unemployment"), calibrated as in his table 3. The Python cross-check is in <span class="mono">revision-2027/checks/</span>. Part 1 covered the matching model in full; this lecture recaps only what the migration question needs.</p>
+  </div>
+</section>
+
+<!-- ===================== 1 · HOOK ===================== -->
+<section class="scene" id="hook" data-title="How many locals lose out?" data-sub="The evidence and the puzzle">
+  <header>
+    <p class="eyebrow"><span class="num">1</span> The question</p>
+    <h2>100 newcomers arrive. How many locals lose out?</h2>
+    <p class="lede">Suppose 100 new workers arrive in a local labor market for reasons that have nothing to do with local conditions: a war, a border that opens, colonists who return home. They are just like the local workers. How many local workers end up unemployed because of them?</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <p class="fig-title">Eleven migration experiments</p>
+      <p class="fig-sub">Unemployed local workers per 100 arrivals. Bars show the range of estimates in each study, dots the midpoint. Compiled by Michaillat (2024, table 1).</p>
+      <div class="legend"><span><i class="c-muted"></i>range of estimates</span><span><i class="sw" style="background:var(--ink)"></i>midpoint</span><span><i class="c-reject"></i>average: 37</span><span><i class="c-accept"></i>our guess</span></div>
+      <div id="hookChart"></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Before you look</h3>
+        <p>Agree on a number as a class.</p>
+        <div class="ctrl"><label for="hookGuess">Our guess, locals per 100 arrivals <output id="hookGuessOut">50</output></label><input type="range" id="hookGuess" min="0" max="100" step="1" value="50"></div>
+        <button class="btn btn-primary" id="hookReveal" type="button">Reveal the evidence</button>
+      </div>
+      <div class="card">
+        <h3>Two caricatures</h3>
+        <p><b>Jobs scale up.</b> Firms create a job for every newcomer who would be employed. No local loses out: <b>0</b>.</p>
+        <p><b>Jobs are fixed.</b> Every employed newcomer holds a job that a local would otherwise have held: about <b>96</b>.</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>On average, 100 arrivals push 37 locals into unemployment, with a range from 15 to 72. The textbook matching model predicts zero. Today we find out why, and what changes the answer.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Some studies measure the effect per 100 arrivals in the labor force, others per 100 arrivals who found a job; ranges come from different specifications, and the summary uses midpoints (mean 37, median 31). All are short-run effects in local labor markets. In the long run, firms adjust capital and the effect fades; immigration also raises innovation. The "jobs are fixed" caricature gives 100 × (1 − u) with u = 4.3%: every employed newcomer replaces a local.</p>
+    <p>Sources: Card (1990); Hunt (1992); Boustan, Fishback &amp; Kantor (2010); Makela (2017); Borjas &amp; Monras (2017, two estimates); Glitz (2012); D'Amuri, Ottaviano &amp; Peri (2010); Angrist &amp; Kugler (2003); Dustmann, Schönberg &amp; Stuhler (2017); Labanca (2016). Public opinion points the same way: in the 1992 American National Election Studies, more than 80% of respondents thought it at least somewhat likely that immigrants take jobs away from people already here.</p>
+  </div>
+</section>
+
+<!-- ===================== 2 · FLOWS ===================== -->
+<section class="scene" id="flows" data-title="Matching and flows" data-sub="Recap: the worker side">
+  <header>
+    <p class="eyebrow"><span class="num">2</span> Recap: matching</p>
+    <h2>Given tightness, how many people work?</h2>
+    <p class="lede">Jobseekers and vacancies meet through a matching function. One number, tightness, sums up the market. Jobs end at a constant rate. When the flow into employment equals the flow out, tightness alone pins down the unemployment rate.</p>
+    <dl class="defs">
+      <dt>U, V, θ = V/U</dt><dd>jobseekers, vacancies, and tightness: vacancies per jobseeker.</dd>
+      <dt>h(U, V) = μU<sup>η</sup>V<sup>1−η</sup></dt><dd>matches per quarter. η = 0.48 is the elasticity of matches with respect to jobseekers; μ = 2.16 is matching efficiency.</dd>
+      <dt>f(θ) = μθ<sup>1−η</sup></dt><dd>job-finding rate: matches per jobseeker per quarter. It rises with θ.</dd>
+      <dt>q(θ) = μθ<sup>−η</sup></dt><dd>vacancy-filling rate: matches per vacancy per quarter. It falls with θ.</dd>
+      <dt>δ = 0.097</dt><dd>job-loss rate per quarter.</dd>
+    </dl>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="two">
+        <div>
+          <p class="fig-title">Finding and filling, per quarter</p>
+          <div class="legend"><span><i class="c-reject"></i>f(θ): job-finding rate</span><span><i class="c-accept"></i>q(θ): vacancy-filling rate</span></div>
+          <div id="flowRates"></div>
+        </div>
+        <div>
+          <p class="fig-title">Employment when flows balance</p>
+          <div class="legend"><span><i class="c-ink"></i>labor supply Lˢ(θ, H)</span><span><i class="c-reject"></i>unemployment</span></div>
+          <div id="flowLs"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Pick a tightness</h3>
+        <div class="ctrl"><label for="flowTh">Tightness θ <output id="flowThOut">1.00</output></label><input type="range" id="flowTh" min="0" max="1000" step="1" value="651"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Job-finding rate f</div><div class="v mono" id="flowF">–</div><div class="was">per quarter</div></div>
+          <div class="tile"><div class="k">Finds a job within a quarter</div><div class="v mono" id="flowP">–</div></div>
+          <div class="tile"><div class="k">Average search</div><div class="v mono" id="flowD">–</div><div class="was">weeks</div></div>
+          <div class="tile"><div class="k">Unemployment rate u</div><div class="v mono" id="flowU">–</div></div>
+        </div>
+        <p class="verdict" id="flowVerdict" style="margin-top:10px">–</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>On the worker side, tightness is the whole story: flows pin down u(θ) = δ/(δ + f(θ)), whatever the size of the labor force. Employment is then Lˢ = (1 − u(θ))H, the labor supply of the matching model.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Employment moves as \( \dot L = f(\theta)\,U - \delta L \): jobseekers find jobs at rate f, workers lose jobs at rate δ. Flows balance when \( f(\theta)(H - L) = \delta L \), which gives \( L^s(\theta, H) = \frac{f(\theta)}{\delta + f(\theta)}\,H \) and \( u(\theta) = \frac{\delta}{\delta + f(\theta)} \). Michaillat calls this locus the labor supply: it is the employment level consistent with balanced flows, not a labor-leisure choice. In the unemployment-vacancy plane the same locus is the Beveridge curve.</p>
+    <p>Rates and probabilities: with a rate f per quarter, the chance of finding a job within a quarter is 1 − e<sup>−f</sup>, and the average search lasts 1/f quarters. Flows are fast (δ + f ≈ 2.3 per quarter), so deviations from balance die out within weeks; scene 10 simulates this. The elasticity of labor supply with respect to tightness is \( \epsilon^s_\theta = (1-\eta)\,u(\theta) \): small, because u is small.</p>
+  </div>
+</section>
+
+<!-- ===================== 3 · HIRING ===================== -->
+<section class="scene" id="hiring" data-title="Hiring takes workers" data-sub="The recruiter-producer ratio">
+  <header>
+    <p class="eyebrow"><span class="num">3</span> The cost of hiring</p>
+    <h2>Hiring takes workers</h2>
+    <p class="lede">A vacancy does not fill itself: someone has to screen, interview and train. Suppose each vacancy takes κ = 1 recruiter, a full-time worker. A firm that wants to keep its size must replace the workers who leave each quarter. In a tight market vacancies fill slowly, so the firm needs more of them, and more recruiters.</p>
+    <dl class="defs">
+      <dt>P, R, L = P + R</dt><dd>producers, recruiters, and total employees.</dd>
+      <dt>τ(θ) = R/P</dt><dd>the recruiter-producer ratio: recruiters per producer.</dd>
+    </dl>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="two">
+        <div>
+          <p class="fig-title">A firm with 100 employees</p>
+          <div class="legend"><span><i class="sw" style="background:var(--accept)"></i>producers</span><span><i class="sw" style="background:var(--muted)"></i>recruiters</span></div>
+          <div id="hireGrid"></div>
+        </div>
+        <div>
+          <p class="fig-title">Recruiters per producer, τ(θ)</p>
+          <div id="hireTau"></div>
+        </div>
+      </div>
+      <div class="steps" id="hireSteps">
+        <div class="step"><div class="eq">\[ R = \kappa V \]</div><p class="why"><b>Recruiting technology.</b> Each open vacancy occupies κ recruiters.</p></div>
+        <div class="step"><div class="eq">\[ \delta L = q(\theta)\,V \quad\Longrightarrow\quad V = \frac{\delta L}{q(\theta)} \]</div><p class="why"><b>Stay the same size.</b> Hires per quarter, q(θ)V, must replace the δL workers who leave.</p></div>
+        <div class="step"><div class="eq">\[ R = \frac{\kappa\delta}{q(\theta)}\,(P + R) \]</div><p class="why"><b>Combine.</b> Substitute V into R = κV and use L = P + R.</p></div>
+        <div class="step"><div class="eq">\[ \tau(\theta) = \frac{R}{P} = \frac{\kappa\delta}{q(\theta) - \kappa\delta} \]</div><p class="why"><b>Solve for R/P.</b> When θ rises, q(θ) falls and τ rises: tight markets divert more workers into recruiting.</p></div>
+      </div>
+      <div class="step-nav lecture-only"><button class="btn" id="hireBack" type="button">Back</button><button class="btn btn-primary" id="hireNext" type="button">Next step</button><span class="step-count" id="hireCount"></span></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Pick a tightness</h3>
+        <div class="ctrl"><label for="hireTh">Tightness θ <output id="hireThOut">1.00</output></label><input type="range" id="hireTh" min="0" max="1000" step="1" value="651"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Vacancy-filling rate q</div><div class="v mono" id="hireQ">–</div><div class="was">per quarter</div></div>
+          <div class="tile"><div class="k">Vacancies per 100 employees</div><div class="v mono" id="hireV">–</div></div>
+          <div class="tile"><div class="k">Recruiters per 100 employees</div><div class="v mono" id="hireR">–</div></div>
+          <div class="tile"><div class="k">τ(θ)</div><div class="v mono" id="hireT">–</div></div>
+        </div>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>Hiring costs workers' time, and the cost rises with tightness. Each producer comes with τ(θ) recruiters, so her full cost is (1 + τ(θ))w, not just the wage w.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>This is the vacancy cost of Part 1, measured in workers' time instead of output: k/q(θ) there, κδ/q(θ) of the workforce here. The calibration κ = 1 (one full-time worker per vacancy) follows Michaillat and Saez. The elasticity of 1 + τ with respect to tightness is \( \epsilon^{1+\tau}_\theta = \eta\,\tau(\theta) \): small in slack markets, larger in tight ones. That fact drives the rest of the lecture.</p>
+    <p>τ(θ) explodes when q(θ) approaches κδ, at θ ≈ 642 here, far beyond anything observed.</p>
+  </div>
+</section>
+
+<!-- ===================== 4 · DMP ===================== -->
+<section class="scene" id="dmp" data-title="The textbook benchmark" data-sub="Flat labor demand, no effect">
+  <header>
+    <p class="eyebrow"><span class="num">4</span> The textbook benchmark</p>
+    <h2>In the textbook model, newcomers change nothing</h2>
+    <p class="lede">In the textbook model every producer adds the same output, a. Firms open vacancies as long as a producer is worth more than her full cost: the wage w plus the wages of the τ(θ) recruiters she needs, (1 + τ(θ))w. Free entry pushes the two together: <b>a = (1 + τ(θ))w</b>. That equation fixes tightness whatever the number of workers, so labor demand is a horizontal line. Now let newcomers arrive.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="legend"><span><i class="c-muted"></i>labor supply before</span><span><i class="c-ink"></i>labor supply after</span><span><i class="c-accept"></i>labor demand</span><span><i class="c-reject"></i>unemployment</span></div>
+      <div id="dmpChart"></div>
+      <div class="grid100">
+        <div id="dmpGrid"></div>
+        <div class="grid-legend" id="dmpLegend"></div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>The experiment</h3>
+        <div class="ctrl"><label for="dmpS">Arrivals, % of the labor force <output id="dmpSOut">5</output></label><input type="range" id="dmpS" min="0" max="10" step="0.5" value="5"></div>
+        <div class="ctrl"><label for="dmpSig">Wage response σ: w falls as H rises <output id="dmpSigOut">0.00</output></label><input type="range" id="dmpSig" min="0" max="0.3" step="0.01" value="0"></div>
+        <div class="tiles lt-tiles">
+          <div class="tile"><div class="k">Tightness θ</div><div class="v mono" id="dmpTh">–</div></div>
+          <div class="tile"><div class="k">Unemployment rate</div><div class="v mono" id="dmpU">–</div></div>
+        </div>
+      </div>
+      <div class="card predict" data-answer="same">
+        <p class="q">5% more workers arrive and wages do not respond. The unemployment rate of locals…</p>
+        <div class="opts"><button class="opt" type="button" data-v="down">falls</button><button class="opt" type="button" data-v="same">stays put</button><button class="opt" type="button" data-v="up">rises</button></div>
+        <button class="btn reveal" type="button">Reveal</button>
+        <p class="answer" hidden>Stays put. Tightness is fixed by a = (1 + τ(θ))w, so the job-finding rate and the unemployment rate do not change. Raise σ: if wages fall, tightness and job finding rise, and unemployment falls.</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>With flat labor demand, tightness cannot move. Firms open vacancies in proportion to the newcomers and absorb them at the old unemployment rate. If wages fall, unemployment even falls.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>The same neutrality holds in the Part 1 version with a vacancy cost k and Nash bargaining: the job-creation condition \( k/q(\theta) = (p - w)/(r + \delta) \) and the wage \( w = (1-\beta)b + \beta(p + k\theta) \) contain no H, so θ does not depend on the size of the labor force. It holds for any wage rule (Michaillat 2024, figure 5). In the employment-tightness plane, the textbook model looks like the competitive "Cardian" model in the employment-wage plane: a horizontal demand curve absorbs any supply shift.</p>
+    <p>The model is internally coherent; it is simply too insensitive to answer the migration question. The 100 newcomers in the grid split into those who are unemployed (at the old rate) and those who fill brand-new jobs. Nobody takes a job a local would have had.</p>
+  </div>
+</section>
+
+<!-- ===================== 5 · DEMAND ===================== -->
+<section class="scene" id="demand" data-title="Scarce jobs" data-sub="Downward-sloping labor demand">
+  <header>
+    <p class="eyebrow"><span class="num">5</span> Scarce jobs</p>
+    <h2>When each extra worker is worth less</h2>
+    <p class="lede">In the short run machines and offices are fixed, so output is y = aP<sup>1−α</sup>: each extra producer adds less than the one before. A firm hires producers until the marginal product equals the full cost, (1 − α)aP<sup>−α</sup> = (1 + τ(θ))w. A tighter market raises the full cost, so the firm wants fewer workers. Labor demand now slopes down.</p>
+    <dl class="defs">
+      <dt>a, α = 0.35</dt><dd>productivity, and decreasing returns to labor. The labor share is 1 − α = 65%.</dd>
+      <dt>w = ω a<sup>1−γ</sup> H<sup>−σ</sup></dt><dd>a rigid wage norm. γ = 0.3: wages move less than one for one with productivity. σ ≥ 0: wages may fall when the labor force grows; σ = 0 in the baseline, because wages respond little to migration in the data.</dd>
+    </dl>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="legend"><span><i class="c-ink"></i>labor supply</span><span><i class="c-accept"></i>labor demand with your α</span><span><i class="c-muted"></i>textbook demand (α → 0)</span></div>
+      <div id="demChart"></div>
+      <div class="steps" id="demSteps">
+        <div class="step"><div class="eq">\[ \max_{P}\; aP^{1-\alpha} - \big[1+\tau(\theta)\big]\,w\,P \]</div><p class="why"><b>Profits.</b> Output minus the full cost of producers, recruiters included.</p></div>
+        <div class="step"><div class="eq">\[ (1-\alpha)\,a\,P^{-\alpha} = \big[1+\tau(\theta)\big]\,w \]</div><p class="why"><b>First-order condition.</b> The marginal product of a producer equals her full cost.</p></div>
+        <div class="step"><div class="eq">\[ L^d(\theta, a) = \left\{ \frac{(1-\alpha)\,a}{\big[1+\tau(\theta)\big]^{1-\alpha}\,w} \right\}^{1/\alpha} \]</div><p class="why"><b>Labor demand.</b> Use L = (1 + τ(θ))P to count employees instead of producers.</p></div>
+        <div class="step"><div class="eq">\[ \epsilon^d_\theta = \frac{d\ln L^d}{d\ln\theta} = -\frac{1-\alpha}{\alpha}\,\eta\,\tau(\theta) \;<\; 0 \]</div><p class="why"><b>The slope.</b> Demand falls with tightness. It is steep when τ is small (slack markets) and flatter when τ is large (tight markets).</p></div>
+      </div>
+      <div class="step-nav lecture-only"><button class="btn" id="demBack" type="button">Back</button><button class="btn btn-primary" id="demNext" type="button">Next step</button><span class="step-count" id="demCount"></span></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Decreasing returns</h3>
+        <div class="ctrl"><label for="demA">α <output id="demAOut">0.35</output></label><input type="range" id="demA" min="0.02" max="0.6" step="0.01" value="0.35"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Demand elasticity at θ = 1</div><div class="v mono" id="demEd">–</div></div>
+          <div class="tile"><div class="k">Supply elasticity at θ = 1</div><div class="v mono" id="demEs">–</div></div>
+        </div>
+        <p class="verdict" id="demVerdict" style="margin-top:10px">–</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>Two ingredients make jobs scarce: diminishing returns, and a hiring cost that rises with tightness. With a rigid wage, more jobseekers no longer bring proportionally more jobs.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Why rigid wages? In the matching model wages are set within a bilateral monopoly, so any wage in the bargaining set is consistent with equilibrium, and a wage norm can be disciplined by evidence. Immigration has small effects on local wages (Ottaviano and Peri 2012; Card 2012), so the baseline sets σ = 0. Proposition 2 in Michaillat (2024) shows that all results survive for σ ∈ [0, α); they disappear only if wages are fully flexible, σ = α.</p>
+    <p><b>Job rationing.</b> Even if hiring were free (θ → 0, so τ → 0), firms would employ only Lᵈ(0) workers. When that number is below the labor force, part of unemployment is not frictional: it would persist without any matching frictions (Michaillat 2012). As α → 0 the demand curve flattens into the textbook horizontal line; at α = 0.35 it is steep where τ is small.</p>
+  </div>
+</section>
+
+<!-- ===================== 6 · MIGRATION ===================== -->
+<section class="scene" id="migration" data-title="The migration experiment" data-sub="Tightness falls for everyone">
+  <header>
+    <p class="eyebrow"><span class="num">6</span> The migration experiment</p>
+    <h2>Newcomers lower everyone's chance of finding a job</h2>
+    <p class="lede">Add arrivals equal to a share of the labor force. They shift labor supply to the right; labor demand does not move. Tightness falls until supply and demand meet again, so the job-finding rate falls for every jobseeker, locals included.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="legend"><span><i class="c-muted"></i>labor supply before</span><span><i class="c-ink"></i>labor supply after</span><span><i class="c-accept"></i>labor demand</span><span><i class="c-reject"></i>unemployment after</span></div>
+      <div id="migChart"></div>
+      <div class="grid100">
+        <div id="migGrid"></div>
+        <div class="grid-legend" id="migLegend"></div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>The experiment</h3>
+        <div class="ctrl"><label for="migS">Arrivals, % of the labor force <output id="migSOut">5</output></label><input type="range" id="migS" min="0.5" max="10" step="0.5" value="5"></div>
+        <div class="ctrl"><label for="migSig">Wage response σ (wages fully flexible at α = 0.35) <output id="migSigOut">0.00</output></label><input type="range" id="migSig" min="0" max="0.34" step="0.01" value="0"></div>
+        <div class="ctrl"><label for="migTh">Tightness before the arrivals <output id="migThOut">1.00</output></label><input type="range" id="migTh" min="0" max="1000" step="1" value="667"></div>
+        <div class="tiles lt-tiles">
+          <div class="tile"><div class="k">Tightness θ</div><div class="v mono" id="migT">–</div></div>
+          <div class="tile"><div class="k">Job-finding rate</div><div class="v mono" id="migF">–</div></div>
+          <div class="tile"><div class="k">Unemployment rate</div><div class="v mono" id="migU">–</div></div>
+          <div class="tile"><div class="k">Firm profits</div><div class="v mono" id="migPi">–</div></div>
+        </div>
+      </div>
+      <div class="card predict" data-answer="no">
+        <p class="q">Do local workers lose their jobs faster after the arrivals?</p>
+        <div class="opts"><button class="opt" type="button" data-v="yes">yes</button><button class="opt" type="button" data-v="no">no</button></div>
+        <button class="btn reveal" type="button">Reveal</button>
+        <p class="answer" hidden>No. The job-loss rate δ does not change. Locals who lose a job stay unemployed longer, because job finding is slower. Dustmann, Schönberg &amp; Stuhler (2017) find exactly this for Czech commuters in Germany: fewer hires of German jobseekers, not more layoffs.</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>Newcomers push nobody out of a job. They make it harder for every jobseeker to find one. Wages that respond soften the blow by the factor 1 − σ/α and spread it to employed workers.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Differentiate Lˢ(θ, H) = Lᵈ(θ, a, H) with w = ωa<sup>1−γ</sup>H<sup>−σ</sup>: \( \epsilon^\theta_H = -\left(1 - \frac{\sigma}{\alpha}\right)\frac{1}{\epsilon^s_\theta - \epsilon^d_\theta} \). Because ε<sup>s</sup> is small (about 0.02 at θ = 1) and ε<sup>d</sup> is moderate (about −0.04), a 1% inflow cuts tightness by about 15%. The percentage-point rise in unemployment per 1% inflow is \( \frac{du}{d\ln H} = \left(1-\frac{\sigma}{\alpha}\right)\frac{1-u}{1 - \epsilon^d_\theta/\epsilon^s_\theta} \); multiplied by 100 it gives the locals pushed into unemployment per 100 arrivals.</p>
+    <p>Firms gain: lower tightness means fewer recruiters per producer and more producers, and profits are \( \pi = \alpha\,a\,P^{1-\alpha} \) (Proposition 3). The model joins the two camps of the immigration literature: like Borjas, labor demand slopes down; like Card, wages need not fall. The adjustment happens through tightness.</p>
+  </div>
+</section>
+
+<!-- ===================== 7 · CYCLE ===================== -->
+<section class="scene" id="cycle" data-title="Good times, bad times" data-sub="And what the experiments suggest">
+  <header>
+    <p class="eyebrow"><span class="num">7</span> Good times, bad times, and the evidence</p>
+    <h2>Why the damage is larger in a slump</h2>
+    <p class="lede">Bad times are periods of low labor demand: productivity falls while wages stay rigid, the demand curve shifts left, and tightness is low. Run the same small inflow at different points of the cycle and compare with the experiments.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <p class="fig-title">Locals pushed into unemployment per 100 arrivals, by tightness before the arrivals</p>
+      <div class="legend"><span><i class="c-ink"></i>model</span><span><i class="sw s-ink"></i>range across the 11 experiments</span><span><i class="c-reject"></i>experiments' average: 37</span></div>
+      <div id="cycChart"></div>
+      <p class="fig-title">At your tightness: a 5% inflow in the employment–tightness plane</p>
+      <div id="cycInset"></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Point in the cycle</h3>
+        <div class="ctrl"><label for="cycTh">Tightness before the arrivals <output id="cycThOut">1.00</output></label><input type="range" id="cycTh" min="0" max="1000" step="1" value="677"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Unemployment rate</div><div class="v mono" id="cycU">–</div></div>
+          <div class="tile"><div class="k">Locals per 100 arrivals</div><div class="v mono" id="cycP">–</div></div>
+          <div class="tile"><div class="k">Employment rate, % change per 1% inflow</div><div class="v mono" id="cycE">–</div></div>
+          <div class="tile"><div class="k">Demand elasticity |εᵈ|</div><div class="v mono" id="cycD">–</div></div>
+        </div>
+      </div>
+      <div class="card predict" data-answer="slump">
+        <p class="q">Where does a given inflow push more locals into unemployment?</p>
+        <div class="opts"><button class="opt" type="button" data-v="boom">in a boom</button><button class="opt" type="button" data-v="slump">in a slump</button></div>
+        <button class="btn reveal" type="button">Reveal</button>
+        <p class="answer" hidden>In a slump. At tightness 0.5 about 48 locals per 100 arrivals, at tightness 2 about 20.</p>
+      </div>
+      <div class="card">
+        <h3>What the experiments suggest</h3>
+        <ul class="evidence">
+          <li><b>Tight markets, small effects.</b> France 1962 (unemployment about 1%): 20 per 100. Portugal 1974–77 (about 2%): 22.</li>
+          <li><b>Slack markets, large effects.</b> Europe in the 1990s (unemployment about 10%): 59 per 100 at the midpoint of Angrist &amp; Kugler (2003).</li>
+          <li><b>Regions.</b> Effects are weaker in regions with good economic conditions (Edo &amp; Ozguzel 2023).</li>
+        </ul>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>In a slump vacancies fill fast, recruiting costs little, and it barely gets cheaper when jobseekers multiply. Firms hardly expand: jobs are close to fixed, and newcomers mostly add to unemployment.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Proposition 5 gives the elasticity of the employment rate l = 1 − u with respect to the labor force: \( \epsilon^l_H = -\left(1-\frac{\sigma}{\alpha}\right)\Big/\left(1 + \frac{1-\alpha}{\alpha}\,\frac{\eta}{1-\eta}\,\frac{\tau(\theta)}{u(\theta)}\right) \). As θ → 0, τ/u → 0 and the elasticity tends to −1: the fixed-jobs caricature. At efficient tightness it equals −(α − σ). As θ grows, it tends to 0: the textbook model. The model therefore contains both caricatures from scene 1 as limits.</p>
+    <p>The episode markers are placed where the model curve reaches the measured effect, which is Michaillat's own reading; a real test would measure tightness in each episode, which makes a good project question. Politics follows the same pattern: the shift of Austrian voters towards the anti-immigration FPÖ in response to immigration is about twice as large in local labor markets in the top quartile of unemployment as in the bottom quartile (Halla, Wagner &amp; Zweimüller 2017). US tightness averaged 0.73 between 1930 and 2024; it reached 2 only during the post-pandemic boom.</p>
+  </div>
+</section>
+
+<!-- ===================== 8 · EFFICIENCY ===================== -->
+<section class="scene" id="efficiency" data-title="How tight should it be?" data-sub="Idle jobseekers and busy recruiters">
+  <header>
+    <p class="eyebrow"><span class="num">8</span> Efficiency</p>
+    <h2>How tight should a labor market be?</h2>
+    <p class="lede">Two kinds of labor produce nothing: jobseekers who are idle, and workers who are busy recruiting. A tighter market cuts the first and raises the second. The efficient tightness maximizes the share of the labor force that produces.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="legend"><span><i class="sw s-reject"></i>idle jobseekers, u(θ)</span><span><i class="sw" style="background:var(--ink-wash)"></i>recruiters, R/H</span><span><i class="c-ink"></i>total labor that does not produce</span></div>
+      <div id="effChart"></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Pick a tightness</h3>
+        <div class="ctrl"><label for="effTh">Tightness θ <output id="effThOut">1.00</output></label><input type="range" id="effTh" min="0" max="1000" step="1" value="500"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Idle</div><div class="v mono" id="effIdle">–</div></div>
+          <div class="tile"><div class="k">Recruiting</div><div class="v mono" id="effRec">–</div></div>
+          <div class="tile"><div class="k">Not producing</div><div class="v mono" id="effWaste">–</div></div>
+          <div class="tile"><div class="k">Efficient θ*</div><div class="v mono" id="effStar">–</div></div>
+        </div>
+        <p class="verdict" id="effVerdict" style="margin-top:10px">–</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>The market is efficient when ητ(θ) = (1 − η)u(θ). Under the US calibration that is about one vacancy per jobseeker, θ* ≈ 1. Below it, the market is inefficiently slack; above it, inefficiently tight.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Output depends on producers, \( P = \frac{1-u(\theta)}{1+\tau(\theta)}\,H \). Maximize the producing share: its elasticity with respect to θ is \( (1-\eta)u(\theta) - \eta\,\tau(\theta) \), so the optimum satisfies \( \eta\,\tau(\theta) = (1-\eta)\,u(\theta) \): the marginal gain from fewer idle workers equals the marginal cost of more recruiters. With κ = 1, recruiters equal vacancies, so at θ* there are about as many recruiters as jobseekers, u ≈ v. This is the Michaillat–Saez rule u* = √(uv).</p>
+    <p>The same condition is the efficiency condition of the textbook model with zero interest and zero value of unemployment. With Nash bargaining, the textbook model reaches it when the worker's bargaining power equals η, the elasticity of matches with respect to jobseekers (the Hosios condition, β = η). A warning for testing code: with η = 0.5, the statements β = η and β = 1 − η give the same number, so a check at η = 0.5 cannot tell a correct formula from a wrong one. The US labor market has mostly been inefficiently slack: tightness averaged 0.73 between 1930 and 2024 (Michaillat and Saez 2024).</p>
+  </div>
+</section>
+
+<!-- ===================== 9 · POLICY ===================== -->
+<section class="scene" id="policy" data-title="Winners, losers, policy" data-sub="Local income and the optimal inflow">
+  <header>
+    <p class="eyebrow"><span class="num">9</span> Winners, losers and policy</p>
+    <h2>Who gains, and what should policy do?</h2>
+    <p class="lede">Firms gain from arrivals: recruiting gets easier and profits rise. Local workers lose: job finding falls, and wages fall too if σ &gt; 0. Add the two: local income is local labor income plus local profits, with all firms owned locally.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="two">
+        <div>
+          <p class="fig-title">Effect of a 1% inflow on local income</p>
+          <p class="fig-sub">Contributions in % of initial local income</p>
+          <div id="polBars"></div>
+        </div>
+        <div>
+          <p class="fig-title">Best inflow, by tightness before the arrivals</p>
+          <p class="fig-sub">Inflow that maximizes local income, % of the labor force</p>
+          <div id="polOpt"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Conditions</h3>
+        <div class="ctrl"><label for="polTh">Tightness before the arrivals <output id="polThOut">1.20</output></label><input type="range" id="polTh" min="0" max="1000" step="1" value="632"></div>
+        <div class="ctrl"><label for="polSig">Wage response σ <output id="polSigOut">0.00</output></label><input type="range" id="polSig" min="0" max="0.15" step="0.01" value="0"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Local labor income</div><div class="v mono" id="polLab">–</div></div>
+          <div class="tile"><div class="k">Local profits</div><div class="v mono" id="polProf">–</div></div>
+          <div class="tile"><div class="k">Total local income</div><div class="v mono" id="polTot">–</div></div>
+          <div class="tile"><div class="k">Best inflow</div><div class="v mono" id="polBest">–</div></div>
+        </div>
+      </div>
+      <div class="card predict" data-answer="zero">
+        <p class="q">The market is at its efficient tightness. A small inflow changes total local income by…</p>
+        <div class="opts"><button class="opt" type="button" data-v="up">a gain</button><button class="opt" type="button" data-v="zero">nothing, to first order</button><button class="opt" type="button" data-v="down">a loss</button></div>
+        <button class="btn reveal" type="button">Reveal</button>
+        <p class="answer" hidden>Nothing, to first order. At θ*, the labor income locals lose is exactly offset by the profits firms gain (Proposition 6).</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>Arrivals raise local income when the market is too tight and lower it when the market is too slack. The best migration policy is procyclical: admit more workers in booms, fewer in slumps.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>With local labor force H and total labor force mH, local income is \( W = w\,l\,H + \pi \) with \( \pi = \frac{\alpha}{1-\alpha}\,w\,l\,mH \). The elasticity of W with respect to m at m = 1 is \( (\alpha - \sigma)\left[1 - \frac{1}{\alpha + (1-\alpha)\frac{\eta}{1-\eta}\frac{\tau}{u}}\right] \), which is zero exactly at the efficiency condition of scene 8. The welfare criterion leaves out distribution: workers who own no firms lose in every case.</p>
+    <p>Starting from a tight market, the best inflow brings tightness to just below θ* (Proposition 7). In this implementation it is 1.35% of the labor force when tightness starts at 1.2 and 2.5% when it starts at 1.4; Michaillat reports about 1% and 2%. The policy could work like extended unemployment benefits in the US, which switch on automatically when state unemployment crosses a threshold; multi-year work visas fit the length of a typical business cycle.</p>
+  </div>
+</section>
+
+<!-- ===================== 10 · SOLVE ===================== -->
+<section class="scene" id="solve" data-title="How a computer solves it" data-sub="Root-finding, simulation, verification">
+  <header>
+    <p class="eyebrow"><span class="num">10</span> Computation</p>
+    <h2>How does the computer solve this model?</h2>
+    <p class="lede">Three jobs, three methods. Find the tightness where supply meets demand: a root in one unknown. Check that flows really are in balance after a shock: a simulation. Check that a formula from the paper is right: a finite difference.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="seg tabbar" id="solveTab"><button type="button" data-v="root" aria-pressed="true">1 · Find θ</button><button type="button" data-v="sim" aria-pressed="false">2 · Simulate the flows</button><button type="button" data-v="fd" aria-pressed="false">3 · Check a formula</button></div>
+      <div data-tab="root">
+        <p class="fig-title">Excess supply in logs, Z(θ) = ln Lˢ(θ) − ln Lᵈ(θ), after a 5% inflow at θ = 1</p>
+        <div class="legend"><span><i class="c-ink"></i>Z(θ): negative means tightness too low, positive too high</span><span><i class="sw s-option"></i>bracket</span></div>
+        <div id="rootChart"></div>
+        <table class="mini" id="rootLog"><thead><tr><th>step</th><th>low θ</th><th>high θ</th><th>midpoint</th><th>Z(mid)</th><th>keep</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div data-tab="sim" hidden>
+        <p class="fig-title">Unemployment rate after a 5% inflow at θ = 1: Euler steps against the exact path</p>
+        <div class="legend"><span><i class="c-ink"></i>exact path</span><span><i class="sw" style="background:var(--option)"></i>Euler steps</span><span><i class="c-muted"></i>new balanced-flow level</span></div>
+        <div id="simChart"></div>
+      </div>
+      <div data-tab="fd" hidden>
+        <p class="fig-title">Error of a finite-difference elasticity, by step size h</p>
+        <div class="legend"><span><i class="c-ink"></i>|numerical − formula| for ε of θ with respect to H, at θ = 1</span></div>
+        <div id="fdChart"></div>
+        <table class="mini" id="fdLog"><thead><tr><th>h</th><th>numerical</th><th>formula</th><th>error</th></tr></thead><tbody></tbody></table>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card" data-tab="root">
+        <h3>What the code does</h3>
+        <p>Supply rises with θ and demand falls, so Z(θ) crosses zero once. Bisect in log tightness, because θ spans several orders of magnitude and must stay positive.</p>
+        <div class="btn-row"><button class="btn btn-primary" id="rootStep" type="button">Step</button><button class="btn" id="rootRun" type="button">Run</button><button class="btn" id="rootReset" type="button">Reset</button></div>
+        <div class="tiles" style="margin-top:10px">
+          <div class="tile"><div class="k">Step</div><div class="v mono" id="rootN">0</div></div>
+          <div class="tile"><div class="k">Bracket, ratio high/low</div><div class="v mono" id="rootW">–</div></div>
+        </div>
+        <pre class="code" id="rootCode" style="margin-top:10px"></pre>
+      </div>
+      <div class="card" data-tab="sim" hidden>
+        <h3>What the code does</h3>
+        <p>The newcomers arrive as jobseekers, so unemployment jumps on impact. Then the flow equation du/dt = δ(1 − u) − f(θ)u moves it towards the new balanced level. The exact path is exponential; Euler's method approximates it step by step.</p>
+        <div class="ctrl"><label for="simDt">Euler step, weeks <output id="simDtOut">2</output></label><input type="range" id="simDt" min="1" max="16" step="1" value="2"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Half-life of the gap</div><div class="v mono" id="simHalf">–</div><div class="was">weeks</div></div>
+          <div class="tile"><div class="k">Largest Euler error</div><div class="v mono" id="simErr">–</div><div class="was">percentage points</div></div>
+        </div>
+        <pre class="code" id="simCode" style="margin-top:10px"></pre>
+      </div>
+      <div class="card" data-tab="fd" hidden>
+        <h3>What the code does</h3>
+        <p>Solve the model twice, at H and at H(1 + h), and compare the change in ln θ with the paper's formula. Large h: the formula is a local slope, so the error grows with h. Tiny h: the difference of two nearly equal numbers is dominated by the solver's rounding. Pick h in between.</p>
+        <pre class="code" id="fdCode"></pre>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>A root-finder solves the equilibrium, a simulation justifies the balanced-flow shortcut, and a finite difference checks the algebra. Each is a test you can run on code you did not write.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p><b>Root.</b> The same bisection as Lecture 7, applied to a different function. Bisecting in ln θ halves the ratio high/low at each step. A model with several unknowns would need a vector root-finder (Newton or a library routine), but the logic of bracketing and checking the sign carries over.</p>
+    <p><b>Simulation.</b> The exact solution is \( u(t) = u_1 + (u(0) - u_1)\,e^{-(\delta + f(\theta_1))t} \). Euler's method multiplies the gap by 1 − Δt(δ + f) each step: accurate for small steps, oscillating once Δt(δ + f) &gt; 1, and explosive above 2. Here the gap halves in about 6 weeks, which is why Michaillat can assume balanced flows at all times. For simplicity the simulation lets tightness jump to its new value at once.</p>
+    <p><b>Finite difference.</b> The error falls in proportion to h until about h = 10⁻⁸, then rises again as rounding dominates: the classic V shape of numerical derivatives.</p>
+  </div>
+</section>
+
+<!-- ===================== 11 · SHIMER ===================== -->
+<section class="scene" id="shimer" data-title="The same lesson in macro" data-sub="The Shimer puzzle">
+  <header>
+    <p class="eyebrow"><span class="num">11</span> The same lesson in macro</p>
+    <h2>Why the textbook model barely moves over the cycle</h2>
+    <p class="lede">Shimer (2005) showed that the textbook model is too insensitive to productivity shocks as well. With Nash bargaining, wages absorb most of a productivity change, so the profit from a hire barely moves, and neither do vacancies. In this lecture's model, the wage rigidity γ governs exactly this margin.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <p class="fig-title">Elasticity of tightness with respect to productivity, at θ = 1</p>
+      <div class="legend"><span><i class="c-ink"></i>this model, by wage rigidity γ</span><span><i class="c-accept"></i>US estimate: 8.6</span><span><i class="c-muted"></i>textbook model, Shimer's calibration: 1.7</span></div>
+      <div id="shiChart"></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Wage rigidity</h3>
+        <div class="ctrl"><label for="shiG">γ: 0 means wages move one for one with productivity <output id="shiGOut">0.30</output></label><input type="range" id="shiG" min="0" max="1" step="0.01" value="0.3"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Elasticity at θ = 1</div><div class="v mono" id="shiE">–</div></div>
+          <div class="tile"><div class="k">Tightness after a 5% productivity fall</div><div class="v mono" id="shiT">–</div></div>
+        </div>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>Both failures of the textbook model share one root: a missing margin of adjustment. For migration, labor demand must slope down; for business cycles, wages must not absorb the shock.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>With w = ωa<sup>1−γ</sup>, the wage-to-productivity ratio is ωa<sup>−γ</sup>, and \( \epsilon^\theta_a = \frac{\gamma}{\alpha\,(\epsilon^s_\theta - \epsilon^d_\theta)} \). At γ = 0, productivity cancels from labor demand and tightness does not move at all. At γ = 0.3, a 5% fall in productivity halves tightness (Michaillat 2024, section 9.2). The US estimate of 8.6 is from Michaillat (2012).</p>
+    <p>In the textbook model with Nash bargaining (p: output per worker, b: value of non-work, β: the worker's bargaining power, r: the interest rate), \( \epsilon^\theta_p = \frac{p}{p-b}\cdot\frac{r+\delta+\beta f}{\eta(r+\delta)+\beta f} \). With Shimer's quarterly calibration (b/p = 0.4, β = η = 0.72, δ = 0.1, r = 0.012, f = 1.355) this is 1.7. Ljungqvist and Sargent (2017) show that every proposed fix (a high value of non-work as in Hagedorn–Manovskii, rigid wages as in Hall, alternating-offer bargaining as in Hall–Milgrom) works by shrinking the "fundamental surplus" p − b relative to p, or by stopping wages from absorbing the shock.</p>
+  </div>
+</section>
+
+<!-- ===================== 12 · WRAP ===================== -->
+<section class="scene" id="wrap" data-title="What to remember" data-sub="Takeaways and oral-exam practice">
+  <header>
+    <p class="eyebrow"><span class="num">12</span> Wrap-up</p>
+    <h2>What to remember</h2>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <ol class="big-list">
+        <li><span><b>The textbook matching model cannot see migration-induced unemployment.</b> Labor demand is flat, so newcomers are absorbed at the old unemployment rate.</span></li>
+        <li><span><b>Scarce jobs need two ingredients.</b> Diminishing returns and a hiring cost that rises with tightness make labor demand slope down; rigid wages keep the adjustment in tightness.</span></li>
+        <li><span><b>Arrivals lower every jobseeker's job-finding rate.</b> At efficient tightness, 100 arrivals push about 33 locals into unemployment; in a slump many more, in a boom fewer.</span></li>
+        <li><span><b>Firms gain and workers lose.</b> Local income rises with arrivals only when the market is inefficiently tight, so the best migration policy is procyclical.</span></li>
+      </ol>
+      <p class="oneline">The textbook model explains unemployment through search frictions; to explain migration-induced unemployment we need scarce jobs: downward-sloping labor demand and wages that do not absorb the whole shock.</p>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Explain it in 60 seconds</h3>
+        <p>Oral-exam style. Answer out loud, without notes.</p>
+        <ul style="margin:0;padding-left:18px;font-size:15.5px">
+          <li>Why does the textbook model predict no effect of migration on unemployment?</li>
+          <li>Which two ingredients make labor demand slope down, and what does each do?</li>
+          <li>Why do newcomers lower job finding but not raise job loss?</li>
+          <li>Why is migration-induced unemployment larger in a slump?</li>
+          <li>When does an inflow raise local income, and why?</li>
+          <li>How would you check that an elasticity formula in a paper is right?</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Next</h3>
+        <p><b>Lecture 9.</b> So far every worker earns the same wage. Why are identical workers paid differently, and why do they keep searching after they find a job?</p>
+        <p class="study-only" style="font-size:14.5px;color:var(--muted)">Lab for this lecture: write the spec to reproduce the model's curve of locals per 100 arrivals (equilibrium condition, root-finder, outputs), build it with AI, and verify it against Proposition 5 and the values 73, 49, 33 and 20 at tightness 0.1, 0.5, 1 and 2.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<noscript><p style="padding:20px">This lecture needs JavaScript for its live figures.</p></noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+(() => {
+"use strict";
+
+/* ===== UTILITIES ===== */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+const nf0 = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
+const f0 = x => (isFinite(x) ? nf0.format(Math.round(x)) : "∞");
+const f1 = x => (isFinite(x) ? x.toFixed(1) : "∞");
+const f2 = x => (isFinite(x) ? x.toFixed(2) : "∞");
+const f3 = x => (isFinite(x) ? x.toFixed(3) : "∞");
+const pct1 = x => (isFinite(x) ? (100 * x).toFixed(1) + "%" : "–");
+const pct2 = x => (isFinite(x) ? (100 * x).toFixed(2) + "%" : "–");
+const signed = (x, d = 2) => (x >= 0 ? "+" : "−") + Math.abs(x).toFixed(d);
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const reduceMotion = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : v; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
+};
+function range(a, b, n) { const out = []; for (let i = 0; i < n; i++) out.push(a + (b - a) * i / (n - 1)); return out; }
+function logspace(a, b, n) { const la = Math.log(a), lb = Math.log(b); return range(la, lb, n).map(Math.exp); }
+const fmtTheta = d => (d >= 1 ? String(+d.toFixed(1)) : String(+d.toPrecision(2)));
+function safe(name, fn) { try { fn(); } catch (err) { console.error("Scene " + name + " failed:", err); } }
+
+/* ===== MODEL (Michaillat 2024, table 3; quarterly; course notation: δ = separation rate, σ = wage elasticity with respect to H) ===== */
+const PAR = { alpha: 0.35, eta: 0.48, mu: 2.16, delta: 0.097, kappa: 1, gamma: 0.3 };
+const ETA = PAR.eta, MU = PAR.mu, DELTA = PAR.delta, KAPPA = PAR.kappa;
+const fR = th => MU * Math.pow(th, 1 - ETA);
+const qR = th => MU * Math.pow(th, -ETA);
+const tauR = th => { const q = qR(th); return q > KAPPA * DELTA ? KAPPA * DELTA / (q - KAPPA * DELTA) : Infinity; };
+const uR = th => DELTA / (DELTA + fR(th));
+const THETA_TAU = Math.pow(MU / (KAPPA * DELTA), 1 / ETA);
+function bisect(fn, lo, hi, iters) {
+  let flo = fn(lo);
+  const n = iters || 200;
+  for (let i = 0; i < n; i++) {
+    const m = 0.5 * (lo + hi), fm = fn(m);
+    if ((fm > 0) === (flo > 0)) { lo = m; flo = fm; } else hi = m;
+    if (hi - lo <= 1e-15 * Math.max(1, Math.abs(lo))) break;
+  }
+  return 0.5 * (lo + hi);
+}
+function makeModel(alpha, gamma) {
+  alpha = alpha == null ? PAR.alpha : alpha;
+  gamma = gamma == null ? PAR.gamma : gamma;
+  /* ω normalizes the market to θ = 1 when a = 1 and H = 1 */
+  const omega = (1 - alpha) / Math.pow(1 - uR(1), alpha) * Math.pow(1 + tauR(1), alpha - 1);
+  const wage = (a, H, sigma) => omega * Math.pow(a, 1 - gamma) * Math.pow(H, -sigma);
+  const Ls = (th, H) => fR(th) / (DELTA + fR(th)) * H;
+  const Ld = (th, a, H, sigma) => Math.pow((1 - alpha) * a / (Math.pow(1 + tauR(th), 1 - alpha) * wage(a, H, sigma)), 1 / alpha);
+  const Z = (th, a, H, sigma) => Math.log(Ls(th, H)) - Math.log(Ld(th, a, H, sigma));
+  const theta = (a, H, sigma) => Math.exp(bisect(lt => Z(Math.exp(lt), a, H, sigma), Math.log(1e-8), Math.log(THETA_TAU) - 1e-9));
+  const aFor = (th0, sigma) => (gamma < 1e-9 ? 1 : Math.exp(bisect(la => Math.log(theta(Math.exp(la), 1, sigma)) - Math.log(th0), Math.log(0.2), Math.log(5), 120)));
+  const es = th => (1 - ETA) * uR(th);
+  const ed = th => -((1 - alpha) / alpha) * ETA * tauR(th);
+  const epsThetaH = (th, sigma) => -(1 - sigma / alpha) / (es(th) - ed(th));
+  const epsL = (th, sigma) => -(1 - sigma / alpha) / (1 - ed(th) / es(th));
+  const per100 = (th, sigma) => 100 * (1 - sigma / alpha) * (1 - uR(th)) / (1 - ed(th) / es(th));
+  const epsThetaA = th => gamma / (alpha * (es(th) - ed(th)));
+  const epsW = (th, sigma) => (alpha - sigma) * (1 - 1 / (alpha + (1 - alpha) * (ETA / (1 - ETA)) * tauR(th) / uR(th)));
+  function income(a, m, sigma) {
+    const th = theta(a, m, sigma), w = wage(a, m, sigma), l = 1 - uR(th);
+    const P = l * m / (1 + tauR(th));
+    const lab = w * l, prof = alpha * a * Math.pow(P, 1 - alpha);
+    return { th, lab, prof, W: lab + prof, P };
+  }
+  function experiment(th0, s, sigma) {
+    const a = aFor(th0, sigma), t0 = theta(a, 1, sigma), t1 = theta(a, 1 + s, sigma);
+    const u0 = uR(t0), u1 = uR(t1), L0 = Ls(t0, 1), L1 = Ls(t1, 1 + s);
+    const i0 = income(a, 1, sigma), i1 = income(a, 1 + s, sigma);
+    const per = s > 0 ? 100 / s : 0;
+    return {
+      a, t0, t1, u0, u1, L0, L1, f0: fR(t0), f1: fR(t1),
+      jobs: (L1 - L0) * per, uneNew: 100 * u1, displaced: (u1 - u0) * per,
+      prof0: i0.prof, prof1: i1.prof
+    };
+  }
+  function optimalInflow(th0, sigma) {
+    const a = aFor(th0, sigma), W = m => income(a, m, sigma).W;
+    if (W(1.0005) <= W(1)) return 0;
+    let lo = 1, hi = 1.4;
+    const g = (Math.sqrt(5) - 1) / 2;
+    let x1 = hi - g * (hi - lo), x2 = lo + g * (hi - lo), w1 = W(x1), w2 = W(x2);
+    for (let i = 0; i < 60; i++) {
+      if (w1 < w2) { lo = x1; x1 = x2; w1 = w2; x2 = lo + g * (hi - lo); w2 = W(x2); }
+      else { hi = x2; x2 = x1; w2 = w1; x1 = hi - g * (hi - lo); w1 = W(x1); }
+    }
+    return 0.5 * (lo + hi) - 1;
+  }
+  return { alpha, gamma, omega, wage, Ls, Ld, Z, theta, aFor, es, ed, epsThetaH, epsL, per100, epsThetaA, epsW, income, experiment, optimalInflow };
+}
+const MODEL = makeModel();
+const THETA_STAR = bisect(th => ETA * tauR(th) - (1 - ETA) * uR(th), 0.01, 50);
+/* Textbook benchmark: linear technology, (1 + τ(θ))w = a with a = 1 and w = w_D H^(−σ) */
+const DMP = (() => {
+  const wD = 1 / (1 + tauR(1));
+  return {
+    wD,
+    theta(H, sigma) { const T = Math.pow(H, sigma) / wD - 1, q = KAPPA * DELTA * (1 + T) / T; return Math.pow(MU / q, 1 / ETA); }
+  };
+})();
+/* ===== END MODEL ===== */
+
+/* ===== CHARTS ===== */
+let clipN = 0;
+function makeChart(el, o) {
+  const W = o.w || 640, H = o.h || 360;
+  const m = Object.assign({ t: 30, r: 22, b: 44, l: 58 }, o.m || {});
+  const svg = d3.select(el).append("svg").attr("class", "chart").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img");
+  if (o.aria) svg.attr("aria-label", o.aria);
+  const x = (o.xlog ? d3.scaleLog() : d3.scaleLinear()).domain(o.x).range([m.l, W - m.r]);
+  const y = (o.ylog ? d3.scaleLog() : d3.scaleLinear()).domain(o.y).range([H - m.b, m.t]);
+  const id = "clip" + (++clipN);
+  svg.append("clipPath").attr("id", id).append("rect").attr("x", m.l).attr("y", m.t - 3).attr("width", W - m.l - m.r).attr("height", H - m.t - m.b + 6);
+  const grid = svg.append("g").attr("class", "grid");
+  const gx = svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - m.b})`);
+  const gy = svg.append("g").attr("class", "axis").attr("transform", `translate(${m.l},0)`);
+  const under = svg.append("g").attr("clip-path", `url(#${id})`);
+  const plot = svg.append("g").attr("clip-path", `url(#${id})`);
+  const over = svg.append("g");
+  if (o.xLabel) svg.append("text").attr("class", "axis-title").attr("x", W - m.r).attr("y", H - 6).attr("text-anchor", "end").text(o.xLabel);
+  if (o.yLabel) svg.append("text").attr("class", "axis-title").attr("x", m.l).attr("y", m.t - 14).attr("text-anchor", "start").text(o.yLabel);
+  const c = { svg, x, y, W, H, m, grid, gx, gy, under, plot, over, o };
+  c.axes = () => {
+    const xa = d3.axisBottom(x).tickSizeOuter(0).tickPadding(6);
+    const ya = d3.axisLeft(y).tickSizeOuter(0).tickPadding(6);
+    if (o.xTicks) xa.tickValues(o.xTicks); else xa.ticks(o.xt == null ? 6 : o.xt);
+    if (o.yTicks) ya.tickValues(o.yTicks); else ya.ticks(o.yt == null ? 5 : o.yt);
+    if (o.xf) xa.tickFormat(o.xf);
+    if (o.yf) ya.tickFormat(o.yf);
+    gx.call(xa); gy.call(ya);
+    const yt = o.yTicks || y.ticks(o.yt == null ? 5 : o.yt);
+    grid.selectAll("line").data(yt).join("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", d => y(d)).attr("y2", d => y(d));
+  };
+  c.axes();
+  c.line = d3.line().x(d => x(d[0])).y(d => y(d[1])).defined(d => isFinite(d[0]) && isFinite(d[1]));
+  c.area = (y0) => d3.area().x(d => x(d[0])).y0(typeof y0 === "number" ? y(y0) : d => y(d[2])).y1(d => y(d[1])).defined(d => isFinite(d[1]));
+  c.path = (layer, cls) => (layer || plot).append("path").attr("class", cls);
+  return c;
+}
+function bindRange(id, fmt, onInput) {
+  const el = document.getElementById(id), out = document.getElementById(id + "Out");
+  const update = () => { const v = parseFloat(el.value); if (out) out.textContent = fmt ? fmt(v) : v; onInput(v); };
+  el.addEventListener("input", update);
+  return { el, set(v) { el.value = v; if (out) out.textContent = fmt ? fmt(parseFloat(el.value)) : el.value; }, get() { return parseFloat(el.value); } };
+}
+/* slider 0..1000 mapped to a log scale between lo and hi */
+function bindLogRange(id, lo, hi, fmt, onInput) {
+  const el = document.getElementById(id), out = document.getElementById(id + "Out");
+  const toV = s => Math.exp(Math.log(lo) + (Math.log(hi) - Math.log(lo)) * s / 1000);
+  const toS = v => Math.round(1000 * (Math.log(v) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)));
+  const update = () => { const v = toV(parseFloat(el.value)); if (out) out.textContent = fmt(v); onInput(v); };
+  el.addEventListener("input", update);
+  return { el, value: () => toV(parseFloat(el.value)), set(v) { el.value = toS(v); if (out) out.textContent = fmt(toV(parseFloat(el.value))); } };
+}
+function bindSeg(id, onPick) {
+  const seg = document.getElementById(id);
+  seg.addEventListener("click", ev => {
+    const btn = ev.target.closest("button"); if (!btn) return;
+    $$("button", seg).forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    onPick(btn.dataset.v);
+  });
+}
+function codePanel(el, lines) {
+  el.textContent = "";
+  const spans = lines.map((line, i) => {
+    const sp = document.createElement("span"); sp.className = "cl"; sp.dataset.n = i + 1;
+    const h = line.indexOf("#");
+    if (h >= 0) { sp.appendChild(document.createTextNode(line.slice(0, h))); const c = document.createElement("span"); c.className = "cm"; c.textContent = line.slice(h); sp.appendChild(c); }
+    else sp.textContent = line;
+    el.appendChild(sp); return sp;
+  });
+  return i => spans.forEach((sp, j) => sp.classList.toggle("now", j === i));
+}
+function logRows(tbody, rows, keep) {
+  tbody.textContent = "";
+  rows.slice(-(keep || 6)).forEach(r => { const tr = document.createElement("tr"); r.forEach(v => { const td = document.createElement("td"); td.textContent = v; tr.appendChild(td); }); tbody.appendChild(tr); });
+}
+/* derivation stepper: in Lecture mode reveal one step at a time; register with the navigation */
+function stepper(sceneId, stepsSel, backId, nextId, countId) {
+  const steps = $$(stepsSel);
+  let k = 0;
+  const lecture = () => document.body.classList.contains("lecture");
+  function show() {
+    steps.forEach((s, i) => { s.hidden = lecture() && i > k; s.classList.toggle("current", i === k); });
+    $("#" + countId).textContent = `Step ${k + 1} of ${steps.length}`;
+    $("#" + backId).disabled = k === 0;
+    $("#" + nextId).disabled = k === steps.length - 1;
+  }
+  $("#" + nextId).addEventListener("click", () => { if (k < steps.length - 1) { k++; show(); } });
+  $("#" + backId).addEventListener("click", () => { if (k > 0) { k--; show(); } });
+  shared.stepHandlers[sceneId] = {
+    next() { if (!lecture()) return false; if (k < steps.length - 1) { k++; show(); return true; } return false; },
+    prev() { if (!lecture()) return false; if (k > 0) { k--; show(); return true; } return false; }
+  };
+  document.addEventListener("mode-changed", () => { k = lecture() ? 0 : steps.length - 1; show(); });
+  k = lecture() ? 0 : steps.length - 1;
+  show();
+}
+function predictCards(scope) {
+  $$(scope + " .predict").forEach(card => {
+    $$(".opt", card).forEach(o => o.addEventListener("click", () => { $$(".opt", card).forEach(x => x.setAttribute("aria-pressed", String(x === o))); }));
+    $(".reveal", card).addEventListener("click", () => {
+      $(".answer", card).hidden = false;
+      $$(".opt", card).forEach(x => x.classList.toggle("correct", x.dataset.v === card.dataset.answer));
+    });
+  });
+}
+/* employment–tightness diagram */
+const TH_TICKS = [0.05, 0.1, 0.2, 0.5, 1, 2, 5];
+function ltChart(el, o) {
+  o = o || {};
+  const c = makeChart(el, {
+    w: o.w || 640, h: o.h || 380, x: o.x || [0.8, 1.12], y: o.y || [0.04, 6], ylog: true, yTicks: o.yTicks || TH_TICKS,
+    yf: fmtTheta, xf: d3.format(".2f"), xt: 6,
+    xLabel: o.xLabel || "employment L (initial labor force = 1)", yLabel: o.yLabel || "tightness θ, log scale", m: o.m,
+    aria: o.aria || "Labor supply and labor demand in the employment–tightness plane"
+  });
+  const ths = logspace(c.y.domain()[0], c.y.domain()[1], 180);
+  const layers = {
+    Hlines: c.over.append("g"), gap: c.over.append("g"),
+    ghost: c.path(null, "ln ln-muted"), supply: c.path(null, "ln ln-ink"), flat: c.path(null, "ln ln-muted"),
+    demand: c.path(null, "ln ln-accept"), pts: c.over.append("g")
+  };
+  c.draw = (s) => {
+    layers.ghost.attr("d", s.ghostH != null ? c.line(ths.map(t => [MODEL.Ls(t, s.ghostH), t])) : null);
+    layers.supply.attr("d", c.line(ths.map(t => [MODEL.Ls(t, s.H), t])));
+    layers.flat.attr("d", s.flatTheta != null ? c.line([[c.x.domain()[0], s.flatTheta], [c.x.domain()[1], s.flatTheta]]) : null).attr("class", s.flatIsDemand ? "ln ln-accept" : "ln ln-muted");
+    layers.demand.attr("d", s.demand ? c.line(ths.map(t => [s.demand(t), t])) : null);
+    const Hs = (s.Hs || []).filter(h => h.H <= c.x.domain()[1]);
+    layers.Hlines.selectAll("g").data(Hs).join(enter => { const g = enter.append("g"); g.append("line"); g.append("text"); return g; })
+      .each(function (d) {
+        const g = d3.select(this);
+        g.select("line").attr("class", d.cls || "ln ln-muted ln-thin").attr("x1", c.x(d.H)).attr("x2", c.x(d.H)).attr("y1", c.m.t).attr("y2", c.H - c.m.b);
+        g.select("text").attr("class", "lbl halo").attr("x", c.x(d.H) + 4).attr("y", c.m.t + 10 + (d.dy || 0)).text(d.label);
+      });
+    const gaps = s.gap ? [s.gap] : [];
+    layers.gap.selectAll("g").data(gaps).join(enter => { const g = enter.append("g"); g.append("line"); g.append("text"); return g; })
+      .each(function (d) {
+        const g = d3.select(this);
+        g.select("line").attr("class", "ln ln-reject ln-thick").attr("x1", c.x(d.L)).attr("x2", c.x(Math.min(d.H, c.x.domain()[1]))).attr("y1", c.y(d.th)).attr("y2", c.y(d.th));
+        g.select("text").attr("class", "lbl halo").attr("x", (c.x(d.L) + c.x(Math.min(d.H, c.x.domain()[1]))) / 2).attr("y", c.y(d.th) + 18).attr("text-anchor", "middle").text("unemployment");
+      });
+    layers.pts.selectAll("circle").data(s.pts || []).join("circle")
+      .attr("class", d => "mk " + (d.cls || "mk-ink")).attr("r", d => d.r || 6).attr("cx", d => c.x(d.L)).attr("cy", d => c.y(clamp(d.th, c.y.domain()[0], c.y.domain()[1])));
+  };
+  return c;
+}
+/* 100 newcomers */
+function dotGrid(el, legendEl) {
+  const svg = d3.select(el).append("svg").attr("class", "chart").attr("viewBox", "0 0 320 320").attr("role", "img").attr("aria-label", "Where 100 newcomers end up");
+  const cells = d3.range(100).map(i => ({ i, x: 16 + (i % 10) * 32, y: 16 + Math.floor(i / 10) * 32 }));
+  const dots = svg.selectAll("circle").data(cells).join("circle").attr("cx", d => d.x).attr("cy", d => d.y).attr("r", 12);
+  return {
+    set(r) {
+      const nU = Math.round(r.uneNew), nD = Math.max(0, Math.round(r.displaced)), nJ = 100 - nU - nD;
+      dots.attr("class", d => (d.i < nJ ? "dot-new" : d.i < nJ + nD ? "dot-disp" : "dot-une"));
+      legendEl.textContent = "";
+      const rows = [
+        ["i-new", nJ, "fill newly created jobs"],
+        ["i-disp", nD, "hold jobs that local jobseekers would otherwise have found"],
+        ["i-une", nU, "are unemployed"]
+      ];
+      const head = document.createElement("p"); head.className = "label-h"; head.textContent = "Of 100 newcomers";
+      legendEl.appendChild(head);
+      rows.forEach(([cls, n, txt]) => {
+        const row = document.createElement("div");
+        const i = document.createElement("i"); i.className = cls;
+        const b = document.createElement("b"); b.textContent = n;
+        const s = document.createElement("span"); s.textContent = txt;
+        row.append(i, b, s); legendEl.appendChild(row);
+      });
+      if (r.displaced < -0.5) {
+        const note = document.createElement("span"); note.className = "note";
+        note.textContent = `Locals gain: ${f0(-r.displaced)} fewer locals are unemployed per 100 arrivals, because lower wages raise tightness.`;
+        legendEl.appendChild(note);
+      } else {
+        const note = document.createElement("span"); note.className = "note";
+        note.textContent = `Locals pushed into unemployment per 100 arrivals: ${f0(Math.max(0, r.displaced))}.`;
+        legendEl.appendChild(note);
+      }
+    }
+  };
+}
+const shared = { stepHandlers: {} };
+const thLabel = v => v.toFixed(2);
+
+/* ===== SCENE 1: evidence ===== */
+function initHook() {
+  const EXP = [
+    { k: "Mariel boatlift, Miami 1980–81", lo: 15, hi: 15, src: "Card (1990)" },
+    { k: "Return from Algeria, France 1962", lo: 20, hi: 20, src: "Hunt (1992)" },
+    { k: "Great Depression, US cities 1935–40", lo: 21, hi: 21, src: "Boustan, Fishback & Kantor (2010)" },
+    { k: "Return from Africa, Portugal 1974–77", lo: 22, hi: 22, src: "Makela (2017)" },
+    { k: "Algerian refugees, France 1962", lo: 24, hi: 27, src: "Borjas & Monras (2017)" },
+    { k: "Ethnic Germans, Germany 1996–2001", lo: 31, hi: 31, src: "Glitz (2012)" },
+    { k: "Yugoslav wars, Europe 1991–2001", lo: 21, hi: 47, src: "Borjas & Monras (2017)" },
+    { k: "East to West Germany, 1987–2001", lo: 30, hi: 40, src: "D'Amuri, Ottaviano & Peri (2010)" },
+    { k: "Yugoslav wars, Europe 1983–99", lo: 35, hi: 83, src: "Angrist & Kugler (2003)" },
+    { k: "Czech commuters, Germany 1991–93", lo: 66, hi: 77, src: "Dustmann, Schönberg & Stuhler (2017)" },
+    { k: "Arab Spring, Italy 2011", lo: 63, hi: 80, src: "Labanca (2016)" }
+  ];
+  const n = EXP.length, rowH = 30;
+  const c = makeChart($("#hookChart"), { w: 720, h: 40 + n * rowH + 50, x: [0, 100], y: [0, n], m: { t: 34, r: 24, b: 44, l: 262 }, yt: 0, xTicks: [0, 20, 40, 60, 80, 100], xLabel: "unemployed locals per 100 arrivals", aria: "Migration-induced unemployment in eleven experiments" });
+  c.gy.remove(); c.grid.remove();
+  const yc = i => c.m.t + (i + 0.5) * ((c.H - c.m.t - c.m.b) / n);
+  const marks = c.over.append("g").attr("class", "exp-mark");
+  EXP.forEach((e, i) => {
+    c.svg.append("text").attr("class", "lbl").attr("x", c.m.l - 10).attr("y", yc(i) + 4).attr("text-anchor", "end").text(e.k).append("title").text(e.src);
+    marks.append("line").attr("class", "ln ln-muted").attr("x1", c.x(e.lo)).attr("x2", c.x(e.hi)).attr("y1", yc(i)).attr("y2", yc(i)).attr("stroke-width", 5);
+    marks.append("circle").attr("class", "mk mk-ink").attr("r", 5.5).attr("cx", c.x((e.lo + e.hi) / 2)).attr("cy", yc(i)).append("title").text(`${e.src}: ${e.lo === e.hi ? e.lo : e.lo + "–" + e.hi}`);
+  });
+  const mean = EXP.reduce((s, e) => s + (e.lo + e.hi) / 2, 0) / n;
+  const meanG = marks.append("g");
+  meanG.append("line").attr("class", "ln ln-reject").attr("x1", c.x(mean)).attr("x2", c.x(mean)).attr("y1", c.m.t - 6).attr("y2", c.H - c.m.b);
+  meanG.append("text").attr("class", "lbl-ink halo").attr("x", c.x(mean) + 6).attr("y", c.m.t - 10).text("average " + f0(mean));
+  [[0, "jobs scale up: 0"], [100 * (1 - uR(1)), "jobs fixed: " + f0(100 * (1 - uR(1)))]].forEach(([v, t], j) => {
+    c.over.append("line").attr("class", "ln ln-base ln-thin").attr("x1", c.x(v)).attr("x2", c.x(v)).attr("y1", c.m.t).attr("y2", c.H - c.m.b);
+    c.over.append("text").attr("class", "anno halo").attr("x", c.x(v) + (j ? -4 : 4)).attr("y", c.H - c.m.b - 6).attr("text-anchor", j ? "end" : "start").text(t);
+  });
+  const guess = c.over.append("g");
+  guess.append("line").attr("class", "ln ln-accept").attr("y1", c.m.t - 6).attr("y2", c.H - c.m.b);
+  const gt = guess.append("text").attr("class", "lbl halo").attr("y", c.m.t + 12);
+  bindRange("hookGuess", v => v.toFixed(0), v => setGuess(v));
+  function setGuess(v) { guess.select("line").attr("x1", c.x(v)).attr("x2", c.x(v)); gt.attr("x", c.x(v) + (v > 70 ? -6 : 6)).attr("text-anchor", v > 70 ? "end" : "start").text("our guess: " + v.toFixed(0)); }
+  setGuess(50);
+  let revealed = false;
+  const box = $("#hookChart");
+  const sync = () => { box.classList.toggle("exp-hidden", document.body.classList.contains("lecture") && !revealed); $("#hookReveal").textContent = revealed ? "Hide the evidence" : "Reveal the evidence"; };
+  $("#hookReveal").addEventListener("click", () => { revealed = !revealed; sync(); });
+  document.addEventListener("mode-changed", sync);
+  sync();
+}
+
+/* ===== SCENE 2: matching and flows ===== */
+function initFlows() {
+  const cr = makeChart($("#flowRates"), { w: 440, h: 320, x: [0.05, 5], y: [0, 10], xlog: true, xTicks: TH_TICKS, xf: fmtTheta, xLabel: "tightness θ, log scale", yLabel: "per quarter", aria: "Job-finding and vacancy-filling rates" });
+  const ths = logspace(0.05, 5, 160);
+  cr.path(null, "ln ln-reject").attr("d", cr.line(ths.map(t => [t, fR(t)])));
+  cr.path(null, "ln ln-accept").attr("d", cr.line(ths.map(t => [t, qR(t)])));
+  const vline = cr.over.append("line").attr("class", "ln ln-ink ln-thin").attr("y1", cr.m.t).attr("y2", cr.H - cr.m.b);
+  const dF = cr.over.append("circle").attr("class", "mk mk-reject").attr("r", 5.5), dQ = cr.over.append("circle").attr("class", "mk mk-accept").attr("r", 5.5);
+  const lt = ltChart($("#flowLs"), { w: 440, h: 320, x: [0.8, 1.02], m: { t: 30, r: 18, b: 44, l: 48 } });
+  const s = bindLogRange("flowTh", 0.05, 5, thLabel, th => draw(th));
+  s.set(1);
+  function draw(th) {
+    vline.attr("x1", cr.x(th)).attr("x2", cr.x(th));
+    dF.attr("cx", cr.x(th)).attr("cy", cr.y(Math.min(fR(th), 10)));
+    dQ.attr("cx", cr.x(th)).attr("cy", cr.y(Math.min(qR(th), 10)));
+    const L = MODEL.Ls(th, 1);
+    lt.draw({ H: 1, Hs: [{ H: 1, label: "labor force H" }], gap: { L, H: 1, th }, pts: [{ L, th }] });
+    const f = fR(th), u = uR(th);
+    $("#flowF").textContent = f2(f);
+    $("#flowP").textContent = pct1(1 - Math.exp(-f));
+    $("#flowD").textContent = f1(13 / f);
+    $("#flowU").textContent = pct1(u);
+    $("#flowVerdict").textContent = `Each quarter ${pct1(1 - u)} of the labor force works. Inflow into employment f·U = ${f3(f * u)} equals outflow δ·L = ${f3(DELTA * (1 - u))}, as shares of H.`;
+  }
+  draw(s.value());
+}
+
+/* ===== SCENE 3: recruiters ===== */
+function initHiring() {
+  const svg = d3.select("#hireGrid").append("svg").attr("class", "chart").attr("viewBox", "0 0 320 320").attr("role", "img").attr("aria-label", "Producers and recruiters in a firm of 100");
+  const cells = d3.range(100).map(i => ({ i, x: 16 + (i % 10) * 32, y: 16 + Math.floor(i / 10) * 32 }));
+  const dots = svg.selectAll("rect").data(cells).join("rect").attr("x", d => d.x - 12).attr("y", d => d.y - 12).attr("width", 24).attr("height", 24).attr("rx", 5);
+  const ct = makeChart($("#hireTau"), { w: 440, h: 320, x: [0.05, 5], y: [0, 0.14], xlog: true, xTicks: TH_TICKS, xf: fmtTheta, yf: d3.format(".2f"), xLabel: "tightness θ, log scale", yLabel: "τ(θ) = R/P", aria: "Recruiter-producer ratio" });
+  const ths = logspace(0.05, 5, 160);
+  ct.path(null, "ln ln-ink").attr("d", ct.line(ths.map(t => [t, tauR(t)])));
+  const d = ct.over.append("circle").attr("class", "mk mk-ink").attr("r", 6);
+  const s = bindLogRange("hireTh", 0.05, 5, thLabel, th => draw(th));
+  s.set(1);
+  function draw(th) {
+    const q = qR(th), t = tauR(th), share = t / (1 + t);
+    const nR = Math.round(100 * share);
+    dots.attr("class", c => (c.i >= 100 - nR ? "bar-muted" : "bar-accept")).style("fill", c => (c.i >= 100 - nR ? "var(--muted)" : null));
+    d.attr("cx", ct.x(th)).attr("cy", ct.y(Math.min(t, 0.14)));
+    $("#hireQ").textContent = f2(q);
+    $("#hireV").textContent = f1(100 * DELTA / q);
+    $("#hireR").textContent = f1(100 * KAPPA * DELTA / q);
+    $("#hireT").textContent = f3(t);
+  }
+  draw(s.value());
+  stepper("hiring", "#hireSteps .step", "hireBack", "hireNext", "hireCount");
+}
+
+/* ===== SCENE 4: textbook benchmark ===== */
+function initDMP() {
+  const lt = ltChart($("#dmpChart"), { x: [0.8, 1.12], y: [0.25, 4], yTicks: [0.25, 0.5, 1, 2, 4] });
+  const grid = dotGrid($("#dmpGrid"), $("#dmpLegend"));
+  const st = { s: 0.05, sigma: 0 };
+  bindRange("dmpS", v => v.toFixed(1).replace(/\.0$/, ""), v => { st.s = v / 100; draw(); });
+  bindRange("dmpSig", v => v.toFixed(2), v => { st.sigma = v; draw(); });
+  function draw() {
+    const H1 = 1 + st.s, t0 = DMP.theta(1, st.sigma), t1 = DMP.theta(H1, st.sigma);
+    const u0 = uR(t0), u1 = uR(t1), L0 = MODEL.Ls(t0, 1), L1 = MODEL.Ls(t1, H1);
+    lt.draw({
+      H: H1, ghostH: st.s > 0 ? 1 : null, flatTheta: t1, flatIsDemand: true,
+      Hs: [{ H: 1, label: "H before", cls: "ln ln-muted ln-thin" }, { H: H1, label: st.s > 0 ? "H after" : "", cls: "ln ln-ink ln-thin", dy: 14 }],
+      gap: { L: L1, H: H1, th: t1 }, pts: [{ L: L0, th: t0, cls: "mk-muted" }, { L: L1, th: t1 }]
+    });
+    if (st.sigma > 0) lt.plot.selectAll(".flat0").data([t0]).join("path").attr("class", "flat0 ln ln-muted ln-thin").attr("d", v => lt.line([[0.8, v], [1.12, v]]));
+    else lt.plot.selectAll(".flat0").remove();
+    $("#dmpTh").textContent = `${f2(t0)} → ${f2(t1)}`;
+    $("#dmpU").textContent = `${pct1(u0)} → ${pct1(u1)}`;
+    const per = st.s > 0 ? 100 / st.s : 0;
+    grid.set({ uneNew: 100 * u1, displaced: (u1 - u0) * per, jobs: (L1 - L0) * per });
+  }
+  draw();
+  predictCards("#dmp");
+}
+
+/* ===== SCENE 5: downward-sloping demand ===== */
+function initDemand() {
+  const lt = ltChart($("#demChart"), { x: [0.82, 1.1] });
+  const st = { alpha: 0.35 };
+  bindRange("demA", v => v.toFixed(2), v => { st.alpha = v; draw(); });
+  function draw() {
+    const M = makeModel(st.alpha, PAR.gamma);
+    lt.draw({
+      H: 1, flatTheta: 1, Hs: [{ H: 1, label: "labor force H" }],
+      demand: t => M.Ld(t, 1, 1, 0), gap: { L: M.Ls(1, 1), H: 1, th: 1 }, pts: [{ L: M.Ls(1, 1), th: 1 }]
+    });
+    const ed = M.ed(1), es = M.es(1);
+    $("#demEd").textContent = f3(ed);
+    $("#demEs").textContent = f3(es);
+    $("#demVerdict").textContent = `With this α, a 1% inflow cuts tightness by about ${f1(1 / (es - ed))}% at θ = 1. As α → 0, demand becomes flat and the cut shrinks to zero.`;
+  }
+  draw();
+  stepper("demand", "#demSteps .step", "demBack", "demNext", "demCount");
+}
+
+/* ===== SCENE 6: the migration experiment ===== */
+function initMigration() {
+  const lt = ltChart($("#migChart"), { x: [0.8, 1.12], y: [0.04, 6] });
+  const grid = dotGrid($("#migGrid"), $("#migLegend"));
+  const st = { s: 0.05, sigma: 0, th0: 1 };
+  bindRange("migS", v => v.toFixed(1).replace(/\.0$/, ""), v => { st.s = v / 100; draw(); });
+  bindRange("migSig", v => v.toFixed(2), v => { st.sigma = v; draw(); });
+  const sTh = bindLogRange("migTh", 0.25, 2, thLabel, v => { st.th0 = v; draw(); });
+  sTh.set(1); st.th0 = sTh.value();
+  function draw() {
+    const r = MODEL.experiment(st.th0, st.s, st.sigma), H1 = 1 + st.s;
+    lt.draw({
+      H: H1, ghostH: 1, demand: t => MODEL.Ld(t, r.a, H1, st.sigma),
+      Hs: [{ H: 1, label: "H before", cls: "ln ln-muted ln-thin" }, { H: H1, label: "H after", cls: "ln ln-ink ln-thin", dy: 14 }],
+      gap: { L: r.L1, H: H1, th: r.t1 }, pts: [{ L: r.L0, th: r.t0, cls: "mk-muted" }, { L: r.L1, th: r.t1 }]
+    });
+    if (st.sigma > 0) lt.plot.selectAll(".ld0").data([0]).join("path").attr("class", "ld0 ln ln-muted ln-thin").attr("d", lt.line(logspace(0.04, 6, 120).map(t => [MODEL.Ld(t, r.a, 1, st.sigma), t])));
+    else lt.plot.selectAll(".ld0").remove();
+    $("#migT").textContent = `${f2(r.t0)} → ${f2(r.t1)}`;
+    $("#migF").textContent = `${f2(r.f0)} → ${f2(r.f1)}`;
+    $("#migU").textContent = `${pct1(r.u0)} → ${pct1(r.u1)}`;
+    $("#migPi").textContent = signed(100 * (r.prof1 / r.prof0 - 1), 1) + "%";
+    grid.set(r);
+  }
+  draw();
+  predictCards("#migration");
+}
+
+/* ===== SCENE 7: the cycle and the evidence ===== */
+function initCycle() {
+  const c = makeChart($("#cycChart"), { w: 640, h: 330, x: [0.1, 3], y: [0, 100], xlog: true, xTicks: [0.1, 0.2, 0.5, 0.73, 1, 2, 3], xf: fmtTheta, xLabel: "tightness before the arrivals, log scale", yLabel: "locals per 100 arrivals", aria: "Migration-induced unemployment by tightness" });
+  c.under.append("rect").attr("class", "ar-ink").attr("x", c.m.l).attr("width", c.W - c.m.l - c.m.r).attr("y", c.y(72)).attr("height", c.y(15) - c.y(72));
+  c.path(null, "ln ln-reject ln-thin").attr("d", c.line([[0.1, 37], [3, 37]]));
+  c.over.append("text").attr("class", "anno halo").attr("x", c.x(0.105)).attr("y", c.y(37) - 6).attr("text-anchor", "start").text("experiments' average 37");
+  const ths = logspace(0.1, 3, 160);
+  c.path(null, "ln ln-ink").attr("d", c.line(ths.map(t => [t, MODEL.per100(t, 0)])));
+  const thAt = target => Math.exp(bisect(lt => target - MODEL.per100(Math.exp(lt), 0), Math.log(0.05), Math.log(20), 80));
+  [["France 1962", 20], ["Portugal 1974–77", 22], ["Europe 1990s (AK)", 59]].forEach(([k, v], i) => {
+    const t = thAt(v);
+    c.over.append("path").attr("class", "mk-option").attr("d", d3.symbol(d3.symbolDiamond, 70)()).attr("transform", `translate(${c.x(t)},${c.y(v)})`);
+    c.over.append("text").attr("class", "anno halo").attr("x", c.x(t) + (i === 2 ? 10 : -8)).attr("y", c.y(v) + (i === 0 ? 18 : -10)).attr("text-anchor", i === 2 ? "start" : "end").text(`${k}: ${v}`);
+  });
+  [[0.73, "US average 1930–2024"], [2, "US 2022"]].forEach(([t, k]) => {
+    c.over.append("text").attr("class", "anno halo").attr("x", c.x(t)).attr("y", c.H - c.m.b - 6).attr("text-anchor", "middle").text(k);
+  });
+  const cur = c.over.append("g");
+  cur.append("line").attr("class", "ln ln-ink ln-thin").attr("y1", c.m.t).attr("y2", c.H - c.m.b).attr("opacity", 0.5);
+  cur.append("circle").attr("class", "mk mk-ink").attr("r", 6.5);
+  const curT = cur.append("text").attr("class", "lbl-ink halo");
+  const inset = ltChart($("#cycInset"), { w: 640, h: 300, x: [0.8, 1.1], y: [0.02, 6], yTicks: [0.05, 0.1, 0.2, 0.5, 1, 2, 5] });
+  const sTh = bindLogRange("cycTh", 0.1, 3, thLabel, v => draw(v));
+  sTh.set(1);
+  function draw(th0) {
+    const p = MODEL.per100(th0, 0);
+    cur.select("line").attr("x1", c.x(th0)).attr("x2", c.x(th0));
+    cur.select("circle").attr("cx", c.x(th0)).attr("cy", c.y(p));
+    curT.attr("x", c.x(th0) + (th0 > 1.5 ? -10 : 10)).attr("text-anchor", th0 > 1.5 ? "end" : "start").attr("y", c.y(p) - 10).text(f0(p) + " per 100");
+    $("#cycU").textContent = pct1(uR(th0));
+    $("#cycP").textContent = f0(p);
+    $("#cycE").textContent = f2(MODEL.epsL(th0, 0));
+    $("#cycD").textContent = f3(-MODEL.ed(th0));
+    const r = MODEL.experiment(th0, 0.05, 0);
+    inset.draw({
+      H: 1.05, ghostH: 1, demand: t => MODEL.Ld(t, r.a, 1.05, 0),
+      Hs: [{ H: 1, label: "H before", cls: "ln ln-muted ln-thin" }, { H: 1.05, label: "after", cls: "ln ln-ink ln-thin", dy: 14 }],
+      gap: { L: r.L1, H: 1.05, th: r.t1 }, pts: [{ L: r.L0, th: r.t0, cls: "mk-muted" }, { L: r.L1, th: r.t1 }]
+    });
+  }
+  draw(sTh.value());
+  predictCards("#cycle");
+}
+
+/* ===== SCENE 8: efficiency ===== */
+function initEfficiency() {
+  const c = makeChart($("#effChart"), { w: 640, h: 340, x: [0.1, 10], y: [0, 0.16], xlog: true, xTicks: [0.1, 0.2, 0.5, 1, 2, 5, 10], xf: fmtTheta, yf: d3.format(".0%"), xLabel: "tightness θ, log scale", yLabel: "share of the labor force", aria: "Idle and recruiting shares of the labor force" });
+  const ths = logspace(0.1, 10, 200);
+  const idle = t => uR(t), rec = t => tauR(t) / (1 + tauR(t)) * (1 - uR(t));
+  c.path(c.under, "ar-reject").attr("d", c.area(0)(ths.map(t => [t, idle(t)])));
+  c.path(c.under, "ar-ink").attr("d", c.area()(ths.map(t => [t, idle(t) + rec(t), idle(t)])));
+  c.path(null, "ln ln-ink").attr("d", c.line(ths.map(t => [t, idle(t) + rec(t)])));
+  c.over.append("line").attr("class", "ln ln-ink ln-thin").attr("x1", c.x(THETA_STAR)).attr("x2", c.x(THETA_STAR)).attr("y1", c.m.t).attr("y2", c.H - c.m.b).attr("opacity", 0.5);
+  c.over.append("circle").attr("class", "mk mk-ink").attr("r", 6).attr("cx", c.x(THETA_STAR)).attr("cy", c.y(idle(THETA_STAR) + rec(THETA_STAR)));
+  c.over.append("text").attr("class", "lbl-ink halo").attr("x", c.x(THETA_STAR)).attr("y", c.y(idle(THETA_STAR) + rec(THETA_STAR)) - 12).attr("text-anchor", "middle").text("efficient θ* = " + f2(THETA_STAR));
+  c.over.append("text").attr("class", "anno halo").attr("x", c.x(0.13)).attr("y", c.y(0.04)).text("idle jobseekers");
+  c.over.append("text").attr("class", "anno halo").attr("x", c.x(7.2)).attr("y", c.y(0.055)).attr("text-anchor", "end").text("recruiters");
+  const cur = c.over.append("line").attr("class", "ln ln-accept").attr("y1", c.m.t).attr("y2", c.H - c.m.b);
+  const dot = c.over.append("circle").attr("class", "mk mk-accept").attr("r", 5.5);
+  $("#effStar").textContent = f2(THETA_STAR);
+  const sTh = bindLogRange("effTh", 0.1, 10, thLabel, v => draw(v));
+  sTh.set(1);
+  function draw(th) {
+    const i = idle(th), r = rec(th);
+    cur.attr("x1", c.x(th)).attr("x2", c.x(th));
+    dot.attr("cx", c.x(th)).attr("cy", c.y(i + r));
+    $("#effIdle").textContent = pct2(i); $("#effRec").textContent = pct2(r); $("#effWaste").textContent = pct2(i + r);
+    const gap = ETA * tauR(th) - (1 - ETA) * uR(th);
+    $("#effVerdict").textContent = Math.abs(th / THETA_STAR - 1) < 0.03 ? "Efficient: a little more tightness would add as many recruiters as it removes idle jobseekers."
+      : gap < 0 ? "Inefficiently slack: more tightness would cut idle jobseekers by more than it adds recruiters."
+                : "Inefficiently tight: less tightness would free more recruiters than it adds idle jobseekers.";
+  }
+  draw(sTh.value());
+}
+
+/* ===== SCENE 9: winners, losers and policy ===== */
+function initPolicy() {
+  const st = { th0: 1.2, sigma: 0 };
+  const cb = makeChart($("#polBars"), { w: 440, h: 230, x: [-0.6, 0.6], y: [0, 3], m: { t: 14, r: 20, b: 44, l: 132 }, yt: 0, xf: d => d3.format("+.1f")(d) + "%", xLabel: "change, % of local income", aria: "Contributions to the change in local income" });
+  cb.gy.remove(); cb.grid.remove();
+  const zero = cb.over.append("line").attr("class", "ln ln-base ln-thin").attr("y1", cb.m.t).attr("y2", cb.H - cb.m.b);
+  const rows = [{ k: "local labor income", cls: "bar-reject" }, { k: "local profits", cls: "bar-accept" }, { k: "total local income", cls: "bar-ink" }];
+  const bh = (cb.H - cb.m.t - cb.m.b) / 3;
+  rows.forEach((r, i) => {
+    r.rect = cb.plot.append("rect").attr("class", r.cls).attr("height", 20).attr("y", cb.m.t + i * bh + bh / 2 - 10).attr("rx", 3);
+    cb.svg.append("text").attr("class", "lbl").attr("x", cb.m.l - 10).attr("y", cb.m.t + i * bh + bh / 2 + 4).attr("text-anchor", "end").text(r.k);
+    r.val = cb.over.append("text").attr("class", "lbl-ink").attr("y", cb.m.t + i * bh + bh / 2 + 4);
+  });
+  const co = makeChart($("#polOpt"), { w: 440, h: 230, x: [0.5, 2], y: [0, 0.07], m: { t: 24, r: 20, b: 44, l: 48 }, yf: d3.format(".0%"), xLabel: "tightness before the arrivals", aria: "Optimal inflow by tightness" });
+  const optP = co.path(null, "ln ln-ink");
+  co.over.append("line").attr("class", "ln ln-muted ln-thin").attr("x1", co.x(THETA_STAR)).attr("x2", co.x(THETA_STAR)).attr("y1", co.m.t).attr("y2", co.H - co.m.b);
+  co.over.append("text").attr("class", "anno halo").attr("x", co.x(THETA_STAR) - 6).attr("y", co.m.t + 10).attr("text-anchor", "end").text("θ*");
+  const optD = co.over.append("circle").attr("class", "mk mk-ink").attr("r", 6);
+  let curveSigma = null, curve = [];
+  const sTh = bindLogRange("polTh", 0.5, 2, thLabel, v => { st.th0 = v; draw(); });
+  sTh.set(1.2); st.th0 = sTh.value();
+  bindRange("polSig", v => v.toFixed(2), v => { st.sigma = v; draw(); });
+  function draw() {
+    const M = MODEL, a = M.aFor(st.th0, st.sigma);
+    const i0 = M.income(a, 1, st.sigma), i1 = M.income(a, 1.01, st.sigma);
+    const dl = 100 * (i1.lab - i0.lab) / i0.W, dp = 100 * (i1.prof - i0.prof) / i0.W, dt = dl + dp;
+    const lim = Math.max(0.3, 1.25 * Math.max(Math.abs(dl), Math.abs(dp)));
+    cb.x.domain([-lim, lim]); cb.axes();
+    zero.attr("x1", cb.x(0)).attr("x2", cb.x(0));
+    [dl, dp, dt].forEach((v, i) => {
+      const r = rows[i], x0 = cb.x(Math.min(0, v)), x1 = cb.x(Math.max(0, v));
+      r.rect.attr("x", x0).attr("width", Math.max(1.5, x1 - x0));
+      r.val.attr("x", v >= 0 ? x1 + 6 : cb.x(0) + 6).attr("text-anchor", "start").text(signed(v, 3) + "%");
+    });
+    $("#polLab").textContent = signed(dl, 3) + "%";
+    $("#polProf").textContent = signed(dp, 3) + "%";
+    $("#polTot").textContent = signed(dt, 3) + "%";
+    if (curveSigma !== st.sigma) {
+      curveSigma = st.sigma;
+      curve = range(0.5, 2, 31).map(t => [t, M.optimalInflow(t, st.sigma)]);
+      const ymax = Math.max(0.03, 1.15 * Math.max(...curve.map(p => p[1])));
+      co.y.domain([0, ymax]); co.axes();
+      optP.attr("d", co.line(curve));
+    }
+    const best = M.optimalInflow(st.th0, st.sigma);
+    optD.attr("cx", co.x(st.th0)).attr("cy", co.y(best));
+    $("#polBest").textContent = pct2(best);
+  }
+  draw();
+  predictCards("#policy");
+}
+
+/* ===== SCENE 10: how the computer solves it ===== */
+function initSolve() {
+  bindSeg("solveTab", v => { $$("#solve [data-tab]").forEach(el => { el.hidden = el.dataset.tab !== v; }); });
+  const ex = MODEL.experiment(1, 0.05, 0), a = ex.a, H1 = 1.05;
+  /* 1. root */
+  const Zf = t => MODEL.Z(t, a, H1, 0);
+  const rc = makeChart($("#rootChart"), { w: 640, h: 290, x: [0.01, 100], y: [-0.6, 0.6], xlog: true, xTicks: [0.01, 0.1, 1, 10, 100], xf: fmtTheta, xLabel: "tightness θ, log scale", yLabel: "Z(θ)", aria: "Bisection on log tightness" });
+  const bra = rc.under.append("rect").attr("class", "ar-option").attr("y", rc.m.t).attr("height", rc.H - rc.m.t - rc.m.b);
+  rc.path(null, "ln ln-base ln-thin").attr("d", rc.line([[0.01, 0], [100, 0]]));
+  rc.path(null, "ln ln-ink").attr("d", rc.line(logspace(0.01, 100, 200).map(t => [t, clamp(Zf(t), -0.6, 0.6)])));
+  rc.over.append("circle").attr("class", "mk mk-ink").attr("r", 5).attr("cx", rc.x(ex.t1)).attr("cy", rc.y(0));
+  const midD = rc.over.append("circle").attr("class", "mk mk-option").attr("r", 6);
+  const hl = codePanel($("#rootCode"), [
+    "lo, hi = np.log(0.01), np.log(100)   # Z(lo) < 0 < Z(hi)",
+    "while hi - lo > tol:",
+    "    mid = (lo + hi) / 2               # bisect in log tightness",
+    "    if Z(np.exp(mid)) > 0:",
+    "        hi = mid                      # supply exceeds demand",
+    "    else:",
+    "        lo = mid                      # demand exceeds supply"
+  ]);
+  const rs = { lo: Math.log(0.01), hi: Math.log(100), rows: [], mid: null, timer: null };
+  function rdraw() {
+    bra.attr("x", rc.x(Math.exp(rs.lo))).attr("width", Math.max(1.5, rc.x(Math.exp(rs.hi)) - rc.x(Math.exp(rs.lo))));
+    midD.attr("display", rs.mid == null ? "none" : null);
+    if (rs.mid != null) midD.attr("cx", rc.x(Math.exp(rs.mid))).attr("cy", rc.y(clamp(Zf(Math.exp(rs.mid)), -0.6, 0.6)));
+    $("#rootN").textContent = rs.rows.length;
+    $("#rootW").textContent = f3(Math.exp(rs.hi - rs.lo));
+    logRows($("#rootLog tbody"), rs.rows);
+  }
+  function rstep() {
+    if (rs.hi - rs.lo < 1e-8) return false;
+    const mid = 0.5 * (rs.lo + rs.hi), v = Zf(Math.exp(mid));
+    if (v > 0) rs.hi = mid; else rs.lo = mid;
+    rs.mid = mid;
+    rs.rows.push([rs.rows.length + 1, f3(Math.exp(rs.lo)), f3(Math.exp(rs.hi)), f3(Math.exp(mid)), (v >= 0 ? "+" : "") + v.toFixed(4), v > 0 ? "lower half" : "upper half"]);
+    hl(v > 0 ? 4 : 6); rdraw();
+    return true;
+  }
+  function rstop() { if (rs.timer) { clearInterval(rs.timer); rs.timer = null; $("#rootRun").textContent = "Run"; } }
+  function rreset() { rstop(); rs.lo = Math.log(0.01); rs.hi = Math.log(100); rs.rows = []; rs.mid = null; hl(0); rdraw(); }
+  $("#rootStep").addEventListener("click", () => { rstop(); rstep(); });
+  $("#rootRun").addEventListener("click", () => {
+    if (rs.timer) { rstop(); return; }
+    if (reduceMotion) { for (let i = 0; i < 25; i++) rstep(); return; }
+    $("#rootRun").textContent = "Pause";
+    let k = 0;
+    rs.timer = setInterval(() => { if (!rstep() || ++k >= 25) rstop(); }, 320);
+  });
+  $("#rootReset").addEventListener("click", rreset);
+  rreset();
+  /* 2. simulate */
+  const lam = DELTA + ex.f1, u1 = ex.u1, uStart = 1 - ex.L0 / H1;
+  const sc = makeChart($("#simChart"), { w: 640, h: 300, x: [0, 40], y: [0.05, 0.1], xLabel: "weeks after the arrivals", yLabel: "unemployment rate", yf: d3.format(".1%"), aria: "Unemployment after an inflow" });
+  sc.path(null, "ln ln-muted ln-thin").attr("d", sc.line([[0, u1], [40, u1]]));
+  sc.path(null, "ln ln-ink").attr("d", sc.line(range(0, 40, 161).map(wk => [wk, u1 + (uStart - u1) * Math.exp(-lam * wk / 13)])));
+  const eul = sc.path(null, "ln ln-option ln-thin"), eDots = sc.plot.append("g");
+  codePanel($("#simCode"), [
+    "u = u_start                              # newcomers arrive unemployed",
+    "for step in range(n_steps):",
+    "    du = delta * (1 - u) - f(theta1) * u # inflow minus outflow",
+    "    u = u + dt * du                      # one Euler step"
+  ]);
+  $("#simHalf").textContent = f1(13 * Math.log(2) / lam);
+  bindRange("simDt", v => v.toFixed(0), v => sdraw(v));
+  function sdraw(wk) {
+    const dt = wk / 13, pts = [[0, uStart]];
+    let u = uStart, t = 0, err = 0;
+    while (t < 40 - 1e-9) {
+      u = u + dt * (DELTA * (1 - u) - ex.f1 * u); t += wk;
+      pts.push([t, u]);
+      err = Math.max(err, Math.abs(u - (u1 + (uStart - u1) * Math.exp(-lam * t / 13))));
+    }
+    const lo = Math.min(0.05, ...pts.map(p => p[1])), hi = Math.max(0.1, ...pts.map(p => p[1]));
+    sc.y.domain([Math.max(0, lo - 0.005), hi + 0.005]); sc.axes();
+    sc.plot.selectAll("path").filter(function () { return this !== eul.node(); }).remove();
+    sc.path(null, "ln ln-muted ln-thin").attr("d", sc.line([[0, u1], [40, u1]]));
+    sc.path(null, "ln ln-ink").attr("d", sc.line(range(0, 40, 161).map(w => [w, u1 + (uStart - u1) * Math.exp(-lam * w / 13)])));
+    eul.raise().attr("d", sc.line(pts));
+    eDots.raise().selectAll("circle").data(pts).join("circle").attr("class", "mk mk-option").attr("r", 4).attr("cx", d => sc.x(d[0])).attr("cy", d => sc.y(d[1]));
+    $("#simErr").textContent = f2(100 * err);
+  }
+  sdraw(2);
+  /* 3. finite differences */
+  const t0 = MODEL.theta(1, 1, 0), formula = MODEL.epsThetaH(t0, 0);
+  const hs = [1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6, 1e-7, 1e-8, 1e-9, 1e-10, 1e-11, 1e-12];
+  const rowsFD = hs.map(h => { const num = (Math.log(MODEL.theta(1, 1 + h, 0)) - Math.log(t0)) / Math.log1p(h); return [h, num, Math.abs(num - formula)]; });
+  const fc = makeChart($("#fdChart"), { w: 640, h: 290, x: [1e-12, 1e-1], y: [1e-9, 10], xlog: true, ylog: true, xTicks: [1e-12, 1e-10, 1e-8, 1e-6, 1e-4, 1e-2], yTicks: [1e-8, 1e-6, 1e-4, 1e-2, 1], xf: d3.format(".0e"), yf: d3.format(".0e"), xLabel: "step size h, log scale", yLabel: "absolute error", aria: "Finite-difference error" });
+  fc.path(null, "ln ln-ink").attr("d", fc.line(rowsFD.map(r => [r[0], Math.max(r[2], 1e-9)])));
+  fc.over.selectAll("circle").data(rowsFD).join("circle").attr("class", "mk mk-ink").attr("r", 4.5).attr("cx", d => fc.x(d[0])).attr("cy", d => fc.y(Math.max(d[2], 1e-9)));
+  logRows($("#fdLog tbody"), rowsFD.map(r => [r[0].toExponential(0), r[1].toFixed(6), formula.toFixed(6), r[2].toExponential(1)]), 12);
+  codePanel($("#fdCode"), [
+    "h = 1e-6                                   # size of the experiment",
+    "eps_num = (np.log(theta(H * (1 + h))) - np.log(theta(H))) / np.log(1 + h)",
+    "eps_formula = -(1 - sigma / alpha) / (eps_s - eps_d)   # the paper",
+    "assert abs(eps_num - eps_formula) < 1e-4"
+  ]);
+}
+
+/* ===== SCENE 11: Shimer ===== */
+function initShimer() {
+  const c = makeChart($("#shiChart"), { w: 640, h: 330, x: [0, 1], y: [0, 46], xLabel: "wage rigidity γ", yLabel: "elasticity of θ with respect to productivity", aria: "Elasticity of tightness by wage rigidity" });
+  const gs = range(0, 1, 101);
+  c.path(null, "ln ln-ink").attr("d", c.line(gs.map(g => [g, makeModel(PAR.alpha, g).epsThetaA(1)])));
+  [[8.6, "ln-accept", "US estimate 8.6 (Michaillat 2012)"], [1.716, "ln-muted", "textbook model, Shimer's calibration: 1.7"]].forEach(([v, cls, k]) => {
+    c.path(null, "ln ln-thin " + cls).attr("d", c.line([[0, v], [1, v]]));
+    c.over.append("text").attr("class", "anno halo").attr("x", c.x(0.99)).attr("y", c.y(v) - 6).attr("text-anchor", "end").text(k);
+  });
+  const d = c.over.append("circle").attr("class", "mk mk-ink").attr("r", 6.5);
+  const dt = c.over.append("text").attr("class", "lbl-ink halo");
+  bindRange("shiG", v => v.toFixed(2), v => draw(v));
+  function draw(g) {
+    const M = makeModel(PAR.alpha, g), e = M.epsThetaA(1);
+    d.attr("cx", c.x(g)).attr("cy", c.y(e));
+    dt.attr("x", c.x(g) + (g > 0.7 ? -10 : 10)).attr("text-anchor", g > 0.7 ? "end" : "start").attr("y", c.y(e) - 10).text(f1(e));
+    $("#shiE").textContent = f1(e);
+    const t95 = M.theta(0.95, 1, 0);
+    $("#shiT").textContent = `1.00 → ${f2(t95)}`;
+  }
+  draw(0.3);
+}
+
+/* ===== NAVIGATION, MODES, THEME (shared lecture kit, identical to L7) ===== */
+function initNav() {
+  const scenes = $$(".scene");
+  const dots = $("#dots"), idx = $("#sceneIndex");
+  let current = 0;
+  scenes.forEach((s, i) => {
+    const b = document.createElement("button"); b.className = "dot-btn"; b.type = "button";
+    b.textContent = i === 0 ? "◦" : String(i); b.title = s.dataset.title || ""; b.setAttribute("aria-label", (i === 0 ? "Cover" : "Scene " + i) + ": " + (s.dataset.title || ""));
+    b.addEventListener("click", () => goTo(i));
+    dots.appendChild(b);
+    if (i > 0) {
+      const li = document.createElement("li"), a = document.createElement("a");
+      a.href = "#" + s.id;
+      const n = document.createElement("span"); n.className = "n"; n.textContent = i;
+      const box = document.createElement("span");
+      const t = document.createElement("span"); t.className = "t"; t.textContent = s.dataset.title || "";
+      const sub = document.createElement("span"); sub.className = "s"; sub.textContent = s.dataset.sub ? " · " + s.dataset.sub : "";
+      box.append(t, sub); a.append(n, box); li.appendChild(a); idx.appendChild(li);
+      a.addEventListener("click", ev => { ev.preventDefault(); goTo(i); });
+    }
+  });
+  function goTo(i) {
+    i = clamp(i, 0, scenes.length - 1);
+    scenes[i].scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    try { history.replaceState(null, "", "#" + scenes[i].id); } catch (e) { /* history unavailable */ }
+  }
+  function next() { const h = shared.stepHandlers && shared.stepHandlers[scenes[current].id]; if (h && h.next()) return; goTo(current + 1); }
+  function prev() { const h = shared.stepHandlers && shared.stepHandlers[scenes[current].id]; if (h && h.prev()) return; goTo(current - 1); }
+  function track() {
+    const y = window.innerHeight * 0.35;
+    let k = 0;
+    scenes.forEach((s, i) => { if (s.getBoundingClientRect().top <= y) k = i; });
+    if (k !== current || !dots.children[k].getAttribute("aria-current")) {
+      current = k;
+      Array.from(dots.children).forEach((d, i) => d.setAttribute("aria-current", String(i === k)));
+      $("#pagerLabel").textContent = `${k + 1} / ${scenes.length}`;
+    }
+  }
+  let ticking = false;
+  window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { track(); ticking = false; }); } }, { passive: true });
+  window.addEventListener("resize", track);
+  $("#nextBtn").addEventListener("click", next);
+  $("#prevBtn").addEventListener("click", prev);
+  document.addEventListener("keydown", e => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const t = e.target;
+    if (t && t.closest && t.closest("input, textarea, select, [contenteditable='true']")) return;
+    const onButton = t && t.closest && t.closest("button");
+    switch (e.key) {
+      case "ArrowRight": case "PageDown": e.preventDefault(); next(); break;
+      case " ": if (onButton) return; e.preventDefault(); next(); break;
+      case "ArrowLeft": case "PageUp": e.preventDefault(); prev(); break;
+      case "n": case "N": toggleMode(); break;
+      case "t": case "T": toggleTheme(); break;
+      case "a": case "A": if (scenes[current].id === "game" && shared.gameAccept) shared.gameAccept(); break;
+      case "r": case "R": if (scenes[current].id === "game" && shared.gameReject) shared.gameReject(); break;
+      default: break;
+    }
+  });
+  /* Lecture / Study mode */
+  const modeBtn = $("#modeBtn");
+  function applyMode(m) {
+    document.body.classList.toggle("lecture", m === "lecture");
+    modeBtn.textContent = m === "lecture" ? "Lecture mode" : "Study mode";
+    modeBtn.setAttribute("aria-pressed", String(m === "lecture"));
+    $$(".lecture-only").forEach(el => { el.hidden = m !== "lecture"; });
+    document.dispatchEvent(new Event("mode-changed"));
+  }
+  function toggleMode() { const m = document.body.classList.contains("lecture") ? "study" : "lecture"; store.set("mmmol-mode", m); applyMode(m); }
+  modeBtn.addEventListener("click", toggleMode);
+  applyMode(store.get("mmmol-mode", "study"));
+  /* theme */
+  const themeBtn = $("#themeBtn"), root = document.documentElement;
+  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : !!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+  function syncThemeBtn() { themeBtn.textContent = isDark() ? "Light" : "Dark"; }
+  function toggleTheme() { root.dataset.theme = isDark() ? "light" : "dark"; store.set("mmmol-theme", root.dataset.theme); syncThemeBtn(); }
+  const saved = store.get("mmmol-theme", "");
+  if (saved === "dark" || saved === "light") root.dataset.theme = saved;
+  themeBtn.addEventListener("click", toggleTheme);
+  syncThemeBtn();
+  track();
+  if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) {
+      /* re-anchor after fonts and math change the layout, unless the reader has moved */
+      let moved = false;
+      ["wheel", "touchstart", "keydown", "pointerdown"].forEach(ev => window.addEventListener(ev, () => { moved = true; }, { once: true, passive: true }));
+      const go = () => { if (!moved) target.scrollIntoView({ block: "start" }); };
+      setTimeout(go, 50);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+      document.addEventListener("mathjax-ready", go);
+    }
+  }
+}
+
+
+/* ===== BOOT ===== */
+safe("nav", initNav);
+if (typeof d3 === "undefined") {
+  console.error("D3 failed to load; charts are unavailable.");
+} else {
+  safe("hook", initHook);
+  safe("flows", initFlows);
+  safe("hiring", initHiring);
+  safe("dmp", initDMP);
+  safe("demand", initDemand);
+  safe("migration", initMigration);
+  safe("cycle", initCycle);
+  safe("efficiency", initEfficiency);
+  safe("policy", initPolicy);
+  safe("solve", initSolve);
+  safe("shimer", initShimer);
+}
+})();
+</script>

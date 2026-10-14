@@ -1,0 +1,2417 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Why Say No to a Job?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap">
+<style>
+:root {
+  /* Layout: every scene is a lab bench, a wide stage for the live model beside a narrow rail with the question, the controls and the verdict. */
+  --bg: #f1f3f5;
+  --panel: #ffffff;
+  --panel-2: #f6f7f9;
+  --ink: #131720;
+  --ink-2: #444d5a;
+  --muted: #737d8c;
+  --hair: #dde1e7;
+  --base: #c1c8d1;
+  /* Economic colour code, shared by figures and equations */
+  --accept: #2a78d6;      /* accepting, employment, W(w) */
+  --reject: #eb6834;      /* rejecting, unemployment, U and b */
+  --option: #1baf7a;      /* option value, gains from waiting */
+  --accept-ink: #1c5cab;
+  --reject-ink: #b4461a;
+  --option-ink: #0d7a52;
+  --chg: #5b45c6;         /* the term that changed in a derivation step */
+  --accept-wash: rgba(42, 120, 214, 0.13);
+  --reject-wash: rgba(235, 104, 52, 0.14);
+  --option-wash: rgba(27, 175, 122, 0.22);
+  --ink-wash: rgba(19, 23, 32, 0.07);
+  --env: rgba(19, 23, 32, 0.16);
+  --btn-accept: #1c5cab;
+  --btn-reject: #b4461a;
+  --good: #0b7d0b;
+  --bad: #c43030;
+  --seq-1: #86b6ef;
+  --seq-2: #2a78d6;
+  --seq-3: #0d366b;
+  --shadow: 0 1px 2px rgba(19, 23, 32, 0.05), 0 10px 30px rgba(19, 23, 32, 0.06);
+  --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --radius: 12px;
+  --bar-h: 54px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1015; --panel: #151920; --panel-2: #1b2029; --ink: #e8ecf1; --ink-2: #b3bcc8; --muted: #8a94a2; --hair: #283039; --base: #3a434e;
+    --accept: #3987e5; --reject: #d95926; --option: #199e70;
+    --accept-ink: #79adef; --reject-ink: #f08f63; --option-ink: #43cf9c; --chg: #a497f0;
+    --accept-wash: rgba(57, 135, 229, 0.22); --reject-wash: rgba(217, 89, 38, 0.22); --option-wash: rgba(25, 158, 112, 0.30); --ink-wash: rgba(232, 236, 241, 0.08); --env: rgba(232, 236, 241, 0.20);
+    --btn-accept: #2a6fc4; --btn-reject: #c24f20; --good: #39c439; --bad: #ef6b6b;
+    --seq-1: #3d6fae; --seq-2: #6da7ec; --seq-3: #cde2fb;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1015; --panel: #151920; --panel-2: #1b2029; --ink: #e8ecf1; --ink-2: #b3bcc8; --muted: #8a94a2; --hair: #283039; --base: #3a434e;
+  --accept: #3987e5; --reject: #d95926; --option: #199e70;
+  --accept-ink: #79adef; --reject-ink: #f08f63; --option-ink: #43cf9c; --chg: #a497f0;
+  --accept-wash: rgba(57, 135, 229, 0.22); --reject-wash: rgba(217, 89, 38, 0.22); --option-wash: rgba(25, 158, 112, 0.30); --ink-wash: rgba(232, 236, 241, 0.08); --env: rgba(232, 236, 241, 0.20);
+  --btn-accept: #2a6fc4; --btn-reject: #c24f20; --good: #39c439; --bad: #ef6b6b;
+  --seq-1: #3d6fae; --seq-2: #6da7ec; --seq-3: #cde2fb;
+  --shadow: none;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+b, strong { font-weight: 700; }
+a { color: var(--accept-ink); }
+kbd {
+  font-family: var(--font-mono); font-size: 0.78em; padding: 1px 6px; border-radius: 5px;
+  border: 1px solid var(--base); background: var(--panel-2); color: var(--ink-2);
+}
+.mono, output { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.k-accept { color: var(--accept-ink); }
+.k-reject { color: var(--reject-ink); }
+.k-option { color: var(--option-ink); }
+
+/* ---------- top bar ---------- */
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
+  display: flex; align-items: center; gap: 14px;
+  min-height: var(--bar-h); padding: 8px 20px;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--hair);
+}
+.brand { font-family: var(--font-display); font-size: 18px; white-space: nowrap; }
+.brand span { color: var(--muted); }
+.dots { display: flex; gap: 4px; flex: 1; justify-content: center; flex-wrap: wrap; min-width: 0; }
+.dot-btn {
+  font: inherit; font-size: 12px; font-variant-numeric: tabular-nums; width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid var(--hair); background: transparent; color: var(--muted); cursor: pointer; padding: 0;
+}
+.dot-btn:hover { border-color: var(--base); color: var(--ink); }
+.dot-btn[aria-current="true"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.tools { display: flex; gap: 8px; }
+.chip {
+  font: inherit; font-size: 14px; padding: 5px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--base); background: var(--panel); color: var(--ink);
+}
+.chip:hover { background: var(--panel-2); }
+@media (max-width: 760px) { .dots { display: none; } .topbar { justify-content: space-between; } }
+
+/* ---------- scenes ---------- */
+main { padding-inline: 20px; }
+.scene {
+  max-width: 1280px; margin-inline: auto;
+  padding-block: 44px 60px;
+  min-height: calc(100vh - var(--bar-h));
+  display: flex; flex-direction: column; gap: 22px;
+  border-bottom: 1px solid var(--hair);
+  scroll-margin-top: var(--bar-h);
+}
+.scene:last-of-type { border-bottom: 0; }
+.eyebrow {
+  margin: 0; display: flex; align-items: baseline; gap: 10px;
+  font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted);
+}
+.eyebrow .num { font-family: var(--font-display); font-size: 24px; letter-spacing: 0; text-transform: none; color: var(--ink); }
+.scene h2 {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(32px, 4.3vw, 56px); line-height: 1.04; letter-spacing: -0.015em;
+  margin: 4px 0 0; text-wrap: balance;
+}
+.lede { max-width: 70ch; font-size: 19px; line-height: 1.5; color: var(--ink-2); margin: 10px 0 0; text-wrap: pretty; }
+.scene-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 330px); gap: 22px; align-items: start; }
+.scene-body.wide { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 980px) { .scene-body { grid-template-columns: minmax(0, 1fr); } }
+.stage {
+  background: var(--panel); border: 1px solid var(--hair); border-radius: var(--radius);
+  padding: 18px; min-width: 0; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.rail { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.card { background: var(--panel); border: 1px solid var(--hair); border-radius: var(--radius); padding: 14px 16px; min-width: 0; }
+.card > h3, .label-h {
+  font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 10px; font-weight: 700;
+}
+.card p { margin: 0 0 8px; }
+.card p:last-child { margin-bottom: 0; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 720px) { .two, .three { grid-template-columns: minmax(0, 1fr); } .three .chart { max-width: 420px; margin-inline: auto; } }
+.fig-title { font-size: 14px; color: var(--ink-2); margin: 0 0 4px; font-weight: 700; }
+.fig-sub { font-size: 13px; color: var(--muted); margin: 0 0 6px; }
+
+/* takeaway */
+.takeaway { padding: 2px 2px 0; }
+.takeaway .label-h { margin-bottom: 4px; }
+.takeaway p { font-family: var(--font-display); font-size: 21px; line-height: 1.32; margin: 0; text-wrap: pretty; }
+
+/* controls */
+.ctrl { display: grid; gap: 4px; margin-bottom: 10px; }
+.ctrl:last-child { margin-bottom: 0; }
+.ctrl label { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; color: var(--ink-2); }
+.ctrl label output { color: var(--ink); font-weight: 500; }
+input[type="range"] { width: 100%; accent-color: var(--ink); margin: 2px 0; }
+.seg { display: inline-flex; border: 1px solid var(--base); border-radius: 999px; padding: 2px; gap: 2px; }
+.seg button { font: inherit; font-size: 14px; border: 0; background: transparent; color: var(--ink-2); padding: 4px 12px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.btn {
+  font: inherit; font-size: 15px; padding: 8px 14px; border-radius: 9px; cursor: pointer;
+  border: 1px solid var(--base); background: var(--panel); color: var(--ink);
+}
+.btn:hover { background: var(--panel-2); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn-primary { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.btn-primary:hover { background: var(--ink); opacity: 0.88; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+:focus-visible { outline: 2px solid var(--accept); outline-offset: 2px; }
+
+/* readout tiles */
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tile { background: var(--panel-2); border-radius: 9px; padding: 9px 12px; min-width: 0; }
+.tile .k { font-size: 13px; color: var(--muted); line-height: 1.3; }
+.tile .v { font-size: 25px; font-weight: 700; line-height: 1.15; }
+.tile .was { font-size: 12.5px; color: var(--muted); min-height: 1.2em; }
+.verdict { font-size: 15px; padding: 8px 10px; border-radius: 8px; background: var(--panel-2); }
+
+/* predict cards */
+.predict .q { font-weight: 700; margin: 0 0 8px; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opt {
+  font: inherit; font-size: 14.5px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--base); background: var(--panel); color: var(--ink);
+}
+.opt[aria-pressed="true"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.opt.correct { box-shadow: inset 0 0 0 2px var(--good); }
+.predict .answer { margin-top: 10px; font-size: 15px; color: var(--ink-2); }
+.predict .reveal { margin-top: 10px; }
+
+/* notes (study mode) */
+.notes { max-width: 80ch; border-top: 1px solid var(--hair); padding-top: 14px; color: var(--ink-2); font-size: 16px; }
+.notes > h3 { font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.notes p { margin: 0 0 10px; }
+.notes ul { margin: 0 0 10px; padding-left: 20px; }
+body.lecture .notes { display: none; }
+body.lecture .study-only { display: none; }
+
+/* equations */
+.eq { font-size: 21px; overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+.eq.big { font-size: 26px; }
+mjx-container[display="true"] { margin: 0.4em 0 !important; }
+.t-b, .hv-b { fill: var(--reject-ink); stroke: var(--reject-ink); }
+.t-U, .hv-U { fill: var(--reject-ink); stroke: var(--reject-ink); }
+.t-W, .hv-W { fill: var(--accept-ink); stroke: var(--accept-ink); }
+.t-opt { fill: var(--option-ink); stroke: var(--option-ink); }
+.chg { fill: var(--chg); stroke: var(--chg); }
+.eq [class^="hv-"] { transition: opacity 0.15s; }
+.eq[data-hl] [class^="hv-"] { opacity: 0.28; }
+.eq[data-hl="b"] .hv-b, .eq[data-hl="beta"] .hv-beta, .eq[data-hl="E"] .hv-E,
+.eq[data-hl="max"] .hv-max, .eq[data-hl="W"] .hv-W, .eq[data-hl="U"] .hv-U { opacity: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.term {
+  font: inherit; font-size: 14px; padding: 5px 10px; border-radius: 8px; cursor: default;
+  border: 1px solid var(--hair); background: var(--panel-2); color: var(--ink-2);
+}
+.term b { font-family: var(--font-display); font-size: 16px; color: var(--ink); margin-right: 4px; }
+
+/* charts */
+.chart { width: 100%; height: auto; display: block; overflow: visible; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.chart text { fill: var(--muted); font-family: var(--font-body); font-size: 12px; }
+.chart .axis path, .chart .axis line { stroke: var(--base); }
+.chart .axis text { font-variant-numeric: tabular-nums; }
+.chart .grid line { stroke: var(--hair); stroke-width: 1; }
+.chart .axis-title { fill: var(--ink-2); font-size: 12.5px; }
+.chart .lbl { fill: var(--ink-2); font-size: 12.5px; }
+.chart .lbl-ink { fill: var(--ink); font-size: 13px; font-weight: 700; }
+.chart .halo { paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
+.ln { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.ln-thin { stroke-width: 1.4; }
+.ln-thick { stroke-width: 3.2; }
+.ln-accept { stroke: var(--accept); }
+.ln-reject { stroke: var(--reject); }
+.ln-option { stroke: var(--option); }
+.ln-ink { stroke: var(--ink); }
+.ln-muted { stroke: var(--muted); }
+.ln-base { stroke: var(--base); }
+.ln-chg { stroke: var(--chg); }
+.ln-env { stroke: var(--env); stroke-width: 12; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ln-seq1 { stroke: var(--seq-1); } .ln-seq2 { stroke: var(--seq-2); } .ln-seq3 { stroke: var(--seq-3); }
+.ar-accept { fill: var(--accept-wash); }
+.ar-reject { fill: var(--reject-wash); }
+.ar-option { fill: var(--option-wash); }
+.ar-ink { fill: var(--ink-wash); }
+.mk { stroke: var(--panel); stroke-width: 2; }
+.mk-ink { fill: var(--ink); } .mk-accept { fill: var(--accept); } .mk-reject { fill: var(--reject); } .mk-option { fill: var(--option); } .mk-muted { fill: var(--muted); }
+.bar-accept { fill: var(--accept); } .bar-reject { fill: var(--reject); } .bar-option { fill: var(--option); } .bar-ink { fill: var(--ink); } .bar-muted { fill: var(--base); }
+.handle line.hl { stroke: var(--ink); stroke-width: 2; }
+.handle circle { fill: var(--ink); stroke: var(--panel); stroke-width: 2.5; }
+.drag-zone { cursor: ew-resize; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13.5px; color: var(--ink-2); margin: 0 0 4px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { display: inline-block; width: 18px; height: 0; border-top: 3px solid; border-radius: 2px; }
+.legend i.sw { height: 10px; border: 0; border-radius: 3px; width: 14px; }
+.legend .c-accept { border-color: var(--accept); } .legend .c-reject { border-color: var(--reject); }
+.legend .c-option { border-color: var(--option); } .legend .c-ink { border-color: var(--ink); }
+.legend .c-muted { border-color: var(--muted); }
+.legend .c-seq1 { border-color: var(--seq-1); } .legend .c-seq2 { border-color: var(--seq-2); } .legend .c-seq3 { border-color: var(--seq-3); }
+.legend .s-accept { background: var(--accept-wash); } .legend .s-reject { background: var(--reject-wash); }
+.legend .s-option { background: var(--option-wash); } .legend .s-ink { background: var(--ink-wash); }
+
+/* cover */
+.cover h1 {
+  font-family: var(--font-display); font-weight: 500; font-style: italic;
+  font-size: clamp(48px, 8vw, 104px); line-height: 0.98; letter-spacing: -0.02em; margin: 6px 0 0; text-wrap: balance;
+}
+.cover .lede { font-size: 21px; max-width: 62ch; }
+.arc { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none; }
+.arc li { font-size: 14px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--hair); color: var(--muted); }
+.arc li.on { border-color: var(--ink); color: var(--ink); font-weight: 700; }
+.index { columns: 2 280px; column-gap: 32px; margin: 0; padding: 0; list-style: none; }
+.index li { break-inside: avoid; padding: 7px 0; border-bottom: 1px solid var(--hair); }
+.index a { display: flex; gap: 12px; text-decoration: none; color: var(--ink); align-items: baseline; }
+.index a:hover .t { text-decoration: underline; }
+.index .n { font-family: var(--font-display); font-size: 20px; color: var(--muted); min-width: 1.4em; text-align: right; }
+.index .s { color: var(--muted); font-size: 14px; }
+.keys { font-size: 14.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 18px; }
+
+/* the search game */
+.game { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 760px) { .game { grid-template-columns: minmax(0, 1fr); } }
+.offer-card { border: 1px solid var(--hair); border-radius: 14px; padding: 16px 18px 18px; background: var(--panel-2); }
+.offer-meta { display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); }
+.offer-wage {
+  font-family: var(--font-display); font-weight: 500; font-size: clamp(76px, 10vw, 128px); line-height: 1;
+  margin: 6px 0 2px; font-variant-numeric: lining-nums; transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.offer-wage.pop { transform: scale(0.94); opacity: 0.35; }
+.offer-sub { font-size: 14.5px; color: var(--ink-2); min-height: 1.5em; }
+.offer-actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.btn-big { font-size: 20px; font-weight: 700; padding: 12px 22px; border-radius: 11px; border: 0; color: #fff; cursor: pointer; }
+.btn-accept { background: var(--btn-accept); }
+.btn-reject { background: var(--btn-reject); }
+.btn-big:disabled { opacity: 0.35; cursor: default; }
+.btn-big kbd { background: rgba(255, 255, 255, 0.18); color: #fff; border-color: rgba(255, 255, 255, 0.35); margin-left: 6px; }
+.ledger h4 { margin: 0 0 6px; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.ledger ol { margin: 0; padding: 0; list-style: none; max-height: 260px; overflow-y: auto; font-size: 14.5px; }
+.ledger li { display: grid; grid-template-columns: 2.2em 3em minmax(0, 1fr) auto; gap: 6px; padding: 5px 0; border-bottom: 1px solid var(--hair); font-variant-numeric: tabular-nums; }
+.ledger li .t { color: var(--muted); }
+.ledger li .pv { font-family: var(--font-mono); font-size: 13.5px; text-align: right; }
+.ledger .total { display: flex; justify-content: space-between; margin-top: 8px; font-size: 15px; }
+.result-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; font-size: 15.5px; }
+.result-grid .v { font-family: var(--font-mono); text-align: right; font-variant-numeric: tabular-nums; }
+.result-grid .hd { font-weight: 700; }
+table.mini { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+table.mini th, table.mini td { padding: 5px 4px; border-bottom: 1px solid var(--hair); text-align: right; }
+table.mini th:first-child, table.mini td:first-child { text-align: left; }
+table.mini th { color: var(--muted); font-weight: 700; font-size: 12.5px; }
+
+/* stepper */
+.steps { display: flex; flex-direction: column; gap: 6px; }
+.step { border-radius: 10px; padding: 6px 12px 8px; transition: background 0.2s, opacity 0.2s; }
+.step .why { font-size: 15.5px; color: var(--ink-2); margin: 0; }
+.step .why b { color: var(--ink); }
+.step:not(.current) { opacity: 0.55; }
+.step.current { background: var(--panel-2); opacity: 1; }
+body:not(.lecture) .step { opacity: 1; background: transparent; }
+body:not(.lecture) .step.current { background: transparent; }
+.step-nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.step-count { font-size: 14px; color: var(--muted); }
+
+/* audit */
+.code {
+  font-family: var(--font-mono); font-size: 13.5px; line-height: 1.6; background: var(--panel-2);
+  border-radius: 9px; padding: 10px 0; margin: 0; overflow-x: auto;
+}
+.code .cl { display: block; white-space: pre; padding-right: 14px; }
+.code .cl::before { content: attr(data-n); display: inline-block; width: 2.4em; margin-right: 12px; text-align: right; color: var(--muted); }
+.code .cl.bug { background: color-mix(in srgb, var(--bad) 16%, transparent); }
+.code .cl.now { background: color-mix(in srgb, var(--accept) 16%, transparent); }
+.defs { margin: 12px 0 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; max-width: 76ch; font-size: 16.5px; color: var(--ink-2); }
+.defs dt { font-family: var(--font-display); font-size: 18px; color: var(--ink); white-space: nowrap; }
+.defs dd { margin: 0; }
+.notation { max-width: 860px; }
+.tabbar { margin-bottom: 4px; }
+.code .cm { color: var(--muted); }
+.code .kw { color: var(--chg); }
+table.tests { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.tests th, table.tests td { padding: 7px 6px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+table.tests th { text-align: center; font-size: 13px; color: var(--muted); }
+table.tests th:first-child { text-align: left; }
+table.tests td.res { text-align: center; font-family: var(--font-mono); font-size: 13px; white-space: nowrap; }
+table.tests td.res.sel { background: var(--panel-2); }
+table.tests td.res small { display: block; color: var(--muted); font-size: 11.5px; margin-top: 2px; }
+table.tests th.sel { color: var(--ink); }
+.pass { color: var(--good); font-weight: 500; }
+.fail { color: var(--bad); font-weight: 500; }
+.tdesc { font-size: 14px; min-width: 11em; }
+.tdesc small { display: block; color: var(--muted); font-size: 12.5px; }
+.bugnote { font-size: 15px; padding: 10px 12px; border-radius: 9px; background: var(--panel-2); }
+
+/* evidence list */
+.evidence { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.evidence li { font-size: 15px; line-height: 1.45; }
+.evidence li b { display: block; color: var(--ink); }
+.evidence .src { color: var(--muted); font-size: 13.5px; }
+
+/* dictionary */
+table.dict { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+table.dict td { padding: 5px 4px; border-bottom: 1px solid var(--hair); }
+table.dict td:first-child { color: var(--muted); }
+
+/* wrap-up */
+.big-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; counter-reset: k; }
+.big-list li { display: grid; grid-template-columns: 2.2em minmax(0, 1fr); gap: 10px; font-size: 18px; }
+.big-list li::before { counter-increment: k; content: counter(k); font-family: var(--font-display); font-size: 30px; line-height: 1; color: var(--muted); }
+.oneline { font-family: var(--font-display); font-style: italic; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.28; margin: 0; text-wrap: balance; }
+
+/* pager */
+.pager {
+  display: flex; align-items: center; gap: 2px; padding: 2px; border-radius: 999px;
+  border: 1px solid var(--hair); background: var(--panel);
+}
+.pager button { font: inherit; font-size: 17px; width: 32px; height: 32px; border-radius: 50%; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.pager button:hover { background: var(--panel-2); }
+.pager span { font-size: 13px; color: var(--muted); min-width: 4.2em; text-align: center; font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]], packages: { "[+]": ["html", "color", "boldsymbol"] } },
+  svg: { fontCache: "global" },
+  options: { enableMenu: false },
+  startup: {
+    ready() {
+      MathJax.startup.defaultReady();
+      MathJax.startup.promise.then(() => document.dispatchEvent(new Event("mathjax-ready")));
+    }
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js"></script>
+
+<header class="topbar">
+  <div class="brand">MMMoL <span>· Lecture 7</span></div>
+  <nav class="dots" id="dots" aria-label="Scenes"></nav>
+  <div class="pager" aria-label="Scene navigation">
+    <button type="button" id="prevBtn" aria-label="Previous scene">←</button>
+    <span id="pagerLabel">1 / 14</span>
+    <button type="button" id="nextBtn" aria-label="Next scene">→</button>
+  </div>
+  <div class="tools">
+    <button class="chip" id="modeBtn" type="button" title="Toggle notes (N)">Study mode</button>
+    <button class="chip" id="themeBtn" type="button" title="Toggle theme (T)">Dark</button>
+  </div>
+</header>
+
+<main id="deck">
+
+<!-- ===================== 0 · COVER ===================== -->
+<section class="scene cover" id="cover" data-title="Cover">
+  <p class="eyebrow">Micro and Macro Models of the Labour Market · Lecture 7 · The McCall model</p>
+  <h1>Why say no to a job?</h1>
+  <p class="lede">An unemployed worker receives an offer that pays more than her benefits. Turning it down can still be the smart move. Today we find out when, by how much, and what that means for unemployment insurance and for the wage dispersion we see in the data.</p>
+  <ul class="arc" aria-label="Course arc">
+    <li class="on">L7 Job search</li><li>L8 Equilibrium unemployment</li><li>L9 Wage posting and the job ladder</li><li>L10 Estimation</li><li>L11 Sequential auctions</li><li>L12 Workers, firms and sorting</li>
+  </ul>
+  <ol class="index" id="sceneIndex"></ol>
+  <div class="card notation">
+    <h3>Notation used today</h3>
+    <dl class="defs" style="margin-top:0">
+      <dt>w</dt><dd>a wage offer. One offer arrives each period, drawn independently from the same distribution.</dd>
+      <dt>F(w), f(w)</dt><dd>F(w) is the share of offers below w; f(w) is the density. 1 − F(w) is the share of offers above w.</dd>
+      <dt>b</dt><dd>income per period while unemployed (benefits or the value of free time).</dd>
+      <dt>β</dt><dd>discount factor: one unit of income next period is worth β today (0 &lt; β &lt; 1).</dd>
+      <dt>W(w)</dt><dd>value of accepting offer w: w every period forever, so W(w) = w/(1 − β).</dd>
+      <dt>U</dt><dd>value of being unemployed and searching, measured before the next offer arrives.</dd>
+      <dt>w*</dt><dd>reservation wage: the offer at which accepting and searching are worth the same, W(w*) = U.</dd>
+      <dt>𝔼[max(w − x, 0)]</dt><dd>option value at threshold x: the expected amount by which the next offer beats x.</dd>
+    </dl>
+  </div>
+  <div class="keys"><span><kbd>→</kbd> or <kbd>Space</kbd> next</span><span><kbd>←</kbd> back</span><span><kbd>N</kbd> notes on and off</span><span><kbd>T</kbd> theme</span><span>Drag any vertical line in a chart.</span></div>
+  <div class="notes">
+    <h3>How to use this page</h3>
+    <p>In class, switch to Lecture mode (top right, or press N): the notes disappear and derivations reveal one step at a time. At home, stay in Study mode: every scene shows its notes and full derivations. Every number on the page is computed live from the model. The Python cross-check of these numbers is in <span class="mono">revision-2027/checks/</span>.</p>
+  </div>
+</section>
+
+<!-- ===================== 1 · GAME ===================== -->
+<section class="scene" id="game" data-title="The search game" data-sub="Play first, theorise later">
+  <header>
+    <p class="eyebrow"><span class="num">1</span> The hook</p>
+    <h2>Would you take this offer?</h2>
+    <p class="lede">You are unemployed. Each period one offer arrives, drawn uniformly between 0 and 100. <b class="k-accept">Accept</b> and you earn that wage every period, forever. <b class="k-reject">Reject</b> and you collect <span class="mono">b = 20</span> this period, then see a new offer. Money one period ahead is worth <span class="mono">β = 0.95</span> today. Your score is the present value of everything you earn.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="game">
+        <div class="offer-card" aria-live="polite">
+          <div class="offer-meta"><span id="offerNo">Offer 1</span><span id="offerPeriod">period 0</span></div>
+          <div class="offer-wage" id="offerWage">–</div>
+          <div class="offer-sub" id="offerSub">Accepting this offer is worth –.</div>
+          <div id="offerScale"></div>
+          <div class="offer-actions">
+            <button class="btn-big btn-accept" id="btnAccept" type="button">Accept<kbd>A</kbd></button>
+            <button class="btn-big btn-reject" id="btnReject" type="button">Reject<kbd>R</kbd></button>
+          </div>
+        </div>
+        <div class="ledger">
+          <h4>Your ledger, in today's money</h4>
+          <ol id="ledger"></ol>
+          <div class="total"><span id="pvLabel">Present value so far</span><b class="mono" id="pvSoFar">0</b></div>
+          <div id="gameResult" hidden style="margin-top:14px"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Before you play</h3>
+        <p>Agree as a class: what is the lowest offer you would accept?</p>
+        <div class="ctrl"><label for="classGuess">Our threshold <output id="classGuessOut">50</output></label><input type="range" id="classGuess" min="0" max="100" step="1" value="50"></div>
+      </div>
+      <div class="card">
+        <h3>Scoreboard</h3>
+        <table class="mini" id="gameHistory"><thead><tr><th>Game</th><th>Took</th><th>Waited</th><th>You</th><th>Best rule</th></tr></thead><tbody></tbody></table>
+        <div class="btn-row" style="margin-top:10px">
+          <button class="btn" id="btnNewGame" type="button">New game</button>
+          <button class="btn btn-primary" id="btnRevealRule" type="button">Reveal the best rule</button>
+        </div>
+      </div>
+      <div class="takeaway" id="gameTakeaway" hidden>
+        <p class="label-h">Takeaway</p>
+        <p>The best rule is one number: accept any offer of at least <span class="mono" id="gWs">75.8</span>. That is almost four times the benefit. Saying no to a 60 is not stubbornness; it is the price of keeping the right to draw again.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>The game makes the trade-off physical before any equation. Rejecting a decent offer costs one period of income (you get b instead of w) but keeps the right to draw again. The best rule turns out to be a single threshold, w* = 75.8, far above b = 20.</p>
+    <p>Average lifetime values under three rules, computed from the model: best rule <b>1,574</b>; accept anything above b <b>1,190</b>; accept the first offer <b>1,000</b>. Timing used throughout the lecture: the offer arrives first, and rejecting pays b this period.</p>
+  </div>
+</section>
+
+<!-- ===================== 2 · RULE ===================== -->
+<section class="scene" id="rule" data-title="What is a rule worth?" data-sub="The threshold as a choice">
+  <header>
+    <p class="eyebrow"><span class="num">2</span> The policy view</p>
+    <h2>What is a rule worth?</h2>
+    <p class="lede">In the game you used a rule, perhaps without noticing: accept any offer of at least some number <i>c</i>, reject the rest. Each <i>c</i> is a strategy. Three values, all in the same lifetime units as the game score, tell us which <i>c</i> is best.</p>
+    <dl class="defs">
+      <dt>Q(c)</dt><dd>the expected lifetime value of following rule <i>c</i>, measured just before an offer arrives.</dd>
+      <dt>W(c) = c/(1 − β)</dt><dd>the value of accepting an offer exactly equal to <i>c</i>: you earn <i>c</i> every period, forever.</dd>
+      <dt>b + βQ(c)</dt><dd>the value of rejecting that offer: <i>b</i> today, then the same rule again from tomorrow, discounted by β.</dd>
+    </dl>
+    <p class="lede">Drag the vertical line to try different rules.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="legend"><span><i class="c-ink"></i>Q(c): value of following rule c</span><span><i class="c-accept"></i>W(c): accept an offer equal to c</span><span><i class="c-reject"></i>b + βQ(c): reject it and keep the rule</span><span><i class="sw s-ink"></i>your thresholds, from the game</span></div>
+      <div id="ruleChart"></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>At the line</h3>
+        <div class="ctrl"><label for="ruleC">Threshold c <output id="ruleCOut">50</output></label><input type="range" id="ruleC" min="0" max="100" step="0.5" value="50"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Value of the rule</div><div class="v mono" id="ruleQ">–</div><div class="was" id="rulePct"></div></div>
+          <div class="tile"><div class="k">Class guess</div><div class="v mono" id="ruleGuess">–</div><div class="was" id="ruleGuessPct"></div></div>
+        </div>
+        <p class="verdict" id="ruleVerdict" style="margin-top:10px">–</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>The best threshold is where accepting <i>c</i> and rejecting <i>c</i> are worth exactly the same. Indifference at the margin <em>is</em> the first-order condition.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>F(c) is the share of offers below c and f(c) its density. For a threshold c, the value before seeing an offer is \( Q(c) = \dfrac{\int_c^\infty W(w)\,dF(w) + F(c)\,b}{1-\beta F(c)} \). Differentiate: \( Q'(c) = \dfrac{f(c)\,\big[\,b+\beta Q(c) - W(c)\,\big]}{1-\beta F(c)} \).</p>
+    <p>Raising c only changes what happens to offers exactly equal to c: they are now rejected. Rejecting is worth b + βQ(c), accepting is worth W(c). So the best threshold solves W(c) = b + βQ(c). At the optimum, b + βQ(c*) is the value of unemployment U, and the condition becomes the familiar <b>W(w*) = U</b>.</p>
+    <p>The curve is flat at the top: a threshold of 65 or 85 still earns 97–98% of the best value. Being roughly right is cheap; being very wrong (accepting anything above b) costs about a quarter of lifetime value.</p>
+  </div>
+</section>
+
+<!-- ===================== 3 · BELLMAN ===================== -->
+<section class="scene" id="bellman" data-title="The Bellman equation" data-sub="One equation for an infinite future">
+  <header>
+    <p class="eyebrow"><span class="num">3</span> Recursion</p>
+    <h2>One equation for an infinite future</h2>
+    <p class="lede"><i>U</i> is the value of being unemployed and searching, measured before tomorrow's offer. <i>W(w)</i> is the value of accepting an offer <i>w</i>. The value of searching equals today's benefit plus the discounted value of the better of the two tomorrow. Tomorrow's problem looks exactly like today's, so one number, <i>U</i>, summarises the whole future. The offer at which accepting and searching are worth the same is the <b>reservation wage</b>, <i>w*</i>.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="eq big" id="bellEq">\[ \begin{gathered} \class{hv-U}{U} = \class{hv-b}{b} + \class{hv-beta}{\beta}\,\class{hv-E}{\mathbb{E}}\Big[\class{hv-max}{\max}\big\{\class{hv-W}{W(w)},\;\class{hv-U}{U}\big\}\Big] \\[4pt] \class{hv-W}{W(w)} = \frac{w}{1-\beta} \end{gathered} \]</div>
+      <div class="chips" id="bellChips">
+        <span class="term" data-hl="b" tabindex="0"><b>b</b>benefit today</span>
+        <span class="term" data-hl="beta" tabindex="0"><b>β</b>discount factor</span>
+        <span class="term" data-hl="E" tabindex="0"><b>𝔼</b>average over tomorrow's offers</span>
+        <span class="term" data-hl="max" tabindex="0"><b>max</b>the better of the two</span>
+        <span class="term" data-hl="W" tabindex="0"><b>W(w)</b>accept: w forever</span>
+        <span class="term" data-hl="U" tabindex="0"><b>U</b>keep searching</span>
+      </div>
+      <div class="legend"><span><i class="c-accept"></i>W(w) = w/(1−β)</span><span><i class="c-reject"></i>U</span><span><i class="sw s-ink"></i>max{W(w), U}: the hockey stick</span></div>
+      <div id="bellChart"></div>
+      <div id="bellDens"></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Try an offer</h3>
+        <div class="ctrl"><label for="bellW">Offer w <output id="bellWOut">60</output></label><input type="range" id="bellW" min="0" max="100" step="1" value="60"></div>
+        <p class="verdict" id="bellVerdict">–</p>
+      </div>
+      <div class="card">
+        <h3>Check the arithmetic</h3>
+        <p class="mono" id="bellArith" style="font-size:14.5px">–</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>max{W(w), U} is a hockey stick. Its kink sits at the reservation wage w*, where W(w*) = U, and its convexity is where the option value comes from.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>W(w) = w + βW(w) gives W(w) = w/(1−β), the present value of earning w forever. U is the value of being unemployed today, before tomorrow's draw. Because W rises with w and U does not depend on w, there is a single crossing: accept if and only if w ≥ w*, where W(w*) = U, that is w* = (1−β)U.</p>
+    <p>The Bellman operator \( T(U) = b + \beta\,\mathbb{E}[\max\{W(w),U\}] \) is monotone and discounts (Blackwell), so it is a contraction with exactly one fixed point. Notice what the expectation averages: the <em>maximum</em>, not W. That is why the spread of offers will matter.</p>
+  </div>
+</section>
+
+<!-- ===================== 4 · DERIVATION ===================== -->
+<section class="scene" id="derive" data-title="Two tricks, one formula" data-sub="From Bellman to the reservation wage">
+  <header>
+    <p class="eyebrow"><span class="num">4</span> Derivation</p>
+    <h2>Two tricks, one formula</h2>
+    <p class="lede">From the Bellman equation to the reservation-wage equation in seven moves, then one integration by parts that turns the option value into an area. The term that changes at each step is highlighted.</p>
+    <dl class="defs">
+      <dt>F(w*)</dt><dd>the probability that an offer is below w*, so it is rejected.</dd>
+      <dt>dF(w)</dt><dd>shorthand for f(w)dw, the probability of an offer close to w. ∫ g(w) dF(w) is the average of g over offers.</dd>
+      <dt>w*</dt><dd>the reservation wage, defined by W(w*) = U.</dd>
+    </dl>
+  </header>
+  <div class="scene-body wide">
+    <div class="stage">
+      <div class="steps" id="steps">
+        <div class="step"><div class="eq">\[ U = \class{t-b}{b} + \beta\,\mathbb{E}\big[\max\{\class{t-W}{W(w)},\,\class{t-U}{U}\}\big] \]</div><p class="why"><b>Start.</b> Collect b today; tomorrow take the better of accepting and searching.</p></div>
+        <div class="step"><div class="eq">\[ U = b + \beta\Big[\class{chg}{F(w^*)\,U} + \class{chg}{\int_{w^*}^{\infty} W(w)\,dF(w)}\Big] \]</div><p class="why"><b>Use the threshold rule.</b> Offers below w* are rejected and leave you with U; offers above are accepted and pay W(w).</p></div>
+        <div class="step"><div class="eq">\[ \class{chg}{\frac{w^*}{1-\beta}} = b + \beta\Big[F(w^*)\,\class{chg}{\frac{w^*}{1-\beta}} + \int_{w^*}^{\infty}\class{chg}{\frac{w}{1-\beta}}\,dF(w)\Big] \]</div><p class="why"><b>Substitute.</b> W(w) = w/(1−β), and indifference at the threshold gives U = w*/(1−β).</p></div>
+        <div class="step"><div class="eq">\[ w^* = \class{chg}{(1-\beta)}\,b + \beta\Big[F(w^*)\,w^* + \int_{w^*}^{\infty} w\,dF(w)\Big] \]</div><p class="why"><b>Multiply by (1−β).</b> Everything is now in wage units.</p></div>
+        <div class="step"><div class="eq">\[ \int_{w^*}^{\infty} w\,dF(w) = \class{chg}{\int_{w^*}^{\infty}(w-w^*)\,dF(w)} + \class{chg}{w^*\,\big[1-F(w^*)\big]} \]</div><p class="why"><b>Trick 1: add and subtract w*.</b> Split every accepted wage into the threshold plus the excess over it.</p></div>
+        <div class="step"><div class="eq">\[ w^* = (1-\beta)\,b + \class{chg}{\beta\,w^*} + \beta\int_{w^*}^{\infty}(w-w^*)\,dF(w) \]</div><p class="why"><b>Collect terms.</b> βF(w*)w* + βw*[1−F(w*)] = βw*: the threshold earns βw* whatever happens.</p></div>
+        <div class="step"><div class="eq">\[ \boxed{\;w^* = \class{t-b}{b} + \frac{\beta}{1-\beta}\,\class{t-opt}{\int_{w^*}^{\infty}(w-w^*)\,dF(w)}\;} \]</div><p class="why"><b>Solve for w*.</b> Flow value of unemployment plus the capitalised option value of searching once more.</p></div>
+        <div class="step"><div class="eq">\[ \int_{w^*}^{\infty}(w-w^*)\,dF(w) = \class{chg}{\Big[-(w-w^*)\big(1-F(w)\big)\Big]_{w^*}^{\infty}} + \int_{w^*}^{\infty}\big[1-F(w)\big]\,dw \]</div><p class="why"><b>Trick 2: integrate by parts</b> with dF = −d(1−F). The boundary term is zero at both ends.</p></div>
+        <div class="step"><div class="eq">\[ w^* = \class{t-b}{b} + \frac{\beta}{1-\beta}\,\class{t-opt}{\int_{w^*}^{\infty}\big[1-F(w)\big]\,dw} \]</div><p class="why"><b>Read it as geometry.</b> The option value is the area under the survival curve 1−F to the right of w*. Next scene: see it.</p></div>
+      </div>
+      <div class="step-nav lecture-only">
+        <button class="btn" id="stepBack" type="button">Back</button>
+        <button class="btn btn-primary" id="stepNext" type="button">Next step</button>
+        <span class="step-count" id="stepCount"></span>
+      </div>
+    </div>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Why does the integral start at w*? Offers below the threshold are rejected anyway, so they add nothing beyond U. Why w − w* and not w? The gain from a good draw is how much it beats the marginal acceptable offer. Why β/(1−β)? β because the draw happens tomorrow; 1/(1−β) because a better wage, once accepted, is paid forever.</p>
+    <p>Hand check with offers uniform on [0, 100], b = 20, β = 0.95: the integral is (100 − w*)²/200, so w* = 20 + 19·(100 − w*)²/200, a quadratic with root <b>w* = 75.77</b>.</p>
+  </div>
+</section>
+
+<!-- ===================== 5 · AREA ===================== -->
+<section class="scene" id="area" data-title="Option value is an area" data-sub="Uniqueness and comparative statics at a glance">
+  <header>
+    <p class="eyebrow"><span class="num">5</span> Geometry</p>
+    <h2>See the option value</h2>
+    <p class="lede">Pick any candidate threshold <i>x</i>. Left: the curve 1 − F(w) is the share of offers above each wage. The green area to the right of <i>x</i> equals 𝔼[max(w − x, 0)], the expected amount by which next period's offer beats <i>x</i> (step 9 of the derivation). Right: <b>g(x) = b + β/(1−β) × area</b> is the right-hand side of the reservation-wage equation evaluated at <i>x</i>. The reservation wage is the <i>x</i> where g(x) = x. Drag <i>x</i>.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="two">
+        <div>
+          <p class="fig-title">Survival curve and option value</p>
+          <div class="legend"><span><i class="c-ink"></i>1 − F(w)</span><span><i class="sw s-option"></i>area = 𝔼[max(w − x, 0)]</span></div>
+          <div id="areaLeft"></div>
+        </div>
+        <div>
+          <p class="fig-title">The fixed point</p>
+          <div class="legend"><span><i class="c-muted"></i>45° line: x</span><span><i class="c-option"></i>g(x) = b + β/(1−β) · area</span></div>
+          <div id="areaRight"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Controls</h3>
+        <div class="ctrl"><label>Offer distribution</label><div class="seg" id="areaDist"><button type="button" data-v="uniform" aria-pressed="true">Uniform</button><button type="button" data-v="lognormal" aria-pressed="false">Lognormal</button></div></div>
+        <div class="ctrl"><label for="areaX">Candidate threshold x <output id="areaXOut">60</output></label><input type="range" id="areaX" min="0" max="100" step="0.5" value="60"></div>
+        <div class="ctrl"><label for="areaB">Benefit b <output id="areaBOut">20</output></label><input type="range" id="areaB" min="0" max="60" step="1" value="20"></div>
+        <div class="ctrl"><label for="areaBeta">Discount factor β <output id="areaBetaOut">0.95</output></label><input type="range" id="areaBeta" min="0.80" max="0.98" step="0.01" value="0.95"></div>
+      </div>
+      <div class="card">
+        <h3>Readout</h3>
+        <div class="tiles">
+          <div class="tile"><div class="k">Area at x</div><div class="v mono" id="areaA">–</div></div>
+          <div class="tile"><div class="k">g(x)</div><div class="v mono" id="areaG">–</div></div>
+          <div class="tile"><div class="k">Slope of g at x</div><div class="v mono" id="areaS">–</div></div>
+          <div class="tile"><div class="k">w* (crossing)</div><div class="v mono" id="areaW">–</div></div>
+        </div>
+        <p class="verdict" id="areaVerdict" style="margin-top:10px">–</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>g falls with slope −β/(1−β)·[1−F(x)], the height of the survival curve. The 45° line rises with slope 1. One crossing, always.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>\( g(x) = b + \frac{\beta}{1-\beta}\int_x^\infty [1-F(w)]\,dw \) has \( g'(x) = -\frac{\beta}{1-\beta}[1-F(x)] \le 0 \) and \( g''(x) = \frac{\beta}{1-\beta} f(x) \ge 0 \): decreasing and convex, so it crosses the 45° line exactly once.</p>
+    <p>Comparative statics become pictures. A higher b shifts g up by the same amount everywhere. A higher β stretches the area term. A mean-preserving spread raises the area at every x (scene 9). Differentiating the fixed point: \( \frac{dw^*}{db} = \frac{1}{1+\frac{\beta}{1-\beta}[1-F(w^*)]} \in (0,1) \), so the reservation wage rises with b, but less than one for one. At the default values, 20 more units of benefit raise w* by about 3.8.</p>
+  </div>
+</section>
+
+<!-- ===================== 6 · SOLVE ===================== -->
+<section class="scene" id="solve" data-title="How a computer solves it" data-sub="Discretize, iterate, or bisect">
+  <header>
+    <p class="eyebrow"><span class="num">6</span> Computation</p>
+    <h2>How does a computer find w*?</h2>
+    <p class="lede">For most offer distributions the reservation-wage equation has no closed form. A program has to do two jobs. First, describe F with finitely many numbers. Second, solve the equation, either by repeating the Bellman update until it settles, or by searching for the root. You will rarely write this code yourself. You need to know what it does, so that you can tell when it is wrong.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="seg tabbar" id="solveTab"><button type="button" data-v="disc" aria-pressed="true">1 · Discretize F</button><button type="button" data-v="iter" aria-pressed="false">2 · Iterate</button><button type="button" data-v="bisect" aria-pressed="false">3 · Bisect</button></div>
+      <div data-tab="disc">
+        <p class="fig-title">How the computer sees F: n equally likely offers</p>
+        <div class="legend"><span><i class="c-muted"></i>true F(w), uniform on [0, 100]</span><span><i class="c-ink"></i>F on the grid</span><span><i class="c-option"></i>w* computed on the grid</span></div>
+        <div id="discChart"></div>
+      </div>
+      <div data-tab="iter" hidden>
+        <div class="two">
+          <div>
+            <p class="fig-title">The update and the staircase</p>
+            <div class="legend"><span><i class="c-ink"></i>m(x)</span><span><i class="c-muted"></i>45° line</span><span><i class="c-option"></i>iterations</span></div>
+            <div id="solveChart"></div>
+          </div>
+          <div>
+            <p class="fig-title">Distance to w*, log scale</p>
+            <div class="legend"><span><i class="c-option"></i>|xₙ − w*|</span><span><i class="c-muted"></i>predicted rate (βF(w*))ⁿ</span></div>
+            <div id="solveErr"></div>
+          </div>
+        </div>
+        <table class="mini" id="iterLog"><thead><tr><th>n</th><th>guess xₙ</th><th>update m(xₙ)</th><th>change</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div data-tab="bisect" hidden>
+        <p class="fig-title">Search for the root of h(x) = x − g(x)</p>
+        <div class="legend"><span><i class="c-ink"></i>h(x): negative means x is too low, positive means too high</span><span><i class="sw s-option"></i>bracket that must contain w*</span></div>
+        <div id="bisChart"></div>
+        <table class="mini" id="bisLog"><thead><tr><th>step</th><th>low</th><th>high</th><th>midpoint</th><th>h(mid)</th><th>keep</th></tr></thead><tbody></tbody></table>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card" data-tab="disc">
+        <h3>What the code does</h3>
+        <p>1. Choose n points at the quantiles (i + ½)/n of F, so each point has probability 1/n.</p>
+        <p>2. Replace every expectation by an average over the n points: 𝔼[g(w)] ≈ (1/n) Σ g(wᵢ).</p>
+        <p>3. Solve the model on the grid. Check: increase n until w* stops moving.</p>
+        <div class="ctrl" style="margin-top:10px"><label for="discN">Grid points n <output id="discNOut">5</output></label><input type="range" id="discN" min="2" max="60" step="1" value="5"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">w* on the grid</div><div class="v mono" id="discW">–</div></div>
+          <div class="tile"><div class="k">Error vs exact 75.77</div><div class="v mono" id="discErr">–</div></div>
+        </div>
+        <pre class="code" id="discCode" style="margin-top:10px"></pre>
+      </div>
+      <div class="card" data-tab="iter" hidden>
+        <h3>What the code does</h3>
+        <p>Guess a reservation wage x. Compute what the Bellman equation says it should be, m(x) = (1−β)b + β·𝔼[max(w, x)]. Use that as the new guess. Stop when the guess no longer changes. This is value function iteration in wage units.</p>
+        <div class="ctrl"><label for="solveX0">Starting guess x₀ <output id="solveX0Out">5</output></label><input type="range" id="solveX0" min="0" max="100" step="1" value="5"></div>
+        <div class="ctrl"><label for="solveBeta">Discount factor β <output id="solveBetaOut">0.95</output></label><input type="range" id="solveBeta" min="0.50" max="0.99" step="0.01" value="0.95"></div>
+        <div class="btn-row"><button class="btn btn-primary" id="solveStep" type="button">Step</button><button class="btn" id="solveRun" type="button">Run</button><button class="btn" id="solveReset" type="button">Reset</button></div>
+        <div class="tiles" style="margin-top:10px">
+          <div class="tile"><div class="k">Iteration n</div><div class="v mono" id="solveN">0</div></div>
+          <div class="tile"><div class="k">xₙ</div><div class="v mono" id="solveXn">–</div></div>
+          <div class="tile"><div class="k">Error shrinks by</div><div class="v mono" id="solveMod">–</div><div class="was">per step, near w*</div></div>
+          <div class="tile"><div class="k">w*</div><div class="v mono" id="solveWs">–</div></div>
+        </div>
+        <pre class="code" id="iterCode" style="margin-top:10px"></pre>
+      </div>
+      <div class="card" data-tab="bisect" hidden>
+        <h3>What the code does</h3>
+        <p>Write the equation as h(x) = x − b − β/(1−β)·𝔼[max(w − x, 0)] = 0. Start with a low x where h &lt; 0 and a high x where h &gt; 0: the root lies between them. Evaluate h at the midpoint and keep the half where the sign changes. Each step halves the bracket.</p>
+        <div class="btn-row"><button class="btn btn-primary" id="bisStep" type="button">Step</button><button class="btn" id="bisRun" type="button">Run</button><button class="btn" id="bisReset" type="button">Reset</button></div>
+        <div class="tiles" style="margin-top:10px">
+          <div class="tile"><div class="k">Step</div><div class="v mono" id="bisN">0</div></div>
+          <div class="tile"><div class="k">Bracket width</div><div class="v mono" id="bisW">80</div><div class="was">halves every step</div></div>
+        </div>
+        <pre class="code" id="bisCode" style="margin-top:10px"></pre>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>Three ideas solve almost every model in this course: discretize the distribution, iterate a contraction, or bracket a root. Each comes with its own check: refine the grid, watch the error shrink, watch the bracket halve.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p><b>Discretizing.</b> The notebook represents the lognormal offer distribution by 200 equally likely points. Quantile midpoints avoid the extreme tails, where a few points would carry too much weight. The grid error shrinks quickly: with uniform offers, 20 points already get w* right to about 0.1.</p>
+    <p><b>Iterating.</b> The notebook iterates \( U_{n+1} = b + \beta\,\mathbb{E}[\max\{W(w), U_n\}] \). Multiply by (1−β) and write x = (1−β)U: you get \( x_{n+1} = m(x_n) \). Since \( m'(x) = \beta F(x) \in [0, \beta) \), the error falls at least by the factor β per step and, close to the solution, by βF(w*). The starting value does not matter, but patient workers are slow to solve: as β → 1 the rate approaches 1.</p>
+    <p><b>Bisecting.</b> Bisection needs only two facts: h is continuous and changes sign once (scene 5 showed g is decreasing, so h is increasing). Its speed, a factor ½ per step, does not depend on β. Here it beats iteration (factor 0.72), and for β = 0.99 it wins by far. Iteration has one advantage: it generalises to problems where the unknown is a whole function, not one number, as in Lectures 9 and 11.</p>
+  </div>
+</section>
+
+<!-- ===================== 7 · AUDIT ===================== -->
+<section class="scene" id="audit" data-title="Audit the AI" data-sub="Tests that can fail">
+  <header>
+    <p class="eyebrow"><span class="num">7</span> Verification</p>
+    <h2>Your AI wrote a solver. Is it right?</h2>
+    <p class="lede">Below are the reference solver and three versions an AI assistant could plausibly write. Each has one bug. Five tests come straight from the theory. Predict which tests catch which bug, then run them.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="ctrl"><label>Version</label><div class="seg" id="auditVer"><button type="button" data-v="ref" aria-pressed="false">Reference</button><button type="button" data-v="A" aria-pressed="true">A</button><button type="button" data-v="B" aria-pressed="false">B</button><button type="button" data-v="C" aria-pressed="false">C</button></div></div>
+      <pre class="code" id="auditCode" aria-label="Python code"></pre>
+      <div class="bugnote" id="auditBug" hidden></div>
+      <div style="overflow-x:auto"><table class="tests" id="auditTable">
+        <thead><tr><th>Test, derived from theory</th><th data-v="ref">Ref</th><th data-v="A">A</th><th data-v="B">B</th><th data-v="C">C</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Steps</h3>
+        <p>1. Read version A. Which tests would it fail?</p>
+        <p>2. Run the tests for all four versions.</p>
+        <p>3. Find the faulty line, then reveal.</p>
+        <div class="btn-row" style="margin-top:8px"><button class="btn btn-primary" id="auditRun" type="button">Run all tests</button><button class="btn" id="auditReveal" type="button">Reveal the bug</button></div>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>The limit test passes every version. A closed form, a second method and a finer grid catch the bugs. When the AI writes the code, your job is to write tests that can fail.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p><b>A</b> compares a wage with a lifetime value inside the max (units). <b>B</b> uses the density as if it were a probability; the weights happen to sum to one only when n = 100. <b>C</b> discounts the job as if it started next period.</p>
+    <p>Which tests earned their keep: T1 (β → 0) caught nothing. T2 (signs) caught A. T3 (closed form) and T5 (independent root-finder) caught A and C. Only T4 (grid refinement) caught B. The same lesson applies beyond McCall: an L8 notebook that checks the Hosios condition with η = 0.5 cannot tell β = η from β = 1 − η.</p>
+  </div>
+</section>
+
+<!-- ===================== 8 · LAB ===================== -->
+<section class="scene" id="lab" data-title="Comparative statics lab" data-sub="Predict, then pull the lever">
+  <header>
+    <p class="eyebrow"><span class="num">8</span> Comparative statics</p>
+    <h2>Predict, then pull the lever</h2>
+    <p class="lede">Commit to an answer first. Then move the slider and watch the old state (grey) against the new one.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="legend"><span><i class="sw s-reject"></i>rejected offers</span><span><i class="sw s-accept"></i>accepted offers</span><span><i class="c-ink"></i>w* now</span><span><i class="c-muted"></i>w* before the last move</span></div>
+      <div id="labDens"></div>
+      <div class="three">
+        <div><p class="fig-sub">w* as b varies</p><div id="labB"></div></div>
+        <div><p class="fig-sub">w* as β varies</p><div id="labBeta"></div></div>
+        <div><p class="fig-sub" id="labSpreadTitle">w* as the spread varies</p><div id="labS"></div></div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Levers</h3>
+        <div class="ctrl"><label>Offer distribution</label><div class="seg" id="labDist"><button type="button" data-v="uniform" aria-pressed="true">Uniform</button><button type="button" data-v="lognormal" aria-pressed="false">Lognormal</button></div></div>
+        <div class="ctrl"><label for="labBIn">Benefit b <output id="labBOut">20</output></label><input type="range" id="labBIn" min="0" max="60" step="1" value="20"></div>
+        <div class="ctrl"><label for="labBetaIn">Discount factor β <output id="labBetaOut">0.95</output></label><input type="range" id="labBetaIn" min="0.50" max="0.99" step="0.01" value="0.95"></div>
+        <div class="ctrl"><label for="labSIn" id="labSLabel">Spread s, offers on [50−s, 50+s] <output id="labSOut">50</output></label><input type="range" id="labSIn" min="5" max="50" step="1" value="50"></div>
+      </div>
+      <div class="tiles">
+        <div class="tile"><div class="k">Reservation wage w*</div><div class="v mono" id="labWs">–</div><div class="was" id="labWsWas"></div></div>
+        <div class="tile"><div class="k">Accept per period</div><div class="v mono" id="labP">–</div><div class="was" id="labPWas"></div></div>
+        <div class="tile"><div class="k">Expected search, periods</div><div class="v mono" id="labD">–</div><div class="was" id="labDWas"></div></div>
+        <div class="tile"><div class="k">Average accepted wage</div><div class="v mono" id="labM">–</div><div class="was" id="labMWas"></div></div>
+      </div>
+      <div class="card predict" data-answer="up">
+        <p class="q">Benefits rise from 20 to 40. Expected time in unemployment…</p>
+        <div class="opts"><button class="opt" type="button" data-v="down">falls</button><button class="opt" type="button" data-v="same">stays put</button><button class="opt" type="button" data-v="up">rises</button></div>
+        <button class="btn reveal" type="button">Reveal</button>
+        <p class="answer" hidden>Rises, from 4.1 to 4.9 periods. w* goes from 75.8 to 79.6, so only 20% of offers pass instead of 24%.</p>
+      </div>
+      <div class="card predict" data-answer="up">
+        <p class="q">Offers spread out, same mean (from [40, 60] to [0, 100]). w*…</p>
+        <div class="opts"><button class="opt" type="button" data-v="down">falls: more risk</button><button class="opt" type="button" data-v="same">stays put</button><button class="opt" type="button" data-v="up">rises</button></div>
+        <button class="btn reveal" type="button">Reveal</button>
+        <p class="answer" hidden>Rises, from 51.8 to 75.8. Bad draws can be rejected, good draws are kept: more spread means a bigger upside and no extra downside. Scene 9 explains why.</p>
+      </div>
+      <div class="card predict" data-answer="up">
+        <p class="q">The worker becomes more patient (β rises). The average accepted wage…</p>
+        <div class="opts"><button class="opt" type="button" data-v="down">falls</button><button class="opt" type="button" data-v="up">rises</button></div>
+        <button class="btn reveal" type="button">Reveal</button>
+        <p class="answer" hidden>Rises. A patient worker values future draws more, raises w*, waits longer, and ends up in better jobs on average.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Acceptance probability per period: 1 − F(w*). Expected search duration: 1/[1 − F(w*)] periods (geometric). Average accepted wage: \( \mathbb{E}[w \mid w \ge w^*] = w^* + \frac{\mathbb{E}[\max(w-w^*,0)]}{1-F(w^*)} \).</p>
+    <p>The observable implication is the one to remember: anything that raises the option value raises w*, lowers the exit rate from unemployment, lengthens spells and raises accepted wages. A model that predicts only "w* goes up" is not testable; one that predicts durations and accepted wages is.</p>
+  </div>
+</section>
+
+<!-- ===================== 9 · OPTION ===================== -->
+<section class="scene" id="option" data-title="Search is a call option" data-sub="Why risk can be good news">
+  <header>
+    <p class="eyebrow"><span class="num">9</span> Intuition</p>
+    <h2>Why risk can be good news</h2>
+    <p class="lede">Rejecting an offer buys a call option on next period's draw. Bad draws are thrown away; good draws are kept. Like any option, it is worth more when the underlying is more volatile. Risk aversion pushes the other way. To measure risk aversion we use utility u(w) = w<sup>1−γ</sup>/(1−γ): γ = 0 is the risk-neutral worker of the previous scenes, and a higher γ means more risk aversion.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="two">
+        <div>
+          <p class="fig-title">The payoff of one more draw, max(w − x, 0)</p>
+          <div class="legend"><span><i class="c-option"></i>payoff</span><span><i class="c-muted"></i>narrow offers, [40, 60]</span><span><i class="c-ink"></i>your spread</span></div>
+          <div id="optPay"></div>
+          <div id="optDens"></div>
+        </div>
+        <div>
+          <p class="fig-title">w* as offers spread out (same mean)</p>
+          <div class="legend"><span><i class="c-seq1"></i>risk neutral, γ = 0</span><span><i class="c-seq2"></i>γ = 2</span><span><i class="c-seq3"></i>γ = 8</span></div>
+          <div id="optRA"></div>
+        </div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Controls</h3>
+        <div class="ctrl"><label for="optS">Spread s, offers on [50−s, 50+s] <output id="optSOut">35</output></label><input type="range" id="optS" min="5" max="50" step="1" value="35"></div>
+        <div class="ctrl"><label for="optK">Strike = threshold x <output id="optKOut">60</output></label><input type="range" id="optK" min="40" max="95" step="1" value="60"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Option value, narrow</div><div class="v mono" id="optVn">–</div></div>
+          <div class="tile"><div class="k">Option value, your spread</div><div class="v mono" id="optVw">–</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Finance ↔ search</h3>
+        <table class="dict">
+          <tr><td>underlying price</td><td>next wage offer</td></tr>
+          <tr><td>strike</td><td>reservation wage</td></tr>
+          <tr><td>volatility</td><td>dispersion of offers</td></tr>
+          <tr><td>option premium</td><td>value of waiting</td></tr>
+          <tr><td>exercise</td><td>accept a job</td></tr>
+        </table>
+        <p style="margin-top:10px;font-size:15px">With lognormal offers the option value is exactly the Black–Scholes call price, \( M\,\Phi(d_1) - x\,\Phi(d_2) \). Here M is the mean offer, σ the standard deviation of log offers, Φ the standard normal CDF, \( d_1 = [\ln(M/x) + \sigma^2/2]/\sigma \) and \( d_2 = d_1 - \sigma \).</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>A risk-neutral searcher likes dispersion: the option to reject truncates the downside. A very risk-averse one dislikes it.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>max(w − x, 0) is convex in w. By Jensen's inequality, any mean-preserving spread raises 𝔼[max(w − x, 0)] at every x, so it raises g(x) and w*. With lognormal offers, \( d_1 = [\ln(M/x) + \sigma^2/2]/\sigma \) and \( d_2 = d_1 - \sigma \): the option value of search is the Black–Scholes price of a call with strike x, zero interest and unit maturity.</p>
+    <p><b>Risk aversion lowers w*, and here is a three-line proof.</b> With concave u, the reservation wage solves \( u(w^*) - u(b) = \frac{\beta}{1-\beta}\mathbb{E}[\max\{u(w) - u(w^*), 0\}] \). At the risk-neutral threshold, concavity gives \( u(w^*) - u(b) \ge u'(w^*)(w^* - b) \) and \( u(w) - u(w^*) \le u'(w^*)(w - w^*) \), so the left side exceeds the right side. The left minus the right rises with the threshold, so the risk-averse root lies below. In this basic model (no savings) the result holds for every concave u; the hedge on the slides is needed only once savings or other margins enter.</p>
+    <p>The right panel combines both forces: with γ = 8 the spread lowers w* (from 30.5 at s = 5 to 29.1 at s = 50), because concavity now outweighs the option.</p>
+  </div>
+</section>
+
+<!-- ===================== 10 · EFFORT ===================== -->
+<section class="scene" id="effort" data-title="Two margins" data-sub="Effort, selectivity and moral hazard">
+  <header>
+    <p class="eyebrow"><span class="num">10</span> Extension</p>
+    <h2>How hard to search, and how picky to be</h2>
+    <p class="lede">Let the worker choose search effort <i>e</i> at cost κe²/2. An offer arrives with probability p(e) = 1 − e<sup>−e</sup>. The <b>job-finding rate</b> (or hazard) is the probability of leaving unemployment this period: an offer must arrive, p(e*), and pass the threshold, 1 − F(w*). Now benefits change two decisions at once.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="three">
+        <div><p class="fig-sub">Search effort e*</p><div id="effE"></div></div>
+        <div><p class="fig-sub">Reservation wage w*</p><div id="effW"></div></div>
+        <div><p class="fig-sub">Job-finding rate p(e*)·[1 − F(w*)]</p><div id="effH"></div></div>
+      </div>
+      <div>
+        <p class="fig-title">Why the job-finding rate fell between b = 0 and your b, in log points</p>
+        <div id="effDec"></div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Controls</h3>
+        <div class="ctrl"><label for="effB">Benefit b <output id="effBOut">20</output></label><input type="range" id="effB" min="0" max="60" step="1" value="20"></div>
+        <div class="ctrl"><label for="effK">Search cost κ <output id="effKOut">10</output></label><input type="range" id="effK" min="2" max="30" step="1" value="10"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">Effort e*</div><div class="v mono" id="effEv">–</div></div>
+          <div class="tile"><div class="k">Offer probability</div><div class="v mono" id="effPv">–</div></div>
+          <div class="tile"><div class="k">w*</div><div class="v mono" id="effWv">–</div></div>
+          <div class="tile"><div class="k">Job-finding rate</div><div class="v mono" id="effHv">–</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>How the code solves it</h3>
+        <p><b>A loop inside a loop.</b></p>
+        <p>Inner loop: given the current guess of U, solve the first-order condition κe = βe<sup>−e</sup>G for e with Newton's method.</p>
+        <p>Outer loop: update U with that effort, exactly like scene 6. Repeat until U stops moving. Check: the inner condition must hold at the final U.</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>Higher benefits lower job finding through two channels: fewer offers (less effort) and fewer acceptances (higher w*). That is the moral-hazard side of unemployment insurance.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>\( U = \max_e \{ b - c(e) + \beta[\,U + p(e)\,G\,] \} \), with \( G = \mathbb{E}[\max\{W(w) - U, 0\}] \) the expected gain from one contact. First-order condition: \( c'(e^*) = \beta\,p'(e^*)\,G \): marginal cost equals the expected gain from one more contact. Here that reads κe = βe<sup>−e</sup>G.</p>
+    <p>A higher b raises U, which shrinks G, which lowers e*. The hazard \( h = p(e^*)[1 - F(w^*)] \) falls through both factors, and the bar chart splits the fall: \( \Delta\ln h = \Delta\ln p(e^*) + \Delta\ln[1-F(w^*)] \). Insurance value against behavioural distortion is a quantitative question; the model tells us which channels to measure.</p>
+  </div>
+</section>
+
+<!-- ===================== 11 · FINITE UI ===================== -->
+<section class="scene" id="ui" data-title="Benefits that run out" data-sub="Model predictions and what the data say">
+  <header>
+    <p class="eyebrow"><span class="num">11</span> Policy and evidence</p>
+    <h2>What happens as benefits run out?</h2>
+    <p class="lede">Benefits <i>b</i> last <i>T</i> periods, then fall to <i>b₀</i>. The worker knows the date. The reservation wage now depends on the period of the spell, w*ₜ, and so does the <b>hazard</b>: the probability of finding a job in period t, given that you are still unemployed, 1 − F(w*ₜ). We solve the model and compare two predictions with the evidence.</p>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="two">
+        <div>
+          <p class="fig-title">Reservation wage over the spell</p>
+          <div class="legend"><span><i class="c-ink"></i>w*ₜ</span><span><i class="c-muted"></i>level after exhaustion</span><span><i class="c-reject"></i>benefits fall</span></div>
+          <div id="uiW"></div>
+        </div>
+        <div>
+          <p class="fig-title">Job-finding hazard over the spell</p>
+          <div class="legend"><span><i class="sw" style="background:var(--accept)"></i>benefits running</span><span><i class="sw" style="background:var(--base)"></i>after exhaustion</span></div>
+          <div id="uiH"></div>
+        </div>
+      </div>
+      <div>
+        <p class="fig-title">Prediction 2: longer benefits, longer unemployment</p>
+        <p class="fig-sub">Expected search duration as a function of benefit duration T. This is the model's version of the regression-discontinuity designs in the course figure.</p>
+        <div id="uiD"></div>
+      </div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Policy</h3>
+        <div class="ctrl"><label for="uiT">Benefit duration T <output id="uiTOut">6</output></label><input type="range" id="uiT" min="0" max="24" step="1" value="6"></div>
+        <div class="ctrl"><label for="uiB">Benefit while eligible b <output id="uiBOut">40</output></label><input type="range" id="uiB" min="0" max="60" step="1" value="40"></div>
+        <div class="ctrl"><label for="uiB0">Benefit after exhaustion b₀ <output id="uiB0Out">0</output></label><input type="range" id="uiB0" min="0" max="60" step="1" value="0"></div>
+        <p class="verdict" id="uiVerdict">–</p>
+      </div>
+      <div class="card">
+        <h3>How the code solves it</h3>
+        <p><b>Backward induction</b>, no iteration needed.</p>
+        <p>1. After exhaustion the problem is stationary: solve for w* with b₀ forever, as in scene 6.</p>
+        <p>2. Step back one period at a time: w*ₜ = (1−β)bₜ + β[w*ₜ₊₁ + 𝔼 max(w − w*ₜ₊₁, 0)]. Each period uses the answer for the next one.</p>
+        <p>3. Hazard in period t: 1 − F(w*ₜ). Expected duration: the sum of the probabilities of still being unemployed at the start of each period.</p>
+      </div>
+      <div class="card">
+        <h3>What the data say</h3>
+        <ul class="evidence">
+          <li><b>Durations: the model passes.</b> Longer potential benefit duration raises nonemployment duration in four regression-discontinuity designs. <span class="src">Survey figure in Le Barbanchon, Schmieder &amp; Weber (2024).</span></li>
+          <li><b>The spike: partly an accounting effect.</b> Exits from the UI register spike at exhaustion much more than re-employment does. <span class="src">Card, Chetty &amp; Weber (2007, AER P&amp;P).</span></li>
+          <li><b>The fall-back: not in this model.</b> Hazards rise at benefit cuts and then decline, which reference-dependent preferences fit better. <span class="src">DellaVigna, Lindner, Reizer &amp; Schmieder (2017, QJE).</span></li>
+          <li><b>The mechanism: weak direct support.</b> Reported reservation wages do not respond to benefit duration, and fall only 0.05–0.14% per week over the spell. <span class="src">Le Barbanchon, Rathelot &amp; Roulet (2019, JPubE); Krueger &amp; Mueller (2016, AEJ: Policy).</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Backward induction in wage units: \( w^*_t = (1-\beta)\,b_t + \beta\,\big[w^*_{t+1} + \mathbb{E}\max(w - w^*_{t+1}, 0)\big] \), starting from the stationary post-exhaustion value. The reservation wage falls as exhaustion approaches, and the largest drop happens in the last period, when the next period's benefit falls from b to b₀.</p>
+    <p><b>Prediction 1</b>: the hazard rises towards T and then <em>stays</em> at the higher post-exhaustion level. The basic model does not produce a spike that falls back. <b>Prediction 2</b>: a longer T raises expected duration. The data support prediction 2; the shape of the hazard and the flat reservation wages point to search effort and reference dependence as important channels. This is a good place to say that McCall does not tell us whether UI is good or bad; it tells us which behavioural responses to measure.</p>
+  </div>
+</section>
+
+<!-- ===================== 12 · MEAN-MIN ===================== -->
+<section class="scene" id="mm" data-title="A one-line test" data-sub="How much wage dispersion can search explain?">
+  <header>
+    <p class="eyebrow"><span class="num">12</span> A quantitative test</p>
+    <h2>How much wage dispersion can search explain?</h2>
+    <p class="lede">Hornstein, Krusell and Violante (2011) noticed that the reservation-wage equation pins down the ratio of the average accepted wage to the lowest one. It needs only worker flows and preferences, no wage data at all.</p>
+    <dl class="defs">
+      <dt>w̄ and w*</dt><dd>the average accepted wage and the lowest accepted wage (the reservation wage). Their ratio is the mean-min ratio.</dd>
+      <dt>h</dt><dd>the monthly probability that an unemployed worker finds a job, 1 − F(w*).</dd>
+      <dt>s</dt><dd>the monthly probability of losing a job. With s = 0 we are back in this lecture's model.</dd>
+      <dt>ρ</dt><dd>the value of unemployment as a share of the average wage, b / w̄.</dd>
+      <dt>k</dt><dd>a combination of flows and patience, defined in the formula below.</dd>
+    </dl>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <div class="eq">\[ \frac{\bar w}{w^*} \;=\; \frac{1+k}{\rho + k}, \qquad k = \frac{\beta\,h}{1-\beta(1-s)}, \qquad \rho = \frac{b}{\bar w} \]</div>
+      <p class="fig-title">The mean-min scoreboard</p>
+      <div class="legend"><span><i class="sw s-ink"></i>data range: residual wage dispersion</span><span><i class="c-ink"></i>model value</span></div>
+      <div id="mmChart"></div>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Flows and preferences (monthly)</h3>
+        <div class="ctrl"><label for="mmH">Job-finding probability h <output id="mmHOut">0.43</output></label><input type="range" id="mmH" min="0.05" max="0.80" step="0.01" value="0.43"></div>
+        <div class="ctrl"><label for="mmS">Job-loss probability s <output id="mmSOut">0.030</output></label><input type="range" id="mmS" min="0" max="0.06" step="0.002" value="0.03"></div>
+        <div class="ctrl"><label for="mmR">Annual interest rate <output id="mmROut">5%</output></label><input type="range" id="mmR" min="0" max="0.20" step="0.005" value="0.05"></div>
+        <div class="ctrl"><label for="mmRho">Value of unemployment ρ = b ÷ mean wage <output id="mmRhoOut">0.40</output></label><input type="range" id="mmRho" min="-4" max="0.9" step="0.05" value="0.4"></div>
+        <div class="tiles">
+          <div class="tile"><div class="k">k</div><div class="v mono" id="mmK">–</div></div>
+          <div class="tile"><div class="k">Mean-min ratio</div><div class="v mono" id="mmV">–</div></div>
+        </div>
+        <p class="verdict" id="mmVerdict" style="margin-top:10px">–</p>
+      </div>
+      <div class="takeaway">
+        <p class="label-h">Takeaway</p>
+        <p>Spells are short, so waiting cannot be worth much, so offers cannot be very dispersed. Search alone explains about a 5% gap; the data show 50–100%.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="notes">
+    <h3>Notes</h3>
+    <p>Write b = ρw̄ with w̄ = 𝔼[w | w ≥ w*], and h = 1 − F(w*). The reservation-wage equation becomes w* = ρw̄ + k(w̄ − w*), so w̄/w* = (1 + k)/(ρ + k). The offer distribution drops out: everything we need about F is in the job-finding rate. Allowing jobs to end with probability s replaces β/(1−β) by β/(1−β(1−s)) in the reservation-wage equation; with s = 0 you get this lecture's model.</p>
+    <p>US monthly flows (h = 0.43, s = 0.03, r = 5%) give k ≈ 12.6 and a mean-min ratio of 1.046, exactly the value in HKV. Residual wage dispersion implies 1.5–2. To reach 1.5 with these flows, ρ would have to be about −3.5: unemployment would have to feel like paying three and a half average wages every month. On-the-job search breaks the link, because accepting no longer ends the search (Lecture 9: about 1.25). Counteroffers can push the ratio above 2 (Lecture 11). The scoreboard will come back.</p>
+  </div>
+</section>
+
+<!-- ===================== 13 · WRAP ===================== -->
+<section class="scene" id="wrap" data-title="What to remember" data-sub="Takeaways and oral-exam practice">
+  <header>
+    <p class="eyebrow"><span class="num">13</span> Wrap-up</p>
+    <h2>What to remember</h2>
+  </header>
+  <div class="scene-body">
+    <div class="stage">
+      <ol class="big-list">
+        <li><span><b>Unemployment can be an investment.</b> The worker rejects offers above b because accepting kills the option to draw again.</span></li>
+        <li><span><b>One number summarises the strategy.</b> w* = b + β/(1−β) × option value, where the option value is the area under 1 − F to the right of w*.</span></li>
+        <li><span><b>Everything works through the option value.</b> Benefits, patience and dispersion raise it; risk aversion and effort costs change how it is valued; finite UI makes it fall over the spell.</span></li>
+        <li><span><b>The model is testable, and it fails in instructive ways.</b> Durations respond to benefits as predicted; reservation wages barely move; and search alone generates almost no wage dispersion.</span></li>
+      </ol>
+      <p class="oneline">The reservation wage makes the worker indifferent between a job now and the option to keep searching; everything in the model follows from what changes that option value.</p>
+    </div>
+    <aside class="rail">
+      <div class="card">
+        <h3>Explain it in 60 seconds</h3>
+        <p>Oral-exam style. Answer out loud, without notes.</p>
+        <ul style="margin:0;padding-left:18px;font-size:15.5px">
+          <li>Why can rejecting an offer above b be optimal?</li>
+          <li>Why does more dispersion of offers raise w*?</li>
+          <li>Why does value function iteration converge from any guess?</li>
+          <li>How would you test a McCall solver you did not write?</li>
+          <li>Which data would distinguish lower effort from higher selectivity?</li>
+          <li>What does a mean-min ratio of 1.05 tell us?</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Next</h3>
+        <p><b>Lecture 8.</b> Offers have been falling from the sky. Where do they come from, and why does unemployment move so much over the cycle?</p>
+        <p class="study-only" style="font-size:14.5px;color:var(--muted)">Lab for this lecture: spec and verify a finite-UI solver (see <span class="mono">revision-2027/PLAN.md</span>, §2.2).</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<noscript><p style="padding:20px">This lecture needs JavaScript for its live figures.</p></noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+(() => {
+"use strict";
+
+/* =========================================================
+   Utilities
+   ========================================================= */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+const nf0 = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
+const f0 = x => (isFinite(x) ? nf0.format(Math.round(x)) : "∞");
+const f1 = x => (isFinite(x) ? x.toFixed(1) : "∞");
+const f2 = x => (isFinite(x) ? x.toFixed(2) : "∞");
+const f3 = x => (isFinite(x) ? x.toFixed(3) : "∞");
+const pct = x => (isFinite(x) ? (100 * x).toFixed(0) + "%" : "–");
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const reduceMotion = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : v; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
+};
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function range(a, b, n) { const out = []; for (let i = 0; i < n; i++) out.push(a + (b - a) * i / (n - 1)); return out; }
+
+/* Normal distribution */
+function erfc(x) {
+  const z = Math.abs(x), t = 1 / (1 + 0.5 * z);
+  const r = t * Math.exp(-z * z - 1.26551223 + t * (1.00002368 + t * (0.37409196 + t * (0.09678418 + t * (-0.18628806 + t * (0.27886807 + t * (-1.13520398 + t * (1.48851587 + t * (-0.82215223 + t * 0.17087277)))))))));
+  return x >= 0 ? r : 2 - r;
+}
+const Phi = x => 0.5 * erfc(-x / Math.SQRT2);
+function PhiInv(p) {
+  const a = [-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02, 1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00];
+  const b = [-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02, 6.680131188771972e+01, -1.328068155288572e+01];
+  const c = [-7.784894002430293e-03, -3.223964580411365e-01, -2.400758277161838e+00, -2.549732539343734e+00, 4.374664141464968e+00, 2.938163982698783e+00];
+  const d = [7.784695709041462e-03, 3.224671290700398e-01, 2.445134137142996e+00, 3.754408661907416e+00];
+  const pl = 0.02425, ph = 1 - pl;
+  let q, r;
+  if (p < pl) { q = Math.sqrt(-2 * Math.log(p)); return (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1); }
+  if (p <= ph) { q = p - 0.5; r = q * q; return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q / (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1); }
+  q = Math.sqrt(-2 * Math.log(1 - p));
+  return -(((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1);
+}
+
+/* =========================================================
+   Offer distributions. ov(x) = E[max(w - x, 0)] in closed form.
+   ========================================================= */
+function Uniform(lo, hi) {
+  const span = hi - lo;
+  return {
+    type: "uniform", lo, hi, mean: (lo + hi) / 2, plotLo: 0, plotHi: 100,
+    cdf: x => (x <= lo ? 0 : x >= hi ? 1 : (x - lo) / span),
+    sf: x => (x <= lo ? 1 : x >= hi ? 0 : (hi - x) / span),
+    pdf: x => (x < lo || x > hi ? 0 : 1 / span),
+    ov: x => (x <= lo ? (lo + hi) / 2 - x : x >= hi ? 0 : (hi - x) * (hi - x) / (2 * span)),
+    q: p => lo + p * span
+  };
+}
+function LogNormal(M, s) {
+  const mu = Math.log(M) - s * s / 2;
+  return {
+    type: "lognormal", M, s, mean: M, lo: 0, hi: Infinity, plotLo: 0, plotHi: 200,
+    cdf: x => (x <= 0 ? 0 : Phi((Math.log(x) - mu) / s)),
+    sf: x => (x <= 0 ? 1 : Phi(-(Math.log(x) - mu) / s)),
+    pdf: x => (x <= 0 ? 0 : Math.exp(-((Math.log(x) - mu) ** 2) / (2 * s * s)) / (x * s * Math.sqrt(2 * Math.PI))),
+    ov: x => { if (x <= 1e-9) return M - x; const d1 = (Math.log(M / x) + s * s / 2) / s; return M * Phi(d1) - x * Phi(d1 - s); },
+    q: p => Math.exp(mu + s * PhiInv(p))
+  };
+}
+
+/* =========================================================
+   The McCall model
+   ========================================================= */
+const Model = {
+  /* reservation wage: root of x - b - beta/(1-beta) * ov(x) */
+  wstar(D, b, beta) {
+    const k = beta / (1 - beta);
+    let lo = b, hi = b + k * D.ov(b);
+    if (hi - lo < 1e-12) return b;
+    for (let i = 0; i < 90; i++) { const m = (lo + hi) / 2; if (m - b - k * D.ov(m) > 0) hi = m; else lo = m; }
+    return (lo + hi) / 2;
+  },
+  /* reservation-wage map: (1-beta) times the Bellman operator, in wage units */
+  rmap(D, b, beta, x) { return (1 - beta) * b + beta * (x + D.ov(x)); },
+  /* value before seeing an offer when following threshold c */
+  Q(D, b, beta, c) {
+    const F = D.cdf(c), acc = (D.ov(c) + c * D.sf(c)) / (1 - beta);
+    return (acc + F * b) / (1 - beta * F);
+  },
+  meanAccepted(D, x) { const s = D.sf(x); return s > 1e-12 ? x + D.ov(x) / s : NaN; },
+  finiteUI(D, beta, T, b, b0, H) {
+    const xpost = Model.wstar(D, b0, beta);
+    const x = new Array(H + 2); x[H + 1] = xpost;
+    for (let t = H; t >= 1; t--) { const bt = t <= T ? b : b0; x[t] = (1 - beta) * bt + beta * (x[t + 1] + D.ov(x[t + 1])); }
+    const xs = x.slice(1, H + 1), hz = xs.map(v => D.sf(v));
+    let S = 1, ed = 0;
+    for (let t = 0; t < H; t++) { ed += S; S *= 1 - hz[t]; }
+    const hpost = D.sf(xpost);
+    ed += hpost > 1e-12 ? S / hpost : Infinity;
+    return { x: xs, h: hz, ed, xpost };
+  },
+  effort(D, b, beta, kappa) {
+    let x = Model.wstar(D, b, beta), e = 1;
+    for (let it = 0; it < 3000; it++) {
+      const G = D.ov(x) / (1 - beta);
+      for (let j = 0; j < 60; j++) {
+        const ex = Math.exp(-e), f = kappa * e - beta * G * ex, fp = kappa + beta * G * ex;
+        const en = Math.max(0, e - f / fp);
+        if (Math.abs(en - e) < 1e-13) { e = en; break; }
+        e = en;
+      }
+      const p = 1 - Math.exp(-e);
+      const xn = (1 - beta) * (b - kappa * e * e / 2) + beta * (x + p * D.ov(x));
+      if (Math.abs(xn - x) < 1e-11) { x = xn; break; }
+      x = xn;
+    }
+    const p = 1 - Math.exp(-e);
+    return { x, e, p, h: p * D.sf(x) };
+  },
+  /* CRRA reservation wage on an equal-probability grid */
+  crra(grid, b, beta, g) {
+    const isLog = Math.abs(g - 1) < 1e-9;
+    const u = isLog ? Math.log : (z => Math.pow(z, 1 - g) / (1 - g));
+    const ub = u(b), k = beta / (1 - beta), uw = grid.map(u), n = uw.length;
+    const E = y => { let s = 0; for (let i = 0; i < n; i++) if (uw[i] > y) s += uw[i] - y; return s / n; };
+    let lo = ub, hi = ub + k * E(ub) + 1e-12;
+    for (let i = 0; i < 80; i++) { const m = (lo + hi) / 2; if (m - ub - k * E(m) > 0) hi = m; else lo = m; }
+    const y = (lo + hi) / 2;
+    return isLog ? Math.exp(y) : Math.pow((1 - g) * y, 1 / (1 - g));
+  },
+  meanMin(h, s, rAnnual, rho) {
+    const beta = Math.pow(1 + rAnnual, -1 / 12), k = beta * h / (1 - beta * (1 - s));
+    return { k, beta, Mm: rho + k > 0 ? (1 + k) / (rho + k) : Infinity };
+  }
+};
+
+/* =========================================================
+   Chart helper (D3, viewBox-scaled SVG)
+   ========================================================= */
+let clipN = 0;
+function makeChart(el, o) {
+  const W = o.w || 640, H = o.h || 360;
+  const m = Object.assign({ t: 30, r: 22, b: 42, l: 56 }, o.m || {});
+  const svg = d3.select(el).append("svg").attr("class", "chart").attr("viewBox", `0 0 ${W} ${H}`).attr("role", "img");
+  if (o.aria) svg.attr("aria-label", o.aria);
+  const x = d3.scaleLinear().domain(o.x).range([m.l, W - m.r]);
+  const y = d3.scaleLinear().domain(o.y).range([H - m.b, m.t]);
+  const id = "clip" + (++clipN);
+  svg.append("clipPath").attr("id", id).append("rect").attr("x", m.l).attr("y", m.t - 3).attr("width", W - m.l - m.r).attr("height", H - m.t - m.b + 6);
+  const grid = svg.append("g").attr("class", "grid");
+  const gx = svg.append("g").attr("class", "axis").attr("transform", `translate(0,${H - m.b})`);
+  const gy = svg.append("g").attr("class", "axis").attr("transform", `translate(${m.l},0)`);
+  const under = svg.append("g").attr("clip-path", `url(#${id})`);
+  const plot = svg.append("g").attr("clip-path", `url(#${id})`);
+  const over = svg.append("g");
+  if (o.xLabel) svg.append("text").attr("class", "axis-title").attr("x", W - m.r).attr("y", H - 6).attr("text-anchor", "end").text(o.xLabel);
+  if (o.yLabel) svg.append("text").attr("class", "axis-title").attr("x", m.l).attr("y", m.t - 14).attr("text-anchor", "start").text(o.yLabel);
+  const c = { svg, x, y, W, H, m, grid, gx, gy, under, plot, over, o };
+  c.axes = () => {
+    const xa = d3.axisBottom(x).ticks(o.xt == null ? 6 : o.xt).tickSizeOuter(0).tickPadding(6);
+    const ya = d3.axisLeft(y).ticks(o.yt == null ? 5 : o.yt).tickSizeOuter(0).tickPadding(6);
+    if (o.xf) xa.tickFormat(o.xf);
+    if (o.yf) ya.tickFormat(o.yf);
+    if (o.xTicks) xa.tickValues(o.xTicks);
+    if (o.yTicks) ya.tickValues(o.yTicks);
+    gx.call(xa); gy.call(ya);
+    const yt = o.yTicks || y.ticks(o.yt == null ? 5 : o.yt);
+    grid.selectAll("line").data(yt).join("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", d => y(d)).attr("y2", d => y(d));
+  };
+  c.axes();
+  c.line = d3.line().x(d => x(d[0])).y(d => y(d[1])).defined(d => isFinite(d[1]) && isFinite(d[0]));
+  c.area = (y0) => d3.area().x(d => x(d[0])).y0(y(y0)).y1(d => y(d[1])).defined(d => isFinite(d[1]));
+  c.path = (layer, cls) => (layer || plot).append("path").attr("class", cls);
+  /* drag anywhere on the chart to move a value along x */
+  c.onDragX = (fn) => {
+    svg.classed("drag-zone", true);
+    svg.call(d3.drag().container(svg.node()).on("start drag", ev => fn(clamp(x.invert(ev.x), x.domain()[0], x.domain()[1]))));
+  };
+  /* vertical handle */
+  c.vHandle = (labelFn) => {
+    const g = over.append("g").attr("class", "handle");
+    const ln = g.append("line").attr("class", "hl").attr("y1", m.t).attr("y2", H - m.b);
+    const knob = g.append("circle").attr("r", 7).attr("cy", H - m.b);
+    const txt = g.append("text").attr("class", "lbl-ink halo").attr("y", m.t - 2).attr("text-anchor", "middle");
+    return {
+      set(v) {
+        const px = x(v);
+        ln.attr("x1", px).attr("x2", px); knob.attr("cx", px);
+        txt.attr("x", clamp(px, m.l + 24, W - m.r - 24)).text(labelFn ? labelFn(v) : "");
+      },
+      show(on) { g.attr("display", on ? null : "none"); }
+    };
+  };
+  return c;
+}
+function bindRange(id, fmt, onInput) {
+  const el = document.getElementById(id), out = document.getElementById(id + "Out");
+  const update = () => { const v = parseFloat(el.value); if (out) out.textContent = fmt ? fmt(v) : v; onInput(v); };
+  el.addEventListener("input", update);
+  return { el, set(v) { el.value = v; if (out) out.textContent = fmt ? fmt(parseFloat(el.value)) : el.value; }, get() { return parseFloat(el.value); } };
+}
+function bindSeg(id, onPick) {
+  const seg = document.getElementById(id);
+  seg.addEventListener("click", ev => {
+    const btn = ev.target.closest("button"); if (!btn) return;
+    $$("button", seg).forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    onPick(btn.dataset.v);
+  });
+}
+function safe(name, fn) { try { fn(); } catch (err) { console.error("Scene " + name + " failed:", err); } }
+
+/* shared state between scenes */
+const shared = { classGuess: 50, games: [] };
+const BASE = { D: Uniform(0, 100), b: 20, beta: 0.95 };
+BASE.ws = Model.wstar(BASE.D, BASE.b, BASE.beta);
+
+/* =========================================================
+   Scene 1: the search game
+   ========================================================= */
+function initGame() {
+  const { D, b, beta, ws } = BASE;
+  const EV = { opt: Model.Q(D, b, beta, ws), first: Model.Q(D, b, beta, 0), aboveB: Model.Q(D, b, beta, b) };
+  const wageEl = $("#offerWage"), subEl = $("#offerSub"), noEl = $("#offerNo"), perEl = $("#offerPeriod");
+  const ledger = $("#ledger"), pvEl = $("#pvSoFar"), result = $("#gameResult");
+  const bA = $("#btnAccept"), bR = $("#btnReject");
+  let seed = 97, g = null, revealed = false;   /* seed 97 opens with 69, 60, 72, then 81 */
+  $("#gWs").textContent = f1(ws);
+
+  /* offer scale */
+  const sc = { w: 600, h: 64, l: 14, r: 14 };
+  const svg = d3.select("#offerScale").append("svg").attr("class", "chart").attr("viewBox", `0 0 ${sc.w} ${sc.h}`).attr("aria-hidden", "true");
+  const xs = d3.scaleLinear().domain([0, 100]).range([sc.l, sc.w - sc.r]);
+  const accZone = svg.append("rect").attr("class", "ar-accept").attr("y", 18).attr("height", 22).attr("rx", 4);
+  svg.append("line").attr("x1", xs(0)).attr("x2", xs(100)).attr("y1", 40).attr("y2", 40).attr("class", "ln ln-base ln-thin");
+  svg.append("g").attr("class", "axis").attr("transform", "translate(0,40)").call(d3.axisBottom(xs).ticks(10).tickSizeOuter(0).tickSize(4));
+  const past = svg.append("g");
+  const wsLine = svg.append("g");
+  wsLine.append("line").attr("class", "ln ln-ink ln-thin").attr("y1", 12).attr("y2", 40);
+  wsLine.append("text").attr("class", "lbl-ink").attr("y", 10).attr("text-anchor", "middle");
+  const cur = svg.append("path").attr("class", "mk-ink");
+
+  function pvBenefits(t) { let s = 0; for (let k = 0; k < t; k++) s += Math.pow(beta, k) * b; return s; }
+  function valueAt(offers, tau) { return pvBenefits(tau) + Math.pow(beta, tau) * offers[tau] / (1 - beta); }
+  function bestTau(offers) { for (let t = 0; t < offers.length; t++) if (offers[t] >= ws) return t; return offers.length - 1; }
+
+  function drawScale() {
+    const t = g.t;
+    const dots = g.offers.slice(0, t + (g.done ? 1 : 0)).map((w, i) => ({ w, i, acc: g.done && i === t }));
+    past.selectAll("circle").data(dots).join("circle")
+      .attr("cx", d => xs(d.w)).attr("cy", 30).attr("r", 5)
+      .attr("class", d => "mk " + (d.acc ? "mk-accept" : "mk-reject"));
+    const w = g.offers[t];
+    cur.attr("d", `M${xs(w)},40 l-7,-12 h14 z`).attr("opacity", g.done ? 0 : 1);
+    wsLine.attr("display", revealed ? null : "none").attr("transform", `translate(${xs(ws)},0)`);
+    wsLine.select("text").text("w* = " + f1(ws));
+    accZone.attr("display", revealed ? null : "none").attr("x", xs(ws)).attr("width", xs(100) - xs(ws));
+  }
+  function render() {
+    const t = g.t, w = g.offers[t];
+    noEl.textContent = "Offer " + (t + 1);
+    perEl.textContent = "period " + t;
+    if (!reduceMotion) { wageEl.classList.add("pop"); setTimeout(() => { wageEl.textContent = w; wageEl.classList.remove("pop"); }, 140); }
+    else wageEl.textContent = w;
+    const Wv = Math.pow(beta, t) * w / (1 - beta);
+    subEl.textContent = g.done ? `Accepted in period ${t}. Press New game to play again.` : `Accepting this offer adds ${f0(Wv)} in today's money.` + (revealed ? (w >= ws ? "  The best rule accepts." : "  The best rule rejects.") : "");
+    pvEl.textContent = f0(g.done ? valueAt(g.offers, t) : pvBenefits(t));
+    $("#pvLabel").textContent = g.done ? "Your lifetime value" : "Present value so far";
+    bA.disabled = bR.disabled = g.done;
+    drawScale();
+  }
+  function addLedger(t, w, decision, pv) {
+    const li = document.createElement("li");
+    const a = document.createElement("span"); a.className = "t"; a.textContent = t;
+    const bEl = document.createElement("span"); bEl.textContent = w;
+    const c = document.createElement("span"); c.textContent = decision; c.className = decision === "accepted" ? "k-accept" : "k-reject";
+    const d = document.createElement("span"); d.className = "pv"; d.textContent = "+" + (pv >= 1000 ? f0(pv) : f2(pv));
+    li.append(a, bEl, c, d);
+    ledger.appendChild(li);
+    ledger.scrollTop = ledger.scrollHeight;
+  }
+  function start() {
+    const rng = mulberry32(seed++ * 7919 + 17);
+    g = { offers: Array.from({ length: 400 }, () => Math.floor(rng() * 101)), t: 0, done: false };
+    ledger.textContent = ""; result.hidden = true; result.textContent = "";
+    render();
+  }
+  function reject() {
+    if (!g || g.done) return;
+    addLedger(g.t, g.offers[g.t], "rejected", Math.pow(beta, g.t) * b);
+    g.t++;
+    render();
+  }
+  function accept() {
+    if (!g || g.done) return;
+    const t = g.t, w = g.offers[t];
+    addLedger(t, w, "accepted", Math.pow(beta, t) * w / (1 - beta));
+    g.done = true;
+    const you = valueAt(g.offers, t);
+    const tb = bestTau(g.offers), best = valueAt(g.offers, tb);
+    const first = g.offers[0] / (1 - beta);
+    const rejected = g.offers.slice(0, t);
+    shared.games.push({ took: w, waited: t, you, best, maxRej: rejected.length ? Math.max(...rejected) : -Infinity });
+    pvEl.textContent = f0(you);
+    result.hidden = false;
+    result.textContent = "";
+    const grid = document.createElement("div"); grid.className = "result-grid";
+    const rows = [
+      ["Your lifetime value", f0(you), true],
+      [`Best rule on these offers (took ${g.offers[tb]} in period ${tb})`, f0(best), false],
+      [`Accept the first offer (${g.offers[0]})`, f0(first), false],
+      ["Average over many games: best rule", f0(EV.opt), false],
+      ["Average: accept anything above b", f0(EV.aboveB), false],
+      ["Average: accept the first offer", f0(EV.first), false]
+    ];
+    rows.forEach(([k, v, hd]) => {
+      const a = document.createElement("span"); a.textContent = k; if (hd) a.className = "hd";
+      const bb = document.createElement("span"); bb.textContent = v; bb.className = "v" + (hd ? " hd" : "");
+      grid.append(a, bb);
+    });
+    result.appendChild(grid);
+    renderHistory();
+    render();
+    document.dispatchEvent(new Event("game-updated"));
+  }
+  function renderHistory() {
+    const tb = $("#gameHistory tbody"); tb.textContent = "";
+    shared.games.slice(-6).forEach((r, i, arr) => {
+      const tr = document.createElement("tr");
+      [shared.games.length - arr.length + i + 1, r.took, r.waited, f0(r.you), f0(r.best)].forEach(v => { const td = document.createElement("td"); td.textContent = v; tr.appendChild(td); });
+      tb.appendChild(tr);
+    });
+  }
+  bA.addEventListener("click", accept);
+  bR.addEventListener("click", reject);
+  $("#btnNewGame").addEventListener("click", start);
+  $("#btnRevealRule").addEventListener("click", () => {
+    revealed = !revealed;
+    $("#btnRevealRule").textContent = revealed ? "Hide the best rule" : "Reveal the best rule";
+    $("#gameTakeaway").hidden = !revealed;
+    render();
+  });
+  bindRange("classGuess", v => v.toFixed(0), v => { shared.classGuess = v; document.dispatchEvent(new Event("guess-updated")); });
+  shared.gameAccept = accept; shared.gameReject = reject;
+  start();
+}
+
+/* =========================================================
+   Scene 2: value of every threshold
+   ========================================================= */
+function initRule() {
+  const { D, b, beta, ws } = BASE;
+  const Qmax = Model.Q(D, b, beta, ws);
+  const c = makeChart($("#ruleChart"), { x: [0, 100], y: [800, 2050], h: 400, xLabel: "threshold c: accept any offer ≥ c", yLabel: "lifetime value", yf: d3.format(","), aria: "Value of each threshold rule" });
+  const cs = d3.range(0, 100.0001, 0.5);
+  const band = c.under.append("rect").attr("class", "ar-ink").attr("y", c.m.t).attr("height", c.H - c.m.t - c.m.b);
+  const bandLbl = c.over.append("text").attr("class", "lbl halo").attr("text-anchor", "middle");
+  c.path(null, "ln ln-accept").attr("d", c.line(cs.map(v => [v, v / (1 - beta)])));
+  c.path(null, "ln ln-reject").attr("d", c.line(cs.map(v => [v, b + beta * Model.Q(D, b, beta, v)])));
+  c.path(null, "ln ln-ink ln-thick").attr("d", c.line(cs.map(v => [v, Model.Q(D, b, beta, v)])));
+  /* optimum */
+  c.over.append("line").attr("class", "ln ln-ink ln-thin").attr("x1", c.x(ws)).attr("x2", c.x(ws)).attr("y1", c.y(Qmax)).attr("y2", c.H - c.m.b).attr("opacity", 0.5);
+  c.over.append("circle").attr("class", "mk mk-ink").attr("r", 6).attr("cx", c.x(ws)).attr("cy", c.y(Qmax));
+  c.over.append("circle").attr("class", "mk mk-accept").attr("r", 5).attr("cx", c.x(ws)).attr("cy", c.y(ws / (1 - beta)));
+  c.over.append("text").attr("class", "lbl-ink halo").attr("x", c.x(ws) - 10).attr("y", c.y(Qmax) - 12).attr("text-anchor", "end").text(`best rule: c* = ${f1(ws)}, value ${f0(Qmax)}`);
+  c.over.append("text").attr("class", "lbl halo").attr("x", c.x(ws) + 10).attr("y", c.y(ws / (1 - beta)) + 18).text("accept = reject here");
+  /* class guess marker */
+  const gm = c.over.append("g");
+  gm.append("circle").attr("class", "mk mk-muted").attr("r", 6);
+  gm.append("text").attr("class", "lbl halo").attr("text-anchor", "middle").attr("dy", 22).text("class guess");
+  const h = c.vHandle(v => "c = " + f1(v));
+  const dots = ["mk-ink", "mk-accept", "mk-reject"].map(cl => c.over.append("circle").attr("class", "mk " + cl).attr("r", 5));
+  const slider = bindRange("ruleC", v => v.toFixed(1), v => set(v));
+  function set(v) {
+    slider.set(v);
+    h.set(v);
+    const Qv = Model.Q(D, b, beta, v), Wv = v / (1 - beta), Rv = b + beta * Qv;
+    dots[0].attr("cx", c.x(v)).attr("cy", c.y(Qv));
+    dots[1].attr("cx", c.x(v)).attr("cy", c.y(Wv)).attr("display", Wv < 800 ? "none" : null);
+    dots[2].attr("cx", c.x(v)).attr("cy", c.y(Rv));
+    $("#ruleQ").textContent = f0(Qv);
+    $("#rulePct").textContent = pct(Qv / Qmax) + " of the best rule";
+    const gap = Rv - Wv;
+    $("#ruleVerdict").textContent = Math.abs(gap) < 6
+      ? "Accepting c and rejecting c are worth the same: this is the top of the curve."
+      : gap > 0 ? `Rejecting an offer of ${f1(v)} is worth ${f0(Rv)}, accepting it only ${f0(Wv)}. Raise the threshold.`
+                : `Accepting an offer of ${f1(v)} is worth ${f0(Wv)}, more than rejecting it (${f0(Rv)}). Lower the threshold.`;
+  }
+  function guess() {
+    const v = shared.classGuess, Qv = Model.Q(D, b, beta, v);
+    gm.attr("transform", `translate(${c.x(v)},${c.y(Qv)})`);
+    $("#ruleGuess").textContent = v.toFixed(0);
+    $("#ruleGuessPct").textContent = f0(Qv) + ", " + pct(Qv / Qmax) + " of best";
+  }
+  function bounds() {
+    const gs = shared.games;
+    if (!gs.length) { band.attr("display", "none"); bandLbl.text(""); return; }
+    const lo = Math.max(...gs.map(r => r.maxRej), 0), hi = Math.min(...gs.map(r => r.took));
+    if (lo < hi) {
+      band.attr("display", null).attr("x", c.x(lo)).attr("width", Math.max(2, c.x(hi) - c.x(lo)));
+      bandLbl.attr("x", c.x((lo + hi) / 2)).attr("y", c.H - c.m.b - 8).text("your choices fit any c in here");
+    } else {
+      band.attr("display", "none");
+      bandLbl.attr("x", c.x(50)).attr("y", c.H - c.m.b - 8).text("your choices fit no single threshold");
+    }
+  }
+  c.onDragX(set);
+  document.addEventListener("guess-updated", guess);
+  document.addEventListener("game-updated", bounds);
+  set(50); guess(); bounds();
+}
+
+/* =========================================================
+   Scene 3: the Bellman equation
+   ========================================================= */
+function initBellman() {
+  const { D, b, beta, ws } = BASE;
+  const U = ws / (1 - beta), EM = (U - b) / beta;
+  const c = makeChart($("#bellChart"), { x: [0, 100], y: [0, 2100], h: 330, xLabel: "offer w", yLabel: "lifetime value", yf: d3.format(","), aria: "Value of accepting and of searching" });
+  c.path(c.under, "ln-env").attr("d", c.line([[0, U], [ws, U], [100, 100 / (1 - beta)]]));
+  c.path(null, "ln ln-accept").attr("d", c.line([[0, 0], [100, 100 / (1 - beta)]])).classed("el-W", true);
+  c.path(null, "ln ln-reject").attr("d", c.line([[0, U], [100, U]])).classed("el-U", true);
+  c.path(null, "ln ln-ink ln-thin").attr("d", c.line([[0, EM], [100, EM]])).attr("opacity", 0.6).classed("el-E", true);
+  c.over.append("text").attr("class", "lbl halo").attr("x", c.x(2)).attr("y", c.y(EM) - 6).text(`average of the hockey stick over offers: ${f0(EM)}`);
+  c.over.append("text").attr("class", "lbl halo").attr("x", c.x(2)).attr("y", c.y(U) + 18).text(`U = ${f0(U)}`);
+  c.over.append("circle").attr("class", "mk mk-ink").attr("r", 6).attr("cx", c.x(ws)).attr("cy", c.y(U));
+  c.over.append("text").attr("class", "lbl-ink halo").attr("x", c.x(ws) + 9).attr("y", c.y(U) + 22).text(`kink at w* = ${f1(ws)}`);
+  const h = c.vHandle(v => "w = " + v.toFixed(0));
+  const dW = c.over.append("circle").attr("class", "mk mk-accept").attr("r", 5);
+  const dens = makeChart($("#bellDens"), { x: [0, 100], y: [0, 0.014], h: 92, m: { t: 14, b: 26, l: 56, r: 22 }, yt: 0, xt: 0, aria: "Offer density" });
+  dens.gy.remove(); dens.gx.remove(); dens.grid.remove();
+  dens.path(dens.under, "ar-ink el-dens").attr("d", dens.area(0)([[0, 0.01], [100, 0.01]]));
+  dens.over.append("text").attr("class", "lbl").attr("x", dens.x(1)).attr("y", dens.y(0.01) - 6).text("offers f(w): every wage between 0 and 100 equally likely; 𝔼 averages the hockey stick with these weights");
+  const slider = bindRange("bellW", v => v.toFixed(0), v => set(v));
+  function set(v) {
+    slider.set(Math.round(v)); h.set(v);
+    const Wv = v / (1 - beta);
+    dW.attr("cx", c.x(v)).attr("cy", c.y(Wv));
+    $("#bellVerdict").textContent = Wv >= U
+      ? `Offer ${v.toFixed(0)}: accepting is worth ${f0(Wv)}, searching ${f0(U)}. Accept.`
+      : `Offer ${v.toFixed(0)}: accepting is worth ${f0(Wv)}, searching ${f0(U)}. Reject, although ${v.toFixed(0)} > b = ${b}.`;
+  }
+  $("#bellArith").textContent = `U = b + β·𝔼[max{W, U}]\n  = ${b} + ${beta} × ${f0(EM)}\n  = ${f0(U)}\nw* = (1 − β)·U = ${f2(ws)}`;
+  $("#bellArith").style.whiteSpace = "pre";
+  c.onDragX(set);
+  set(60);
+  /* term chips highlight the equation and the chart */
+  const eq = $("#bellEq");
+  const map = { W: ".el-W", U: ".el-U", E: ".el-E, .el-dens", max: ".ln-env", b: null, beta: null };
+  $$("#bellChips .term").forEach(chip => {
+    const on = () => {
+      eq.setAttribute("data-hl", chip.dataset.hl);
+      d3.selectAll("#bellChart .ln, #bellDens path").attr("opacity", 0.25);
+      const sel = map[chip.dataset.hl];
+      if (sel) d3.selectAll(sel).attr("opacity", 1);
+      else d3.selectAll("#bellChart .ln, #bellDens path").attr("opacity", 1);
+    };
+    const off = () => { eq.removeAttribute("data-hl"); d3.selectAll("#bellChart .ln, #bellDens path").attr("opacity", null); d3.select("#bellChart .el-E").attr("opacity", 0.6); };
+    chip.addEventListener("pointerenter", on); chip.addEventListener("focus", on);
+    chip.addEventListener("pointerleave", off); chip.addEventListener("blur", off);
+  });
+}
+
+/* =========================================================
+   Scene 4: derivation stepper
+   ========================================================= */
+function initDerive() {
+  const steps = $$("#steps .step");
+  let k = 0;
+  const lecture = () => document.body.classList.contains("lecture");
+  function show() {
+    steps.forEach((s, i) => { s.hidden = lecture() && i > k; s.classList.toggle("current", i === k); });
+    $("#stepCount").textContent = `Step ${k + 1} of ${steps.length}`;
+    $("#stepBack").disabled = k === 0;
+    $("#stepNext").disabled = k === steps.length - 1;
+  }
+  $("#stepNext").addEventListener("click", () => { if (k < steps.length - 1) { k++; show(); } });
+  $("#stepBack").addEventListener("click", () => { if (k > 0) { k--; show(); } });
+  shared.stepHandlers = shared.stepHandlers || {};
+  shared.stepHandlers.derive = {
+    next() { if (!lecture()) return false; if (k < steps.length - 1) { k++; show(); return true; } return false; },
+    prev() { if (!lecture()) return false; if (k > 0) { k--; show(); return true; } return false; }
+  };
+  document.addEventListener("mode-changed", () => { k = lecture() ? 0 : steps.length - 1; show(); });
+  k = lecture() ? 0 : steps.length - 1;
+  show();
+}
+
+/* =========================================================
+   Scene 5: option value as an area
+   ========================================================= */
+function initArea() {
+  const st = { dist: "uniform", b: 20, beta: 0.95, x: 60 };
+  const dists = { uniform: Uniform(0, 100), lognormal: LogNormal(50, 0.5) };
+  const dom = { uniform: { L: [0, 100], R: [40, 100], Ry: [0, 160] }, lognormal: { L: [0, 200], R: [30, 160], Ry: [0, 240] } };
+  const L = makeChart($("#areaLeft"), { w: 440, h: 320, x: [0, 100], y: [0, 1], xLabel: "wage w", yLabel: "share of offers above w", aria: "Survival curve" });
+  const R = makeChart($("#areaRight"), { w: 440, h: 320, x: [40, 100], y: [0, 160], xLabel: "candidate threshold x", yLabel: "value, in wage units", aria: "Fixed point of the reservation wage equation" });
+  const aPath = L.path(L.under, "ar-option"), sPath = L.path(null, "ln ln-ink");
+  const aLbl = L.over.append("text").attr("class", "lbl-ink halo");
+  const lh = L.vHandle(v => "x = " + f1(v));
+  const lws = L.over.append("line").attr("class", "ln ln-ink ln-thin").attr("opacity", 0.45);
+  const diag = R.path(null, "ln ln-muted"), gPath = R.path(null, "ln ln-option");
+  const seg = R.over.append("line").attr("class", "ln ln-thick");
+  const rh = R.vHandle(v => "x = " + f1(v));
+  const dG = R.over.append("circle").attr("class", "mk mk-option").attr("r", 5.5);
+  const dX = R.over.append("circle").attr("class", "mk mk-muted").attr("r", 5);
+  const cross = R.over.append("circle").attr("class", "mk mk-ink").attr("r", 6.5);
+  const crossLbl = R.over.append("text").attr("class", "lbl-ink halo");
+  const sx = bindRange("areaX", v => v.toFixed(1), v => { st.x = v; draw(); });
+  bindRange("areaB", v => v.toFixed(0), v => { st.b = v; draw(); });
+  bindRange("areaBeta", v => v.toFixed(2), v => { st.beta = v; draw(); });
+  bindSeg("areaDist", v => {
+    st.dist = v;
+    const d = dom[v];
+    L.x.domain(d.L); L.axes(); R.x.domain(d.R); R.y.domain(d.Ry); R.axes();
+    sx.el.max = d.L[1]; st.x = v === "uniform" ? 60 : 70;
+    draw();
+  });
+  function draw() {
+    const D = dists[st.dist], k = st.beta / (1 - st.beta), d = dom[st.dist];
+    const x = clamp(st.x, d.L[0], d.L[1]); sx.set(x);
+    const ws = Model.wstar(D, st.b, st.beta);
+    const ws_ = range(d.L[0], d.L[1], 241);
+    sPath.attr("d", L.line(ws_.map(w => [w, D.sf(w)])));
+    aPath.attr("d", L.area(0)(ws_.filter(w => w >= x).map(w => [w, D.sf(w)]).concat([[x, D.sf(x)]]).sort((a, b) => a[0] - b[0])));
+    const A = D.ov(x);
+    aLbl.attr("x", L.x(clamp(x + (d.L[1] - d.L[0]) * 0.04, d.L[0], d.L[1] * 0.7))).attr("y", L.y(Math.min(0.9, D.sf(x) * 0.5 + 0.12))).text("area = " + f2(A));
+    lh.set(x);
+    lws.attr("x1", L.x(ws)).attr("x2", L.x(ws)).attr("y1", L.y(0)).attr("y2", L.y(1));
+    const xr = range(d.R[0], d.R[1], 241);
+    diag.attr("d", R.line(xr.map(v => [v, v])));
+    gPath.attr("d", R.line(xr.map(v => [v, st.b + k * D.ov(v)])));
+    const g = st.b + k * A, xc = clamp(x, d.R[0], d.R[1]), inR = x >= d.R[0] && x <= d.R[1];
+    rh.set(xc); rh.show(inR);
+    dG.attr("cx", R.x(xc)).attr("cy", R.y(Math.min(g, d.Ry[1]))).attr("display", inR && g <= d.Ry[1] ? null : "none");
+    dX.attr("cx", R.x(xc)).attr("cy", R.y(xc)).attr("display", inR ? null : "none");
+    seg.attr("x1", R.x(xc)).attr("x2", R.x(xc)).attr("y1", R.y(xc)).attr("y2", R.y(Math.min(g, d.Ry[1])))
+      .attr("class", "ln ln-thick " + (g > x ? "ln-option" : "ln-reject")).attr("opacity", inR ? 0.55 : 0);
+    cross.attr("cx", R.x(ws)).attr("cy", R.y(ws));
+    crossLbl.attr("x", R.x(ws) + 10).attr("y", R.y(ws) + 4).text("w* = " + f1(ws));
+    $("#areaA").textContent = f2(A);
+    $("#areaG").textContent = f1(g);
+    $("#areaS").textContent = f2(-k * D.sf(x));
+    $("#areaW").textContent = f1(ws);
+    $("#areaVerdict").textContent = Math.abs(g - x) < 0.6
+      ? "g(x) = x: this x is the reservation wage."
+      : g > x ? `At x = ${f1(x)}, waiting is worth ${f1(g)} per period, more than x. Too low a threshold.`
+              : `At x = ${f1(x)}, waiting is worth only ${f1(g)} per period, less than x. Too high a threshold.`;
+  }
+  L.onDragX(v => { st.x = v; draw(); });
+  R.onDragX(v => { st.x = v; draw(); });
+  draw();
+}
+
+/* =========================================================
+   Scene 6: contraction / cobweb
+   ========================================================= */
+function initSolve() {
+  const D = BASE.D, b = BASE.b;
+  bindSeg("solveTab", v => { $$("#solve [data-tab]").forEach(el => { el.hidden = el.dataset.tab !== v; }); });
+  function codePanel(el, lines) {
+    el.textContent = "";
+    const spans = lines.map((line, i) => {
+      const sp = document.createElement("span"); sp.className = "cl"; sp.dataset.n = i + 1;
+      const h = line.indexOf("#");
+      if (h >= 0) { sp.appendChild(document.createTextNode(line.slice(0, h))); const c = document.createElement("span"); c.className = "cm"; c.textContent = line.slice(h); sp.appendChild(c); }
+      else sp.textContent = line;
+      el.appendChild(sp); return sp;
+    });
+    return i => spans.forEach((sp, j) => sp.classList.toggle("now", j === i));
+  }
+  function logRows(tbody, rows) {
+    tbody.textContent = "";
+    rows.slice(-6).forEach(r => { const tr = document.createElement("tr"); r.forEach(v => { const td = document.createElement("td"); td.textContent = v; tr.appendChild(td); }); tbody.appendChild(tr); });
+  }
+  function GridDist(w) {
+    const n = w.length;
+    return {
+      ov: x => { let t = 0; for (const v of w) if (v > x) t += v - x; return t / n; },
+      cdf: x => { let c = 0; for (const v of w) if (v <= x) c++; return c / n; }
+    };
+  }
+
+  /* ---- 1. discretize ---- */
+  const cD = makeChart($("#discChart"), { w: 640, h: 300, x: [0, 100], y: [0, 1], xLabel: "wage offer w", yLabel: "share of offers below w, F(w)", aria: "True and discretized offer distribution" });
+  cD.path(null, "ln ln-muted").attr("d", cD.line([[0, 0], [100, 1]]));
+  const stepP = cD.path(null, "ln ln-ink"), dotsG = cD.over.append("g");
+  const wsL = cD.over.append("line").attr("class", "ln ln-option").attr("y1", cD.m.t).attr("y2", cD.H - cD.m.b);
+  const wsT = cD.over.append("text").attr("class", "lbl-ink halo").attr("y", cD.m.t + 12);
+  codePanel($("#discCode"), [
+    "q = (np.arange(n) + 0.5) / n   # quantile midpoints",
+    "w = F_inverse(q)               # the offer grid",
+    "p = np.full(n, 1 / n)          # equal probabilities",
+    "# 𝔼[g(w)] becomes np.sum(p * g(w))"
+  ]);
+  function drawDisc(n) {
+    const w = Array.from({ length: n }, (_, i) => 100 * (i + 0.5) / n);
+    const x = Model.wstar(GridDist(w), b, BASE.beta);
+    const pts = [[0, 0]];
+    w.forEach((v, i) => { pts.push([v, i / n], [v, (i + 1) / n]); });
+    pts.push([100, 1]);
+    stepP.attr("d", cD.line(pts));
+    dotsG.selectAll("circle").data(w).join("circle").attr("class", "mk mk-ink").attr("r", n > 30 ? 2.5 : 4.5).attr("cx", d => cD.x(d)).attr("cy", (d, i) => cD.y((i + 0.5) / n));
+    wsL.attr("x1", cD.x(x)).attr("x2", cD.x(x));
+    wsT.attr("x", cD.x(x) - 6).attr("text-anchor", "end").text("w* on grid = " + f2(x));
+    $("#discW").textContent = f2(x);
+    $("#discErr").textContent = (x - BASE.ws >= 0 ? "+" : "") + f2(x - BASE.ws);
+  }
+  bindRange("discN", v => v.toFixed(0), drawDisc);
+  drawDisc(5);
+
+  /* ---- 2. iterate ---- */
+  const st = { beta: 0.95, x0: 5, path: [], timer: null };
+  const C = makeChart($("#solveChart"), { w: 440, h: 340, x: [0, 100], y: [0, 100], xLabel: "guess x", yLabel: "updated guess m(x)", aria: "Reservation wage map and iterations" });
+  const E = makeChart($("#solveErr"), { w: 440, h: 340, x: [0, 40], y: [-10, 2], xLabel: "iteration n", yLabel: "log₁₀ |xₙ − w*|", yTicks: [-10, -8, -6, -4, -2, 0, 2], aria: "Convergence of iterations" });
+  const diag = C.path(null, "ln ln-muted"), mPath = C.path(null, "ln ln-ink"), stairs = C.path(null, "ln ln-option ln-thin");
+  const fp = C.over.append("circle").attr("class", "mk mk-ink").attr("r", 6);
+  const fpl = C.over.append("text").attr("class", "lbl-ink halo");
+  const x0d = C.over.append("circle").attr("class", "mk mk-option").attr("r", 6);
+  const rate = E.path(null, "ln ln-muted ln-thin"), errLine = E.path(null, "ln ln-option ln-thin");
+  const errDots = E.plot.append("g");
+  const hlIter = codePanel($("#iterCode"), [
+    "x = x0                           # any starting guess",
+    "while True:",
+    "    x_new = (1 - beta) * b + beta * np.sum(p * np.maximum(w, x))",
+    "    if abs(x_new - x) < tol:     # converged?",
+    "        break",
+    "    x = x_new"
+  ]);
+  const sx0 = bindRange("solveX0", v => v.toFixed(0), v => { st.x0 = v; reset(); });
+  bindRange("solveBeta", v => v.toFixed(2), v => { st.beta = v; reset(); });
+  const m = x => Model.rmap(D, b, st.beta, x);
+  const ws = () => Model.wstar(D, b, st.beta);
+  function drawMap() {
+    const xs = range(0, 100, 201);
+    diag.attr("d", C.line(xs.map(v => [v, v])));
+    mPath.attr("d", C.line(xs.map(v => [v, m(v)])));
+    const w = ws();
+    fp.attr("cx", C.x(w)).attr("cy", C.y(w));
+    fpl.attr("x", C.x(w) + 9).attr("y", C.y(w) + 18).text("w* = " + f1(w));
+    $("#solveWs").textContent = f2(w);
+    $("#solveMod").textContent = f2(st.beta * D.cdf(w));
+  }
+  function drawPath() {
+    const w = ws(), p = st.path;
+    let d = `M${C.x(p[0])},${C.y(0)}`;
+    for (let i = 0; i < p.length - 1; i++) d += `L${C.x(p[i])},${C.y(p[i + 1])}L${C.x(p[i + 1])},${C.y(p[i + 1])}`;
+    stairs.attr("d", d);
+    x0d.attr("cx", C.x(p[0])).attr("cy", C.y(0));
+    const errs = p.map((v, i) => [i, Math.log10(Math.max(Math.abs(v - w), 1e-12))]);
+    errLine.attr("d", E.line(errs));
+    errDots.selectAll("circle").data(errs).join("circle").attr("class", "mk mk-option").attr("r", 3.5).attr("cx", d2 => E.x(d2[0])).attr("cy", d2 => E.y(clamp(d2[1], -10, 2)));
+    const r = st.beta * D.cdf(w), e0 = Math.max(Math.abs(p[0] - w), 1e-12);
+    rate.attr("d", E.line(range(0, 40, 41).map(n => [n, Math.log10(e0) + n * Math.log10(Math.max(r, 1e-12))])));
+    $("#solveN").textContent = p.length - 1;
+    $("#solveXn").textContent = f3(p[p.length - 1]);
+    logRows($("#iterLog tbody"), p.slice(0, -1).map((v, i) => [i, f3(v), f3(p[i + 1]), (p[i + 1] - v >= 0 ? "+" : "") + f3(p[i + 1] - v)]));
+  }
+  function step() {
+    const p = st.path;
+    if (p.length > 40) return false;
+    const nx = m(p[p.length - 1]);
+    const done = Math.abs(nx - p[p.length - 1]) < 1e-9;
+    p.push(nx); drawPath(); hlIter(done ? 4 : 2);
+    return !done;
+  }
+  function stop() { if (st.timer) { clearInterval(st.timer); st.timer = null; $("#solveRun").textContent = "Run"; } }
+  function reset() { stop(); st.path = [st.x0]; drawMap(); drawPath(); hlIter(0); }
+  $("#solveStep").addEventListener("click", () => { stop(); step(); });
+  $("#solveRun").addEventListener("click", () => {
+    if (st.timer) { stop(); return; }
+    if (reduceMotion) { while (step()) { /* run to convergence */ } return; }
+    $("#solveRun").textContent = "Pause";
+    st.timer = setInterval(() => { if (!step()) stop(); }, 260);
+  });
+  $("#solveReset").addEventListener("click", reset);
+  C.onDragX(v => { sx0.set(Math.round(v)); st.x0 = Math.round(v); reset(); });
+  reset();
+
+  /* ---- 3. bisect ---- */
+  const kk = BASE.beta / (1 - BASE.beta);
+  const h = x => x - b - kk * D.ov(x);
+  const B = makeChart($("#bisChart"), { w: 640, h: 300, x: [0, 100], y: [-650, 120], xLabel: "candidate threshold x", yLabel: "h(x)", yf: d3.format(","), aria: "Bisection on the reservation wage equation" });
+  const bra = B.under.append("rect").attr("class", "ar-option").attr("y", B.m.t).attr("height", B.H - B.m.t - B.m.b);
+  B.path(null, "ln ln-base ln-thin").attr("d", B.line([[0, 0], [100, 0]]));
+  B.path(null, "ln ln-ink").attr("d", B.line(range(0, 100, 201).map(x => [x, h(x)])));
+  const midD = B.over.append("circle").attr("class", "mk mk-option").attr("r", 6);
+  const loT = B.over.append("text").attr("class", "lbl halo").attr("text-anchor", "middle");
+  const hiT = B.over.append("text").attr("class", "lbl halo").attr("text-anchor", "middle");
+  B.over.append("circle").attr("class", "mk mk-ink").attr("r", 5).attr("cx", B.x(BASE.ws)).attr("cy", B.y(0));
+  const hlBis = codePanel($("#bisCode"), [
+    "lo, hi = b, w.max()           # h(lo) < 0 < h(hi)",
+    "while hi - lo > tol:",
+    "    mid = (lo + hi) / 2",
+    "    if h(mid) > 0:",
+    "        hi = mid              # root is to the left",
+    "    else:",
+    "        lo = mid              # root is to the right"
+  ]);
+  const bs = { lo: b, hi: 100, rows: [], timer: null, mid: null };
+  function drawBis() {
+    bra.attr("x", B.x(bs.lo)).attr("width", Math.max(1.5, B.x(bs.hi) - B.x(bs.lo)));
+    loT.attr("x", B.x(bs.lo)).attr("y", B.H - B.m.b - 8).text("low " + f2(bs.lo));
+    hiT.attr("x", B.x(bs.hi)).attr("y", B.m.t + 14).text("high " + f2(bs.hi));
+    midD.attr("display", bs.mid == null ? "none" : null);
+    if (bs.mid != null) midD.attr("cx", B.x(bs.mid)).attr("cy", B.y(clamp(h(bs.mid), -650, 120)));
+    $("#bisN").textContent = bs.rows.length;
+    $("#bisW").textContent = f3(bs.hi - bs.lo);
+    logRows($("#bisLog tbody"), bs.rows);
+  }
+  function bisStep() {
+    if (bs.hi - bs.lo < 1e-6) return false;
+    const mid = (bs.lo + bs.hi) / 2, v = h(mid);
+    if (v > 0) bs.hi = mid; else bs.lo = mid;
+    bs.mid = mid;
+    bs.rows.push([bs.rows.length + 1, f3(v > 0 ? bs.lo : mid), f3(v > 0 ? mid : bs.hi), f3(mid), f2(v), v > 0 ? "left half" : "right half"]);
+    hlBis(v > 0 ? 4 : 6);
+    drawBis();
+    return true;
+  }
+  function bisStop() { if (bs.timer) { clearInterval(bs.timer); bs.timer = null; $("#bisRun").textContent = "Run"; } }
+  function bisReset() { bisStop(); bs.lo = b; bs.hi = 100; bs.rows = []; bs.mid = null; hlBis(0); drawBis(); }
+  $("#bisStep").addEventListener("click", () => { bisStop(); bisStep(); });
+  $("#bisRun").addEventListener("click", () => {
+    if (bs.timer) { bisStop(); return; }
+    if (reduceMotion) { for (let i = 0; i < 25; i++) bisStep(); return; }
+    $("#bisRun").textContent = "Pause";
+    let k = 0;
+    bs.timer = setInterval(() => { if (!bisStep() || ++k >= 25) bisStop(); }, 320);
+  });
+  $("#bisReset").addEventListener("click", bisReset);
+  bisReset();
+}
+
+/* =========================================================
+   Scene 7: audit the AI
+   ========================================================= */
+function initAudit() {
+  const CODE = {
+    ref: [
+      "def reservation_wage(b, beta, n=200):",
+      "    q = (np.arange(n) + 0.5) / n          # quantile midpoints",
+      "    w = stats.uniform.ppf(q, 0, 100)      # offer grid",
+      "    p = np.full(n, 1 / n)                 # equal probabilities",
+      "    W = w / (1 - beta)                    # value of accepting w",
+      "    U = 0.0",
+      "    for _ in range(10_000):",
+      "        U_new = b + beta * np.sum(p * np.maximum(W, U))",
+      "        if abs(U_new - U) < 1e-10:",
+      "            break",
+      "        U = U_new",
+      "    return (1 - beta) * U_new"
+    ],
+    A: null, B: null, C: null
+  };
+  CODE.A = CODE.ref.slice(); CODE.A[7] = "        U_new = b + beta * np.sum(p * np.maximum(w, U))";
+  CODE.B = CODE.ref.slice(); CODE.B[0] = "def reservation_wage(b, beta, n=100):";
+  CODE.B[1] = "    w = np.linspace(0, 100, n)            # offer grid";
+  CODE.B[2] = "    p = stats.uniform.pdf(w, 0, 100)      # weights from the density";
+  CODE.B.splice(3, 1);
+  CODE.C = CODE.ref.slice(); CODE.C[4] = "    W = beta * w / (1 - beta)             # job starts next period";
+  const BUG = {
+    ref: { line: -1, text: "No bug. This is the reference implementation from the notebook, written on an equal-probability grid." },
+    A: { line: 7, text: "Line 8 compares a wage w with a lifetime value U. Units do not match, so once U exceeds 100 the worker never accepts and the code returns w* = b. The limit test cannot see this; the β test and the closed form can." },
+    B: { line: 2, text: "Line 3 uses the density (0.01 per point) as a probability. The weights sum to n/100: correct by accident for n = 100, but 4 for n = 400, where the iteration explodes. Only grid refinement catches it." },
+    C: { line: 4, text: "Line 5 discounts the job as if the first wage arrived next period. The answer moves smoothly with b and β and is stable on any grid, so only an independent benchmark catches it: the closed form or a second method." }
+  };
+  function vfi(w, p, W, b, beta) {
+    let U = 0, Un = 0;
+    for (let it = 0; it < 10000; it++) {
+      let s = 0;
+      for (let i = 0; i < w.length; i++) s += p[i] * Math.max(W[i], U);
+      Un = b + beta * s;
+      if (!isFinite(Un) || Math.abs(Un) > 1e15) return Infinity;
+      if (Math.abs(Un - U) < 1e-10) break;
+      U = Un;
+    }
+    return (1 - beta) * Un;
+  }
+  const qgrid = n => Array.from({ length: n }, (_, i) => 100 * (i + 0.5) / n);
+  const SOLVERS = {
+    ref: (b, beta, n = 200) => { const w = qgrid(n), p = w.map(() => 1 / n); return vfi(w, p, w.map(v => v / (1 - beta)), b, beta); },
+    A: (b, beta, n = 200) => { const w = qgrid(n), p = w.map(() => 1 / n); return vfi(w, p, w, b, beta); },
+    B: (b, beta, n = 100) => { const w = Array.from({ length: n }, (_, i) => 100 * i / (n - 1)), p = w.map(() => 0.01); return vfi(w, p, w.map(v => v / (1 - beta)), b, beta); },
+    C: (b, beta, n = 200) => { const w = qgrid(n), p = w.map(() => 1 / n); return vfi(w, p, w.map(v => beta * v / (1 - beta)), b, beta); }
+  };
+  function rootMethod(b, beta) {
+    const w = qgrid(200), k = beta / (1 - beta);
+    const h = x => { let s = 0; for (const v of w) if (v > x) s += v - x; return x - b - k * s / 200; };
+    let lo = 0, hi = 100;
+    for (let i = 0; i < 80; i++) { const mm = (lo + hi) / 2; if (h(mm) > 0) hi = mm; else lo = mm; }
+    return (lo + hi) / 2;
+  }
+  const TESTS = [
+    { name: "T1 · Impatient limit", sub: "β → 0 must give w* = b", run: f => { const v = f(20, 0.001); return { ok: Math.abs(v - 20) < 0.1, show: f2(v) }; } },
+    { name: "T2 · Signs", sub: "w* rises with b and with β", run: f => {
+      const vb = [10, 20, 30].map(bb => f(bb, 0.95)), vbe = [0.9, 0.95, 0.98].map(be => f(20, be));
+      const ok = vb[0] < vb[1] && vb[1] < vb[2] && vbe[0] < vbe[1] && vbe[1] < vbe[2];
+      return { ok, show: vbe.map(f1).join(" · ") };
+    } },
+    { name: "T3 · Closed form", sub: "uniform, b = 20, β = 0.95: w* = 75.77 (±0.5 grid error)", run: f => { const v = f(20, 0.95); return { ok: Math.abs(v - 75.77) < 0.5, show: f2(v) }; } },
+    { name: "T4 · Finer grid", sub: "n = 100 and n = 400 agree within 0.1", run: f => { const a = f(20, 0.95, 100), c2 = f(20, 0.95, 400); return { ok: isFinite(a) && isFinite(c2) && Math.abs(a - c2) < 0.1, show: f2(a) + " / " + f2(c2) }; } },
+    { name: "T5 · Second method", sub: "VFI equals a root-finder on the reservation-wage equation", run: f => { const v = f(20, 0.95), r = rootMethod(20, 0.95); return { ok: Math.abs(v - r) < 0.5, show: f2(v) + " vs " + f2(r) }; } }
+  ];
+  let sel = "A", ran = false, revealed = false;
+  const results = {};
+  const tbody = $("#auditTable tbody");
+  TESTS.forEach((t, i) => {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td"); td.className = "tdesc";
+    td.textContent = t.name;
+    const sm = document.createElement("small"); sm.textContent = t.sub; td.appendChild(sm);
+    tr.appendChild(td);
+    ["ref", "A", "B", "C"].forEach(v => { const c = document.createElement("td"); c.className = "res"; c.dataset.v = v; c.dataset.t = i; c.textContent = "?"; tr.appendChild(c); });
+    tbody.appendChild(tr);
+  });
+  function renderCode() {
+    const pre = $("#auditCode"); pre.textContent = "";
+    CODE[sel].forEach((line, i) => {
+      const span = document.createElement("span"); span.className = "cl"; span.dataset.n = i + 1;
+      const hashAt = line.indexOf("#");
+      const codePart = hashAt >= 0 ? line.slice(0, hashAt) : line;
+      const tokens = codePart.split(/(\bdef\b|\bfor\b|\bin\b|\bif\b|\breturn\b|\bbreak\b)/);
+      tokens.forEach(tok => {
+        if (/^(def|for|in|if|return|break)$/.test(tok)) { const k = document.createElement("span"); k.className = "kw"; k.textContent = tok; span.appendChild(k); }
+        else span.appendChild(document.createTextNode(tok));
+      });
+      if (hashAt >= 0) { const cm = document.createElement("span"); cm.className = "cm"; cm.textContent = line.slice(hashAt); span.appendChild(cm); }
+      if (revealed && BUG[sel].line === i) span.classList.add("bug");
+      pre.appendChild(span);
+    });
+    $("#auditBug").hidden = !revealed;
+    $("#auditBug").textContent = BUG[sel].text;
+    $$("#auditTable th[data-v]").forEach(th => th.classList.toggle("sel", th.dataset.v === sel));
+    $$("#auditTable td.res").forEach(td => td.classList.toggle("sel", td.dataset.v === sel));
+  }
+  function runAll() {
+    ["ref", "A", "B", "C"].forEach(v => { results[v] = TESTS.map(t => t.run(SOLVERS[v])); });
+    ran = true;
+    $$("#auditTable td.res").forEach((td, idx) => {
+      const r = results[td.dataset.v][+td.dataset.t];
+      const delay = reduceMotion ? 0 : 60 * idx;
+      setTimeout(() => {
+        td.textContent = "";
+        const s = document.createElement("span"); s.className = r.ok ? "pass" : "fail"; s.textContent = r.ok ? "✓ pass" : "✗ fail";
+        const v = document.createElement("small"); v.textContent = r.show;
+        td.append(s, v);
+      }, delay);
+    });
+  }
+  bindSeg("auditVer", v => { sel = v; renderCode(); });
+  $("#auditRun").addEventListener("click", runAll);
+  $("#auditReveal").addEventListener("click", () => { revealed = !revealed; $("#auditReveal").textContent = revealed ? "Hide the bug" : "Reveal the bug"; renderCode(); });
+  renderCode();
+}
+
+/* =========================================================
+   Scene 8: comparative statics lab
+   ========================================================= */
+function initLab() {
+  const st = { dist: "uniform", b: 20, beta: 0.95, s: 50, sig: 0.5 };
+  let ghost = null;
+  const makeD = (s = st) => (s.dist === "uniform" ? Uniform(50 - s.s, 50 + s.s) : LogNormal(50, s.sig));
+  const dens = makeChart($("#labDens"), { x: [0, 100], y: [0, 0.06], h: 250, xLabel: "wage offer w", yLabel: "density of offers", yt: 3, aria: "Offer density with accept and reject regions" });
+  const rej = dens.path(dens.under, "ar-reject"), acc = dens.path(dens.under, "ar-accept"), dl = dens.path(null, "ln ln-ink ln-thin");
+  const gLine = dens.over.append("line").attr("class", "ln ln-muted").attr("y1", dens.m.t).attr("y2", dens.H - dens.m.b);
+  const wLine = dens.over.append("line").attr("class", "ln ln-ink").attr("y1", dens.m.t).attr("y2", dens.H - dens.m.b);
+  const wLbl = dens.over.append("text").attr("class", "lbl-ink halo").attr("y", dens.m.t - 4).attr("text-anchor", "middle");
+  const rLbl = dens.over.append("text").attr("class", "lbl halo").attr("text-anchor", "end");
+  const aLbl = dens.over.append("text").attr("class", "lbl halo");
+  const smallOpts = { w: 300, h: 220, m: { t: 18, r: 14, b: 44, l: 40 }, yt: 4, xt: 4 };
+  const cb = makeChart($("#labB"), Object.assign({ x: [0, 60], y: [40, 100], xLabel: "b" }, smallOpts));
+  const cbe = makeChart($("#labBeta"), Object.assign({ x: [0.5, 0.99], y: [40, 100], xLabel: "β", xf: d3.format(".1f") }, smallOpts));
+  const cs = makeChart($("#labS"), Object.assign({ x: [5, 50], y: [40, 100], xLabel: "s" }, smallOpts));
+  const smalls = [
+    { c: cb, key: "b", xs: () => range(0, 60, 61) },
+    { c: cbe, key: "beta", xs: () => range(0.5, 0.99, 50) },
+    { c: cs, key: "spread", xs: () => (st.dist === "uniform" ? range(5, 50, 46) : range(0.1, 1.0, 46)) }
+  ];
+  smalls.forEach(o => { o.p = o.c.path(null, "ln ln-ink"); o.d = o.c.over.append("circle").attr("class", "mk mk-ink").attr("r", 5); o.g = o.c.over.append("circle").attr("class", "mk mk-muted").attr("r", 4.5); });
+  const outs = {};
+  function stats(s) {
+    const D = makeD(s), ws = Model.wstar(D, s.b, s.beta), p = D.sf(ws);
+    return { D, ws, p, dur: p > 0 ? 1 / p : Infinity, mean: Model.meanAccepted(D, ws) };
+  }
+  function draw() {
+    const S = stats(st), D = S.D;
+    const xmax = st.dist === "uniform" ? 100 : 200;
+    dens.x.domain([0, xmax]);
+    const ymax = st.dist === "uniform" ? Math.max(0.012, 1.25 / (2 * st.s)) : Math.max(0.01, 1.2 * D.pdf(Math.exp(Math.log(50) - 1.5 * st.sig * st.sig)));
+    dens.y.domain([0, ymax]); dens.axes();
+    const xs = range(0, xmax, 401);
+    const pts = xs.map(x => [x, D.pdf(x)]);
+    if (st.dist === "uniform") { pts.push([50 - st.s, 1 / (2 * st.s)], [50 + st.s, 1 / (2 * st.s)], [50 - st.s - 1e-6, 0], [50 + st.s + 1e-6, 0]); pts.sort((a, b) => a[0] - b[0] || a[1] - b[1]); }
+    dl.attr("d", dens.line(pts));
+    rej.attr("d", dens.area(0)(pts.filter(d => d[0] <= S.ws).concat([[S.ws, D.pdf(S.ws)]])));
+    acc.attr("d", dens.area(0)([[S.ws, D.pdf(S.ws)]].concat(pts.filter(d => d[0] >= S.ws))));
+    wLine.attr("x1", dens.x(S.ws)).attr("x2", dens.x(S.ws));
+    wLbl.attr("x", dens.x(S.ws)).text("w* = " + f1(S.ws));
+    rLbl.attr("x", dens.x(S.ws) - 8).attr("y", dens.H - dens.m.b - 10).text("reject " + pct(1 - S.p));
+    aLbl.attr("x", dens.x(S.ws) + 8).attr("y", dens.H - dens.m.b - 10).text("accept " + pct(S.p));
+    gLine.attr("display", ghost ? null : "none");
+    if (ghost) gLine.attr("x1", dens.x(ghost.ws)).attr("x2", dens.x(ghost.ws));
+    /* small multiples */
+    const yHi = st.dist === "uniform" ? 100 : 160;
+    smalls.forEach(o => {
+      o.c.y.domain([30, yHi]);
+      if (o.key === "spread") { o.c.x.domain(st.dist === "uniform" ? [5, 50] : [0.1, 1.0]); o.c.o.xf = st.dist === "uniform" ? null : d3.format(".1f"); }
+      o.c.axes();
+      const curve = o.xs().map(v => {
+        const s2 = Object.assign({}, st);
+        if (o.key === "b") s2.b = v; else if (o.key === "beta") s2.beta = v; else if (st.dist === "uniform") s2.s = v; else s2.sig = v;
+        return [v, Model.wstar(makeD(s2), s2.b, s2.beta)];
+      });
+      o.p.attr("d", o.c.line(curve));
+      const cur = o.key === "b" ? st.b : o.key === "beta" ? st.beta : (st.dist === "uniform" ? st.s : st.sig);
+      o.d.attr("cx", o.c.x(cur)).attr("cy", o.c.y(S.ws));
+      if (ghost && ghost.dist === st.dist) {
+        const gv = o.key === "b" ? ghost.b : o.key === "beta" ? ghost.beta : (st.dist === "uniform" ? ghost.s : ghost.sig);
+        o.g.attr("display", null).attr("cx", o.c.x(gv)).attr("cy", o.c.y(ghost.ws));
+      } else o.g.attr("display", "none");
+    });
+    $("#labWs").textContent = f1(S.ws); $("#labP").textContent = pct(S.p); $("#labD").textContent = f1(S.dur); $("#labM").textContent = f1(S.mean);
+    const was = (id, v) => { $("#" + id).textContent = ghost ? "was " + v : ""; };
+    if (ghost) { was("labWsWas", f1(ghost.ws)); was("labPWas", pct(ghost.p)); was("labDWas", f1(ghost.dur)); was("labMWas", f1(ghost.mean)); }
+    else ["labWsWas", "labPWas", "labDWas", "labMWas"].forEach(id => { $("#" + id).textContent = ""; });
+  }
+  function snap() { const S = stats(st); ghost = Object.assign({}, st, { ws: S.ws, p: S.p, dur: S.dur, mean: S.mean }); }
+  ["labBIn", "labBetaIn", "labSIn"].forEach(id => { const el = document.getElementById(id); el.addEventListener("pointerdown", snap); el.addEventListener("keydown", e => { if (!e.repeat && /Arrow|Page|Home|End/.test(e.key)) snap(); }); });
+  outs.b = bindRange("labBIn", v => v.toFixed(0), v => { st.b = v; draw(); });
+  outs.beta = bindRange("labBetaIn", v => v.toFixed(2), v => { st.beta = v; draw(); });
+  outs.s = bindRange("labSIn", v => (st.dist === "uniform" ? v.toFixed(0) : (v / 50).toFixed(2)), v => { if (st.dist === "uniform") st.s = v; else st.sig = v / 50; draw(); });
+  bindSeg("labDist", v => {
+    st.dist = v; ghost = null;
+    const lbl = $("#labSLabel");
+    lbl.firstChild.textContent = v === "uniform" ? "Spread s, offers on [50−s, 50+s] " : "Log-sd σ, lognormal with mean 50 ";
+    $("#labSpreadTitle").textContent = v === "uniform" ? "w* as the spread s varies" : "w* as σ varies";
+    if (v === "uniform") outs.s.set(st.s); else outs.s.set(Math.round(st.sig * 50));
+    draw();
+  });
+  /* predict cards */
+  $$("#lab .predict").forEach(card => {
+    $$(".opt", card).forEach(o => o.addEventListener("click", () => { $$(".opt", card).forEach(x => x.setAttribute("aria-pressed", String(x === o))); }));
+    $(".reveal", card).addEventListener("click", () => {
+      $(".answer", card).hidden = false;
+      $$(".opt", card).forEach(x => x.classList.toggle("correct", x.dataset.v === card.dataset.answer));
+    });
+  });
+  draw();
+}
+
+/* =========================================================
+   Scene 9: search as a call option, and risk aversion
+   ========================================================= */
+function initOption() {
+  const st = { s: 35, K: 60 };
+  const pay = makeChart($("#optPay"), { w: 440, h: 230, x: [0, 100], y: [0, 60], xLabel: "next offer w", yLabel: "payoff of one more draw", aria: "Option payoff" });
+  const dens = makeChart($("#optDens"), { w: 440, h: 150, x: [0, 100], y: [0, 0.055], m: { t: 28, r: 22, b: 44, l: 56 }, yt: 2, xLabel: "next offer w", yLabel: "offer density", aria: "Two offer densities" });
+  const payP = pay.path(null, "ln ln-option ln-thick");
+  const kLine = pay.over.append("line").attr("class", "ln ln-ink ln-thin").attr("y1", pay.m.t).attr("y2", pay.H - pay.m.b);
+  const kLbl = pay.over.append("text").attr("class", "lbl-ink halo").attr("y", pay.m.t + 10);
+  const nP = dens.path(dens.under, "ar-ink"), nL = dens.path(null, "ln ln-muted");
+  const wP = dens.path(null, "ln ln-ink");
+  const RA = makeChart($("#optRA"), { w: 440, h: 380, x: [5, 50], y: [20, 80], xLabel: "spread s: offers on [50 − s, 50 + s]", yLabel: "reservation wage w*", aria: "Reservation wage against spread for three risk attitudes" });
+  const N = 1200;
+  const curves = [0, 2, 8].map((g, i) => {
+    const pts = range(5, 50, 31).map(s => [s, Model.crra(Array.from({ length: N }, (_, j) => 50 - s + 2 * s * (j + 0.5) / N), 20, 0.95, g)]);
+    RA.path(null, "ln ln-seq" + (i + 1)).attr("d", RA.line(pts));
+    const last = pts[pts.length - 1];
+    RA.over.append("text").attr("class", "lbl halo").attr("x", RA.x(last[0]) - 4).attr("y", RA.y(last[1]) - 9).attr("text-anchor", "end").text("γ = " + g);
+    return pts;
+  });
+  const sMark = RA.over.append("line").attr("class", "ln ln-ink ln-thin").attr("y1", RA.m.t).attr("y2", RA.H - RA.m.b).attr("opacity", 0.5);
+  const sDots = curves.map((_, i) => RA.over.append("circle").attr("class", "mk").attr("r", 5).style("fill", `var(--seq-${i + 1})`));
+  bindRange("optS", v => v.toFixed(0), v => { st.s = v; draw(); });
+  bindRange("optK", v => v.toFixed(0), v => { st.K = v; draw(); });
+  function draw() {
+    const K = st.K;
+    payP.attr("d", pay.line([[0, 0], [K, 0], [100, 100 - K]]));
+    kLine.attr("x1", pay.x(K)).attr("x2", pay.x(K));
+    kLbl.attr("x", pay.x(K) - 6).attr("text-anchor", "end").text("strike x = " + K);
+    const box = (lo, hi) => [[0, 0], [lo, 0], [lo, 1 / (hi - lo)], [hi, 1 / (hi - lo)], [hi, 0], [100, 0]];
+    nP.attr("d", dens.area(0)(box(40, 60))); nL.attr("d", dens.line(box(40, 60)));
+    wP.attr("d", dens.line(box(50 - st.s, 50 + st.s)));
+    const vn = Uniform(40, 60).ov(K), vw = Uniform(50 - st.s, 50 + st.s).ov(K);
+    $("#optVn").textContent = f2(vn); $("#optVw").textContent = f2(vw);
+    sMark.attr("x1", RA.x(st.s)).attr("x2", RA.x(st.s));
+    curves.forEach((pts, j) => {
+      const yv = Model.crra(Array.from({ length: N }, (_, jj) => 50 - st.s + 2 * st.s * (jj + 0.5) / N), 20, 0.95, [0, 2, 8][j]);
+      sDots[j].attr("cx", RA.x(st.s)).attr("cy", RA.y(yv));
+    });
+  }
+  pay.onDragX(v => { const K = clamp(Math.round(v), 40, 95); st.K = K; $("#optK").value = K; $("#optKOut").textContent = K; draw(); });
+  draw();
+}
+
+/* =========================================================
+   Scene 10: effort and selectivity
+   ========================================================= */
+function initEffort() {
+  const D = BASE.D, beta = BASE.beta;
+  const st = { b: 20, kappa: 10 };
+  const so = { w: 300, h: 230, m: { t: 18, r: 14, b: 44, l: 44 }, yt: 4, xt: 4 };
+  const ce = makeChart($("#effE"), Object.assign({ x: [0, 60], y: [0, 3], xLabel: "b" }, so));
+  const cw = makeChart($("#effW"), Object.assign({ x: [0, 60], y: [55, 85], xLabel: "b" }, so));
+  const ch = makeChart($("#effH"), Object.assign({ x: [0, 60], y: [0, 0.4], xLabel: "b", yf: d3.format(".0%") }, so));
+  const charts = [{ c: ce, k: "e", cls: "ln-ink" }, { c: cw, k: "x", cls: "ln-ink" }, { c: ch, k: "h", cls: "ln-ink" }];
+  charts.forEach(o => { o.p = o.c.path(null, "ln " + o.cls); o.d = o.c.over.append("circle").attr("class", "mk mk-ink").attr("r", 5); o.z = o.c.over.append("circle").attr("class", "mk mk-muted").attr("r", 4.5); });
+  const dec = makeChart($("#effDec"), { w: 640, h: 150, x: [-0.6, 0.05], y: [0, 3], m: { t: 10, r: 24, b: 34, l: 150 }, yt: 0, xf: d3.format("+.2f"), aria: "Decomposition of the change in the job-finding rate" });
+  dec.gy.remove(); dec.grid.remove();
+  dec.over.append("line").attr("class", "ln ln-base ln-thin").attr("x1", dec.x(0)).attr("x2", dec.x(0)).attr("y1", dec.m.t).attr("y2", dec.H - dec.m.b);
+  const rows = [
+    { k: "Less effort: Δ ln p(e*)", cls: "bar-ink" },
+    { k: "Pickier: Δ ln[1 − F(w*)]", cls: "bar-reject" },
+    { k: "Total: Δ ln h", cls: "bar-muted" }
+  ];
+  const bandH = (dec.H - dec.m.t - dec.m.b) / 3;
+  rows.forEach((r, i) => {
+    r.rect = dec.plot.append("rect").attr("class", r.cls).attr("height", Math.min(22, bandH - 8)).attr("y", dec.m.t + i * bandH + (bandH - Math.min(22, bandH - 8)) / 2).attr("rx", 3);
+    r.lbl = dec.over.append("text").attr("class", "lbl").attr("x", dec.m.l - 10).attr("y", dec.m.t + i * bandH + bandH / 2 + 4).attr("text-anchor", "end").text(r.k);
+    r.val = dec.over.append("text").attr("class", "lbl-ink").attr("y", dec.m.t + i * bandH + bandH / 2 + 4);
+  });
+  function curves() {
+    const bs = range(0, 60, 31);
+    const sol = bs.map(b => Model.effort(D, b, beta, st.kappa));
+    const maxE = Math.max(...sol.map(s => s.e)) * 1.15, minX = Math.min(...sol.map(s => s.x)), maxX = Math.max(...sol.map(s => s.x));
+    ce.y.domain([0, Math.max(0.5, maxE)]); ce.axes();
+    cw.y.domain([Math.floor(minX - 3), Math.ceil(maxX + 3)]); cw.axes();
+    ch.y.domain([0, Math.max(0.1, Math.max(...sol.map(s => s.h)) * 1.15)]); ch.axes();
+    charts.forEach(o => o.p.attr("d", o.c.line(bs.map((b, i) => [b, sol[i][o.k]]))));
+    return sol[0];
+  }
+  let base0 = null;
+  function draw() {
+    const s = Model.effort(D, st.b, beta, st.kappa);
+    charts.forEach(o => {
+      o.d.attr("cx", o.c.x(st.b)).attr("cy", o.c.y(s[o.k]));
+      o.z.attr("cx", o.c.x(0)).attr("cy", o.c.y(base0[o.k]));
+    });
+    $("#effEv").textContent = f2(s.e); $("#effPv").textContent = pct(s.p); $("#effWv").textContent = f1(s.x); $("#effHv").textContent = pct(s.h);
+    const dp = Math.log(s.p) - Math.log(base0.p), ds = Math.log(D.sf(s.x)) - Math.log(D.sf(base0.x)), dt = dp + ds;
+    const lo = Math.min(-0.05, dt * 1.3);
+    dec.x.domain([lo, 0.03]); dec.axes();
+    [dp, ds, dt].forEach((v, i) => {
+      const r = rows[i], x0 = dec.x(Math.min(0, v)), x1 = dec.x(Math.max(0, v));
+      r.rect.attr("x", x0).attr("width", Math.max(1, x1 - x0));
+      r.val.attr("x", x0 - 6).attr("text-anchor", "end").text(v.toFixed(3));
+    });
+  }
+  bindRange("effB", v => v.toFixed(0), v => { st.b = v; draw(); });
+  bindRange("effK", v => v.toFixed(0), v => { st.kappa = v; base0 = curves(); draw(); });
+  base0 = curves(); draw();
+}
+
+/* =========================================================
+   Scene 11: finite UI
+   ========================================================= */
+function initUI() {
+  const D = BASE.D, beta = BASE.beta;
+  const st = { T: 6, b: 40, b0: 0 };
+  const H = 36;
+  const cw = makeChart($("#uiW"), { w: 440, h: 280, x: [0.5, 30.5], y: [60, 90], xLabel: "period of the spell t", yLabel: "reservation wage w*ₜ", aria: "Reservation wage over the unemployment spell" });
+  const chz = makeChart($("#uiH"), { w: 440, h: 280, x: [0.5, 30.5], y: [0, 0.4], xLabel: "period of the spell t", yLabel: "probability of finding a job", yf: d3.format(".0%"), aria: "Hazard over the spell" });
+  const cd = makeChart($("#uiD"), { w: 640, h: 230, x: [0, 24], y: [3, 5.5], xLabel: "benefit duration T", yLabel: "expected search, periods", aria: "Expected duration against benefit duration" });
+  const wP = cw.path(null, "ln ln-ink"), wDots = cw.plot.append("g");
+  const postL = cw.path(null, "ln ln-muted ln-thin");
+  const exW = cw.over.append("line").attr("class", "ln ln-reject ln-thin"), exWl = cw.over.append("text").attr("class", "lbl halo");
+  const bars = chz.plot.append("g");
+  const exH = chz.over.append("line").attr("class", "ln ln-reject ln-thin");
+  const dP = cd.path(null, "ln ln-ink"), dDot = cd.over.append("circle").attr("class", "mk mk-ink").attr("r", 6), dDot2 = cd.over.append("circle").attr("class", "mk mk-muted").attr("r", 5);
+  const dLbl = cd.over.append("text").attr("class", "lbl-ink halo");
+  const sB0 = bindRange("uiB0", v => v.toFixed(0), v => { st.b0 = Math.min(v, st.b); if (v > st.b) sB0.set(st.b); draw(); });
+  bindRange("uiT", v => v.toFixed(0), v => { st.T = v; draw(); });
+  bindRange("uiB", v => v.toFixed(0), v => { st.b = v; if (st.b0 > v) { st.b0 = v; sB0.set(v); } draw(); });
+  function draw() {
+    const r = Model.finiteUI(D, beta, st.T, st.b, st.b0, H);
+    const n = 30, ts = range(1, n, n);
+    const xs = r.x.slice(0, n), hs = r.h.slice(0, n);
+    const lo = Math.min(...xs), hi = Math.max(...xs);
+    cw.y.domain([Math.floor(lo - 2), Math.ceil(hi + 2)]); cw.axes();
+    wP.attr("d", cw.line(ts.map((t, i) => [t, xs[i]])));
+    wDots.selectAll("circle").data(xs).join("circle").attr("class", "mk mk-ink").attr("r", 3.2).attr("cx", (d, i) => cw.x(i + 1)).attr("cy", d => cw.y(d));
+    postL.attr("d", cw.line([[0.5, r.xpost], [30.5, r.xpost]]));
+    const exX = st.T + 0.5;
+    exW.attr("x1", cw.x(exX)).attr("x2", cw.x(exX)).attr("y1", cw.m.t).attr("y2", cw.H - cw.m.b).attr("display", st.T > 0 && st.T < 30 ? null : "none");
+    exWl.attr("x", cw.x(exX) + 5).attr("y", cw.m.t + 12).text(st.T > 0 ? "benefits fall" : "").attr("display", st.T < 30 ? null : "none");
+    chz.y.domain([0, Math.max(0.1, Math.max(...hs) * 1.2)]); chz.axes();
+    const bw = (chz.x(2) - chz.x(1)) - 2;
+    bars.selectAll("rect").data(hs).join("rect")
+      .attr("class", (d, i) => (i + 1 <= st.T ? "bar-accept" : "bar-muted"))
+      .attr("x", (d, i) => chz.x(i + 1) - bw / 2).attr("width", bw)
+      .attr("y", d => chz.y(d)).attr("height", d => chz.y(0) - chz.y(d)).attr("rx", 2);
+    exH.attr("x1", chz.x(exX)).attr("x2", chz.x(exX)).attr("y1", chz.m.t).attr("y2", chz.H - chz.m.b).attr("display", st.T > 0 && st.T < 30 ? null : "none");
+    const Ts = range(0, 24, 25), eds = Ts.map(T => Model.finiteUI(D, beta, T, st.b, st.b0, 60).ed);
+    cd.y.domain([Math.floor(Math.min(...eds) * 10 - 1) / 10, Math.ceil(Math.max(...eds) * 10 + 1) / 10]); cd.axes();
+    dP.attr("d", cd.line(Ts.map((T, i) => [T, eds[i]])));
+    const e1 = eds[st.T], T2 = Math.min(24, st.T + 3), e2 = eds[T2];
+    dDot.attr("cx", cd.x(st.T)).attr("cy", cd.y(e1));
+    dDot2.attr("cx", cd.x(T2)).attr("cy", cd.y(e2)).attr("display", T2 > st.T ? null : "none");
+    dLbl.attr("x", cd.x(st.T) + 10).attr("y", cd.y(e1) + 20).text(T2 > st.T ? `T ${st.T} → ${T2}: +${f2(e2 - e1)} periods of search` : "");
+    $("#uiVerdict").textContent = st.b === st.b0
+      ? "Benefits never fall: the reservation wage is flat and so is the hazard."
+      : `w* falls from ${f1(xs[0])} in period 1 to ${f1(r.xpost)} after exhaustion; the hazard rises from ${pct(hs[0])} to ${pct(D.sf(r.xpost))} and then stays there. Expected search: ${f2(r.ed)} periods.`;
+  }
+  draw();
+}
+
+/* =========================================================
+   Scene 12: mean-min ratio
+   ========================================================= */
+function initMM() {
+  const st = { h: 0.43, s: 0.03, r: 0.05, rho: 0.4 };
+  const c = makeChart($("#mmChart"), { x: [1, 2.6], y: [0, 4], h: 270, m: { t: 18, r: 26, b: 40, l: 230 }, yt: 0, xLabel: "average accepted wage ÷ lowest accepted wage", xf: d3.format(".1f"), aria: "Mean-min ratio scoreboard" });
+  c.gy.remove(); c.grid.remove();
+  const band = c.under.append("rect").attr("class", "ar-ink").attr("x", c.x(1.5)).attr("width", c.x(2) - c.x(1.5)).attr("y", c.m.t).attr("height", c.H - c.m.t - c.m.b);
+  c.over.append("text").attr("class", "lbl halo").attr("x", c.x(1.75)).attr("y", c.m.t + 12).attr("text-anchor", "middle").text("data: 1.5 to 2");
+  const rows = [
+    { k: "McCall, your numbers (L7)", live: true },
+    { k: "On-the-job search (L9)", v: 1.25 },
+    { k: "Counteroffers (L11)", v: 2.0, more: true },
+    { k: "McCall, US flows (HKV)", v: 1.046 }
+  ];
+  const bh = (c.H - c.m.t - c.m.b) / rows.length;
+  rows.forEach((r, i) => {
+    const yc = c.m.t + i * bh + bh / 2;
+    c.over.append("text").attr("class", r.live ? "lbl-ink" : "lbl").attr("x", c.m.l - 12).attr("y", yc + 4).attr("text-anchor", "end").text(r.k);
+    r.bar = c.plot.append("rect").attr("class", r.live ? "bar-ink" : "bar-muted").attr("x", c.x(1)).attr("y", yc - 10).attr("height", 20).attr("rx", 3);
+    r.val = c.over.append("text").attr("class", "lbl-ink").attr("y", yc + 4);
+    if (!r.live) {
+      r.bar.attr("width", c.x(r.v) - c.x(1));
+      r.val.attr("x", c.x(r.v) + 8).text(r.more ? "can exceed 2" : f2(r.v));
+    }
+  });
+  const live = rows[0];
+  ["mmH", "mmS", "mmR", "mmRho"].forEach(id => {
+    const fmt = { mmH: v => v.toFixed(2), mmS: v => v.toFixed(3), mmR: v => (100 * v).toFixed(1).replace(/\.0$/, "") + "%", mmRho: v => v.toFixed(2) }[id];
+    bindRange(id, fmt, v => { st[{ mmH: "h", mmS: "s", mmR: "r", mmRho: "rho" }[id]] = v; draw(); });
+  });
+  function draw() {
+    const r = Model.meanMin(st.h, st.s, st.r, st.rho);
+    const v = r.Mm, shown = Math.min(v, 2.6);
+    live.bar.attr("width", Math.max(2, c.x(shown) - c.x(1)));
+    live.val.attr("class", "lbl-ink").attr("x", c.x(shown) + 8).attr("text-anchor", "start").text(isFinite(v) ? f3(v) : "∞");
+    if (shown > 2.35) live.val.attr("x", c.x(shown) - 8).attr("text-anchor", "end").attr("class", "lbl-ink halo");
+    $("#mmK").textContent = f1(r.k);
+    $("#mmV").textContent = isFinite(v) ? f3(v) : "∞";
+    const need = (1 + r.k - 1.5 * r.k) / 1.5;
+    $("#mmVerdict").textContent = v >= 1.5
+      ? `With these numbers search alone produces a ratio of ${f2(v)}. Check what you assumed about ρ or flows to get there.`
+      : `To reach 1.5 with these flows, ρ would have to be ${f2(need)}: unemployment would feel like paying ${f1(-need)} average wages a month.`;
+  }
+  draw();
+}
+
+/* =========================================================
+   Navigation, modes, theme
+   ========================================================= */
+function initNav() {
+  const scenes = $$(".scene");
+  const dots = $("#dots"), idx = $("#sceneIndex");
+  let current = 0;
+  scenes.forEach((s, i) => {
+    const b = document.createElement("button"); b.className = "dot-btn"; b.type = "button";
+    b.textContent = i === 0 ? "◦" : String(i); b.title = s.dataset.title || ""; b.setAttribute("aria-label", (i === 0 ? "Cover" : "Scene " + i) + ": " + (s.dataset.title || ""));
+    b.addEventListener("click", () => goTo(i));
+    dots.appendChild(b);
+    if (i > 0) {
+      const li = document.createElement("li"), a = document.createElement("a");
+      a.href = "#" + s.id;
+      const n = document.createElement("span"); n.className = "n"; n.textContent = i;
+      const box = document.createElement("span");
+      const t = document.createElement("span"); t.className = "t"; t.textContent = s.dataset.title || "";
+      const sub = document.createElement("span"); sub.className = "s"; sub.textContent = s.dataset.sub ? " · " + s.dataset.sub : "";
+      box.append(t, sub); a.append(n, box); li.appendChild(a); idx.appendChild(li);
+      a.addEventListener("click", ev => { ev.preventDefault(); goTo(i); });
+    }
+  });
+  function goTo(i) {
+    i = clamp(i, 0, scenes.length - 1);
+    scenes[i].scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    try { history.replaceState(null, "", "#" + scenes[i].id); } catch (e) { /* history unavailable */ }
+  }
+  function next() { const h = shared.stepHandlers && shared.stepHandlers[scenes[current].id]; if (h && h.next()) return; goTo(current + 1); }
+  function prev() { const h = shared.stepHandlers && shared.stepHandlers[scenes[current].id]; if (h && h.prev()) return; goTo(current - 1); }
+  function track() {
+    const y = window.innerHeight * 0.35;
+    let k = 0;
+    scenes.forEach((s, i) => { if (s.getBoundingClientRect().top <= y) k = i; });
+    if (k !== current || !dots.children[k].getAttribute("aria-current")) {
+      current = k;
+      Array.from(dots.children).forEach((d, i) => d.setAttribute("aria-current", String(i === k)));
+      $("#pagerLabel").textContent = `${k + 1} / ${scenes.length}`;
+    }
+  }
+  let ticking = false;
+  window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { track(); ticking = false; }); } }, { passive: true });
+  window.addEventListener("resize", track);
+  $("#nextBtn").addEventListener("click", next);
+  $("#prevBtn").addEventListener("click", prev);
+  document.addEventListener("keydown", e => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const t = e.target;
+    if (t && t.closest && t.closest("input, textarea, select, [contenteditable='true']")) return;
+    const onButton = t && t.closest && t.closest("button");
+    switch (e.key) {
+      case "ArrowRight": case "PageDown": e.preventDefault(); next(); break;
+      case " ": if (onButton) return; e.preventDefault(); next(); break;
+      case "ArrowLeft": case "PageUp": e.preventDefault(); prev(); break;
+      case "n": case "N": toggleMode(); break;
+      case "t": case "T": toggleTheme(); break;
+      case "a": case "A": if (scenes[current].id === "game" && shared.gameAccept) shared.gameAccept(); break;
+      case "r": case "R": if (scenes[current].id === "game" && shared.gameReject) shared.gameReject(); break;
+      default: break;
+    }
+  });
+  /* Lecture / Study mode */
+  const modeBtn = $("#modeBtn");
+  function applyMode(m) {
+    document.body.classList.toggle("lecture", m === "lecture");
+    modeBtn.textContent = m === "lecture" ? "Lecture mode" : "Study mode";
+    modeBtn.setAttribute("aria-pressed", String(m === "lecture"));
+    $$(".lecture-only").forEach(el => { el.hidden = m !== "lecture"; });
+    document.dispatchEvent(new Event("mode-changed"));
+  }
+  function toggleMode() { const m = document.body.classList.contains("lecture") ? "study" : "lecture"; store.set("mmmol-mode", m); applyMode(m); }
+  modeBtn.addEventListener("click", toggleMode);
+  applyMode(store.get("mmmol-mode", "study"));
+  /* theme */
+  const themeBtn = $("#themeBtn"), root = document.documentElement;
+  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : !!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+  function syncThemeBtn() { themeBtn.textContent = isDark() ? "Light" : "Dark"; }
+  function toggleTheme() { root.dataset.theme = isDark() ? "light" : "dark"; store.set("mmmol-theme", root.dataset.theme); syncThemeBtn(); }
+  const saved = store.get("mmmol-theme", "");
+  if (saved === "dark" || saved === "light") root.dataset.theme = saved;
+  themeBtn.addEventListener("click", toggleTheme);
+  syncThemeBtn();
+  track();
+  if (location.hash) {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) {
+      /* re-anchor after fonts and math change the layout, unless the reader has moved */
+      let moved = false;
+      ["wheel", "touchstart", "keydown", "pointerdown"].forEach(ev => window.addEventListener(ev, () => { moved = true; }, { once: true, passive: true }));
+      const go = () => { if (!moved) target.scrollIntoView({ block: "start" }); };
+      setTimeout(go, 50);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+      document.addEventListener("mathjax-ready", go);
+    }
+  }
+}
+
+/* =========================================================
+   Boot
+   ========================================================= */
+shared.stepHandlers = {};
+safe("nav", initNav);
+if (typeof d3 === "undefined") {
+  console.error("D3 failed to load; charts are unavailable.");
+} else {
+  safe("game", initGame);
+  safe("rule", initRule);
+  safe("bellman", initBellman);
+  safe("derive", initDerive);
+  safe("area", initArea);
+  safe("solve", initSolve);
+  safe("audit", initAudit);
+  safe("lab", initLab);
+  safe("option", initOption);
+  safe("effort", initEffort);
+  safe("ui", initUI);
+  safe("mm", initMM);
+}
+})();
+</script>
