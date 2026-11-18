@@ -5,6 +5,7 @@ const wp = [
 
   {
     title: "Generalized AKM: Flexible Controls and Interactions in Wage Decompositions",
+    summary: "A flexible wage decomposition shows how the choice of controls changes the inequality attributed to workers, firms, and sorting.",
     coauthors: [
       { name: "Yaroslav Korobka", url: "https://korobkay.github.io/" },
       { name: "Paolo Zacchia", url: "http://paolozacchia.com" }
@@ -17,6 +18,7 @@ const wp = [
 
   {
     title: "Staged Entry",
+    summary: "A model of sequential entry decisions shows how the timing of taxes and subsidies can address spillovers between firms.",
     coauthors: [{ name: "Paolo Zacchia", url: "http://paolozacchia.com" }],
     notes: "Under revision",
     description:
@@ -27,6 +29,7 @@ const wp = [
 
    {
     title: "Workplace Injury Risk and the Gender Wage Gap",
+    summary: "Differences in exposure to workplace injury risk and its compensation contribute to the gender gap in firm pay policies.",
     coauthors: [{ name: "Salvatore Lattanzio", url: "https://sites.google.com/view/salvatore-lattanzio/home?authuser=0" }],
     notes: [
       "> Rockwool Foundation Discussion Papers No. 081/26",
@@ -40,6 +43,7 @@ const wp = [
 
    {
     title: "Workers as Partners: a Theory of Responsible Firms in Labor Markets",
+    summary: "Employers that value worker welfare change hiring and wage incentives, with effects that extend to other firms.",
     coauthors: [{ name: "Marc Fleurbaey", url: "https://sites.google.com/site/marcfleurbaey/Home" }],
     notes: "> New version coming soon",
     description:
@@ -50,6 +54,7 @@ const wp = [
 
   {
     title: "The Importance of Working for Earnest: Climbing the Job Ladder through Firms’ Connectivity",
+    summary: "Firms differ in the outside job opportunities they generate for employees, shaping starting wages and subsequent career progression.",
     notes: "> Project selected for the VisitINPS 2019 program",
     description:
       "Do workers consider a firm’s “springboard” value in terms of future job opportunities when choosing an employer? Using a search model of the labor market, I introduce the idea that firms differ in enhancing their employees’ chances of receiving external job offers. The model informs a firm-level proxy for outside job offers received by workers. This measure empirically aligns with key model predictions: 1) it negatively correlates with both firm-specific tenure and young workers’ entry salaries, revealing a compensating differential; and 2) it suggests that workers enjoy a salary premium upon leaving such firms, indicative of faster career progression. The model is estimated on administrative data from Italy and successfully captures key aspects of labor market dynamics. My channel explains 10% of the overall job-to-job transitions and shows how firm-induced variation in job search can be a significant driver of inequality, especially at the bottom of the wage distribution.",
@@ -58,6 +63,7 @@ const wp = [
 
   {
     title: "The Heterogeneous Consequences of Reduced Labor Costs on Firm Productivity",
+    summary: "A reduction in labor costs has different effects across the firm productivity distribution through selection and workforce reallocation.",
     coauthors: [{ name: "Paolo Zacchia", url: "http://paolozacchia.com" }],
     notes: [
       "> Project selected for the VisitINPS 2020 program", 
@@ -70,6 +76,7 @@ const wp = [
 
   {
     title: "TWICE: Tree-based Wage Inference with Clustering and Estimation",
+    summary: "A framework using observed worker and firm characteristics measures how skills, firm pay policies, and their interactions contribute to wage inequality.",
     coauthors: [
       { name: "Aslan Bakirov" },
       { name: "Paolo Zacchia", url: "http://paolozacchia.com" },
@@ -87,6 +94,7 @@ const wip = [
 
   {
     title: "Drivers of Lifetime Earnings and Wealth: Skills, Frictions and Choices",
+    summary: "A lifecycle model examines how skills, search frictions, and individual choices shape lifetime earnings, wealth, and welfare inequality.",
     coauthors: [
   { name: "Jonas Maibom", url: "https://sites.google.com/site/jonasmaibom/" },
   { name: "Christopher Taber", url: "https://users.ssc.wisc.edu/~ctaber/" },
@@ -97,6 +105,7 @@ const wip = [
 
   {
     title: "Who Bears the Markdown?",
+    summary: "Worker-level markdowns reveal how labor-market power is distributed across workers within and between firms.",
     coauthors: [
   { name: "Edoardo M. Acabbi", url: "https://eacabbi.github.io/" },
   { name: "Andrea Alati", url: "https://andrealati.github.io/" },
@@ -107,6 +116,7 @@ const wip = [
 
   {
     title: "Optimal Ramsey Taxation with Social Security",
+    summary: "A model of taxation and social security examines how retirement systems shape optimal taxes and redistribution.",
     coauthors: [
       { name: "Marco Francischello", url: "https://marcofrancis.me" },
       { name: "Matteo Paradisi", url: "http://matteoparadisi.com" }
@@ -130,6 +140,7 @@ const wip = [
 
   {
     title: "Human Capital Value Chains",
+    summary: "Worker moves from training firms to specialized firms link wage growth to the local organization of skill formation.",
     coauthors: [{ name: "Paolo Zacchia", url: "http://paolozacchia.com" }],
     notes: "> Project selected for the VisitINPS 2023 program",
     description: 
@@ -146,8 +157,8 @@ const description = "A collection of working papers and work in progress by the 
 const getProjectLinks = (project) =>
   [
     { key: "pdf", label: "PDF" },
-    { key: "wp", label: "WP" },
-    { key: "arxiv", label: "ArXiv" },
+    { key: "wp", label: "Discussion paper" },
+    { key: "arxiv", label: "arXiv" },
   ].filter(({ key }) => project[key]);
 const getProjectNotes = (project) =>
   (Array.isArray(project.notes) ? project.notes : project.notes ? [project.notes] : [])
@@ -157,53 +168,63 @@ const isStatusNote = (note) =>
 ---
 
 <Base title={title} description={description}>
-  <section>
-    <h1 class="mb-8 text-2xl font-medium tracking-tight">Working Papers</h1>
+  <section aria-labelledby="working-papers-heading">
+    <div class="mb-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 sm:mb-8">
+      <h1 id="working-papers-heading" class="text-2xl font-medium tracking-tight">Working Papers</h1>
+      <a class="text-sm text-[#2F75B5] hover:underline dark:text-[#37A0CB]" href="#work-in-progress-heading" data-astro-reload>Jump to work in progress <span aria-hidden="true">↓</span></a>
+    </div>
     <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
       {wp.map((project) => (
-        <article class="py-6 first:pt-0">
-          <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-            <h2 class="text-base font-semibold leading-snug tracking-tight text-black dark:text-white">
-              {project.title}
-            </h2>
-            
-            <div class="flex shrink-0 flex-wrap gap-2">
+        <article class="py-5 first:pt-0 sm:py-6">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+            <div>
+              <h2 class="text-lg font-semibold leading-snug tracking-tight text-black dark:text-white sm:text-xl">
+                {project.title}
+              </h2>
+
+              {project.coauthors && (
+                <p class="mt-1 text-sm italic text-neutral-700 dark:text-neutral-300">
+                  Joint with{" "}
+                  {project.coauthors.map((author, i) => (
+                    <span>
+                      {author.url ? (
+                        <a
+                          href={author.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-[#2F75B5] hover:underline dark:text-[#37A0CB]"
+                        >
+                          {author.name}
+                        </a>
+                      ) : (
+                        author.name
+                      )}
+                      {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
+                    </span>
+                  ))}
+                </p>
+              )}
+            </div>
+
+            <div class="flex flex-wrap gap-2 sm:shrink-0">
               {getProjectLinks(project).map((link) => (
                 <a
                   href={project[link.key]}
+                  aria-label={`${link.label} for ${project.title}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex min-h-8 items-center rounded-full border border-neutral-300 px-3 text-xs font-medium text-neutral-700 transition-colors hover:border-[#2F75B5] hover:text-[#2F75B5] dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-[#37A0CB] dark:hover:text-[#37A0CB]"
+                  class="inline-flex min-h-10 items-center rounded-full border border-neutral-300 px-3 text-sm font-medium text-neutral-700 transition-colors hover:border-[#2F75B5] hover:text-[#2F75B5] dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-[#37A0CB] dark:hover:text-[#37A0CB]"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
           </div>
-          
-          {project.coauthors && (
-            <p class="mt-1 italic text-neutral-700 dark:text-neutral-300">
-              Joint with{" "}
-              {project.coauthors.map((author, i) => (
-                <span>
-                  {author.url ? (
-                    <a
-                      href={author.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-[#2F75B5] hover:underline dark:text-[#37A0CB]"
-                    >
-                      {author.name}
-                    </a>
-                  ) : (
-                    author.name
-                  )}
-                  {i < project.coauthors.length - 2 ? ", " : i === project.coauthors.length - 2 ? " and " : ""}
-                </span>
-              ))}
-            </p>
-          )}
-          
+
+          <p class="mt-2 leading-relaxed text-neutral-700 dark:text-neutral-300">
+            {project.summary}
+          </p>
+
           {getProjectNotes(project).length > 0 && (
             <div class="mt-2 flex flex-col items-start gap-1.5">
               {getProjectNotes(project).map((note) =>
@@ -217,8 +238,8 @@ const isStatusNote = (note) =>
               )}
             </div>
           )}
-          
-          <details class="group mt-3">
+
+          <details class="group mt-1">
             <summary class="inline-flex min-h-10 cursor-pointer list-none items-center gap-2 rounded-md pr-3 text-sm font-medium text-neutral-600 transition-colors hover:text-[#2F75B5] dark:text-neutral-400 dark:hover:text-[#37A0CB]">
               <span aria-hidden="true" class="transition-transform group-open:rotate-90">›</span>
               Abstract
@@ -233,16 +254,16 @@ const isStatusNote = (note) =>
   </section>
 
   <section aria-labelledby="work-in-progress-heading">
-    <h2 id="work-in-progress-heading" class="mb-8 mt-12 text-2xl font-medium tracking-tight">Selected Work in Progress</h2>
+    <h2 id="work-in-progress-heading" class="mb-6 mt-10 scroll-mt-6 text-2xl font-medium tracking-tight sm:mb-8 sm:mt-12">Selected Work in Progress</h2>
     <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
       {wip.map((project) => (
-        <article class="py-6 first:pt-0">
-          <h3 class="text-base font-semibold leading-snug tracking-tight text-black dark:text-white">
+        <article class="py-5 first:pt-0 sm:py-6">
+          <h3 class="text-lg font-semibold leading-snug tracking-tight text-black dark:text-white sm:text-xl">
             {project.title}
           </h3>
 
           {project.coauthors && (
-          <p class="mt-1 italic text-neutral-700 dark:text-neutral-300">
+          <p class="mt-1 text-sm italic text-neutral-700 dark:text-neutral-300">
             Joint with{" "}
             {project.coauthors.map((author, i) => (
               <span>
@@ -264,6 +285,10 @@ const isStatusNote = (note) =>
           </p>
         )}
 
+          <p class="mt-2 leading-relaxed text-neutral-700 dark:text-neutral-300">
+            {project.summary}
+          </p>
+
           {getProjectNotes(project).length > 0 && (
             <div class="mt-2 flex flex-col items-start gap-1.5">
               {getProjectNotes(project).map((note) =>
@@ -278,7 +303,7 @@ const isStatusNote = (note) =>
             </div>
           )}
 
-          <details class="group mt-3">
+          <details class="group mt-1">
             <summary class="inline-flex min-h-10 cursor-pointer list-none items-center gap-2 rounded-md pr-3 text-sm font-medium text-neutral-600 transition-colors hover:text-[#2F75B5] dark:text-neutral-400 dark:hover:text-[#37A0CB]">
               <span aria-hidden="true" class="transition-transform group-open:rotate-90">›</span>
               Short abstract

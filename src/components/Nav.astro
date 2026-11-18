@@ -12,17 +12,17 @@ const navItems = {
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
-<nav class="lg:mb-16 mb-12 py-5">
+<nav class="mb-7 py-3 sm:mb-12 sm:py-5 lg:mb-16">
   <div class="flex flex-col md:flex-row md:items-center justify-between">
     <div class="flex items-center">
       <a
         href="/"
         aria-current={currentPath === "/" ? "page" : undefined}
-        class="text-3xl font-semibold tracking-tight">
+        class="text-3xl font-semibold tracking-tight max-[359px]:text-2xl">
         {metaData.title}
       </a>
     </div>
-    <div class="flex flex-row flex-wrap gap-x-1 gap-y-1 mt-5 md:mt-0 md:ml-auto md:gap-x-2 items-center">
+    <div class="mt-2.5 flex flex-wrap items-center gap-x-1 gap-y-1 max-[359px]:text-sm sm:mt-5 md:ml-auto md:mt-0 md:gap-x-2">
       {
         Object.entries(navItems).map(([path, { name }]) => {
           const isActive = currentPath === path;
@@ -32,7 +32,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
             href={path}
             aria-current={isActive ? "page" : undefined}
             class:list={[
-              "min-h-10 px-2 inline-flex items-center rounded-md transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800",
+              "inline-flex min-h-10 items-center rounded-md px-2 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 max-[359px]:px-1",
               isActive && "font-medium text-[#2F75B5] dark:text-[#37A0CB]",
             ]}>
             {name}
@@ -45,7 +45,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
         type="button"
         aria-label="Toggle color theme"
         title="Toggle color theme"
-        class="h-10 w-10 flex items-center justify-center rounded-md transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800">
+        class="flex h-10 w-10 items-center justify-center rounded-md transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 max-[359px]:w-9">
         <Icon
           name="fa6-solid:circle-half-stroke"
           class="h-4 w-4 text-[#1c1c1c] dark:text-[#D4D4D4]"

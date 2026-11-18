@@ -1,39 +1,39 @@
 ---
-import Base from "../layouts/Base.astro";
-import { socialLinks } from "../config";
 import { Image } from "astro:assets";
+import { socialLinks } from "../config";
+import Base from "../layouts/Base.astro";
 ---
 
 <Base>
-  <section>
+  <section class="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-4 gap-y-3 sm:gap-x-8" aria-labelledby="intro-heading">
+    <h1 id="intro-heading" class="self-center text-2xl font-medium leading-tight tracking-tight sm:self-start">
+      Labor economist at Aarhus University
+    </h1>
     <Image
       src={`${import.meta.env.BASE_URL}profile.png`}
       alt="Francesco Del Prato"
-      class="rounded-full bg-gray-100 block mb-10 mx-auto ring-1 ring-neutral-200 dark:ring-neutral-700 sm:float-right sm:mb-5 sm:ml-6"
-      width={160}
-      height={160}
+      class="col-start-2 row-start-1 h-auto w-20 rounded-full bg-gray-100 ring-1 ring-neutral-200 dark:ring-neutral-700 sm:row-span-3 sm:w-36"
+      width={144}
+      height={192}
     />
-
-    <h1 class="mb-2 text-2xl font-medium tracking-tight">About me</h1>
-
-    <div class="prose prose-neutral dark:prose-invert homepage-links">
-      <p>I am an assistant professor at the <a href="https://econ.au.dk/">Department of Economics and Business Economics</a> at <a href="https://international.au.dk/">Aarhus University</a>.</p>
-      <p>I study labor economics, with a focus on how firms, labor-market frictions, and public policy shape wages, worker mobility, and inequality.</p>
+    <div class="col-span-2 space-y-3 leading-relaxed text-neutral-700 dark:text-neutral-300 sm:col-span-1">
+      <p>I am an assistant professor in the <a class="text-[#2F75B5] hover:underline dark:text-[#37A0CB]" href="https://econ.au.dk/">Department of Economics and Business Economics</a>. I study how firms, labor-market frictions, and public policy shape wages, worker mobility, and inequality.</p>
       <p>My work combines structural models and reduced-form empirical methods, often using administrative data.</p>
-   
-      <h2 class="mb-2 text-2xl font-medium tracking-tight">
-        Contact
-      </h2>
-      <p>
-        <a href={socialLinks.email}>francesco.delprato@econ.au.dk</a>
-      </p>
-      <p>
-        Department of Economics and Business Economics <br>
-        Aarhus BSS, Aarhus University <br>
-        Universitetsbyen 51 <br>
-        Bld. 1811, office 219 <br>
-        8000 Aarhus C, Denmark
-      </p>
     </div>
+    <div class="col-span-2 flex flex-wrap gap-x-5 text-sm text-[#2F75B5] dark:text-[#37A0CB] sm:col-span-1">
+      <a class="inline-flex min-h-10 items-center hover:underline" href={socialLinks.email}>Email</a>
+      <a class="inline-flex min-h-10 items-center hover:underline" href="/DelPrato_CV.pdf">CV (PDF)</a>
+    </div>
+  </section>
+
+  <section class="mt-8 border-t border-neutral-200 pt-6 dark:border-neutral-800 sm:mt-10" aria-labelledby="office-heading">
+    <h2 id="office-heading" class="text-xl font-medium tracking-tight">Office</h2>
+    <address class="mt-2 text-sm not-italic leading-relaxed text-neutral-700 dark:text-neutral-300">
+      Department of Economics and Business Economics<br />
+      Aarhus BSS, Aarhus University<br />
+      Universitetsbyen 51<br />
+      Bld. 1811, office 219<br />
+      8000 Aarhus C, Denmark
+    </address>
   </section>
 </Base>
