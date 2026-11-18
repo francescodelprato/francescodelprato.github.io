@@ -25,7 +25,7 @@ const teachingExperience = [
   },
   {
     institution: "KU Leuven",
-    details: "Advising assistant for master students’ theses"
+    details: "Assisted with supervision of master’s theses"
   }
 ];
 
@@ -33,9 +33,10 @@ const teachingExperience = [
 const currentTeaching = [
   {
     institution: "Aarhus University",
-    course: "5425/6425: Advanced Micro and Macro Models of the Labor Market",
-    term: "Spring 2025, 2026",
-    details: "Instructor",
+    course: "Advanced Micro and Macro Models of the Labor Market",
+    code: "5425/6425",
+    term: "Spring 2025 and 2026",
+    role: "Instructor",
   }
 ];
 
@@ -54,9 +55,12 @@ const description = "The teaching of Francesco Del Prato";
   <div class="space-y-4">
     {currentTeaching.map((entry) => (
       <div class="flex flex-col space-y-1">
-        <span class="font-bold">{entry.institution}</span>
-        <p class="text-sm">
-          {entry.course} ({entry.term}){entry.details ? ` - ${entry.details}` : ""}
+        <h3 class="font-semibold leading-snug tracking-tight">{entry.course}</h3>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          {entry.institution}{entry.role && ` · ${entry.role}`}
+        </p>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">
+          {entry.code} · {entry.term}
         </p>
       </div>
     ))}
