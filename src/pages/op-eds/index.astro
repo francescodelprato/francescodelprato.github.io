@@ -57,50 +57,40 @@ const description = "A collection of newspaper publications by Francesco.";
 ---
 
 <Base title={title} description={description}>
-
-<section>
-    <h1 class="text-2xl font-medium mb-6">Op-eds in Italian Newspapers</h1>
-    <div class="space-y-4">
-    {opEds.map((opEd) => (
-      <div class="flex flex-col space-y-1">
-        <div class="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-baseline">
-          <span class="text-black dark:text-white tracking-tight font-bold">
-            {opEd.title}
-          </span>
-
-          <div class="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm flex shrink-0 items-center space-x-2">
-            {opEd.pdf && (
-              <a
-                href={opEd.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:underline"
-              >
-                pdf
-              </a>
-            )}
-            {opEd.pdf && opEd.digital && <span>|</span>}
-            {opEd.digital && (
+  <section aria-labelledby="op-eds-heading">
+    <h1 id="op-eds-heading" class="mb-6 text-2xl font-medium tracking-tight">Op-eds in Italian Newspapers</h1>
+    <div class="divide-y divide-neutral-200 dark:divide-neutral-800">
+      {opEds.map((opEd) => (
+        <article lang="it" class="flex flex-col items-start gap-2 py-4 first:pt-0 sm:flex-row sm:justify-between sm:gap-4">
+          <div>
+            <h2 class="font-semibold leading-snug tracking-tight">
               <a
                 href={opEd.digital}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="hover:underline"
+                class="text-[#2F75B5] hover:underline dark:text-[#37A0CB]"
               >
-                digital
+                {opEd.title}
               </a>
-            )}
+            </h2>
+            <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+              {`${opEd.publication}, ${opEd.date}${opEd.coauthor ? `, con ${opEd.coauthor}` : ""}`}
+            </p>
           </div>
-        </div>
 
-        <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          {opEd.publication}, {opEd.date}
-          {opEd.coauthor && `, con ${opEd.coauthor}`}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
-
-
+          {opEd.pdf && (
+            <a
+              href={opEd.pdf}
+              aria-label={`${opEd.title} (PDF)`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-10 shrink-0 items-center rounded-full border border-neutral-300 px-3 text-sm font-medium text-neutral-700 transition-colors hover:border-[#2F75B5] hover:text-[#2F75B5] dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-[#37A0CB] dark:hover:text-[#37A0CB]"
+            >
+              PDF
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
 </Base>
